@@ -45,7 +45,7 @@ function postponementLine(name, results, fixtures) {
   const capable = results.filter(r => r.ok && r.postponements);
   const n = fixtures.filter(f => f.status === 'postponed').length;
   if (!capable.length) {
-    return `${name}: postponements could not be checked, because no source that reports them could be read. Check the clubs before travelling.`;
+    return `${name}: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.`;
   }
   const names = [...new Set(capable.map(r => r.name))].join(', ');
   return `${name}: postponements checked in ${names}; ${n ? `${n} marked postponed (listed above)` : 'none marked postponed'}.`;
