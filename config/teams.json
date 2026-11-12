@@ -1,0 +1,76 @@
+{
+  "_comment": "Followed teams (shown first, in this order) per section. Add a team here and rebuild; no code changes are needed. Names must match the official feed's spelling (see README).",
+  "followed": {
+    "Premier League": [
+      "Leeds United",
+      "Manchester United",
+      "Liverpool"
+    ],
+    "Championship": [
+      "Wrexham"
+    ],
+    "League One": [
+      "Plymouth Argyle",
+      "MK Dons"
+    ],
+    "Southern League Premier South": [
+      "Plymouth Parkway"
+    ],
+    "Novira Cymru North": [
+      "Holyhead Hotspur",
+      "Brickfield Rangers"
+    ],
+    "Other UK and European internationals": [
+      "England",
+      "Scotland",
+      "Northern Ireland",
+      "Republic of Ireland"
+    ]
+  },
+  "fallbackGrounds": {
+    "_comment": "Used only when the official feed has no stadium name for a club. Any use is flagged in the Before you travel notes.",
+    "Wolverhampton Wanderers": "Molineux Stadium",
+    "Sheffield United": "Bramall Lane",
+    "Burnley": "Turf Moor",
+    "West Ham United": "London Stadium",
+    "Luton Town": "Kenilworth Road",
+    "Bromley": "Hayes Lane"
+  },
+  "cymruNorthGrounds": {
+    "_comment": "faw.cymru does not list venues. Postcodes are shown only for the followed teams' home games. Anything not listed here shows 'Postcode not found'.",
+    "Holyhead Hotspur": {
+      "venue": "The New Oval",
+      "postcode": "LL65 2YE",
+      "caveat": "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
+    },
+    "Brickfield Rangers": {
+      "venue": "Clywedog Park",
+      "postcode": "LL14 4HE",
+      "caveat": "LL14 4HE for Clywedog Park comes from a single source."
+    }
+  },
+  "aliases": {
+    "_comment": "Lower-case spelling used by a source -> canonical club name. Only needed where a source's name is not a plain prefix of the official name.",
+    "man utd": "Manchester United",
+    "man united": "Manchester United",
+    "man city": "Manchester City",
+    "spurs": "Tottenham Hotspur",
+    "tottenham": "Tottenham Hotspur",
+    "wolves": "Wolverhampton Wanderers",
+    "nottm forest": "Nottingham Forest",
+    "nott'm forest": "Nottingham Forest",
+    "sheff utd": "Sheffield United",
+    "sheff wed": "Sheffield Wednesday",
+    "sheffield weds": "Sheffield Wednesday",
+    "qpr": "Queens Park Rangers",
+    "milton keynes dons": "MK Dons",
+    "rhyl": "Rhyl 1879",
+    "bangor city": "Bangor City 1876",
+    "republic of ireland": "Republic of Ireland",
+    "ireland": "Republic of Ireland",
+    "czechia": "Czechia",
+    "czech republic": "Czechia",
+    "türkiye": "Turkey",
+    "turkiye": "Turkey"
+  }
+}
