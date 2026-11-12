@@ -9,6 +9,7 @@ import { sleep } from './lib/http.mjs';
 import { reconcile } from './lib/reconcile.mjs';
 import { sortFixtures, result } from './lib/fixture.mjs';
 import { teamKey, makeResolver } from './lib/teams.mjs';
+import { loadLookup, saveLookup, makeFinder, applyLookup, mergeAdditions, LOOKUP_PATH } from './lib/postcodes.mjs';
 import { renderPage } from './render.mjs';
 import * as premierLeague from './collect/premier-league.mjs';
 import * as efl from './collect/efl.mjs';
@@ -25,20 +26,23 @@ import * as welshCup from './collect/welsh-cup.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const INTL = 'Other UK and European internationals';
 
-// Section order is the page order. `critical` sections fail the build if no source can be read.
+// Page order is group order, then the order below within each group.
+// `critical` sections fail the build if no source can be read.
 // `cup` sections skip the "followed team not in the team list" check (a round holds only some clubs).
-// `showPostcodes` sections show a followed Cymru North club's postcode on its home games.
+// Postcode lookup (data/postcodes.json): `lookup` shows known postcodes and fills missing venues; `nonLeague` means every
+// club here is non-league (so a followed club with no postcode says so, and missing ones are listed); `record` adds unseen
+// home teams to the lookup; `recordVenue` also stores the feed's venue (league grounds only, never a cup venue).
 const SECTIONS = [
-  { key: 'wales', name: "Wales men's internationals", layout: 'plain', followKey: null },
-  { key: 'internationals', name: INTL, layout: 'days', followKey: INTL },
-  { key: 'premier-league', name: 'Premier League', layout: 'rows', critical: true },
-  { key: 'championship', name: 'Championship', layout: 'rows', critical: true },
-  { key: 'league-one', name: 'League One', layout: 'rows' },
-  { key: 'southern-premier-south', name: 'Southern League Premier South', layout: 'rows' },
-  { key: 'cymru-north', name: 'Novira Cymru North', layout: 'rows', showPostcodes: true },
-  { key: 'fa-cup', name: 'FA Cup', layout: 'rows', cup: true },
-  { key: 'fa-trophy', name: 'FA Trophy', layout: 'rows', cup: true },
-  { key: 'welsh-cup', name: 'FAW Welsh Cup', layout: 'rows', cup: true, showPostcodes: true },
+  { key: 'wales', group: 'International', name: "Wales men's internationals", layout: 'plain', followKey: null },
+  { key: 'internationals', group: 'International', name: INTL, layout: 'days', followKey: INTL },
+  { key: 'cymru-north', group: 'Welsh', name: 'Novira Cymru North', layout: 'rows', lookup: true, nonLeague: true, record: true },
+  { key: 'welsh-cup', group: 'Welsh', name: 'FAW Welsh Cup', layout: 'rows', cup: true, lookup: true, nonLeague: true, record: true },
+  { key: 'premier-league', group: 'English', name: 'Premier League', layout: 'rows', critical: true },
+  { key: 'championship', group: 'English', name: 'Championship', layout: 'rows', critical: true },
+  { key: 'league-one', group: 'English', name: 'League One', layout: 'rows' },
+  { key: 'southern-premier-south', group: 'English', name: 'Southern League Premier South', layout: 'rows', lookup: true, nonLeague: true, record: true, recordVenue: true },
+  { key: 'fa-cup', group: 'English', name: 'FA Cup', layout: 'rows', cup: true, lookup: true },
+  { key: 'fa-trophy', group: 'English', name: 'FA Trophy', layout: 'rows', cup: true, lookup: true, nonLeague: true, record: true },
 ];
 
 const isWales = f => f.home === 'Wales' || f.away === 'Wales';
@@ -87,8 +91,7 @@ function sectionFrom(def, rec, results, config, extraNotes = []) {
     matched: rec.checks.find(c => c.name === r.name && c.url === r.url)?.matched ?? null,
   }));
   return {
-    key: def.key, name: def.name, layout: def.layout, followed, showPostcodes: !!def.showPostcodes,
-    ...(def.cup ? { restLabel: 'Rest of the round' } : {}),
+    key: def.key, group: def.group, name: def.name, layout: def.layout, followed,
     unavailable: !rec.base,
     fixtures: sortFixtures(fixtures), sources, conflicts: rec.conflicts, notes: [...new Set(notes)],
     postponementCheck: postponementLine(def.name, results, fixtures),
@@ -107,11 +110,13 @@ function southernFallback(pw, bet) {
   });
 }
 
-export async function build({ now = new Date(), write = true, log = console.log } = {}) {
+export async function build({ now = new Date(), write = true, log = console.log, lookupPath = join(ROOT, LOOKUP_PATH) } = {}) {
   const config = JSON.parse(readFileSync(join(ROOT, 'config/teams.json'), 'utf8'));
   const today = process.env.BUILD_DATE || londonToday(now);
   const window = windowFor(today);
   const ctx = { today, window, config, now };
+  const lookup = loadLookup(lookupPath);
+  const finder = makeFinder(lookup, config.aliases);
   log(`Window ${window.start} to ${window.end} (run date ${today}, UK time)`);
 
   // One request per source page per run. Different hosts run in parallel; pages on the same host run one after another.
@@ -160,6 +165,7 @@ export async function build({ now = new Date(), write = true, log = console.log 
   };
 
   const sections = [];
+  const additions = [], venueFills = [];
   for (const def of SECTIONS) {
     const results = sourcesByKey[def.key];
     const rec = reconcile({ competition: def.name, results, aliases: config.aliases, window });
@@ -169,25 +175,27 @@ export async function build({ now = new Date(), write = true, log = console.log 
     }
     const extra = [];
     if (!rec.base) extra.push('No source could be read, so this section is empty because of that, not because there are no games.');
-    if (def.showPostcodes) {
-      const followedHomes = (config.followed[def.name] ?? []).map(teamKey);
-      for (const f of rec.fixtures) {
-        const g = config.cymruNorthGrounds[f.home];
-        if (followedHomes.includes(teamKey(f.home)) && g?.caveat) extra.push(g.caveat);
-      }
+    const sec = sectionFrom(def, rec, results, config, extra);
+    if (def.lookup) {
+      const lk = applyLookup({ fixtures: sec.fixtures, followed: sec.followed, finder, show: true, nonLeague: !!def.nonLeague, record: !!def.record, recordVenue: !!def.recordVenue, cup: !!def.cup });
+      sec.fixtures = sortFixtures(lk.fixtures);
+      sec.postcodes = lk.postcodes;
+      const homes = new Set(sec.fixtures.map(f => teamKey(f.home))).size;
+      const list = lk.missing.length > 12 ? `${lk.missing.slice(0, 12).join(', ')} and ${lk.missing.length - 12} more` : lk.missing.join(', ');
+      const missingNote = def.nonLeague && lk.missing.length
+        ? [`No postcode stored yet for ${lk.missing.length} of ${homes} home grounds: ${list}. Add one with: node scripts/postcodes.mjs add "Team" "AB1 2CD"`] : [];
+      sec.notes = [...new Set([...sec.notes, ...lk.notes, ...missingNote])];
+      additions.push(...lk.additions); venueFills.push(...lk.venueFills);
     }
-    sections.push(sectionFrom(def, rec, results, config, extra));
+    sections.push(sec);
     log(`${def.name}: ${rec.fixtures.length} fixtures, ${rec.conflicts.length} conflicts, base ${rec.base?.name ?? 'none'}`);
   }
 
-  const grounds = Object.fromEntries(Object.entries(config.cymruNorthGrounds).filter(([k]) => !k.startsWith('_')));
-  const followedCymru = [...new Set(SECTIONS.filter(d => d.showPostcodes).flatMap(d => config.followed[d.name] ?? []))];
   const data = {
     generatedAt: now.toISOString(),
     checkedAt: londonStamp(now),
     window,
     notes: [],
-    postcodes: { followedHomes: followedCymru, grounds },
     sections,
     fixtures: sections.flatMap(s => s.fixtures),
   };
@@ -195,6 +203,8 @@ export async function build({ now = new Date(), write = true, log = console.log 
     mkdirSync(join(ROOT, 'data'), { recursive: true });
     writeFileSync(join(ROOT, 'data/fixtures.json'), JSON.stringify(data, null, 2) + '\n');
     writeFileSync(join(ROOT, 'index.html'), renderPage(data));
+    const added = mergeAdditions(lookup, { additions, venueFills }, today);
+    if (added) { saveLookup(lookup, lookupPath); log(`Added ${added} entr${added === 1 ? 'y' : 'ies'} to data/postcodes.json`); }
     log('Wrote data/fixtures.json and index.html');
   }
   return data;

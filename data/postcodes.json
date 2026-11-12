@@ -1,0 +1,433 @@
+{
+  "_comment": "Known non-league home grounds. Add a postcode with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\" --source \"where you found it\". The build adds teams it has seen (postcode null) and never overwrites a stored value. \"caveat\" is shown in the report notes.",
+  "teams": {
+    "AFC Telford United": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Alfreton Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Ashton United": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Avro": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Baglan Dragons": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Basingstoke Town": {
+      "venue": "Winklebury Football Complex",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Bath City": {
+      "venue": "Cannon Clarke Stadium @ Twerton Park",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Bedford Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Berkhamsted": {
+      "venue": "The Glencar Community Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Billericay Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Bourne Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Bracknell Town": {
+      "venue": "The SB Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Braintree Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Brickfield Rangers": {
+      "venue": "Clywedog Park",
+      "postcode": "LL14 4HE",
+      "source": "supplied in the original brief (single source)",
+      "added": "2026-11-12",
+      "caveat": "LL14 4HE for Clywedog Park comes from a single source."
+    },
+    "Bridlington Town AFC": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Caerau Ely": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Caernarfon Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Caersws": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Cambrian United": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Cardiff Met": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Chertsey Town": {
+      "venue": "Alwyns Lane",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Chichester City": {
+      "venue": "Oaklands Park",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Chippenham Town": {
+      "venue": "Thornbury Surfacing Ltd Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Chorley": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Colwyn Bay": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Connah's Quay Nomads": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Darlington": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Denbigh Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Didcot Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Eastbourne Borough": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Evesham United": {
+      "venue": "The Spiers & Hartwell Jubilee Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Frome Town": {
+      "venue": "Badgers Hill Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Gloucester City": {
+      "venue": "KMM Energy Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Gosport Borough": {
+      "venue": "AEI Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Gresford Athletic": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Guilsfield": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Halesowen Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Hanwell Town": {
+      "venue": "Oliver Connell and Sons Community Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Hanworth Villa": {
+      "venue": "Rectory Meadow",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Havant & Waterlooville": {
+      "venue": "Westleigh Park",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Haverfordwest County": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Hebburn Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Hednesford Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Hereford": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Holyhead Hotspur": {
+      "venue": "The New Oval",
+      "postcode": "LL65 2YE",
+      "source": "supplied in the original brief",
+      "added": "2026-11-12",
+      "caveat": "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
+    },
+    "King's Lynn Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Leek Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Llandudno": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Llangennech": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Llanuwchllyn": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Malvern Town": {
+      "venue": "HDAnywhere Community Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Mold Alexandra": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Newtown": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Penrhyncoch": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Penybont": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Plymouth Parkway": {
+      "venue": "Bolitho Park",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Poole Town": {
+      "venue": "Clear Group Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Radcliffe": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Rockspur": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Salisbury": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Sholing": {
+      "venue": "The Mortgage Decisions Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Spennymoor Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Taunton Town": {
+      "venue": "Wordsworth Drive",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "The New Saints": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Trefelin": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Uxbridge": {
+      "venue": "Uxbridge FC",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Weymouth": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Wimborne Town": {
+      "venue": "Wyatt Homes Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Wingate & Finchley": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Worksop Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    },
+    "Yate Town": {
+      "venue": "South West Interiors Stadium",
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-12"
+    }
+  }
+}

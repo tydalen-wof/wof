@@ -21,14 +21,20 @@ body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.45 "IBM Plex 
 h1{margin:0;font:700 clamp(2.4rem,8vw,3.6rem)/.95 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.01em;text-transform:uppercase}
 .lede{margin:10px 0 0;color:var(--muted)}
 h2{margin:0;font:700 1.7rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.group{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.group-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.group-body{border-top:1px solid var(--line);padding:12px}
+.group-body>.comp,.group-body>.comp-empty{margin:0 0 10px;background:var(--bg)}
+.group-body>:last-child{margin-bottom:0}
 .comp{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
 .comp-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.comp-t{font:700 1.4rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.comp-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
-.comp-h::after,.rest-line::after{content:"+";flex:none;width:1.4rem;height:1.4rem;line-height:1.3rem;text-align:center;border:1px solid var(--line);border-radius:3px;color:var(--accent);font:600 1.1rem/1.3rem "IBM Plex Sans",Arial,sans-serif}
-details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\\2212"}
+.group-h,.comp-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.group-h::after,.comp-h::after,.rest-line::after{content:"+";flex:none;width:1.4rem;height:1.4rem;line-height:1.3rem;text-align:center;border:1px solid var(--line);border-radius:3px;color:var(--accent);font:600 1.1rem/1.3rem "IBM Plex Sans",Arial,sans-serif}
+details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\\2212"}
 .comp-body{border-top:1px solid var(--line)}
 .rest>summary{display:block}
 .rest-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
@@ -47,7 +53,7 @@ details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\\
 .ven{display:block;color:var(--muted);font-size:.92rem}
 .pc{display:block;color:var(--muted);font-size:.82rem}
 .day{margin:0;padding:9px 16px 7px;border-top:1px solid var(--line);color:var(--accent);font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
-.notes-body{padding:6px 16px 16px}
+.notes-body{padding:0 4px 8px}
 .sub{margin:16px 0 4px;color:var(--accent);font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
 .notes-body ul{margin:4px 0 0;padding-left:1.1rem}
 .notes-body li{margin:3px 0;color:var(--fg);font-size:.92rem}
@@ -64,12 +70,11 @@ details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\\
 // ---------- rows ----------
 const tag = (text, cls = '') => `<span class="tag${cls ? ' ' + cls : ''}">${esc(text)}</span>`;
 
+/** The build works out each fixture's postcode text (or "Postcode not found"); the page only displays it. */
+export const fixtureKey = f => `${f.date}|${f.home}|${f.away}`;
 function postcodeFor(f, ctx) {
-  if (!ctx.postcodes) return '';
-  const { followedHomes, grounds } = ctx.postcodes;
-  if (!followedHomes.has(teamKey(f.home))) return '';
-  const g = grounds[f.home];
-  return `<span class="pc">${esc(g?.postcode ?? 'Postcode not found')}</span>`;
+  const text = ctx.postcodes?.[fixtureKey(f)];
+  return text ? `<span class="pc">${esc(text)}</span>` : '';
 }
 
 function row(f, ctx) {
@@ -106,23 +111,29 @@ export function partition(fixtures, followed, { chronological = false } = {}) {
   return { mine, rest };
 }
 
-// ---------- sections ----------
+// ---------- competitions ----------
+// A competition's title is not an <h2>/<h3>: the group above it owns the <h2>, and the page has no h3 at all.
+// role="heading" aria-level="3" gives assistive technology the same outline.
+const compTitle = name => `<div class="comp-t" role="heading" aria-level="3">${esc(name)}</div>`;
+
 function plainHeading(name, unavailable = false) {
   const why = unavailable ? '<p class="muted unavailable">Could not be read. See Before you travel.</p>' : '';
-  return `<section class="comp-empty"><h2>${esc(name)}</h2>${why}</section>`;
+  return `<section class="comp-empty">${compTitle(name)}${why}</section>`;
 }
 
-function accordion(name, body, extraClass = '') {
-  return `<details class="comp${extraClass ? ' ' + extraClass : ''}">
-<summary class="comp-h"><h2>${esc(name)}</h2></summary>
+function accordion(name, body) {
+  return `<details class="comp">
+<summary class="comp-h">${compTitle(name)}</summary>
 <div class="comp-body">
 ${body}</div>
 </details>`;
 }
 
-function nested(mine, rest, restLabel, renderList, ctx) {
+export const OTHER_LABEL = 'Other fixtures';
+
+function nested(mine, rest, renderList, ctx) {
   if (!rest.length) return renderList(mine, ctx);
-  const line = `<div class="rest-line"><span>${esc(restLabel)}</span><span class="count">${esc(plural(rest.length, 'match', 'matches'))}</span></div>`;
+  const line = `<div class="rest-line"><span>${OTHER_LABEL}</span><span class="count">${esc(plural(rest.length, 'match', 'matches'))}</span></div>`;
   return `<details class="rest">
 <summary class="rest-s">
 ${renderList(mine, ctx)}${line}
@@ -135,14 +146,37 @@ ${renderList(rest, ctx)}</div>
 
 const plainList = (list, ctx) => list.map(f => row(f, ctx)).join('\n') + (list.length ? '\n' : '');
 
-function renderSection(s, ctx) {
+function renderSection(s) {
   const fixtures = s.fixtures ?? [];
   if (!fixtures.length) return plainHeading(s.name, s.unavailable);
-  const c = { ...ctx, postcodes: s.showPostcodes ? ctx.postcodes : null };
+  const c = { postcodes: s.postcodes ?? null };
   if (s.layout === 'plain') return accordion(s.name, plainList([...fixtures].sort(byWhen), c));
   const { mine, rest } = partition(fixtures, s.followed ?? [], { chronological: s.layout === 'days' });
-  if (s.layout === 'days') return accordion(s.name, nested(mine, rest, 'Rest of Europe', rowsWithDays, c));
-  return accordion(s.name, nested(mine, rest, s.restLabel ?? 'Rest of the division', plainList, c));
+  return accordion(s.name, nested(mine, rest, s.layout === 'days' ? rowsWithDays : plainList, c));
+}
+
+// ---------- groups ----------
+/** A top-level accordion holding competition accordions. A group with nothing to show is a plain heading. */
+function renderGroup(name, sections) {
+  if (!sections.some(s => (s.fixtures ?? []).length || s.unavailable)) return `<section class="group-empty"><h2>${esc(name)}</h2></section>`;
+  return `<details class="group">
+<summary class="group-h"><h2>${esc(name)}</h2></summary>
+<div class="group-body">
+${sections.map(renderSection).join('\n')}
+</div>
+</details>`;
+}
+
+/** Groups appear in the order their first section appears. A section with no group stands alone at the top level. */
+function renderSections(sections) {
+  const out = [];
+  const seen = new Map();
+  for (const s of sections) {
+    if (!s.group) { out.push(renderSection(s)); continue; }
+    if (!seen.has(s.group)) { seen.set(s.group, []); out.push({ group: s.group }); }
+    seen.get(s.group).push(s);
+  }
+  return out.map(o => (typeof o === 'string' ? o : renderGroup(o.group, seen.get(o.group)))).join('\n');
 }
 
 // ---------- travel notes ----------
@@ -192,12 +226,17 @@ function travelBody(data) {
   return h;
 }
 
+/** "Before you travel" is a top-level accordion like the groups, at the bottom, collapsed on load. */
+function renderTravel(data) {
+  return `<details class="group travel">
+<summary class="group-h"><h2>Before you travel</h2></summary>
+<div class="group-body">
+${travelBody(data)}
+</div>
+</details>`;
+}
+
 export function renderPage(data) {
-  const ctx = {
-    postcodes: data.postcodes ? { followedHomes: new Set(data.postcodes.followedHomes.map(teamKey)), grounds: data.postcodes.grounds } : null,
-  };
-  const sections = data.sections.map(s => renderSection(s, ctx)).join('\n');
-  const travel = accordion('Before you travel', travelBody(data), 'travel').replace('<div class="comp-body">\n', '<div class="comp-body">\n');
   return `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -218,8 +257,8 @@ export function renderPage(data) {
 <p class="lede">All kick-off times are UK time. Venues are the home club's ground.</p>
 </header>
 <main>
-${sections}
-${travel}
+${renderSections(data.sections)}
+${renderTravel(data)}
 </main>
 </div>
 </body>

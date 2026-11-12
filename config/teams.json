@@ -52,19 +52,6 @@
     "Luton Town": "Kenilworth Road",
     "Bromley": "Hayes Lane"
   },
-  "cymruNorthGrounds": {
-    "_comment": "faw.cymru does not list venues. Postcodes are shown only for the followed teams' home games. Anything not listed here shows 'Postcode not found'.",
-    "Holyhead Hotspur": {
-      "venue": "The New Oval",
-      "postcode": "LL65 2YE",
-      "caveat": "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
-    },
-    "Brickfield Rangers": {
-      "venue": "Clywedog Park",
-      "postcode": "LL14 4HE",
-      "caveat": "LL14 4HE for Clywedog Park comes from a single source."
-    }
-  },
   "fawSlugNames": {
     "_comment": "Optional. faw.cymru match-URL club slug -> display name, for clubs whose title-cased slug is not how they are written. Many are built in (scripts/collect/faw.mjs)."
   },

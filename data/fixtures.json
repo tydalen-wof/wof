@@ -1,36 +1,18 @@
 {
-  "generatedAt": "2026-11-12T09:53:19.731Z",
-  "checkedAt": "2026-11-12 09:53 GMT",
+  "generatedAt": "2026-11-12T12:05:45.655Z",
+  "checkedAt": "2026-11-12 12:05 GMT",
   "window": {
     "start": "2026-11-12",
     "end": "2026-11-22"
   },
   "notes": [],
-  "postcodes": {
-    "followedHomes": [
-      "Holyhead Hotspur",
-      "Brickfield Rangers"
-    ],
-    "grounds": {
-      "Holyhead Hotspur": {
-        "venue": "The New Oval",
-        "postcode": "LL65 2YE",
-        "caveat": "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
-      },
-      "Brickfield Rangers": {
-        "venue": "Clywedog Park",
-        "postcode": "LL14 4HE",
-        "caveat": "LL14 4HE for Clywedog Park comes from a single source."
-      }
-    }
-  },
   "sections": [
     {
       "key": "wales",
+      "group": "International",
       "name": "Wales men's internationals",
       "layout": "plain",
       "followed": [],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -96,6 +78,7 @@
     },
     {
       "key": "internationals",
+      "group": "International",
       "name": "Other UK and European internationals",
       "layout": "days",
       "followed": [
@@ -104,7 +87,6 @@
         "Northern Ireland",
         "Republic of Ireland"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -974,7 +956,415 @@
       "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed."
     },
     {
+      "key": "cymru-north",
+      "group": "Welsh",
+      "name": "Novira Cymru North",
+      "layout": "rows",
+      "followed": [
+        "Holyhead Hotspur",
+        "Brickfield Rangers"
+      ],
+      "unavailable": false,
+      "fixtures": [
+        {
+          "date": "2026-11-13",
+          "time": "19:30",
+          "home": "Denbigh Town",
+          "away": "Gresford Athletic",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Llanuwchllyn",
+          "away": "Rhyl 1879",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Brickfield Rangers",
+          "away": "Newtown",
+          "venue": "Clywedog Park",
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Caersws",
+          "away": "Denbigh Town",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Gresford Athletic",
+          "away": "Buckley Town",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Guilsfield",
+          "away": "Bangor City 1876",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Holyhead Hotspur",
+          "away": "Bala Town",
+          "venue": "The New Oval",
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Llanuwchllyn",
+          "away": "Ruthin Town",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Mold Alexandra",
+          "away": "Porthmadog",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-21",
+          "time": "14:00",
+          "home": "Penrhyncoch",
+          "away": "Rhyl 1879",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "name": "FAW Cymru Leagues website",
+          "url": "https://faw.cymru/cymru-leagues/cymru-north/fixtures-and-results/",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        }
+      ],
+      "conflicts": [],
+      "notes": [
+        "The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.",
+        "LL14 4HE for Clywedog Park comes from a single source.",
+        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.",
+        "No postcode stored yet for 7 of 9 home grounds: Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Penrhyncoch. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
+      ],
+      "postponementCheck": "Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.",
+      "postcodes": {
+        "2026-11-21|Brickfield Rangers|Newtown": "LL14 4HE",
+        "2026-11-21|Holyhead Hotspur|Bala Town": "LL65 2YE"
+      }
+    },
+    {
+      "key": "welsh-cup",
+      "group": "Welsh",
+      "name": "FAW Welsh Cup",
+      "layout": "rows",
+      "followed": [
+        "Holyhead Hotspur",
+        "Brickfield Rangers"
+      ],
+      "unavailable": false,
+      "fixtures": [
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Baglan Dragons",
+          "away": "Barry Town United",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Caernarfon Town",
+          "away": "Holywell Town",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Connah's Quay Nomads",
+          "away": "Mochdre Sports",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Penybont",
+          "away": "Cardiff Draconians",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "The New Saints",
+          "away": "Briton Ferry Llansawel",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Caerau Ely",
+          "away": "Brickfield Rangers",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Colwyn Bay",
+          "away": "Aberystwyth Town",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Haverfordwest County",
+          "away": "Ammanford",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Holyhead Hotspur",
+          "away": "Blaen-y-Maes",
+          "venue": "The New Oval",
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Llandudno",
+          "away": "Felinheli",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Llangennech",
+          "away": "Newport City",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Newtown",
+          "away": "Caerphilly Athletic",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:15",
+          "home": "Rockspur",
+          "away": "Pontarddulais Town",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Cardiff Met",
+          "away": "Dolgellau AA",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "17:30",
+          "home": "Trefelin",
+          "away": "Coedpoeth United",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-15",
+          "time": "17:35",
+          "home": "Cambrian United",
+          "away": "Bangor City 1876",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "name": "FAW Welsh Cup website",
+          "url": "https://faw.cymru/mens-welsh-cup/welsh-cup-fixtures-results/",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        }
+      ],
+      "conflicts": [],
+      "notes": [
+        "The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.",
+        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.",
+        "1 venue(s) come from the stored home grounds (data/postcodes.json). A cup tie is not always played at the home club's usual ground.",
+        "No postcode stored yet for 15 of 16 home grounds: Baglan Dragons, Caerau Ely, Caernarfon Town, Cambrian United, Cardiff Met, Colwyn Bay, Connah's Quay Nomads, Haverfordwest County, Llandudno, Llangennech, Newtown, Penybont and 3 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
+      ],
+      "postponementCheck": "FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.",
+      "postcodes": {
+        "2026-11-14|Holyhead Hotspur|Blaen-y-Maes": "LL65 2YE"
+      }
+    },
+    {
       "key": "premier-league",
+      "group": "English",
       "name": "Premier League",
       "layout": "rows",
       "followed": [
@@ -982,7 +1372,6 @@
         "Manchester United",
         "Liverpool"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -1136,12 +1525,12 @@
     },
     {
       "key": "championship",
+      "group": "English",
       "name": "Championship",
       "layout": "rows",
       "followed": [
         "Wrexham"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -1339,13 +1728,13 @@
     },
     {
       "key": "league-one",
+      "group": "English",
       "name": "League One",
       "layout": "rows",
       "followed": [
         "Plymouth Argyle",
         "MK Dons"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -1697,12 +2086,12 @@
     },
     {
       "key": "southern-premier-south",
+      "group": "English",
       "name": "Southern League Premier South",
       "layout": "rows",
       "followed": [
         "Plymouth Parkway"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -2099,172 +2488,17 @@
         }
       ],
       "notes": [
-        "BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements."
+        "BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements.",
+        "No postcode stored yet for 22 of 22 home grounds: Basingstoke Town, Bath City, Berkhamsted, Bracknell Town, Chertsey Town, Chichester City, Chippenham Town, Evesham United, Frome Town, Gloucester City, Gosport Borough, Hanwell Town and 10 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
-      "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above)."
-    },
-    {
-      "key": "cymru-north",
-      "name": "Novira Cymru North",
-      "layout": "rows",
-      "followed": [
-        "Holyhead Hotspur",
-        "Brickfield Rangers"
-      ],
-      "showPostcodes": true,
-      "unavailable": false,
-      "fixtures": [
-        {
-          "date": "2026-11-13",
-          "time": "19:30",
-          "home": "Denbigh Town",
-          "away": "Gresford Athletic",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Llanuwchllyn",
-          "away": "Rhyl 1879",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Brickfield Rangers",
-          "away": "Newtown",
-          "venue": "Clywedog Park",
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Caersws",
-          "away": "Denbigh Town",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Gresford Athletic",
-          "away": "Buckley Town",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Guilsfield",
-          "away": "Bangor City 1876",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Holyhead Hotspur",
-          "away": "Bala Town",
-          "venue": "The New Oval",
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Llanuwchllyn",
-          "away": "Ruthin Town",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Mold Alexandra",
-          "away": "Porthmadog",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-21",
-          "time": "14:00",
-          "home": "Penrhyncoch",
-          "away": "Rhyl 1879",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "name": "FAW Cymru Leagues website",
-          "url": "https://faw.cymru/cymru-leagues/cymru-north/fixtures-and-results/",
-          "ok": true,
-          "error": null,
-          "role": "base",
-          "matched": null
-        }
-      ],
-      "conflicts": [],
-      "notes": [
-        "The FAW page lists no venues, so only the followed clubs' grounds (from config/teams.json) are shown; other venues are TBC.",
-        "LL14 4HE for Clywedog Park comes from a single source.",
-        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
-      ],
-      "postponementCheck": "Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling."
+      "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above).",
+      "postcodes": {
+        "2026-11-21|Plymouth Parkway|Malvern Town": "Postcode not found"
+      }
     },
     {
       "key": "fa-cup",
+      "group": "English",
       "name": "FA Cup",
       "layout": "rows",
       "followed": [
@@ -2276,7 +2510,6 @@
         "MK Dons",
         "Plymouth Parkway"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [],
       "sources": [
@@ -2317,16 +2550,17 @@
       "notes": [
         "The FA page lists only the next round of FA Cup ties, with no venues or postponement status."
       ],
-      "postponementCheck": "FA Cup: postponements checked in Sky Sports, ESPN, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed."
+      "postponementCheck": "FA Cup: postponements checked in Sky Sports, ESPN, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed.",
+      "postcodes": {}
     },
     {
       "key": "fa-trophy",
+      "group": "English",
       "name": "FA Trophy",
       "layout": "rows",
       "followed": [
         "Plymouth Parkway"
       ],
-      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -2714,246 +2948,11 @@
       "conflicts": [],
       "notes": [
         "7 tie(s) come only from Southern League (official feed), not from The FA (official site): Billericay Town v Waltham Abbey; Weymouth v Hampton & Richmond Borough; Didcot Town v Slough Town; Wimborne Town v Uxbridge; Bath City v Truro City; Eastbourne Borough v Chertsey Town; Salisbury v Chichester City.",
-        "The FA page lists only the next round of FA Trophy ties, with no venues or postponement status."
+        "The FA page lists only the next round of FA Trophy ties, with no venues or postponement status.",
+        "No postcode stored yet for 27 of 27 home grounds: AFC Telford United, Alfreton Town, Ashton United, Avro, Bath City, Bedford Town, Billericay Town, Bourne Town, Braintree Town, Bridlington Town AFC, Chorley, Darlington and 15 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
-      "postponementCheck": "FA Trophy: postponements could only be checked for part of this section (Southern League (official feed) (Southern League clubs only), Plymouth Parkway website (Plymouth Parkway games only)); none marked postponed. Other ties could not be checked, so check the clubs before travelling."
-    },
-    {
-      "key": "welsh-cup",
-      "name": "FAW Welsh Cup",
-      "layout": "rows",
-      "followed": [
-        "Holyhead Hotspur",
-        "Brickfield Rangers"
-      ],
-      "showPostcodes": true,
-      "unavailable": false,
-      "fixtures": [
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Baglan Dragons",
-          "away": "Barry Town United",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Caernarfon Town",
-          "away": "Holywell Town",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Connah's Quay Nomads",
-          "away": "Mochdre Sports",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Penybont",
-          "away": "Cardiff Draconians",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "The New Saints",
-          "away": "Briton Ferry Llansawel",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Caerau Ely",
-          "away": "Brickfield Rangers",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Colwyn Bay",
-          "away": "Aberystwyth Town",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Haverfordwest County",
-          "away": "Ammanford",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Holyhead Hotspur",
-          "away": "Blaen-y-Maes",
-          "venue": "The New Oval",
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Llandudno",
-          "away": "Felinheli",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Llangennech",
-          "away": "Newport City",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Newtown",
-          "away": "Caerphilly Athletic",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:15",
-          "home": "Rockspur",
-          "away": "Pontarddulais Town",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Cardiff Met",
-          "away": "Dolgellau AA",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "17:30",
-          "home": "Trefelin",
-          "away": "Coedpoeth United",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "17:35",
-          "home": "Cambrian United",
-          "away": "Bangor City 1876",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "name": "FAW Welsh Cup website",
-          "url": "https://faw.cymru/mens-welsh-cup/welsh-cup-fixtures-results/",
-          "ok": true,
-          "error": null,
-          "role": "base",
-          "matched": null
-        }
-      ],
-      "conflicts": [],
-      "notes": [
-        "The FAW page lists no venues, so only the followed Cymru North clubs' grounds (from config/teams.json) are shown; other venues are TBC. A tie's ground is not always the home club's usual one.",
-        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
-      ],
-      "postponementCheck": "FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling."
+      "postponementCheck": "FA Trophy: postponements could only be checked for part of this section (Southern League (official feed) (Southern League clubs only), Plymouth Parkway website (Plymouth Parkway games only)); none marked postponed. Other ties could not be checked, so check the clubs before travelling.",
+      "postcodes": {}
     }
   ],
   "fixtures": [
@@ -3727,6 +3726,344 @@
       "sources": [
         "UEFA (official feed)",
         "ESPN"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:30",
+      "home": "Denbigh Town",
+      "away": "Gresford Athletic",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Llanuwchllyn",
+      "away": "Rhyl 1879",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Brickfield Rangers",
+      "away": "Newtown",
+      "venue": "Clywedog Park",
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Caersws",
+      "away": "Denbigh Town",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Gresford Athletic",
+      "away": "Buckley Town",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Guilsfield",
+      "away": "Bangor City 1876",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Holyhead Hotspur",
+      "away": "Bala Town",
+      "venue": "The New Oval",
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Llanuwchllyn",
+      "away": "Ruthin Town",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Mold Alexandra",
+      "away": "Porthmadog",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "time": "14:00",
+      "home": "Penrhyncoch",
+      "away": "Rhyl 1879",
+      "venue": null,
+      "competition": "Novira Cymru North",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Baglan Dragons",
+      "away": "Barry Town United",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Caernarfon Town",
+      "away": "Holywell Town",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Connah's Quay Nomads",
+      "away": "Mochdre Sports",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Penybont",
+      "away": "Cardiff Draconians",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "The New Saints",
+      "away": "Briton Ferry Llansawel",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Caerau Ely",
+      "away": "Brickfield Rangers",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Colwyn Bay",
+      "away": "Aberystwyth Town",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Haverfordwest County",
+      "away": "Ammanford",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Holyhead Hotspur",
+      "away": "Blaen-y-Maes",
+      "venue": "The New Oval",
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Llandudno",
+      "away": "Felinheli",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Llangennech",
+      "away": "Newport City",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Newtown",
+      "away": "Caerphilly Athletic",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:15",
+      "home": "Rockspur",
+      "away": "Pontarddulais Town",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Cardiff Met",
+      "away": "Dolgellau AA",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "17:30",
+      "home": "Trefelin",
+      "away": "Coedpoeth United",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "time": "17:35",
+      "home": "Cambrian United",
+      "away": "Bangor City 1876",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
       ]
     },
     {
@@ -4705,136 +5042,6 @@
       ]
     },
     {
-      "date": "2026-11-13",
-      "time": "19:30",
-      "home": "Denbigh Town",
-      "away": "Gresford Athletic",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Llanuwchllyn",
-      "away": "Rhyl 1879",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Brickfield Rangers",
-      "away": "Newtown",
-      "venue": "Clywedog Park",
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Caersws",
-      "away": "Denbigh Town",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Gresford Athletic",
-      "away": "Buckley Town",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Guilsfield",
-      "away": "Bangor City 1876",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Holyhead Hotspur",
-      "away": "Bala Town",
-      "venue": "The New Oval",
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Llanuwchllyn",
-      "away": "Ruthin Town",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Mold Alexandra",
-      "away": "Porthmadog",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-21",
-      "time": "14:00",
-      "home": "Penrhyncoch",
-      "away": "Rhyl 1879",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
       "date": "2026-11-14",
       "time": "15:00",
       "home": "AFC Telford United",
@@ -5187,214 +5394,6 @@
       "status": "scheduled",
       "sources": [
         "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Baglan Dragons",
-      "away": "Barry Town United",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Caernarfon Town",
-      "away": "Holywell Town",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Connah's Quay Nomads",
-      "away": "Mochdre Sports",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Penybont",
-      "away": "Cardiff Draconians",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "The New Saints",
-      "away": "Briton Ferry Llansawel",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Caerau Ely",
-      "away": "Brickfield Rangers",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Colwyn Bay",
-      "away": "Aberystwyth Town",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Haverfordwest County",
-      "away": "Ammanford",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Holyhead Hotspur",
-      "away": "Blaen-y-Maes",
-      "venue": "The New Oval",
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Llandudno",
-      "away": "Felinheli",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Llangennech",
-      "away": "Newport City",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Newtown",
-      "away": "Caerphilly Athletic",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:15",
-      "home": "Rockspur",
-      "away": "Pontarddulais Town",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Cardiff Met",
-      "away": "Dolgellau AA",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "17:30",
-      "home": "Trefelin",
-      "away": "Coedpoeth United",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "17:35",
-      "home": "Cambrian United",
-      "away": "Bangor City 1876",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
       ]
     }
   ]

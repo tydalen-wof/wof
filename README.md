@@ -13,7 +13,7 @@ BUILD_DATE=2026-11-12 node scripts/build.mjs # builds for another run date
 npm test
 ```
 
-- Output: `index.html` and `data/fixtures.json`.
+- Output: `index.html`, `data/fixtures.json`, and any new teams added to `data/postcodes.json` (see Postcodes).
 - Window: run date through the Sunday after next (Thursday to Sunday, 11 days).
 - The build fails, and writes nothing, if no source can be read for the Premier League or the Championship.
 - Behind an HTTP proxy, Node's `fetch` ignores `HTTPS_PROXY` unless `NODE_USE_ENV_PROXY=1` is also set.
@@ -22,8 +22,22 @@ npm test
 
 - Pages: Settings > Pages > Deploy from branch > `main` / root.
 - `.github/workflows/report.yml` runs Thursdays 05:30 UTC and on demand (Actions > Weekly fixtures report > Run workflow).
-- It builds, tests, then commits `index.html` and `data/fixtures.json` if they changed. A failed build or test commits nothing.
+- It builds, tests, then commits `index.html`, `data/fixtures.json` and `data/postcodes.json` if they changed. A failed build or test commits nothing.
 - Scheduled runs can be delayed by GitHub during busy periods. The page states its own checked-at time.
+
+## Page layout
+
+Three top-level groups, each a collapsed accordion holding its competitions (also collapsed), then "Before you travel":
+
+| Group | Competitions |
+| --- | --- |
+| International | Wales men's internationals; Other UK and European internationals |
+| Welsh | Novira Cymru North; FAW Welsh Cup |
+| English | Premier League; Championship; League One; Southern League Premier South; FA Cup; FA Trophy |
+
+- Inside a competition, followed teams' games come first, then an "Other fixtures" line (with a match count) that opens the rest.
+- A competition with no games is a plain title. A group with no games at all is a plain heading.
+- To move a competition between groups, or reorder them, edit `SECTIONS` in `scripts/build.mjs`.
 
 ## Sources
 
@@ -74,6 +88,22 @@ fixtures. The build reads the JSON API the page itself loads, in `scripts/collec
 - Unknown times and venues show `TBC`. Nothing is guessed.
 - Conflicts, failed sources, caveats and the checked-at time go in the "Before you travel" accordion.
 
+## Postcodes
+
+`data/postcodes.json` is a lookup of known non-league home grounds, keyed by team, reused every week.
+
+```json
+"Holyhead Hotspur": { "venue": "The New Oval", "postcode": "LL65 2YE", "source": "...", "added": "2026-11-12", "caveat": "..." }
+```
+
+- **No source publishes postcodes** (checked: the Southern League feed, the FAW site, the FA and the EFL feeds), and the build never guesses one. They are added by hand when discovered.
+- **Add one:** `node scripts/postcodes.mjs add "Team" "AB1 2CD" --venue "Ground" --source "where you found it" --note "caveat"`. It checks the format, and refuses to change a stored postcode unless you add `--replace`.
+- **See what is missing:** `node scripts/postcodes.mjs missing`. The page's "Before you travel" notes also list this week's home grounds with no postcode.
+- **The build adds each non-league home team it sees** (Southern League, Cymru North, Welsh Cup, FA Trophy) with `postcode: null`, and the Southern League's ground name. It never overwrites a stored value. The workflow commits those additions.
+- **On the page:** a known postcode shows under the venue on that team's home games. A followed club's home game with none stored says "Postcode not found". Other clubs show nothing.
+- A stored ground fills a missing venue. If a feed names a different ground for a tie (a cup tie moved, say), the stored postcode is withheld and the notes say why.
+- `caveat` is printed in the notes whenever that postcode is shown. Keep `aliases` in `config/teams.json` up to date if a club is spelt differently in different sources.
+
 ## Followed teams
 
 Edit `config/teams.json` and rebuild. No code changes.
@@ -86,20 +116,22 @@ Edit `config/teams.json` and rebuild. No code changes.
 
 1. Add the name to the right section's list. Order matters: earlier teams are listed first.
 2. Use the spelling the main source uses (see `data/fixtures.json`). The build adds a note if a followed team is not found.
-3. For Novira Cymru North, also add the ground to `cymruNorthGrounds` (`venue`, `postcode`, optional `caveat`). Postcodes show only on followed clubs' home games. A missing postcode shows "Postcode not found".
+3. Postcodes live in `data/postcodes.json`, not here (see Postcodes).
 4. If a source spells a club differently, add an entry to `aliases`. For a Cymru North or Welsh Cup club whose name looks wrong, add its faw.cymru URL slug to `fawSlugNames` (many are built in).
-5. The cup sections have their own lists (`FA Cup`, `FA Trophy`, `FAW Welsh Cup`). A club in a Welsh Cup list also gets its ground and postcode from `cymruNorthGrounds`.
+5. The cup sections have their own lists (`FA Cup`, `FA Trophy`, `FAW Welsh Cup`). A club's ground and postcode come from `data/postcodes.json`.
 6. `fallbackGrounds` supplies a ground only when the EFL feed has none. Its use is flagged in the notes.
 
 ## Layout
 
 ```text
-config/teams.json        followed teams, Cymru North grounds, aliases, fallback grounds
+config/teams.json        followed teams, aliases, fallback grounds
+data/postcodes.json      lookup of known non-league grounds and postcodes (grows as teams are seen)
 scripts/collect/*.mjs    one module per source: returns normalised fixtures, notes and success or failure
                          (faw.mjs is the shared faw.cymru reader; fa.mjs reads the FA Cup and FA Trophy pages)
 scripts/lib/             UK-time helpers (Intl), HTTP helper, team-name matching, reconciliation
 scripts/build.mjs        collect, reconcile, write JSON and HTML
 scripts/render.mjs       data to HTML
+scripts/postcodes.mjs    command line for the postcode lookup (add, missing, show)
 test/                    unit tests and the HTML structure snapshot
 ```
 
