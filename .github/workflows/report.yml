@@ -1,0 +1,46 @@
+name: Weekly fixtures report
+
+on:
+  schedule:
+    - cron: '30 5 * * 4'   # Thursdays 05:30 UTC (05:30 UK in winter, 06:30 UK in summer). The page works out the window in UK time.
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Only the Southern League fallback scraper needs a browser; the build runs without it if this step fails.
+      - name: Install Chromium (fallback scraper only)
+        run: npx playwright install --with-deps chromium
+        continue-on-error: true
+
+      # Fails (and publishes nothing) if the Premier League or Championship cannot be read from any source.
+      - name: Build report
+        run: node scripts/build.mjs
+
+      - name: Test
+        run: npm test
+
+      - name: Commit changes
+        run: |
+          git config user.name "wof-bot"
+          git config user.email "wof-bot@users.noreply.github.com"
+          git add index.html data/fixtures.json data/premier-south.json
+          git diff --cached --quiet || (git commit -m "Update weekly fixtures report" && git push)
