@@ -5,10 +5,7 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test",
-    "scrape:premier-south": "node scripts/scrape.mjs"
-  },
-  "dependencies": {
-    "playwright": "1.49.1"
+    "scrape": "node scripts/scrape.mjs",
+    "test": "node --test"
   }
 }

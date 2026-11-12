@@ -22,14 +22,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - run: npm ci
-
-      # Only the Southern League fallback scraper needs a browser; the build runs without it if this step fails.
-      - name: Install Chromium (fallback scraper only)
-        run: npx playwright install --with-deps chromium
-        continue-on-error: true
+      # No dependencies to install: the build uses only Node 20's built-ins.
 
       # Fails (and publishes nothing) if the Premier League or Championship cannot be read from any source.
       - name: Build report

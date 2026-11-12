@@ -16,6 +16,7 @@ import * as sky from './collect/sky.mjs';
 import * as uefa from './collect/uefa.mjs';
 import * as espn from './collect/espn.mjs';
 import * as southern from './collect/southern-league.mjs';
+import { writePremierSouthJson } from './scrape.mjs';
 import * as parkway from './collect/parkway.mjs';
 import * as betexplorer from './collect/betexplorer.mjs';
 import * as cymru from './collect/cymru-north.mjs';
@@ -116,24 +117,22 @@ export async function build({ now = new Date(), write = true, log = console.log 
     premierLeague.collect(ctx), efl.collect(ctx), skyPages, uefa.collect(ctx), espnPages, southernRoutes, cymru.collect(ctx),
   ]);
 
-  // Southern League source list and cup ties from Parkway's page.
+  // Southern League: the league feed, else Parkway's site plus BetExplorer. Parkway's page also supplies its cup ties.
   const { s: sfl, pw, bet } = so;
-  let southernResults, southernNotes = [], via;
-  if (sfl.used?.ok) {
-    via = sfl.primary.ok ? 'JSON feed' : 'browser scrape';
-    const base = sfl.used;
+  let southernResults;
+  const southernNotes = [];
+  if (sfl.primary.ok) {
     if (pw.ok && pw.cupTies?.length) {
       const inWin = pw.cupTies.filter(f => f.date >= window.start && f.date <= window.end);
-      const known = new Set(base.fixtures.map(f => `${f.date}|${teamKey(f.home)}|${teamKey(f.away)}`));
+      const known = new Set(sfl.primary.fixtures.map(f => `${f.date}|${teamKey(f.home)}|${teamKey(f.away)}`));
       const added = inWin.filter(f => !known.has(`${f.date}|${teamKey(f.home)}|${teamKey(f.away)}`));
-      base.fixtures.push(...added);
+      sfl.primary.fixtures.push(...added);
       if (added.length) southernNotes.push(`${added.length} cup tie(s) for ${parkway.CLUB} come only from the Parkway website; the Southern League feed does not list them.`);
     }
-    southernResults = [sfl.primary, ...(sfl.scrape ? [sfl.scrape] : []), pw, bet];
+    southernResults = [sfl.primary, pw, bet];
   } else {
-    via = 'Parkway website + BetExplorer (fallback)';
     const fb = southernFallback(pw, bet);
-    southernResults = [sfl.primary, sfl.scrape, ...(fb ? [fb] : [pw, bet])].filter(Boolean);
+    southernResults = [sfl.primary, ...(fb ? [fb] : [pw, bet])];
   }
 
   const wales = split(uefaRes).wales, intl = split(uefaRes).other;
@@ -181,10 +180,10 @@ export async function build({ now = new Date(), write = true, log = console.log 
   if (write) {
     mkdirSync(join(ROOT, 'data'), { recursive: true });
     writeFileSync(join(ROOT, 'data/fixtures.json'), JSON.stringify(data, null, 2) + '\n');
-    const ps = sections.find(s => s.key === 'southern-premier-south');
-    southern.writeJson(join(ROOT, 'data/premier-south.json'), { fixtures: ps.fixtures, url: ps.sources.find(x => x.role === 'base')?.url ?? southern.API_META.url, raw: sfl.used?.raw }, via);
+    if (sfl.json) writePremierSouthJson(sfl.json, join(ROOT, 'data/premier-south.json'));
+    else log('Southern League feed failed: data/premier-south.json left unchanged.');
     writeFileSync(join(ROOT, 'index.html'), renderPage(data));
-    log('Wrote data/fixtures.json, data/premier-south.json and index.html');
+    log('Wrote data/fixtures.json and index.html');
   }
   return data;
 }
