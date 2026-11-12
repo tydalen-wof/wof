@@ -1,12 +1,16 @@
 {
-  "generatedAt": "2026-11-12T13:41:34.474Z",
-  "checkedAt": "2026-11-12 13:41 GMT",
+  "generatedAt": "2026-11-12T14:01:07.976Z",
+  "checkedAt": "2026-11-12 14:01 GMT",
   "window": {
     "start": "2026-11-12",
     "end": "2026-11-22"
   },
-  "notes": [
-    "Not shown this week, because none of the named teams (config/teams.json) are involved: FA Cup, FA Trophy, UEFA Champions League, UEFA Europa League."
+  "notes": [],
+  "hidden": [
+    "FA Cup",
+    "FA Trophy",
+    "UEFA Champions League",
+    "UEFA Europa League"
   ],
   "groupLogos": {
     "International": {

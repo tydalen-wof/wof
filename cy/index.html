@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="cy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemau&#39;r Wythnos i Ddod</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+:root{--bg:#ECEFEA;--surface:#F6F8F4;--fg:#15231B;--muted:#58695E;--line:#C8D1C7;--accent:#146C43;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1712;--surface:#15211A;--fg:#E6EEE7;--muted:#94A69A;--line:#263830;--accent:#5CC48A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1712;--surface:#15211A;--fg:#E6EEE7;--muted:#94A69A;--line:#263830;--accent:#5CC48A;color-scheme:dark}
+:root[data-theme="light"]{--bg:#ECEFEA;--surface:#F6F8F4;--fg:#15231B;--muted:#58695E;--line:#C8D1C7;--accent:#146C43;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.45 "IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:28px 16px 56px}
+.hd{margin-bottom:22px}
+.kicker{margin:0 0 4px;font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font:700 clamp(2.4rem,8vw,3.6rem)/.95 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.lede{margin:10px 0 0;color:var(--muted)}
+.hd-row{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.hd-title{min-width:0}
+.lang-switch{flex:none;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--accent);text-decoration:none;font:600 .9rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em}
+.lang-switch:hover{border-color:var(--accent)}
+.lang-switch:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lang-switch svg{display:block}
+h2{margin:0;font:700 1.7rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.group{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.group-body{border-top:1px solid var(--line);padding:12px}
+.group-body>.comp,.group-body>.comp-empty{margin:0 0 10px;background:var(--bg)}
+.group-body>:last-child{margin-bottom:0}
+.comp{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.comp-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.comp-id{display:flex;align-items:center;gap:10px;min-width:0}
+.comp-logo{flex:none;width:30px;height:30px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:5px;padding:3px}
+.group-id{display:flex;align-items:center;gap:14px;min-width:0}
+.group-logo{flex:none;width:44px;height:44px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px}
+.comp-logo--dark,.group-logo--dark{background:#15231B}
+.comp-logo--purple,.group-logo--purple{background:#38003c}
+.comp-logo--navy,.group-logo--navy{background:#0a1b3d}
+.group-logo--ball{object-view-box:inset(0 22% 46% 22%)}
+.comp-t{font:700 1.4rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.group-h,.comp-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.group-h::after,.comp-h::after,.rest-line::after{content:"+";flex:none;width:1.4rem;height:1.4rem;line-height:1.3rem;text-align:center;border:1px solid var(--line);border-radius:3px;color:var(--accent);font:600 1.1rem/1.3rem "IBM Plex Sans",Arial,sans-serif}
+details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\2212"}
+.comp-body{border-top:1px solid var(--line)}
+.rest>summary{display:block}
+.rest-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.rest-line .count{margin-left:auto;margin-right:8px}
+.row{display:grid;grid-template-columns:7.5rem minmax(0,1.7fr) minmax(0,1fr);gap:4px 16px;padding:11px 16px;border-top:1px solid var(--line)}
+.comp-body>.row:first-child,.comp-body>.day:first-child{border-top:0}
+.rest-body{border-top:1px solid var(--line)}
+.when .d{display:block;color:var(--muted);font-size:.85rem}
+.when .t{display:block;font:600 1.25rem/1.1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em}
+.match{overflow-wrap:anywhere}
+.team{font-weight:400}
+.v{color:var(--muted);padding:0 .25em}
+.tags{display:block;margin-top:3px}
+.tag{display:inline-block;margin:0 4px 2px 0;padding:1px 6px;border:1px solid var(--line);border-radius:2px;color:var(--muted);font-size:.68rem;line-height:1.5;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.tag-pp{color:var(--fg);border-color:var(--fg)}
+.ven{display:block;color:var(--muted);font-size:.92rem}
+.pc{display:block;color:var(--muted);font-size:.82rem}
+.day{margin:0;padding:9px 16px 7px;border-top:1px solid var(--line);color:var(--accent);font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.notes-body{padding:0 4px 8px}
+.sub{margin:16px 0 4px;color:var(--accent);font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.notes-body ul{margin:4px 0 0;padding-left:1.1rem}
+.notes-body li{margin:3px 0;color:var(--fg);font-size:.92rem}
+.notes-body p{margin:6px 0;font-size:.92rem}
+.muted{color:var(--muted)}
+.unavailable{margin:6px 0 0;font-size:.92rem}
+@media (max-width:639px){
+  .row{grid-template-columns:1fr;gap:3px;padding:12px 16px}
+  .when .d,.when .t{display:inline}
+  .when .d{margin-right:.6em}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hd">
+<div class="hd-row">
+<div class="hd-title">
+<p class="kicker">12 Tach i 22 Tach 2026</p>
+<h1>Gemau&#39;r Wythnos i Ddod</h1>
+</div>
+<a class="lang-switch" href="../" hreflang="en" lang="en" title="English" aria-label="English"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span aria-hidden="true">EN</span></a>
+</div>
+<p class="lede">Amser y DU yw pob amser cychwyn. Cae&#39;r clwb cartref yw pob lleoliad.</p>
+</header>
+<main>
+<details class="group">
+<summary class="group-h"><div class="group-id"><img class="group-logo" src="../assets/logos/group-international.svg" alt="" width="44" height="44" decoding="async"><h2>Rhyngwladol</h2></div></summary>
+<div class="group-body">
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo comp-logo--dark" src="../assets/logos/wales.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Gemau rhyngwladol dynion Cymru</div></div></summary>
+<div class="comp-body">
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Norwy</span><span class="v">v</span><span class="team">Cymru</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A4</span></span></div>
+<div class="venue"><span class="ven">Ullevaal Stadion, Oslo</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Cymru</span><span class="v">v</span><span class="team">Portiwgal</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A4</span></span></div>
+<div class="venue"><span class="ven">Cardiff City Stadium</span></div>
+</div>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="../assets/logos/internationals.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Gemau rhyngwladol eraill y DU ac Ewrop</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<p class="day">Dydd Iau 12 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Lloegr</span><span class="v">v</span><span class="team">Croatia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A3</span></span></div>
+<div class="venue"><span class="ven">Wembley Stadium, London</span></div>
+</div>
+<p class="day">Dydd Gwener 13 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Yr Alban</span><span class="v">v</span><span class="team">Gogledd Macedonia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B1</span></span></div>
+<div class="venue"><span class="ven">Hampden Park, Glasgow</span></div>
+</div>
+<p class="day">Dydd Sadwrn 14 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Awstria</span><span class="v">v</span><span class="team">Gweriniaeth Iwerddon</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B3</span></span></div>
+<div class="venue"><span class="ven">Raiffeisen Arena, Linz</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gogledd Iwerddon</span><span class="v">v</span><span class="team">Wcráin</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B2</span></span></div>
+<div class="venue"><span class="ven">Clearer Twist National Stadium at Windsor Park, Belfast</span></div>
+</div>
+<p class="day">Dydd Sul 15 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Sbaen</span><span class="v">v</span><span class="team">Lloegr</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A3</span></span></div>
+<div class="venue"><span class="ven">Riyadh Air Metropolitano, Madrid</span></div>
+</div>
+<p class="day">Dydd Llun 16 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Y Swistir</span><span class="v">v</span><span class="team">Yr Alban</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B1</span></span></div>
+<div class="venue"><span class="ven">Berit Sitterstadion, St.Gallen</span></div>
+</div>
+<p class="day">Dydd Mawrth 17 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Hwngari</span><span class="v">v</span><span class="team">Gogledd Iwerddon</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B2</span></span></div>
+<div class="venue"><span class="ven">Puskás Aréna, Budapest</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gweriniaeth Iwerddon</span><span class="v">v</span><span class="team">Cosofo</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B3</span></span></div>
+<div class="venue"><span class="ven">Aviva Stadium, Dublin</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">45 gêm</span></div>
+</summary>
+<div class="rest-body">
+<p class="day">Dydd Iau 12 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Armenia</span><span class="v">v</span><span class="team">Cyprus</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C2</span></span></div>
+<div class="venue"><span class="ven">Republican Stadium after Vazgen Sargsyan, Yerevan</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Lithwania</span><span class="v">v</span><span class="team">Surinam</span><span class="tags"><span class="tag">Cyfeillgar</span></span></div>
+<div class="venue"><span class="ven">Dariaus ir Girėno stadionas, Kaunas</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Twrci</span><span class="v">v</span><span class="team">Gwlad Belg</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A1</span></span></div>
+<div class="venue"><span class="ven">Gürsel Aksel Stadyumu, Izmir</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">17:30</span></div>
+<div class="match"><span class="team">Malta</span><span class="v">v</span><span class="team">Eswatini</span><span class="tags"><span class="tag">Cyfeillgar</span></span></div>
+<div class="venue"><span class="ven">National Stadium, Ta&#39; Qali</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Albania</span><span class="v">v</span><span class="team">Y Ffindir</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C1</span></span></div>
+<div class="venue"><span class="ven">Air Albania Stadium, Tirana</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Tsiecia</span><span class="v">v</span><span class="team">Sbaen</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A3</span></span></div>
+<div class="venue"><span class="ven">epet ARENA, Prague</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Yr Eidal</span><span class="v">v</span><span class="team">Ffrainc</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A1</span></span></div>
+<div class="venue"><span class="ven">Stadio San Siro, Milan</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Montenegro</span><span class="v">v</span><span class="team">Latfia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C2</span></span></div>
+<div class="venue"><span class="ven">Gradski Stadion Podgorica</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Iau 12 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">San Marino</span><span class="v">v</span><span class="team">Belarws</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C1</span></span></div>
+<div class="venue"><span class="ven">San Marino Stadium, Serravalle</span></div>
+</div>
+<p class="day">Dydd Gwener 13 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Moldofa</span><span class="v">v</span><span class="team">Casachstan</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C3</span></span></div>
+<div class="venue"><span class="ven">Stadionul Zimbru, Chisinau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Andorra</span><span class="v">v</span><span class="team">Gibraltar</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp D1</span></span></div>
+<div class="venue"><span class="ven">Estadi FAF, Encamp</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Bwlgaria</span><span class="v">v</span><span class="team">Gwlad yr Iâ</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C4</span></span></div>
+<div class="venue"><span class="ven">Hristo Botev Stadium, Plovdiv</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Liechtenstein</span><span class="v">v</span><span class="team">Aserbaijan</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp D2</span></span></div>
+<div class="venue"><span class="ven">Rheinpark Stadion, Vaduz</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Lwcsembwrg</span><span class="v">v</span><span class="team">Estonia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C4</span></span></div>
+<div class="venue"><span class="ven">Stade de Luxembourg</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Yr Iseldiroedd</span><span class="v">v</span><span class="team">Gwlad Groeg</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A2</span></span></div>
+<div class="venue"><span class="ven">Johan Cruijff ArenA, Amsterdam</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Serbia</span><span class="v">v</span><span class="team">Yr Almaen</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A2</span></span></div>
+<div class="venue"><span class="ven">Stadion Rajko Mitić, Belgrade</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Slofacia</span><span class="v">v</span><span class="team">Ynysoedd Ffaröe</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C3</span></span></div>
+<div class="venue"><span class="ven">Košická Futbalová Aréna, Košice</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Slofenia</span><span class="v">v</span><span class="team">Y Swistir</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B1</span></span></div>
+<div class="venue"><span class="ven">Stadion Ljudski vrt, Maribor</span></div>
+</div>
+<p class="day">Dydd Sadwrn 14 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Cosofo</span><span class="v">v</span><span class="team">Israel</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B3</span></span></div>
+<div class="venue"><span class="ven">Stadiumi Fadil Vokrri, Pristina</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Georgia</span><span class="v">v</span><span class="team">Hwngari</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B2</span></span></div>
+<div class="venue"><span class="ven">Mikheil Meskhi Stadium, Tbilisi</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Portiwgal</span><span class="v">v</span><span class="team">Denmarc</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A4</span></span></div>
+<div class="venue"><span class="ven">Estádio Municipal de Braga</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Rwmania</span><span class="v">v</span><span class="team">Gwlad Pwyl</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B4</span></span></div>
+<div class="venue"><span class="ven">National Arena Bucharest</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Sweden</span><span class="v">v</span><span class="team">Bosnia a Herzegovina</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B4</span></span></div>
+<div class="venue"><span class="ven">Strawberry Arena, Solna</span></div>
+</div>
+<p class="day">Dydd Sul 15 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Cyprus</span><span class="v">v</span><span class="team">Montenegro</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C2</span></span></div>
+<div class="venue"><span class="ven">Alphamega Stadium, Limassol</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Latfia</span><span class="v">v</span><span class="team">Armenia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C2</span></span></div>
+<div class="venue"><span class="ven">Skonto Stadions, Riga</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Belarws</span><span class="v">v</span><span class="team">Albania</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C1</span></span></div>
+<div class="venue"><span class="ven">Illovszky Rudolf Stadion, Budapest</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Y Ffindir</span><span class="v">v</span><span class="team">San Marino</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C1</span></span></div>
+<div class="venue"><span class="ven">Bolt Arena, Helsinki</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gwlad Belg</span><span class="v">v</span><span class="team">Yr Eidal</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A1</span></span></div>
+<div class="venue"><span class="ven">King Baudouin Stadium, Brussels</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Croatia</span><span class="v">v</span><span class="team">Tsiecia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A3</span></span></div>
+<div class="venue"><span class="ven">Opus Arena, Osijek</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Ffrainc</span><span class="v">v</span><span class="team">Twrci</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A1</span></span></div>
+<div class="venue"><span class="ven">Matmut Atlantique, Bordeaux</span></div>
+</div>
+<p class="day">Dydd Llun 16 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Ynysoedd Ffaröe</span><span class="v">v</span><span class="team">Moldofa</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C3</span></span></div>
+<div class="venue"><span class="ven">Tórsvøllur, Tórshavn</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Casachstan</span><span class="v">v</span><span class="team">Slofacia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C3</span></span></div>
+<div class="venue"><span class="ven">Astana Arena</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Estonia</span><span class="v">v</span><span class="team">Bwlgaria</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C4</span></span></div>
+<div class="venue"><span class="ven">A. Le Coq Arena, Tallinn</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Gwlad yr Iâ</span><span class="v">v</span><span class="team">Lwcsembwrg</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp C4</span></span></div>
+<div class="venue"><span class="ven">Laugardalsvöllur, Reykjavik</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Lithwania</span><span class="v">v</span><span class="team">Liechtenstein</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp D2</span></span></div>
+<div class="venue"><span class="ven">Dariaus ir Girėno stadionas, Kaunas</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">18:00</span></div>
+<div class="match"><span class="team">Andorra</span><span class="v">v</span><span class="team">Aserbaijan</span><span class="tags"><span class="tag">Cyfeillgar</span></span></div>
+<div class="venue"><span class="ven">Estadi FAF, Encamp</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Yr Almaen</span><span class="v">v</span><span class="team">Yr Iseldiroedd</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A2</span></span></div>
+<div class="venue"><span class="ven">Olympiastadion, Berlin</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gibraltar</span><span class="v">v</span><span class="team">Malta</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp D1</span></span></div>
+<div class="venue"><span class="ven">Europa Point Stadium, Gibraltar</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gwlad Groeg</span><span class="v">v</span><span class="team">Serbia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A2</span></span></div>
+<div class="venue"><span class="ven">Panthessaliko, Volos</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Llun 16 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gogledd Macedonia</span><span class="v">v</span><span class="team">Slofenia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B1</span></span></div>
+<div class="venue"><span class="ven">National Arena Todor Proeski, Skopje</span></div>
+</div>
+<p class="day">Dydd Mawrth 17 Tachwedd</p>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Bosnia a Herzegovina</span><span class="v">v</span><span class="team">Rwmania</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B4</span></span></div>
+<div class="venue"><span class="ven">Stadion Bilino Polje, Zenica</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Denmarc</span><span class="v">v</span><span class="team">Norwy</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp A4</span></span></div>
+<div class="venue"><span class="ven">Parken – Connected by 3, Copenhagen</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Israel</span><span class="v">v</span><span class="team">Awstria</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B3</span></span></div>
+<div class="venue"><span class="ven">Nagyerdei Stadion, Debrecen</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gwlad Pwyl</span><span class="v">v</span><span class="team">Sweden</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B4</span></span></div>
+<div class="venue"><span class="ven">Tarczynski Arena Wroclaw</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Wcráin</span><span class="v">v</span><span class="team">Georgia</span><span class="tags"><span class="tag">Cynghrair y Cenhedloedd · Grŵp B2</span></span></div>
+<div class="venue"><span class="ven">Košická Futbalová Aréna, Košice</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+</div>
+</details>
+<details class="group">
+<summary class="group-h"><div class="group-id"><img class="group-logo" src="../assets/logos/group-welsh.svg" alt="" width="44" height="44" decoding="async"><h2>Cymru</h2></div></summary>
+<div class="group-body">
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="../assets/logos/cymru-north.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Novira Cymru North</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Holyhead Hotspur</span><span class="v">v</span><span class="team">Bala Town</span></div>
+<div class="venue"><span class="ven">The New Oval</span><span class="pc">LL65 2YE</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Brickfield Rangers</span><span class="v">v</span><span class="team">Newtown</span></div>
+<div class="venue"><span class="ven">Clywedog Park</span><span class="pc">LL14 4HE</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">8 gêm</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:30</span></div>
+<div class="match"><span class="team">Denbigh Town</span><span class="v">v</span><span class="team">Gresford Athletic</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Llanuwchllyn</span><span class="v">v</span><span class="team">Rhyl 1879</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Caersws</span><span class="v">v</span><span class="team">Denbigh Town</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Gresford Athletic</span><span class="v">v</span><span class="team">Buckley Town</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Guilsfield</span><span class="v">v</span><span class="team">Bangor City 1876</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Llanuwchllyn</span><span class="v">v</span><span class="team">Ruthin Town</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Mold Alexandra</span><span class="v">v</span><span class="team">Porthmadog</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Penrhyncoch</span><span class="v">v</span><span class="team">Rhyl 1879</span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="../assets/logos/welsh-cup.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Cwpan Cymru CBDC</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Holyhead Hotspur</span><span class="v">v</span><span class="team">Blaen-y-Maes</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">The New Oval</span><span class="pc">LL65 2YE</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Caerau Ely</span><span class="v">v</span><span class="team">Brickfield Rangers</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">14 gêm</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Baglan Dragons</span><span class="v">v</span><span class="team">Barry Town United</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Caernarfon Town</span><span class="v">v</span><span class="team">Holywell Town</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Connah&#39;s Quay Nomads</span><span class="v">v</span><span class="team">Mochdre Sports</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Penybont</span><span class="v">v</span><span class="team">Cardiff Draconians</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 13 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">The New Saints</span><span class="v">v</span><span class="team">Briton Ferry Llansawel</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Colwyn Bay</span><span class="v">v</span><span class="team">Aberystwyth Town</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Haverfordwest County</span><span class="v">v</span><span class="team">Ammanford</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Llandudno</span><span class="v">v</span><span class="team">Felinheli</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Llangennech</span><span class="v">v</span><span class="team">Newport City</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Newtown</span><span class="v">v</span><span class="team">Caerphilly Athletic</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">14:15</span></div>
+<div class="match"><span class="team">Rockspur</span><span class="v">v</span><span class="team">Pontarddulais Town</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Cardiff Met</span><span class="v">v</span><span class="team">Dolgellau AA</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">17:30</span></div>
+<div class="match"><span class="team">Trefelin</span><span class="v">v</span><span class="team">Coedpoeth United</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 15 Tach</span><span class="t">17:35</span></div>
+<div class="match"><span class="team">Cambrian United</span><span class="v">v</span><span class="team">Bangor City 1876</span><span class="tags"><span class="tag">Cwpan Cymru</span></span></div>
+<div class="venue"><span class="ven">I&#39;w gadarnhau</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+</div>
+</details>
+<details class="group">
+<summary class="group-h"><div class="group-id"><img class="group-logo group-logo--purple" src="../assets/logos/group-english.png" alt="" width="44" height="44" decoding="async"><h2>Lloegr</h2></div></summary>
+<div class="group-body">
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="../assets/logos/premier-league.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Uwch Gynghrair Lloegr</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Chelsea</span><span class="v">v</span><span class="team">Leeds United</span></div>
+<div class="venue"><span class="ven">Stamford Bridge</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 22 Tach</span><span class="t">16:30</span></div>
+<div class="match"><span class="team">Liverpool</span><span class="v">v</span><span class="team">Manchester United</span></div>
+<div class="venue"><span class="ven">Anfield</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">7 gêm</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Manchester City</span><span class="v">v</span><span class="team">Fulham</span></div>
+<div class="venue"><span class="ven">Etihad Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Aston Villa</span><span class="v">v</span><span class="team">Sunderland</span></div>
+<div class="venue"><span class="ven">Villa Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bournemouth</span><span class="v">v</span><span class="team">Nottingham Forest</span></div>
+<div class="venue"><span class="ven">Vitality Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Coventry City</span><span class="v">v</span><span class="team">Crystal Palace</span></div>
+<div class="venue"><span class="ven">Coventry Building Society Arena</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Tottenham Hotspur</span><span class="v">v</span><span class="team">Ipswich Town</span></div>
+<div class="venue"><span class="ven">Tottenham Hotspur Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">17:30</span></div>
+<div class="match"><span class="team">Newcastle United</span><span class="v">v</span><span class="team">Arsenal</span></div>
+<div class="venue"><span class="ven">St. James&#39; Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 22 Tach</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Hull City</span><span class="v">v</span><span class="team">Brighton &amp; Hove Albion</span></div>
+<div class="venue"><span class="ven">The MKM Stadium</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="../assets/logos/championship.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Y Bencampwriaeth</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Lincoln City</span><span class="v">v</span><span class="team">Wrexham</span></div>
+<div class="venue"><span class="ven">LNER Stadium</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">11 gêm</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Millwall</span><span class="v">v</span><span class="team">Queens Park Rangers</span></div>
+<div class="venue"><span class="ven">The Den</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Norwich City</span><span class="v">v</span><span class="team">Cardiff City</span></div>
+<div class="venue"><span class="ven">Carrow Road</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Southampton</span><span class="v">v</span><span class="team">Derby County</span></div>
+<div class="venue"><span class="ven">St Mary&#39;s Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bolton Wanderers</span><span class="v">v</span><span class="team">Portsmouth</span></div>
+<div class="venue"><span class="ven">University of Bolton Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Middlesbrough</span><span class="v">v</span><span class="team">Bristol City</span></div>
+<div class="venue"><span class="ven">Riverside Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Sheffield United</span><span class="v">v</span><span class="team">Watford</span></div>
+<div class="venue"><span class="ven">Bramall Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Stoke City</span><span class="v">v</span><span class="team">Birmingham City</span></div>
+<div class="venue"><span class="ven">bet365 Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Swansea City</span><span class="v">v</span><span class="team">West Bromwich Albion</span></div>
+<div class="venue"><span class="ven">Swansea.com Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">West Ham United</span><span class="v">v</span><span class="team">Preston North End</span></div>
+<div class="venue"><span class="ven">London Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wolverhampton Wanderers</span><span class="v">v</span><span class="team">Charlton Athletic</span></div>
+<div class="venue"><span class="ven">Molineux Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sul 22 Tach</span><span class="t">12:00</span></div>
+<div class="match"><span class="team">Burnley</span><span class="v">v</span><span class="team">Blackburn Rovers</span></div>
+<div class="venue"><span class="ven">Turf Moor</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="../assets/logos/league-one.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Cynghrair Un</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Sheffield Wednesday</span><span class="v">v</span><span class="team">Plymouth Argyle</span></div>
+<div class="venue"><span class="ven">Hillsborough Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Plymouth Argyle</span><span class="v">v</span><span class="team">Peterborough United</span></div>
+<div class="venue"><span class="ven">Home Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">MK Dons</span><span class="v">v</span><span class="team">Burton Albion</span></div>
+<div class="venue"><span class="ven">Stadium MK</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Mansfield Town</span><span class="v">v</span><span class="team">MK Dons</span></div>
+<div class="venue"><span class="ven">One Call Stadium</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">19 gêm</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">AFC Wimbledon</span><span class="v">v</span><span class="team">Blackpool</span></div>
+<div class="venue"><span class="ven">Cherry Red Records Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Bromley</span><span class="v">v</span><span class="team">Notts County</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">Hayes Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Doncaster Rovers</span><span class="v">v</span><span class="team">Leyton Orient</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">The Eco-Power Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Leicester City</span><span class="v">v</span><span class="team">Bradford City</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">King Power Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Luton Town</span><span class="v">v</span><span class="team">Cambridge United</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">Kenilworth Road</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Stevenage</span><span class="v">v</span><span class="team">Mansfield Town</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">The Lamex Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Stockport County</span><span class="v">v</span><span class="team">Reading</span></div>
+<div class="venue"><span class="ven">Edgeley Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wigan Athletic</span><span class="v">v</span><span class="team">Barnsley</span></div>
+<div class="venue"><span class="ven">DW Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Wycombe Wanderers</span><span class="v">v</span><span class="team">Huddersfield Town</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">Adams Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Gwe 20 Tach</span><span class="t">20:00</span></div>
+<div class="match"><span class="team">Barnsley</span><span class="v">v</span><span class="team">Sheffield Wednesday</span></div>
+<div class="venue"><span class="ven">Oakwell Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Blackpool</span><span class="v">v</span><span class="team">Wigan Athletic</span></div>
+<div class="venue"><span class="ven">Bloomfield Road</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Reading</span><span class="v">v</span><span class="team">Bromley</span></div>
+<div class="venue"><span class="ven">The Select Car Leasing Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bradford City</span><span class="v">v</span><span class="team">Doncaster Rovers</span></div>
+<div class="venue"><span class="ven">University of Bradford Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Burton Albion</span><span class="v">v</span><span class="team">Luton Town</span></div>
+<div class="venue"><span class="ven">Pirelli Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Cambridge United</span><span class="v">v</span><span class="team">Stockport County</span></div>
+<div class="venue"><span class="ven">Abbey Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Huddersfield Town</span><span class="v">v</span><span class="team">Leicester City</span></div>
+<div class="venue"><span class="ven">The John Smith&#39;s Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Leyton Orient</span><span class="v">v</span><span class="team">AFC Wimbledon</span></div>
+<div class="venue"><span class="ven">Breyer Group Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Notts County</span><span class="v">v</span><span class="team">Stevenage</span></div>
+<div class="venue"><span class="ven">Meadow Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Oxford United</span><span class="v">v</span><span class="team">Wycombe Wanderers</span></div>
+<div class="venue"><span class="ven">Kassam Stadium</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo comp-logo--dark" src="../assets/logos/southern-premier-south.webp" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Southern League Premier South</div></div></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Hanwell Town</span><span class="v">v</span><span class="team">Plymouth Parkway</span></div>
+<div class="venue"><span class="ven">Oliver Connell and Sons Community Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Plymouth Parkway</span><span class="v">v</span><span class="team">Malvern Town</span></div>
+<div class="venue"><span class="ven">Bolitho Park</span><span class="pc">Cod post heb ei ganfod</span></div>
+</div>
+<div class="rest-line"><span>Gemau eraill</span><span class="count">25 gêm</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Basingstoke Town</span><span class="v">v</span><span class="team">Chippenham Town</span></div>
+<div class="venue"><span class="ven">Winklebury Football Complex</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Bath City</span><span class="v">v</span><span class="team">Berkhamsted</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">Cannon Clarke Stadium @ Twerton Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Bracknell Town</span><span class="v">v</span><span class="team">Uxbridge</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">The SB Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Chertsey Town</span><span class="v">v</span><span class="team">Wimborne Town</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">Alwyns Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Evesham United</span><span class="v">v</span><span class="team">Gosport Borough</span></div>
+<div class="venue"><span class="ven">The Spiers &amp; Hartwell Jubilee Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Frome Town</span><span class="v">v</span><span class="team">Hanworth Villa</span></div>
+<div class="venue"><span class="ven">Badgers Hill Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Gloucester City</span><span class="v">v</span><span class="team">Sholing</span></div>
+<div class="venue"><span class="ven">KMM Energy Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Havant &amp; Waterlooville</span><span class="v">v</span><span class="team">Yate Town</span></div>
+<div class="venue"><span class="ven">Westleigh Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Malvern Town</span><span class="v">v</span><span class="team">Chichester City</span><span class="tags"><span class="tag tag-pp">Gohiriwyd</span></span></div>
+<div class="venue"><span class="ven">HDAnywhere Community Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 14 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Poole Town</span><span class="v">v</span><span class="team">Taunton Town</span></div>
+<div class="venue"><span class="ven">Clear Group Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Chippenham Town</span><span class="v">v</span><span class="team">Sholing</span></div>
+<div class="venue"><span class="ven">Thornbury Surfacing Ltd Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Havant &amp; Waterlooville</span><span class="v">v</span><span class="team">Bracknell Town</span></div>
+<div class="venue"><span class="ven">Westleigh Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Maw 17 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Poole Town</span><span class="v">v</span><span class="team">Wimborne Town</span></div>
+<div class="venue"><span class="ven">Clear Group Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mer 18 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Frome Town</span><span class="v">v</span><span class="team">Gloucester City</span></div>
+<div class="venue"><span class="ven">Badgers Hill Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mer 18 Tach</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gosport Borough</span><span class="v">v</span><span class="team">Chertsey Town</span></div>
+<div class="venue"><span class="ven">AEI Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Berkhamsted</span><span class="v">v</span><span class="team">Frome Town</span></div>
+<div class="venue"><span class="ven">The Glencar Community Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Chichester City</span><span class="v">v</span><span class="team">Basingstoke Town</span></div>
+<div class="venue"><span class="ven">Oaklands Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Chippenham Town</span><span class="v">v</span><span class="team">Bracknell Town</span></div>
+<div class="venue"><span class="ven">Thornbury Surfacing Ltd Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Gosport Borough</span><span class="v">v</span><span class="team">Havant &amp; Waterlooville</span></div>
+<div class="venue"><span class="ven">AEI Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Hanworth Villa</span><span class="v">v</span><span class="team">Poole Town</span></div>
+<div class="venue"><span class="ven">Rectory Meadow</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Sholing</span><span class="v">v</span><span class="team">Evesham United</span></div>
+<div class="venue"><span class="ven">The Mortgage Decisions Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Taunton Town</span><span class="v">v</span><span class="team">Chertsey Town</span></div>
+<div class="venue"><span class="ven">Wordsworth Drive</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Uxbridge</span><span class="v">v</span><span class="team">Gloucester City</span></div>
+<div class="venue"><span class="ven">Uxbridge FC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wimborne Town</span><span class="v">v</span><span class="team">Bath City</span></div>
+<div class="venue"><span class="ven">Wyatt Homes Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sad 21 Tach</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Yate Town</span><span class="v">v</span><span class="team">Hanwell Town</span></div>
+<div class="venue"><span class="ven">South West Interiors Stadium</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+</div>
+</details>
+<details class="group travel">
+<summary class="group-h"><h2>Cyn i chi deithio</h2></summary>
+<div class="group-body">
+<div class="notes-body">
+<p class="muted">Mae rhai o&#39;r nodiadau technegol isod yn Saesneg yn unig.</p><p class="sub">Gwahaniaethau rhwng ffynonellau</p><ul><li lang="en">Other UK and European internationals: ESPN lists Surinam v Eswatini on Sun 15 Nov, but UEFA (official feed) does not. It was not added.</li><li lang="en">Other UK and European internationals: sources name the venue differently for 18 games (sponsor names or spelling). The first source&#39;s name is shown. Example: (UEFA (official feed) &quot;Tarczynski Arena Wroclaw&quot;, ESPN &quot;Municipal Stadium Wroclaw&quot;).</li><li lang="en">Southern League Premier South: sources name the venue differently for 1 game (sponsor names or spelling). The first source&#39;s name is shown. Example: (Southern League (official feed) &quot;Oliver Connell and Sons Community Stadium&quot;, Plymouth Parkway website &quot;The Powerday Stadium&quot;).</li></ul><p class="sub">Gohiriadau</p><ul><li>Cynghrair Un: Gohiriwyd Bromley v Notts County, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Cynghrair Un: Gohiriwyd Doncaster Rovers v Leyton Orient, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Cynghrair Un: Gohiriwyd Leicester City v Bradford City, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Cynghrair Un: Gohiriwyd Luton Town v Cambridge United, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Cynghrair Un: Gohiriwyd Stevenage v Mansfield Town, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Cynghrair Un: Gohiriwyd Wycombe Wanderers v Huddersfield Town, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Southern League Premier South: Gohiriwyd Bath City v Berkhamsted, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Southern League Premier South: Gohiriwyd Bracknell Town v Uxbridge, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Southern League Premier South: Gohiriwyd Chertsey Town v Wimborne Town, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li><li>Southern League Premier South: Gohiriwyd Malvern Town v Chichester City, Sad 14 Tach. Peidiwch â theithio nes bod dyddiad newydd.</li></ul><ul><li lang="en">Wales men&#39;s internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed.</li><li lang="en">Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed.</li><li lang="en">Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.</li><li lang="en">FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.</li><li lang="en">Premier League: postponements checked in Premier League (official feed), Sky Sports; none marked postponed.</li><li lang="en">Championship: postponements checked in EFL (official feed), Sky Sports; none marked postponed.</li><li lang="en">League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above).</li><li lang="en">Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above).</li></ul><p class="sub">I&#39;w gadarnhau</p><ul><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Denbigh Town v Gresford Athletic, Gwe 13 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Llanuwchllyn v Rhyl 1879, Sad 14 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Caersws v Denbigh Town, Sad 21 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Gresford Athletic v Buckley Town, Sad 21 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Guilsfield v Bangor City 1876, Sad 21 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Llanuwchllyn v Ruthin Town, Sad 21 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Mold Alexandra v Porthmadog, Sad 21 Tach.</li><li>Novira Cymru North: lleoliad i&#39;w gadarnhau ar gyfer Penrhyncoch v Rhyl 1879, Sad 21 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Baglan Dragons v Barry Town United, Gwe 13 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Caernarfon Town v Holywell Town, Gwe 13 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Connah&#39;s Quay Nomads v Mochdre Sports, Gwe 13 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Penybont v Cardiff Draconians, Gwe 13 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer The New Saints v Briton Ferry Llansawel, Gwe 13 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Caerau Ely v Brickfield Rangers, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Colwyn Bay v Aberystwyth Town, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Haverfordwest County v Ammanford, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Llandudno v Felinheli, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Llangennech v Newport City, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Newtown v Caerphilly Athletic, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Rockspur v Pontarddulais Town, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Cardiff Met v Dolgellau AA, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Trefelin v Coedpoeth United, Sad 14 Tach.</li><li>Cwpan Cymru CBDC: lleoliad i&#39;w gadarnhau ar gyfer Cambrian United v Bangor City 1876, Sul 15 Tach.</li></ul><p class="sub">Rhybuddion</p><ul><li>Heb eu dangos yr wythnos hon, gan nad oes unrhyw un o&#39;r timau a enwir (config/teams.json) yn chwarae: Cwpan yr FA, Tlws yr FA, Cynghrair y Pencampwyr UEFA, Cynghrair Europa UEFA.</li></ul><ul><li lang="en">Novira Cymru North: The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.</li><li lang="en">Novira Cymru North: LL14 4HE for Clywedog Park comes from a single source.</li><li lang="en">Novira Cymru North: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li lang="en">Novira Cymru North: No postcode stored yet for 7 of 9 home grounds: Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Penrhyncoch. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li lang="en">FAW Welsh Cup: The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.</li><li lang="en">FAW Welsh Cup: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li lang="en">FAW Welsh Cup: 1 venue(s) come from the stored home grounds (data/postcodes.json). A cup tie is not always played at the home club&#39;s usual ground.</li><li lang="en">FAW Welsh Cup: No postcode stored yet for 15 of 16 home grounds: Baglan Dragons, Caerau Ely, Caernarfon Town, Cambrian United, Cardiff Met, Colwyn Bay, Connah&#39;s Quay Nomads, Haverfordwest County, Llandudno, Llangennech, Newtown, Penybont and 3 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li lang="en">Championship: The EFL team feed lists no stadium for Wolverhampton Wanderers, Sheffield United, Burnley, West Ham United. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li lang="en">League One: The EFL team feed lists no stadium for Luton Town, Bromley. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li lang="en">Southern League Premier South: BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements.</li><li lang="en">Southern League Premier South: No postcode stored yet for 22 of 22 home grounds: Basingstoke Town, Bath City, Berkhamsted, Bracknell Town, Chertsey Town, Chichester City, Chippenham Town, Evesham United, Frome Town, Gloucester City, Gosport Borough, Hanwell Town and 10 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li></ul><p class="sub">Ffynonellau</p><ul><li>Gemau rhyngwladol dynion Cymru: UEFA (official feed) (prif restr); ESPN (croeswirio); Sky Sports (croeswirio).</li><li>Gemau rhyngwladol eraill y DU ac Ewrop: UEFA (official feed) (prif restr); ESPN (croeswirio).</li><li>Novira Cymru North: FAW Cymru Leagues website (prif restr).</li><li>Cwpan Cymru CBDC: FAW Welsh Cup website (prif restr).</li><li>Uwch Gynghrair Lloegr: Premier League (official feed) (prif restr); Sky Sports (croeswirio).</li><li>Y Bencampwriaeth: EFL (official feed) (prif restr); Sky Sports (croeswirio).</li><li>Cynghrair Un: EFL (official feed) (prif restr); Sky Sports (croeswirio).</li><li>Southern League Premier South: Southern League (official feed) (prif restr); Plymouth Parkway website (croeswirio); BetExplorer (croeswirio).</li></ul><p class="sub">Gwiriwyd am</p><p>2026-11-12 14:01 GMT (amser y DU)</p>
+</div>
+</div>
+</details>
+</main>
+</div>
+</body>
+</html>

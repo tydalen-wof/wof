@@ -1,0 +1,91 @@
+details.group
+  summary.group-h Rhyngwladol
+  details.comp
+    summary.comp-h Gemau rhyngwladol dynion Cymru
+    row | Sad 14 Tach 17:00 | Norwy v Cymru Cynghrair y Cenhedloedd · Grŵp A4 | Ullevaal Stadion, Oslo
+    row | Maw 17 Tach 19:45 | Cymru v Portiwgal Cynghrair y Cenhedloedd · Grŵp A4 | Cardiff City Stadium
+  details.comp
+    summary.comp-h Gemau rhyngwladol eraill y DU ac Ewrop
+    details.rest
+      summary.rest-s
+      day: Dydd Iau 12 Tachwedd
+      row | Iau 12 Tach 19:45 | Lloegr v Croatia Cynghrair y Cenhedloedd · Grŵp A3 | Wembley Stadium, London
+      day: Dydd Gwener 13 Tachwedd
+      row | Gwe 13 Tach 19:45 | Yr Alban v Gogledd Macedonia Cynghrair y Cenhedloedd · Grŵp B1 | Hampden Park, Glasgow
+      day: Dydd Sul 15 Tachwedd
+      row | Sul 15 Tach 19:45 | Sbaen v Lloegr Cynghrair y Cenhedloedd · Grŵp A3 | Metropolitano, Madrid
+      rest-line: Gemau eraill 2 gêm
+      rest-body
+      day: Dydd Sadwrn 14 Tachwedd
+      row | Sad 14 Tach 17:00 | Ffrainc v Twrci Cyfeillgar | I'w gadarnhau
+      row | Sad 14 Tach 19:45 | Awstria v Gweriniaeth Iwerddon Cynghrair y Cenhedloedd · Grŵp B3 | Raiffeisen Arena, Linz
+details.group
+  summary.group-h Cymru
+  details.comp
+    summary.comp-h Novira Cymru North
+    details.rest
+      summary.rest-s
+      row | Sad 14 Tach 14:00 | Bala Town v Holyhead Hotspur | I'w gadarnhau
+      row | Sad 21 Tach 14:00 | Holyhead Hotspur v Bala Town | The New Oval LL65 2YE
+      row | Sad 21 Tach 14:00 | Brickfield Rangers v Newtown | Clywedog Park LL14 4HE
+      row | Sad 14 Tach 14:00 | Followed No Postcode v Rhyl 1879 | Some Ground Cod post heb ei ganfod
+      rest-line: Gemau eraill 1 gêm
+      rest-body
+      row | Sad 14 Tach 14:00 | Llanuwchllyn v Rhyl 1879 | I'w gadarnhau
+  details.comp
+    summary.comp-h Cwpan Cymru CBDC
+    details.rest
+      summary.rest-s
+      row | Sad 14 Tach 14:00 | Holyhead Hotspur v Blaen-y-Maes Cwpan Cymru | The New Oval LL65 2YE
+      row | Sad 14 Tach 14:00 | Caerau Ely v Brickfield Rangers Cwpan Cymru | I'w gadarnhau
+      rest-line: Gemau eraill 1 gêm
+      rest-body
+      row | Sad 14 Tach 14:00 | Newtown v Caerphilly Athletic Cwpan Cymru | I'w gadarnhau
+details.group
+  summary.group-h Lloegr
+  details.comp
+    summary.comp-h Uwch Gynghrair Lloegr
+    details.rest
+      summary.rest-s
+      row | Sad 21 Tach 15:00 | Chelsea v Leeds United | Stamford Bridge
+      row | Sul 22 Tach 16:30 | Liverpool v Manchester United | Anfield
+      rest-line: Gemau eraill 2 gêm
+      rest-body
+      row | Sad 21 Tach 12:30 | Manchester City v Fulham | Etihad Stadium
+      row | Sad 21 Tach 15:00 | Aston Villa v Sunderland | Villa Park
+  details.comp
+    summary.comp-h Cynghrair Un
+    details.rest
+      summary.rest-s
+      row | Sad 14 Tach 15:00 | Sheffield Wednesday v Plymouth Argyle | Hillsborough Stadium
+      row | Sad 21 Tach 15:00 | Mansfield Town v MK Dons | One Call Stadium
+      rest-line: Gemau eraill 2 gêm
+      rest-body
+      row | Sad 14 Tach 15:00 | Bromley v Notts County Gohiriwyd | Hayes Lane
+      row | Gwe 20 Tach I'w gadarnhau | Barnsley v Sheffield Wednesday | I'w gadarnhau
+  details.comp
+    summary.comp-h Southern League Premier South
+    row | Sad 14 Tach 15:00 | Hanwell Town v Plymouth Parkway | Oliver Connell and Sons Community Stadium
+    row | Sad 21 Tach 15:00 | Plymouth Parkway v Malvern Town | Bolitho Park TE5 7ST
+  section.comp-empty Cwpan yr FA Methwyd â darllen y ffynhonnell. Gweler 'Cyn i chi deithio'.
+  details.comp
+    summary.comp-h Tlws yr FA
+    details.rest
+      summary.rest-s
+      rest-line: Gemau eraill 3 gêm
+      rest-body
+      row | Sad 14 Tach 15:00 | Bath City v Truro City Tlws yr FA | Twerton Park TE5 7ST
+      row | Sad 14 Tach 15:00 | Hebburn Town v Guiseley AFC Ail Rownd | I'w gadarnhau
+      row | Sad 14 Tach 15:00 | Holyhead Hotspur v Chorley Ail Rownd | I'w gadarnhau
+details.group
+  summary.group-h Clybiau Ewrop
+  details.comp
+    summary.comp-h Cynghrair y Pencampwyr UEFA
+    details.rest
+      summary.rest-s
+      row | Mer 25 Tach 20:00 | Club Brugge v Liverpool Cyfnod y Gynghrair · Diwrnod gêm 5 | Jan Breydelstadion, Bruges
+      rest-line: Gemau eraill 1 gêm
+      rest-body
+      row | Mer 25 Tach 20:00 | Leipzig v Lens Cyfnod y Gynghrair · Diwrnod gêm 5 | Red Bull Arena, Leipzig
+details.group.travel
+  summary.group-h Cyn i chi deithio

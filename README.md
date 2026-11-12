@@ -13,7 +13,7 @@ BUILD_DATE=2026-11-12 node scripts/build.mjs # builds for another run date
 npm test
 ```
 
-- Output: `index.html`, `data/fixtures.json`, and any new teams added to `data/postcodes.json` (see Postcodes).
+- Output: `index.html` (English), `cy/index.html` (Welsh), `data/fixtures.json`, and any new teams added to `data/postcodes.json` (see Postcodes).
 - Window: run date through the Sunday after next (Thursday to Sunday, 11 days).
 - The build fails, and writes nothing, if no source can be read for the Premier League or the Championship.
 - Behind an HTTP proxy, Node's `fetch` ignores `HTTPS_PROXY` unless `NODE_USE_ENV_PROXY=1` is also set.
@@ -22,7 +22,7 @@ npm test
 
 - Pages: Settings > Pages > Deploy from branch > `main` / root.
 - `.github/workflows/report.yml` runs Thursdays 05:30 UTC and on demand (Actions > Weekly fixtures report > Run workflow).
-- It builds, tests, then commits `index.html`, `data/fixtures.json` and `data/postcodes.json` if they changed. A failed build or test commits nothing.
+- It builds, tests, then commits `index.html`, `cy/index.html`, `data/fixtures.json` and `data/postcodes.json` if they changed. A failed build or test commits nothing.
 - Scheduled runs can be delayed by GitHub during busy periods. The page states its own checked-at time.
 
 ## Page layout
@@ -41,6 +41,16 @@ Four top-level groups, each a collapsed accordion with an icon in its header, ho
 - **Exception:** a competition whose source could not be read, or whose list is known to be incomplete, is always shown with a warning, because nobody can say that no named team is involved.
 - Each competition has a small logo beside its title, and each group a larger icon in its header (see Logos).
 - To move a competition between groups, or reorder them, edit `SECTIONS` in `scripts/build.mjs`.
+
+## Welsh version
+
+The same report in Welsh is at `cy/` (https://tydalen-wof.github.io/wof/cy/). A small globe icon with the other language's code (CY or EN) sits at the top right of the title row on both pages and links to the other one. There is no JavaScript: they are two static pages built from the same data, so the Welsh page is always as fresh as the English one.
+
+- **Translated:** the page text; dates and weekdays (Sad 14 Tach, Dydd Iau 12 Tachwedd); group and competition names; tags (rounds, matchdays, group letters, "Postponed"); the "Other fixtures" line (Gemau eraill); national-team names (Cymru, Lloegr, Yr Alban, Gweriniaeth Iwerddon…); and the lines "Before you travel" writes itself.
+- **Not translated:** club and ground names (they are proper names), and the free-text technical notes written by the collectors (source conflicts, caveats, postponement checks). These stay in English, are marked `lang="en"`, and the Welsh page says so in one line.
+- **The wording is a draft.** It was written without a Welsh speaker's review, so please have it checked. All of it is in `config/lang.cy.json`: edit and rebuild, no code changes. Anything missing from that file shows in English (an untranslated tag is shown whole in English rather than half-translated).
+- Followed teams, de-duplication and the postcode lookup all work on the English names. Only the display changes.
+- Tests check that the Welsh file has every string the page uses (with the same `{placeholders}`), that the two pages have the same structure, and that no English leaks through. `test/snapshots/structure.cy.txt` shows the Welsh page's text outline for review.
 
 ## Sources
 
@@ -145,10 +155,12 @@ Edit `config/teams.json` and rebuild. No code changes.
 
 ```text
 config/teams.json        followed teams, aliases, fallback grounds
+config/lang.cy.json      the Welsh wording for the Welsh page (a draft: needs review by a Welsh speaker)
+cy/index.html            the Welsh page (built; the English page is index.html)
 data/postcodes.json      lookup of known non-league grounds and postcodes (grows as teams are seen)
 scripts/collect/*.mjs    one module per source: returns normalised fixtures, notes and success or failure
                          (faw.mjs is the shared faw.cymru reader; fa.mjs reads the FA Cup and FA Trophy pages)
-scripts/lib/             UK-time helpers (Intl), HTTP helper, team-name matching, reconciliation,
+scripts/lib/             UK-time helpers (Intl), languages (i18n.mjs), HTTP helper, team-name matching, reconciliation,
                          postcode lookup, and the rule for leaving a competition off the page
 scripts/build.mjs        collect, reconcile, write JSON and HTML
 scripts/render.mjs       data to HTML

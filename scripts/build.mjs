@@ -1,4 +1,4 @@
-// Collect -> reconcile -> write data/fixtures.json and index.html.
+// Collect -> reconcile -> write data/fixtures.json, index.html (English) and cy/index.html (Welsh).
 //   node scripts/build.mjs                  (run date = today in Europe/London)
 //   BUILD_DATE=2026-11-12 node scripts/build.mjs
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -12,6 +12,7 @@ import { teamKey, makeResolver } from './lib/teams.mjs';
 import { loadLookup, saveLookup, makeFinder, applyLookup, mergeAdditions, LOOKUP_PATH } from './lib/postcodes.mjs';
 import { shouldHide } from './lib/visibility.mjs';
 import { renderPage } from './render.mjs';
+import { makeLang } from './lib/i18n.mjs';
 import * as premierLeague from './collect/premier-league.mjs';
 import * as efl from './collect/efl.mjs';
 import * as sky from './collect/sky.mjs';
@@ -110,12 +111,6 @@ function groupLogos(groups) {
     if (e.file && existsSync(join(ROOT, e.file))) out[name] = { src: e.file, ...(e.chip ? { chip: e.chip } : {}), ...(e.crop ? { crop: e.crop } : {}) };
   }
   return out;
-}
-
-/** One line naming the competitions left out of the page, so their absence is explained. */
-function hiddenNote(sections) {
-  const names = sections.filter(s => s.hidden).map(s => s.name);
-  return names.length ? [`Not shown this week, because none of the named teams (config/teams.json) are involved: ${names.join(', ')}.`] : [];
 }
 
 /** If the Southern League feed fails: Parkway's own site for Parkway rows, BetExplorer for the rest. */
@@ -222,7 +217,8 @@ export async function build({ now = new Date(), write = true, log = console.log,
     generatedAt: now.toISOString(),
     checkedAt: londonStamp(now),
     window,
-    notes: hiddenNote(sections),
+    notes: [],
+    hidden: sections.filter(s => s.hidden).map(s => s.name),
     groupLogos: groupLogos(logoConfig.groups ?? {}),
     sections,
     fixtures: sections.flatMap(s => s.fixtures),
@@ -231,9 +227,13 @@ export async function build({ now = new Date(), write = true, log = console.log,
     mkdirSync(join(ROOT, 'data'), { recursive: true });
     writeFileSync(join(ROOT, 'data/fixtures.json'), JSON.stringify(data, null, 2) + '\n');
     writeFileSync(join(ROOT, 'index.html'), renderPage(data));
+    // The Welsh page: same data, drawn in Welsh. It lives in cy/ so its address is .../cy/ and its assets are ../assets/...
+    mkdirSync(join(ROOT, 'cy'), { recursive: true });
+    const cyPack = JSON.parse(readFileSync(join(ROOT, 'config/lang.cy.json'), 'utf8'));
+    writeFileSync(join(ROOT, 'cy/index.html'), renderPage(data, { lang: makeLang('cy', cyPack) }));
     const added = mergeAdditions(lookup, { additions, venueFills }, today);
     if (added) { saveLookup(lookup, lookupPath); log(`Added ${added} entr${added === 1 ? 'y' : 'ies'} to data/postcodes.json`); }
-    log('Wrote data/fixtures.json and index.html');
+    log('Wrote data/fixtures.json, index.html and cy/index.html');
   }
   return data;
 }
