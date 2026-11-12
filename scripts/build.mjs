@@ -46,8 +46,8 @@ export const SECTIONS = [
   { key: 'southern-premier-south', group: 'English', name: 'Southern League Premier South', layout: 'rows', lookup: true, nonLeague: true, record: true, recordVenue: true },
   { key: 'fa-cup', group: 'English', name: 'FA Cup', layout: 'rows', cup: true, lookup: true },
   { key: 'fa-trophy', group: 'English', name: 'FA Trophy', layout: 'rows', cup: true, lookup: true, nonLeague: true, record: true },
-  { key: 'champions-league', group: 'English', name: 'UEFA Champions League', layout: 'rows', cup: true },
-  { key: 'europa-league', group: 'English', name: 'UEFA Europa League', layout: 'rows', cup: true },
+  { key: 'champions-league', group: 'European clubs', name: 'UEFA Champions League', layout: 'rows', cup: true },
+  { key: 'europa-league', group: 'European clubs', name: 'UEFA Europa League', layout: 'rows', cup: true },
 ];
 
 const isWales = f => f.home === 'Wales' || f.away === 'Wales';
@@ -103,6 +103,15 @@ function sectionFrom(def, rec, results, config, extraNotes = []) {
   };
 }
 
+/** The icon in each group's header: { "Welsh": { src, chip?, crop? } }, for groups whose file exists. */
+function groupLogos(groups) {
+  const out = {};
+  for (const [name, e] of Object.entries(groups)) {
+    if (e.file && existsSync(join(ROOT, e.file))) out[name] = { src: e.file, ...(e.chip ? { chip: e.chip } : {}), ...(e.crop ? { crop: e.crop } : {}) };
+  }
+  return out;
+}
+
 /** One line naming the competitions left out of the page, so their absence is explained. */
 function hiddenNote(sections) {
   const names = sections.filter(s => s.hidden).map(s => s.name);
@@ -126,7 +135,8 @@ export async function build({ now = new Date(), write = true, log = console.log,
   const today = process.env.BUILD_DATE || londonToday(now);
   const window = windowFor(today);
   const ctx = { today, window, config, now };
-  const logos = existsSync(join(ROOT, 'config/logos.json')) ? JSON.parse(readFileSync(join(ROOT, 'config/logos.json'), 'utf8')).logos : {};
+  const logoConfig = existsSync(join(ROOT, 'config/logos.json')) ? JSON.parse(readFileSync(join(ROOT, 'config/logos.json'), 'utf8')) : {};
+  const logos = logoConfig.logos ?? {};
   const lookup = loadLookup(lookupPath);
   const finder = makeFinder(lookup, config.aliases);
   log(`Window ${window.start} to ${window.end} (run date ${today}, UK time)`);
@@ -213,6 +223,7 @@ export async function build({ now = new Date(), write = true, log = console.log,
     checkedAt: londonStamp(now),
     window,
     notes: hiddenNote(sections),
+    groupLogos: groupLogos(logoConfig.groups ?? {}),
     sections,
     fixtures: sections.flatMap(s => s.fixtures),
   };

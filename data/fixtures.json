@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-12T12:55:00.727Z",
-  "checkedAt": "2026-11-12 12:55 GMT",
+  "generatedAt": "2026-11-12T13:41:34.474Z",
+  "checkedAt": "2026-11-12 13:41 GMT",
   "window": {
     "start": "2026-11-12",
     "end": "2026-11-22"
@@ -8,6 +8,23 @@
   "notes": [
     "Not shown this week, because none of the named teams (config/teams.json) are involved: FA Cup, FA Trophy, UEFA Champions League, UEFA Europa League."
   ],
+  "groupLogos": {
+    "International": {
+      "src": "assets/logos/group-international.svg"
+    },
+    "Welsh": {
+      "src": "assets/logos/group-welsh.svg"
+    },
+    "English": {
+      "src": "assets/logos/group-english.png",
+      "chip": "purple"
+    },
+    "European clubs": {
+      "src": "assets/logos/group-european-clubs.svg",
+      "chip": "navy",
+      "crop": "ball"
+    }
+  },
   "sections": [
     {
       "key": "wales",
@@ -2974,7 +2991,7 @@
     },
     {
       "key": "champions-league",
-      "group": "English",
+      "group": "European clubs",
       "name": "UEFA Champions League",
       "layout": "rows",
       "followed": [
@@ -3010,7 +3027,7 @@
     },
     {
       "key": "europa-league",
-      "group": "English",
+      "group": "European clubs",
       "name": "UEFA Europa League",
       "layout": "rows",
       "followed": [

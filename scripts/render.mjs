@@ -29,7 +29,12 @@ h2{margin:0;font:700 1.7rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Ne
 .comp-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
 .comp-id{display:flex;align-items:center;gap:10px;min-width:0}
 .comp-logo{flex:none;width:30px;height:30px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:5px;padding:3px}
-.comp-logo--dark{background:#15231B}
+.group-id{display:flex;align-items:center;gap:14px;min-width:0}
+.group-logo{flex:none;width:44px;height:44px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px}
+.comp-logo--dark,.group-logo--dark{background:#15231B}
+.comp-logo--purple,.group-logo--purple{background:#38003c}
+.comp-logo--navy,.group-logo--navy{background:#0a1b3d}
+.group-logo--ball{object-view-box:inset(0 22% 46% 22%)}
 .comp-t{font:700 1.4rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
@@ -118,7 +123,9 @@ export function partition(fixtures, followed, { chronological = false } = {}) {
 // role="heading" aria-level="3" gives assistive technology the same outline.
 const compTitle = name => `<div class="comp-t" role="heading" aria-level="3">${esc(name)}</div>`;
 // The logo is decorative (the title beside it names the competition), so its alt text is empty.
-const logoImg = s => (s.logo ? `<img class="comp-logo${s.logoChip === 'dark' ? ' comp-logo--dark' : ''}" src="${esc(s.logo)}" alt="" width="30" height="30" loading="lazy" decoding="async">` : '');
+const CHIPS = ['dark', 'purple', 'navy'];                 // backings for logos drawn in white or on a brand colour; default is white
+const chipClass = (prefix, chip) => (CHIPS.includes(chip) ? ` ${prefix}--${chip}` : '');
+const logoImg = s => (s.logo ? `<img class="comp-logo${chipClass('comp-logo', s.logoChip)}" src="${esc(s.logo)}" alt="" width="30" height="30" loading="lazy" decoding="async">` : '');
 const compHead = s => `<div class="comp-id">${logoImg(s)}${compTitle(s.name)}</div>`;
 
 function plainHeading(s, unavailable = false) {
@@ -162,9 +169,13 @@ function renderSection(s) {
 
 // ---------- groups ----------
 /** A top-level accordion holding competition accordions. (Groups are only built from competitions that are shown.) */
-function renderGroup(name, sections) {
+function renderGroup(name, sections, logo) {
+  // The group's icon sits in its header: clicking the icon (or the title) opens the group's competition cards.
+  const img = logo?.src
+    ? `<img class="group-logo${chipClass('group-logo', logo.chip)}${logo.crop === 'ball' ? ' group-logo--ball' : ''}" src="${esc(logo.src)}" alt="" width="44" height="44" decoding="async">`
+    : '';
   return `<details class="group">
-<summary class="group-h"><h2>${esc(name)}</h2></summary>
+<summary class="group-h"><div class="group-id">${img}<h2>${esc(name)}</h2></div></summary>
 <div class="group-body">
 ${sections.map(renderSection).join('\n')}
 </div>
@@ -172,7 +183,7 @@ ${sections.map(renderSection).join('\n')}
 }
 
 /** Groups appear in the order their first section appears. A section with no group stands alone at the top level. */
-function renderSections(sections) {
+function renderSections(sections, groupLogos = {}) {
   const out = [];
   const seen = new Map();
   for (const s of sections) {
@@ -180,7 +191,7 @@ function renderSections(sections) {
     if (!seen.has(s.group)) { seen.set(s.group, []); out.push({ group: s.group }); }
     seen.get(s.group).push(s);
   }
-  return out.map(o => (typeof o === 'string' ? o : renderGroup(o.group, seen.get(o.group)))).join('\n');
+  return out.map(o => (typeof o === 'string' ? o : renderGroup(o.group, seen.get(o.group), groupLogos[o.group]))).join('\n');
 }
 
 // ---------- travel notes ----------
@@ -264,7 +275,7 @@ export function renderPage(fullData) {
 <p class="lede">All kick-off times are UK time. Venues are the home club's ground.</p>
 </header>
 <main>
-${renderSections(data.sections)}
+${renderSections(data.sections, data.groupLogos)}
 ${renderTravel(data)}
 </main>
 </div>

@@ -77,6 +77,8 @@ details.group
       row | Sat 14 Nov 15:00 | Bath City v Truro City FA Trophy | Twerton Park TE5 7ST
       row | Sat 14 Nov 15:00 | Hebburn Town v Guiseley AFC Second Round Proper | TBC
       row | Sat 14 Nov 15:00 | Holyhead Hotspur v Chorley Second Round Proper | TBC
+details.group
+  summary.group-h European clubs
   details.comp
     summary.comp-h UEFA Champions League
     details.rest

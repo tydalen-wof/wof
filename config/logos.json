@@ -1,5 +1,5 @@
 {
-  "_comment": "Competition logos, one per section key (see SECTIONS in scripts/build.mjs). Run: node scripts/fetch-logos.mjs [--force] [key ...]. It downloads each url once to assets/logos/ and records file and retrievedAt here. Logos are trademarks of their owners and are used only to identify the competition. \"chip\": \"dark\" is for logos drawn in white, which show on a dark backing instead of the default white one.",
+  "_comment": "Competition logos, one per section key (see SECTIONS in scripts/build.mjs). Run: node scripts/fetch-logos.mjs [--force] [key ...]. It downloads each url once to assets/logos/ and records file and retrievedAt here. Logos are trademarks of their owners and are used only to identify the competition. \"chip\": \"dark\" is for logos drawn in white, which show on a dark backing instead of the default white one. \"groups\" holds the larger icon in each group header; \"chip\" can be dark, purple or navy; \"crop\": \"ball\" shows only the top of the image.",
   "logos": {
     "wales": {
       "url": "https://img.uefa.com/imgml/uefacom/elements/logos/ma/WAL.svg",
@@ -86,6 +86,39 @@
       "file": "assets/logos/europa-league.svg",
       "retrievedAt": "2026-11-12",
       "bytes": 6530
+    }
+  },
+  "groups": {
+    "International": {
+      "url": "https://faw.cymru/cymru-leagues/content/mu-plugins/hopp-faw-header/assets/img/lib/150-faw-logo.svg",
+      "source": "faw.cymru: FAW crest (the Wales icon: leads to Wales men's and the other internationals)",
+      "file": "assets/logos/group-international.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 47429
+    },
+    "Welsh": {
+      "url": "https://faw.cymru/cymru-leagues/content/mu-plugins/hopp-faw-header/assets/img/lib/cymruleagues-logo-new.svg",
+      "source": "faw.cymru: Cymru Leagues logo (leads to the Welsh domestic fixtures)",
+      "file": "assets/logos/group-welsh.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 11146
+    },
+    "English": {
+      "url": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/23.png",
+      "source": "ESPN's CDN: Premier League logo, white version (leads to the English domestic fixtures)",
+      "chip": "purple",
+      "file": "assets/logos/group-english.png",
+      "retrievedAt": "2026-11-12",
+      "bytes": 56180
+    },
+    "European clubs": {
+      "url": "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/white/full/1.svg",
+      "source": "UEFA's own CDN: Champions League logo, white version, cropped to the starball (leads to the European club fixtures)",
+      "chip": "navy",
+      "crop": "ball",
+      "file": "assets/logos/group-european-clubs.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 13461
     }
   }
 }

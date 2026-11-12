@@ -42,7 +42,31 @@ test('config/logos.json: every section has a logo entry whose file exists, with 
 
 test('every logo the built page refers to exists', { skip: !existsSync(join(ROOT, 'index.html')) && 'index.html has not been built' }, () => {
   const html = readFileSync(join(ROOT, 'index.html'), 'utf8');
-  const srcs = [...html.matchAll(/<img class="comp-logo[^"]*" src="([^"]+)"/g)].map(m => m[1]);
+  const srcs = [...html.matchAll(/<img class="(?:comp|group)-logo[^"]*" src="([^"]+)"/g)].map(m => m[1]);
   assert.ok(srcs.length > 0, 'the built page shows logos');
   for (const src of srcs) assert.ok(existsSync(join(ROOT, src)), `${src} exists`);
+});
+
+test('config/logos.json: every group has a header icon whose file exists, with a known chip and crop', () => {
+  const { groups } = JSON.parse(readFileSync(join(ROOT, 'config/logos.json'), 'utf8'));
+  const names = [...new Set(SECTIONS.map(s => s.group))];
+  assert.deepEqual(Object.keys(groups).sort(), [...names].sort(), 'one icon per group, none left over');
+  assert.deepEqual(names, ['International', 'Welsh', 'English', 'European clubs'], 'group order');
+  for (const [name, e] of Object.entries(groups)) {
+    assert.match(e.url, /^https:\/\//, `${name}: the source is https`);
+    assert.ok(e.source, `${name}: says where it came from`);
+    assert.match(e.file, /^assets\/logos\/group-[a-z0-9-]+\.(svg|png|webp|jpg|gif)$/, `${name}: file path`);
+    assert.ok(existsSync(join(ROOT, e.file)), `${name}: ${e.file} exists`);
+    assert.notEqual(sniff(readFileSync(join(ROOT, e.file))), null, `${name}: usable image`);
+    assert.ok(e.chip === undefined || ['dark', 'purple', 'navy'].includes(e.chip), `${name}: chip`);
+    assert.ok(e.crop === undefined || e.crop === 'ball', `${name}: crop`);
+  }
+});
+
+test('the groups map each icon to the competitions you described', () => {
+  const byGroup = g => SECTIONS.filter(s => s.group === g).map(s => s.key);
+  assert.deepEqual(byGroup('International'), ['wales', 'internationals'], 'Wales icon: Wales men\'s and the other internationals');
+  assert.deepEqual(byGroup('Welsh'), ['cymru-north', 'welsh-cup'], 'Cymru Leagues icon: Welsh domestic');
+  assert.deepEqual(byGroup('English'), ['premier-league', 'championship', 'league-one', 'southern-premier-south', 'fa-cup', 'fa-trophy'], 'Premier League icon: English domestic');
+  assert.deepEqual(byGroup('European clubs'), ['champions-league', 'europa-league'], 'Champions League icon: European club fixtures');
 });

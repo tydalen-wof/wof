@@ -33,6 +33,11 @@ export const DATA = {
   checkedAt: '2026-11-12 05:30 GMT',
   window: { start: '2026-11-12', end: '2026-11-22' },
   notes: [],
+  groupLogos: {
+    International: { src: 'assets/logos/group-international.svg' },
+    English: { src: 'assets/logos/group-english.png', chip: 'purple' },
+    'European clubs': { src: 'assets/logos/group-european-clubs.svg', chip: 'navy', crop: 'ball' },
+  },
   sections: [
     sec('wales', 'International', "Wales men's internationals", 'plain', ['Wales'], [
       fx('2026-11-14', '17:00', 'Norway', 'Wales', 'Ullevaal Stadion, Oslo', { tag: 'Nations League · Group A4' }),
@@ -68,11 +73,11 @@ export const DATA = {
     ], { postcodes: { '2026-11-21|Plymouth Parkway|Malvern Town': 'TE5 7ST' } }),
     sec('fa-cup', 'English', 'FA Cup', 'rows', ['Leeds United', 'Plymouth Parkway'], [], { unavailable: true }),
     sec('fa-trophy', 'English', 'FA Trophy', 'rows', ['Plymouth Parkway'], trophy, { postcodes: pcs([trophy[2]], 'TE5 7ST') }),
-    sec('champions-league', 'English', 'UEFA Champions League', 'rows', ['Liverpool', 'Manchester United'], [
+    sec('champions-league', 'European clubs', 'UEFA Champions League', 'rows', ['Liverpool', 'Manchester United'], [
       fx('2026-11-25', '20:00', 'Club Brugge', 'Liverpool', 'Jan Breydelstadion, Bruges', { tag: 'League Phase · Matchday 5' }),
       fx('2026-11-25', '20:00', 'Leipzig', 'Lens', 'Red Bull Arena, Leipzig', { tag: 'League Phase · Matchday 5' }),
     ]),
-    sec('europa-league', 'English', 'UEFA Europa League', 'rows', ['Leeds United'], [fx('2026-11-26', '20:00', 'Celta', 'Bournemouth', null)], { hidden: true }),
+    sec('europa-league', 'European clubs', 'UEFA Europa League', 'rows', ['Leeds United'], [fx('2026-11-26', '20:00', 'Celta', 'Bournemouth', null)], { hidden: true }),
   ],
 };
 
@@ -142,8 +147,8 @@ test('rendered page follows the layout rules', () => {
 test('three top-level group accordions, each holding its shown competitions as nested accordions', () => {
   const html = renderPage(DATA);
   const exp = expected(DATA);
-  const groups = [...html.matchAll(/<details class="group">\n<summary class="group-h"><h2>([^<]*)<\/h2><\/summary>\n<div class="group-body">/g)].map(m => m[1]);
-  assert.deepEqual(groups, ['International', 'Welsh', 'English']);
+  const groups = [...html.matchAll(/<details class="group">\n<summary class="group-h"><div class="group-id">(?:<img[^>]*>)?<h2>([^<]*)<\/h2><\/div><\/summary>\n<div class="group-body">/g)].map(m => m[1]);
+  assert.deepEqual(groups, ['International', 'Welsh', 'English', 'European clubs']);
   assert.deepEqual(groups, exp.groups);
   // Every competition sits inside a group body, never at the top level.
   const topLevelComp = html.slice(html.indexOf('<main>')).match(/<main>\n(?:(?!<details class="group)[\s\S])*?<details class="comp">/);
@@ -178,7 +183,7 @@ test('a group whose competitions are all hidden is not rendered either', () => {
   const data = structuredClone(DATA);
   for (const s of data.sections.filter(s => s.group === 'Welsh')) s.hidden = true;
   const html = renderPage(data);
-  assert.deepEqual(h2s(html), ['International', 'English', 'Before you travel']);
+  assert.deepEqual(h2s(html), ['International', 'English', 'European clubs', 'Before you travel']);
   assert.doesNotMatch(html, /group-empty"|Novira Cymru North|FAW Welsh Cup/);
   checkRules(html, data);
 });
@@ -189,7 +194,7 @@ test('an unreadable competition stays visible, so its absence is never mistaken 
   const cymru = data.sections.find(s => s.key === 'cymru-north');
   cymru.hidden = false; cymru.unavailable = true;
   const html = renderPage(data);
-  assert.match(html, /<h2>Welsh<\/h2><\/summary>/);
+  assert.match(html, /<h2>Welsh<\/h2><\/div><\/summary>/);
   assert.match(html, /Novira Cymru North<\/div><\/div><p class="muted unavailable">Could not be read/);
   assert.doesNotMatch(html, /FAW Welsh Cup/);
 });
@@ -205,11 +210,11 @@ test('a competition logo is shown beside its title as a decorative image; white 
   const pl = comp(html, 'Premier League');
   assert.match(html, /<div class="comp-id"><img class="comp-logo" src="assets\/logos\/premier-league\.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Premier League<\/div><\/div>/);
   assert.match(html, /<img class="comp-logo comp-logo--dark" src="assets\/logos\/wales\.svg" alt=""/);
-  assert.equal((html.match(/<img /g) ?? []).length, 2, 'only competitions with a logo get an image');
+  assert.equal((html.match(/<img class="comp-logo/g) ?? []).length, 2, 'only competitions with a logo get an image');
   assert.doesNotMatch(comp(html, 'League One'), /<img /);
   assert.doesNotMatch(html, /src="(?:https?:)?\//, 'logo paths are relative to the page, so Pages serves them from the same place');
   assert.match(CSS, /\.comp-logo\{[^}]*background:#fff/);
-  assert.match(CSS, /\.comp-logo--dark\{background:#15231B\}/);
+  assert.match(CSS, /\.comp-logo--dark,\.group-logo--dark\{background:#15231B\}/);
   assert.ok(pl.length > 0);
 });
 
@@ -218,6 +223,41 @@ test('an unreadable competition keeps its logo too', () => {
   Object.assign(data.sections.find(s => s.key === 'fa-cup'), { logo: 'assets/logos/fa-cup.png' });
   assert.match(renderPage(data), /<section class="comp-empty"><div class="comp-id"><img class="comp-logo" src="assets\/logos\/fa-cup\.png"/);
 });
+
+test('a group\'s icon sits in its header, inside the summary, beside the h2; the travel accordion has none', () => {
+  const html = renderPage(DATA);
+  assert.match(html, /<summary class="group-h"><div class="group-id"><img class="group-logo" src="assets\/logos\/group-international\.svg" alt="" width="44" height="44" decoding="async"><h2>International<\/h2><\/div><\/summary>/);
+  assert.match(html, /<img class="group-logo group-logo--purple" src="assets\/logos\/group-english\.png" alt=""[^>]*><h2>English<\/h2>/);
+  assert.match(html, /<img class="group-logo group-logo--navy group-logo--ball" src="assets\/logos\/group-european-clubs\.svg" alt=""[^>]*><h2>European clubs<\/h2>/);
+  assert.match(html, /<summary class="group-h"><div class="group-id"><h2>Welsh<\/h2><\/div><\/summary>/, 'a group with no icon configured still renders');
+  assert.match(html, /<summary class="group-h"><h2>Before you travel<\/h2><\/summary>/);
+  assert.equal((html.match(/class="group-logo/g) ?? []).length, 3);
+  assert.doesNotMatch(html, /<img[^>]*group-logo[^>]*src="(?:https?:)?\//, 'icon paths are relative to the page');
+});
+
+test('chip colours are defined after their base rule, so a brand-coloured chip is never overridden by the white default', () => {
+  for (const [base, chips] of [['.group-logo{', ['.group-logo--dark', '.group-logo--purple', '.group-logo--navy']], ['.comp-logo{', ['.comp-logo--dark', '.comp-logo--purple', '.comp-logo--navy']]]) {
+    const b = CSS.indexOf(base);
+    assert.ok(b >= 0, base);
+    for (const chip of chips) {
+      const at = CSS.indexOf(chip);
+      assert.ok(at > b, `${chip} must come after ${base}`);
+      assert.match(CSS.slice(at, at + 200), /background:#[0-9a-f]{6}/i);
+    }
+  }
+  assert.match(CSS, /\.group-logo--purple\{background:#38003c\}/);
+  assert.match(CSS, /\.group-logo--navy\{background:#0a1b3d\}/);
+  assert.match(CSS, /\.group-logo--ball\{object-view-box:inset\(/);
+});
+
+test('an unknown chip name is ignored rather than written into the markup', () => {
+  const data = structuredClone(DATA);
+  data.groupLogos.Welsh = { src: 'assets/logos/group-welsh.svg', chip: 'x" onerror="alert(1)' };
+  const html = renderPage(data);
+  assert.doesNotMatch(html, /onerror/);
+  assert.match(html, /<img class="group-logo" src="assets\/logos\/group-welsh\.svg"/);
+});
+
 
 test('followed rows sit in the nested summary, followed by the "Other fixtures" line with a count', () => {
   const html = renderPage(DATA);
@@ -337,7 +377,7 @@ test('built data/fixtures.json: normalised fixture shape', { skip: !existsSync(j
   }
   const keys = d.fixtures.filter(f => f.competition === 'Premier League').map(f => [f.date, f.home, f.away].join('|'));
   assert.equal(new Set(keys).size, keys.length, 'no duplicate Premier League fixtures');
-  assert.deepEqual([...new Set(d.sections.map(s => s.group))], ['International', 'Welsh', 'English']);
+  assert.deepEqual([...new Set(d.sections.map(s => s.group))], ['International', 'Welsh', 'English', 'European clubs']);
   for (const sec of d.sections) assert.equal(typeof !!sec.hidden, 'boolean');
 });
 

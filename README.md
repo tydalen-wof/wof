@@ -27,18 +27,19 @@ npm test
 
 ## Page layout
 
-Three top-level groups, each a collapsed accordion holding its competitions (also collapsed), then "Before you travel":
+Four top-level groups, each a collapsed accordion with an icon in its header, holding its competitions (also collapsed), then "Before you travel". Clicking a group's icon or title opens its competition cards:
 
-| Group | Competitions |
+| Group (icon) | Competitions |
 | --- | --- |
-| International | Wales men's internationals; Other UK and European internationals |
-| Welsh | Novira Cymru North; FAW Welsh Cup |
-| English | Premier League; Championship; League One; Southern League Premier South; FA Cup; FA Trophy; UEFA Champions League; UEFA Europa League |
+| International (Wales crest) | Wales men's internationals; Other UK and European internationals |
+| Welsh (Cymru Leagues) | Novira Cymru North; FAW Welsh Cup |
+| English (Premier League) | Premier League; Championship; League One; Southern League Premier South; FA Cup; FA Trophy |
+| European clubs (Champions League) | UEFA Champions League; UEFA Europa League |
 
 - Inside a competition, followed teams' games come first, then an "Other fixtures" line (with a match count) that opens the rest.
 - **A competition is left off the page** when none of its named teams (its list under `followed` in `config/teams.json`) plays in it this week, or it has no games. A group with no competitions to show is left off too. The notes name what was left out. This week that is the FA Cup, FA Trophy, Champions League and Europa League.
 - **Exception:** a competition whose source could not be read, or whose list is known to be incomplete, is always shown with a warning, because nobody can say that no named team is involved.
-- Each competition has a small logo beside its title (see Logos).
+- Each competition has a small logo beside its title, and each group a larger icon in its header (see Logos).
 - To move a competition between groups, or reorder them, edit `SECTIONS` in `scripts/build.mjs`.
 
 ## Sources
@@ -102,7 +103,8 @@ Each competition has a logo, saved in `assets/logos/` and served with the page (
 - **southern-football-league.co.uk:** the Southern League logo.
 - **thefa.com:** The FA crest (used for the FA Trophy, which has no separate logo there).
 - **ESPN's CDN:** Premier League, Championship, League One and FA Cup. The Premier League and EFL sites publish no competition logo that can be fetched.
-- White logos (Wales, Southern League) sit on a dark chip; the rest sit on white, so all read in both themes.
+- **Group icons** (the larger icon in each group header): the FAW crest (International), the Cymru Leagues logo (Welsh), the white Premier League logo on purple (English, from ESPN's "dark" set) and the white Champions League logo on navy, cropped to the starball (European clubs, from UEFA's CDN). They are listed under `groups` in `config/logos.json`; fetch one with `node scripts/fetch-logos.mjs "group:Welsh"`.
+- White logos (Wales, Southern League) sit on a dark chip; the rest sit on white, so all read in both themes. `chip` can be `dark`, `purple` or `navy`.
 - **Refresh or add one:** edit `config/logos.json`, then `node scripts/fetch-logos.mjs [--force] [key ...]`. It refuses anything that is not a plain image (HTML, scripted SVG, over 300 KB). The weekly build never fetches logos.
 - Logos are trademarks of their owners and are used only to identify the competition. Remove `assets/logos/` and the page still works, just without icons.
 

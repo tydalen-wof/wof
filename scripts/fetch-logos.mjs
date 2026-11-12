@@ -2,6 +2,7 @@
 //   node scripts/fetch-logos.mjs              fetch any logo not yet downloaded
 //   node scripts/fetch-logos.mjs --force      fetch them all again
 //   node scripts/fetch-logos.mjs premier-league fa-cup     fetch only these (always re-fetched)
+//   node scripts/fetch-logos.mjs "group:Welsh"             a group's header icon
 // One request per logo, spaced by a second, no retries. The file type is decided from the file's own bytes, and anything
 // that is not an image, or is unreasonably large, is refused. This is a maintenance script: the weekly build never runs it.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -40,13 +41,18 @@ export async function main(argv, { log = console.log, today = new Date().toISOSt
   const config = JSON.parse(readFileSync(CONFIG, 'utf8'));
   mkdirSync(DIR, { recursive: true });
   let failed = 0, done = 0;
-  for (const [key, entry] of Object.entries(config.logos)) {
+  const slug = n => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const all = [
+    ...Object.entries(config.logos).map(([key, entry]) => ({ key, entry, name: key })),
+    ...Object.entries(config.groups ?? {}).map(([group, entry]) => ({ key: `group:${group}`, entry, name: `group-${slug(group)}` })),
+  ];
+  for (const { key, entry, name } of all) {
     if (wanted.length && !wanted.includes(key)) continue;
     if (!wanted.length && !force && entry.file && existsSync(entry.file)) { log(`${key}: already have ${entry.file}`); continue; }
     try {
       if (done++) await sleep(1000);
       const { buf, ext } = await download(entry.url);
-      const file = `${DIR}/${key}.${ext}`;
+      const file = `${DIR}/${name}.${ext}`;
       writeFileSync(file, buf);
       entry.file = file; entry.retrievedAt = today; entry.bytes = buf.length;
       log(`${key}: ${file} (${buf.length} bytes)`);
