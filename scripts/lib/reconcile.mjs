@@ -20,7 +20,8 @@ function vote(entries, baseValue) {
   return { value, how: leaders.length === 1 ? 'majority' : 'tie, so the base source was used' };
 }
 
-const coversDate = (src, date) => src.covers == null || src.covers.has(date);
+// A source "covers" a fixture if it displays that day and (for single-club sources) the fixture involves that club.
+const covers = (src, f) => (src.covers == null || src.covers.has(f.date)) && (src.scope ? src.scope(f) : true);
 
 export function reconcile({ competition, results, aliases = {}, window }) {
   const conflicts = [];
@@ -45,15 +46,22 @@ export function reconcile({ competition, results, aliases = {}, window }) {
   const others = working.filter(r => r !== base).map(src => {
     const index = new Map();
     const unmatched = new Set();
+    const half = [];                       // fixtures with exactly one unrecognised team name
     for (const f of src.fixtures) {
       if (!inWindow(f.date, window)) continue;
       const home = resolve(f.home), away = resolve(f.away);
-      if (!home || !away) { if (!home) unmatched.add(f.home); if (!away) unmatched.add(f.away); continue; }
+      if (!home && !away) continue;        // e.g. two non-European sides in a friendly: irrelevant here
+      if (!home || !away) {
+        const unknown = home ? f.away : f.home;
+        unmatched.add(unknown);
+        half.push({ date: f.date, known: home ?? away });
+        continue;
+      }
       const key = pairKey(home, away);
       if (!index.has(key)) index.set(key, []);
       index.get(key).push({ ...f, home, away });
     }
-    return { src, index, unmatched, matched: 0, seen: new Set() };
+    return { src, index, unmatched, half, matched: 0, seen: new Set() };
   });
 
   const out = [];
@@ -67,7 +75,8 @@ export function reconcile({ competition, results, aliases = {}, window }) {
         o.matched++;
         o.seen.add(c);
         views.push({ name: o.src.name, date: c.date, time: c.time, home: c.home, status: c.status, venue: c.venue });
-      } else if (coversDate(o.src, b.date)) {
+      } else if (!o.src.lenient && covers(o.src, b)
+                 && !o.half.some(h => dayDiff(h.date, b.date) <= 1 && (h.known === b.home || h.known === b.away))) {
         conflicts.push({ kind: 'missing', competition, text: `${label(b)} on ${shortDate(b.date)} is listed by ${base.name} but not by ${o.src.name}, which does cover that day.` });
       }
     }
@@ -110,14 +119,14 @@ export function reconcile({ competition, results, aliases = {}, window }) {
   for (const o of others) {
     for (const [, list] of o.index) {
       for (const f of list) {
-        if (o.seen.has(f)) continue;
+        if (o.seen.has(f) || o.src.lenient || (o.src.scope && !o.src.scope(f))) continue;
         conflicts.push({ kind: 'extra', competition, text: `${o.src.name} lists ${label(f)} on ${shortDate(f.date)}, but ${base.name} does not. It was not added.` });
       }
     }
   }
 
   for (const o of others) {
-    if (o.unmatched.size) notes.push(`${o.src.name}: team names not recognised, so those games were not cross-checked: ${[...o.unmatched].sort().join(', ')}.`);
+    if (o.unmatched.size) notes.push(`${o.src.name}: a team name was not recognised, so these games could not be cross-checked: ${[...o.unmatched].sort().join(', ')}.`);
   }
 
   const checks = others.map(o => ({

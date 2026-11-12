@@ -53,6 +53,7 @@ details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\\
 .notes-body li{margin:3px 0;color:var(--fg);font-size:.92rem}
 .notes-body p{margin:6px 0;font-size:.92rem}
 .muted{color:var(--muted)}
+.unavailable{margin:6px 0 0;font-size:.92rem}
 @media (max-width:639px){
   .row{grid-template-columns:1fr;gap:3px;padding:12px 16px}
   .when .d,.when .t{display:inline}
@@ -94,20 +95,21 @@ function rowsWithDays(list, ctx) {
 const byWhen = (a, b) => a.date.localeCompare(b.date) || (a.time ?? '99:99').localeCompare(b.time ?? '99:99') || a.home.localeCompare(b.home);
 
 /** Followed teams in configured order (a game with two followed teams appears once), then everyone else. */
-export function partition(fixtures, followed) {
+export function partition(fixtures, followed, { chronological = false } = {}) {
   const keys = followed.map(teamKey);
   const rank = f => {
     const r = [keys.indexOf(teamKey(f.home)), keys.indexOf(teamKey(f.away))].filter(i => i >= 0);
     return r.length ? Math.min(...r) : -1;
   };
-  const mine = fixtures.filter(f => rank(f) >= 0).sort((a, b) => rank(a) - rank(b) || byWhen(a, b));
+  const mine = fixtures.filter(f => rank(f) >= 0).sort((a, b) => (chronological ? 0 : rank(a) - rank(b)) || byWhen(a, b));
   const rest = fixtures.filter(f => rank(f) < 0).sort(byWhen);
   return { mine, rest };
 }
 
 // ---------- sections ----------
-function plainHeading(name) {
-  return `<section class="comp-empty"><h2>${esc(name)}</h2></section>`;
+function plainHeading(name, unavailable = false) {
+  const why = unavailable ? '<p class="muted unavailable">Could not be read. See Before you travel.</p>' : '';
+  return `<section class="comp-empty"><h2>${esc(name)}</h2>${why}</section>`;
 }
 
 function accordion(name, body, extraClass = '') {
@@ -135,10 +137,10 @@ const plainList = (list, ctx) => list.map(f => row(f, ctx)).join('\n') + (list.l
 
 function renderSection(s, ctx) {
   const fixtures = s.fixtures ?? [];
-  if (!fixtures.length) return plainHeading(s.name);
+  if (!fixtures.length) return plainHeading(s.name, s.unavailable);
   const c = { ...ctx, postcodes: s.key === 'cymru-north' ? ctx.postcodes : null };
   if (s.layout === 'plain') return accordion(s.name, plainList([...fixtures].sort(byWhen), c));
-  const { mine, rest } = partition(fixtures, s.followed ?? []);
+  const { mine, rest } = partition(fixtures, s.followed ?? [], { chronological: s.layout === 'days' });
   if (s.layout === 'days') return accordion(s.name, nested(mine, rest, 'Rest of Europe', rowsWithDays, c));
   return accordion(s.name, nested(mine, rest, 'Rest of the division', plainList, c));
 }
@@ -155,7 +157,12 @@ function travelBody(data) {
   let h = '<div class="notes-body">\n';
 
   h += `<p class="sub">Source conflicts</p>`;
-  const conflicts = secs.flatMap(s => (s.conflicts ?? []).map(c => `${s.name}: ${c.text}`));
+  const conflicts = secs.flatMap(s => (s.conflicts ?? []).filter(c => c.kind !== 'venue').map(c => `${s.name}: ${c.text}`));
+  // Venue wording differs between sources mostly because of sponsor names and spelling; summarise rather than list each.
+  for (const s of secs) {
+    const v = (s.conflicts ?? []).filter(c => c.kind === 'venue');
+    if (v.length) conflicts.push(`${s.name}: sources name the venue differently for ${plural(v.length, 'game', 'games')} (sponsor names or spelling). The first source's name is shown. Example: ${v[0].text.replace(/^[^:]*: venue wording differs /, '').replace(/ Used .*$/, '')}`);
+  }
   h += conflicts.length ? li(conflicts) : '<p class="muted">No disagreements were found between the sources that could be read.</p>';
 
   h += `<p class="sub">Postponements</p>`;

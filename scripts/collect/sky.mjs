@@ -11,6 +11,7 @@ export const SKY_PAGES = {
   'Premier League': 'https://www.skysports.com/premier-league-scores-fixtures',
   Championship: 'https://www.skysports.com/championship-scores-fixtures',
   'League One': 'https://www.skysports.com/league-1-scores-fixtures',
+  Wales: 'https://www.skysports.com/wales-scores-fixtures',
 };
 const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];

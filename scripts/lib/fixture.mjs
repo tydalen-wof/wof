@@ -1,12 +1,14 @@
 // Normalised fixture shape:
 // { date: "YYYY-MM-DD", time: "HH:MM"|null, home, away, venue|null, competition, tag|null, status: "scheduled"|"postponed", sources: [] }
+const cleanName = s => String(s).normalize('NFC').replace(/i̇/g, 'i').replace(/\s+/g, ' ').trim();
+const cleanVenue = s => (s && !/^(n\/a|tbc|tba|-|null|undefined)$/i.test(String(s).trim()) ? cleanName(s) : null);
 export function makeFixture({ date, time = null, home, away, venue = null, competition, tag = null, status = 'scheduled', source }) {
   return {
     date,
     time: time && /^\d{1,2}:\d{2}$/.test(time) ? time.padStart(5, '0') : null,
-    home: String(home).trim(),
-    away: String(away).trim(),
-    venue: venue ? String(venue).trim() : null,
+    home: cleanName(home),
+    away: cleanName(away),
+    venue: cleanVenue(venue),
     competition,
     tag: tag || null,
     status: status === 'postponed' ? 'postponed' : 'scheduled',
