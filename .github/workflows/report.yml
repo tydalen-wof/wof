@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '30 5 * * 4'   # Thursdays 05:30 UTC (05:30 UK in winter, 06:30 UK in summer). The page works out the window in UK time.
   workflow_dispatch: {}
+  push:                    # TEMPORARY: one verification run; removed in the next commit
+    branches: [main]
+    paths: ['.github/workflows/report.yml']
 
 permissions:
   contents: write
