@@ -67,7 +67,7 @@ export async function collect(slug) {
 /** Merge several ESPN pages into one cross-check source. */
 export function merge(results) {
   const ok = results.filter(r => r.ok);
-  if (!ok.length) return { ...results[0], error: results.map(r => r.error).join('; ') };
+  if (!ok.length) return { ...results[0], error: [...new Set(results.map(r => r.error))].join('; ') };
   const covers = new Set(ok.flatMap(r => [...(r.covers ?? [])]));
   return { ...ok[0], fixtures: ok.flatMap(r => r.fixtures), covers, notes: [] };
 }
