@@ -1,0 +1,1482 @@
+{
+  "source": "https://www.southern-football-league.co.uk/fixtures",
+  "api": "https://api.southern-football-league.co.uk/matches",
+  "fetchedAt": "2026-11-12T08:02:15.980Z",
+  "division": "PREMIER SOUTH",
+  "windowDays": 60,
+  "count": 113,
+  "postponed": 4,
+  "fixtures": [
+    {
+      "date": "2026-11-14",
+      "home": "Basingstoke Town",
+      "away": "Chippenham Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Bath City",
+      "away": "Berkhamsted",
+      "status": "postponed"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Bracknell Town",
+      "away": "Uxbridge",
+      "status": "postponed"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Chertsey Town",
+      "away": "Wimborne Town",
+      "status": "postponed"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Evesham United",
+      "away": "Gosport Borough",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Frome Town",
+      "away": "Hanworth Villa",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Gloucester City",
+      "away": "Sholing FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Hanwell Town",
+      "away": "Plymouth Parkway",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Havant & Waterlooville",
+      "away": "Yate Town FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Malvern Town",
+      "away": "Chichester City",
+      "status": "postponed"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Poole Town",
+      "away": "Taunton Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-17",
+      "home": "Chippenham Town",
+      "away": "Sholing FC",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-17",
+      "home": "Poole Town",
+      "away": "Wimborne Town",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-17",
+      "home": "Havant & Waterlooville",
+      "away": "Bracknell Town",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-18",
+      "home": "Gosport Borough",
+      "away": "Chertsey Town",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-18",
+      "home": "Frome Town",
+      "away": "Gloucester City",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Berkhamsted",
+      "away": "Frome Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Chichester City",
+      "away": "Basingstoke Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Chippenham Town",
+      "away": "Bracknell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Gosport Borough",
+      "away": "Havant & Waterlooville",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Hanworth Villa",
+      "away": "Poole Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Plymouth Parkway",
+      "away": "Malvern Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Sholing FC",
+      "away": "Evesham United",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Taunton Town",
+      "away": "Chertsey Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Uxbridge",
+      "away": "Gloucester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Wimborne Town",
+      "away": "Bath City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Yate Town FC",
+      "away": "Hanwell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-24",
+      "home": "Yate Town FC",
+      "away": "Evesham United",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-24",
+      "home": "Basingstoke Town",
+      "away": "Sholing FC",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-24",
+      "home": "Chippenham Town",
+      "away": "Havant & Waterlooville",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-24",
+      "home": "Malvern Town",
+      "away": "Hanworth Villa",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Basingstoke Town",
+      "away": "Gloucester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Berkhamsted",
+      "away": "Evesham United",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Bracknell Town",
+      "away": "Wimborne Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Chichester City",
+      "away": "Uxbridge",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Chippenham Town",
+      "away": "Bath City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Hanwell Town",
+      "away": "Frome Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Malvern Town",
+      "away": "Chertsey Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Plymouth Parkway",
+      "away": "Sholing FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Poole Town",
+      "away": "Havant & Waterlooville",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Taunton Town",
+      "away": "Gosport Borough",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-11-28",
+      "home": "Yate Town FC",
+      "away": "Hanworth Villa",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-01",
+      "home": "Berkhamsted",
+      "away": "Basingstoke Town",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Bath City",
+      "away": "Hanwell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Chertsey Town",
+      "away": "Bracknell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Evesham United",
+      "away": "Poole Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Frome Town",
+      "away": "Yate Town FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Gloucester City",
+      "away": "Chichester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Gosport Borough",
+      "away": "Berkhamsted",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Hanworth Villa",
+      "away": "Malvern Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Havant & Waterlooville",
+      "away": "Chippenham Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Sholing FC",
+      "away": "Basingstoke Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Uxbridge",
+      "away": "Plymouth Parkway",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Wimborne Town",
+      "away": "Taunton Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-08",
+      "home": "Sholing FC",
+      "away": "Uxbridge",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-12-08",
+      "home": "Malvern Town",
+      "away": "Bath City",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Basingstoke Town",
+      "away": "Yate Town FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Bracknell Town",
+      "away": "Bath City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Chertsey Town",
+      "away": "Havant & Waterlooville",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Chichester City",
+      "away": "Taunton Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Chippenham Town",
+      "away": "Hanwell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Evesham United",
+      "away": "Wimborne Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Gloucester City",
+      "away": "Gosport Borough",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Malvern Town",
+      "away": "Poole Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Plymouth Parkway",
+      "away": "Berkhamsted",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Sholing FC",
+      "away": "Hanworth Villa",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Uxbridge",
+      "away": "Frome Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-15",
+      "home": "Hanwell Town",
+      "away": "Uxbridge",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Berkhamsted",
+      "away": "Malvern Town",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Bath City",
+      "away": "Chertsey Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Frome Town",
+      "away": "Basingstoke Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Gosport Borough",
+      "away": "Plymouth Parkway",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Hanwell Town",
+      "away": "Bracknell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Hanworth Villa",
+      "away": "Uxbridge",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Havant & Waterlooville",
+      "away": "Evesham United",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Poole Town",
+      "away": "Gloucester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Taunton Town",
+      "away": "Chippenham Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Wimborne Town",
+      "away": "Sholing FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Yate Town FC",
+      "away": "Chichester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-22",
+      "home": "Taunton Town",
+      "away": "Frome Town",
+      "status": "19:45"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Hanworth Villa",
+      "away": "Hanwell Town",
+      "status": "13:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Basingstoke Town",
+      "away": "Wimborne Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Berkhamsted",
+      "away": "Bracknell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Frome Town",
+      "away": "Poole Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Gloucester City",
+      "away": "Chippenham Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Malvern Town",
+      "away": "Evesham United",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Plymouth Parkway",
+      "away": "Taunton Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Sholing FC",
+      "away": "Havant & Waterlooville",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Yate Town FC",
+      "away": "Bath City",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-28",
+      "home": "Chichester City",
+      "away": "Gosport Borough",
+      "status": "15:00"
+    },
+    {
+      "date": "2026-12-28",
+      "home": "Uxbridge",
+      "away": "Chertsey Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Bath City",
+      "away": "Frome Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Bracknell Town",
+      "away": "Basingstoke Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Chertsey Town",
+      "away": "Hanworth Villa",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Chippenham Town",
+      "away": "Malvern Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Evesham United",
+      "away": "Gloucester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Gosport Borough",
+      "away": "Sholing FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Hanwell Town",
+      "away": "Berkhamsted",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Havant & Waterlooville",
+      "away": "Chichester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Poole Town",
+      "away": "Plymouth Parkway",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Taunton Town",
+      "away": "Yate Town FC",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Wimborne Town",
+      "away": "Uxbridge",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Berkhamsted",
+      "away": "Bath City",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Chichester City",
+      "away": "Malvern Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Chippenham Town",
+      "away": "Basingstoke Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Gosport Borough",
+      "away": "Evesham United",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Hanworth Villa",
+      "away": "Frome Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Plymouth Parkway",
+      "away": "Hanwell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Sholing FC",
+      "away": "Gloucester City",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Taunton Town",
+      "away": "Poole Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Uxbridge",
+      "away": "Bracknell Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Wimborne Town",
+      "away": "Chertsey Town",
+      "status": "15:00"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Yate Town FC",
+      "away": "Havant & Waterlooville",
+      "status": "15:00"
+    }
+  ],
+  "rawSection": [
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Basingstoke Town",
+      "away": "Chippenham Town"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "Postponed",
+      "home": "Bath City",
+      "away": "Berkhamsted"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "Postponed",
+      "home": "Bracknell Town",
+      "away": "Uxbridge "
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "Postponed",
+      "home": "Chertsey Town",
+      "away": "Wimborne Town"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Evesham United ",
+      "away": "Gosport Borough"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Frome Town",
+      "away": "Hanworth Villa"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gloucester City",
+      "away": "Sholing FC"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanwell Town",
+      "away": "Plymouth Parkway"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Havant & Waterlooville",
+      "away": "Yate Town FC"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "Postponed",
+      "home": "Malvern Town",
+      "away": "Chichester City"
+    },
+    {
+      "dateTime": "2026-11-14T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Poole Town",
+      "away": "Taunton Town"
+    },
+    {
+      "dateTime": "2026-11-17T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Sholing FC"
+    },
+    {
+      "dateTime": "2026-11-17T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Poole Town",
+      "away": "Wimborne Town"
+    },
+    {
+      "dateTime": "2026-11-17T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Havant & Waterlooville",
+      "away": "Bracknell Town"
+    },
+    {
+      "dateTime": "2026-11-18T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Gosport Borough",
+      "away": "Chertsey Town"
+    },
+    {
+      "dateTime": "2026-11-18T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Frome Town",
+      "away": "Gloucester City"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Berkhamsted",
+      "away": "Frome Town"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chichester City",
+      "away": "Basingstoke Town"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Bracknell Town"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gosport Borough",
+      "away": "Havant & Waterlooville"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanworth Villa",
+      "away": "Poole Town"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Plymouth Parkway",
+      "away": "Malvern Town"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Sholing FC",
+      "away": "Evesham United "
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Taunton Town",
+      "away": "Chertsey Town"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Uxbridge ",
+      "away": "Gloucester City"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Wimborne Town",
+      "away": "Bath City"
+    },
+    {
+      "dateTime": "2026-11-21T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Yate Town FC",
+      "away": "Hanwell Town"
+    },
+    {
+      "dateTime": "2026-11-24T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Yate Town FC",
+      "away": "Evesham United "
+    },
+    {
+      "dateTime": "2026-11-24T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Basingstoke Town",
+      "away": "Sholing FC"
+    },
+    {
+      "dateTime": "2026-11-24T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Havant & Waterlooville"
+    },
+    {
+      "dateTime": "2026-11-24T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Malvern Town",
+      "away": "Hanworth Villa"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Basingstoke Town",
+      "away": "Gloucester City"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Berkhamsted",
+      "away": "Evesham United "
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Bracknell Town",
+      "away": "Wimborne Town"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chichester City",
+      "away": "Uxbridge "
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Bath City"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanwell Town",
+      "away": "Frome Town"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Malvern Town",
+      "away": "Chertsey Town"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Plymouth Parkway",
+      "away": "Sholing FC"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Poole Town",
+      "away": "Havant & Waterlooville"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Taunton Town",
+      "away": "Gosport Borough"
+    },
+    {
+      "dateTime": "2026-11-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Yate Town FC",
+      "away": "Hanworth Villa"
+    },
+    {
+      "dateTime": "2026-12-01T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Berkhamsted",
+      "away": "Basingstoke Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Bath City",
+      "away": "Hanwell Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chertsey Town",
+      "away": "Bracknell Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Evesham United ",
+      "away": "Poole Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Frome Town",
+      "away": "Yate Town FC"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gloucester City",
+      "away": "Chichester City"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gosport Borough",
+      "away": "Berkhamsted"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanworth Villa",
+      "away": "Malvern Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Havant & Waterlooville",
+      "away": "Chippenham Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Sholing FC",
+      "away": "Basingstoke Town"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Uxbridge ",
+      "away": "Plymouth Parkway"
+    },
+    {
+      "dateTime": "2026-12-05T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Wimborne Town",
+      "away": "Taunton Town"
+    },
+    {
+      "dateTime": "2026-12-08T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Sholing FC",
+      "away": "Uxbridge "
+    },
+    {
+      "dateTime": "2026-12-08T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Malvern Town",
+      "away": "Bath City"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Basingstoke Town",
+      "away": "Yate Town FC"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Bracknell Town",
+      "away": "Bath City"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chertsey Town",
+      "away": "Havant & Waterlooville"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chichester City",
+      "away": "Taunton Town"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Hanwell Town"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Evesham United ",
+      "away": "Wimborne Town"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gloucester City",
+      "away": "Gosport Borough"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Malvern Town",
+      "away": "Poole Town"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Plymouth Parkway",
+      "away": "Berkhamsted"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Sholing FC",
+      "away": "Hanworth Villa"
+    },
+    {
+      "dateTime": "2026-12-12T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Uxbridge ",
+      "away": "Frome Town"
+    },
+    {
+      "dateTime": "2026-12-15T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Hanwell Town",
+      "away": "Uxbridge "
+    },
+    {
+      "dateTime": "2026-12-18T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Berkhamsted",
+      "away": "Malvern Town"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Bath City",
+      "away": "Chertsey Town"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Frome Town",
+      "away": "Basingstoke Town"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gosport Borough",
+      "away": "Plymouth Parkway"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanwell Town",
+      "away": "Bracknell Town"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanworth Villa",
+      "away": "Uxbridge "
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Havant & Waterlooville",
+      "away": "Evesham United "
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Poole Town",
+      "away": "Gloucester City"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Taunton Town",
+      "away": "Chippenham Town"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Wimborne Town",
+      "away": "Sholing FC"
+    },
+    {
+      "dateTime": "2026-12-19T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Yate Town FC",
+      "away": "Chichester City"
+    },
+    {
+      "dateTime": "2026-12-22T19:45:00.000Z",
+      "time": "19:45",
+      "status": "NotKickedOff",
+      "home": "Taunton Town",
+      "away": "Frome Town"
+    },
+    {
+      "dateTime": "2026-12-26T13:00:00.000Z",
+      "time": "13:00",
+      "status": "NotKickedOff",
+      "home": "Hanworth Villa",
+      "away": "Hanwell Town"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Basingstoke Town",
+      "away": "Wimborne Town"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Berkhamsted",
+      "away": "Bracknell Town"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Frome Town",
+      "away": "Poole Town"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gloucester City",
+      "away": "Chippenham Town"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Malvern Town",
+      "away": "Evesham United "
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Plymouth Parkway",
+      "away": "Taunton Town"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Sholing FC",
+      "away": "Havant & Waterlooville"
+    },
+    {
+      "dateTime": "2026-12-26T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Yate Town FC",
+      "away": "Bath City"
+    },
+    {
+      "dateTime": "2026-12-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chichester City",
+      "away": "Gosport Borough"
+    },
+    {
+      "dateTime": "2026-12-28T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Uxbridge ",
+      "away": "Chertsey Town"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Bath City",
+      "away": "Frome Town"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Bracknell Town",
+      "away": "Basingstoke Town"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chertsey Town",
+      "away": "Hanworth Villa"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Malvern Town"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Evesham United ",
+      "away": "Gloucester City"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gosport Borough",
+      "away": "Sholing FC"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanwell Town",
+      "away": "Berkhamsted"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Havant & Waterlooville",
+      "away": "Chichester City"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Poole Town",
+      "away": "Plymouth Parkway"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Taunton Town",
+      "away": "Yate Town FC"
+    },
+    {
+      "dateTime": "2027-01-02T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Wimborne Town",
+      "away": "Uxbridge "
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Berkhamsted",
+      "away": "Bath City"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chichester City",
+      "away": "Malvern Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Chippenham Town",
+      "away": "Basingstoke Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Gosport Borough",
+      "away": "Evesham United "
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Hanworth Villa",
+      "away": "Frome Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Plymouth Parkway",
+      "away": "Hanwell Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Sholing FC",
+      "away": "Gloucester City"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Taunton Town",
+      "away": "Poole Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Uxbridge ",
+      "away": "Bracknell Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Wimborne Town",
+      "away": "Chertsey Town"
+    },
+    {
+      "dateTime": "2027-01-09T15:00:00.000Z",
+      "time": "15:00",
+      "status": "NotKickedOff",
+      "home": "Yate Town FC",
+      "away": "Havant & Waterlooville"
+    }
+  ]
+}
