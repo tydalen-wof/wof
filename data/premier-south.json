@@ -1,7 +1,7 @@
 {
   "source": "https://www.southern-football-league.co.uk/fixtures",
   "api": "https://api.southern-football-league.co.uk/matches",
-  "fetchedAt": "2026-11-12T08:49:55.780Z",
+  "fetchedAt": "2026-11-12T08:52:01.209Z",
   "division": "PREMIER SOUTH",
   "windowDays": 60,
   "count": 113,

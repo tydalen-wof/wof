@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week Ahead Fixtures</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+:root{--bg:#ECEFEA;--surface:#F6F8F4;--fg:#15231B;--muted:#58695E;--line:#C8D1C7;--accent:#146C43;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1712;--surface:#15211A;--fg:#E6EEE7;--muted:#94A69A;--line:#263830;--accent:#5CC48A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1712;--surface:#15211A;--fg:#E6EEE7;--muted:#94A69A;--line:#263830;--accent:#5CC48A;color-scheme:dark}
+:root[data-theme="light"]{--bg:#ECEFEA;--surface:#F6F8F4;--fg:#15231B;--muted:#58695E;--line:#C8D1C7;--accent:#146C43;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.45 "IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:28px 16px 56px}
+.hd{margin-bottom:22px}
+.kicker{margin:0 0 4px;font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font:700 clamp(2.4rem,8vw,3.6rem)/.95 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.lede{margin:10px 0 0;color:var(--muted)}
+h2{margin:0;font:700 1.7rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.comp{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.comp-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.comp-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px}
+.comp-h::after,.rest-line::after{content:"+";flex:none;width:1.4rem;height:1.4rem;line-height:1.3rem;text-align:center;border:1px solid var(--line);border-radius:3px;color:var(--accent);font:600 1.1rem/1.3rem "IBM Plex Sans",Arial,sans-serif}
+details[open]>.comp-h::after,details[open]>summary .rest-line::after{content:"\2212"}
+.comp-body{border-top:1px solid var(--line)}
+.rest>summary{display:block}
+.rest-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.rest-line .count{margin-left:auto;margin-right:8px}
+.row{display:grid;grid-template-columns:7.5rem minmax(0,1.7fr) minmax(0,1fr);gap:4px 16px;padding:11px 16px;border-top:1px solid var(--line)}
+.comp-body>.row:first-child,.comp-body>.day:first-child{border-top:0}
+.rest-body{border-top:1px solid var(--line)}
+.when .d{display:block;color:var(--muted);font-size:.85rem}
+.when .t{display:block;font:600 1.25rem/1.1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em}
+.match{overflow-wrap:anywhere}
+.team{font-weight:400}
+.v{color:var(--muted);padding:0 .25em}
+.tags{display:block;margin-top:3px}
+.tag{display:inline-block;margin:0 4px 2px 0;padding:1px 6px;border:1px solid var(--line);border-radius:2px;color:var(--muted);font-size:.68rem;line-height:1.5;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.tag-pp{color:var(--fg);border-color:var(--fg)}
+.ven{display:block;color:var(--muted);font-size:.92rem}
+.pc{display:block;color:var(--muted);font-size:.82rem}
+.day{margin:0;padding:9px 16px 7px;border-top:1px solid var(--line);color:var(--accent);font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.notes-body{padding:6px 16px 16px}
+.sub{margin:16px 0 4px;color:var(--accent);font:600 .95rem/1 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.notes-body ul{margin:4px 0 0;padding-left:1.1rem}
+.notes-body li{margin:3px 0;color:var(--fg);font-size:.92rem}
+.notes-body p{margin:6px 0;font-size:.92rem}
+.muted{color:var(--muted)}
+.unavailable{margin:6px 0 0;font-size:.92rem}
+@media (max-width:639px){
+  .row{grid-template-columns:1fr;gap:3px;padding:12px 16px}
+  .when .d,.when .t{display:inline}
+  .when .d{margin-right:.6em}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hd">
+<p class="kicker">12 Nov to 22 Nov 2026</p>
+<h1>Week Ahead Fixtures</h1>
+<p class="lede">All kick-off times are UK time. Venues are the home club's ground.</p>
+</header>
+<main>
+<details class="comp">
+<summary class="comp-h"><h2>Wales men&#39;s internationals</h2></summary>
+<div class="comp-body">
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Norway</span><span class="v">v</span><span class="team">Wales</span><span class="tags"><span class="tag">Nations League · Group A4</span></span></div>
+<div class="venue"><span class="ven">Ullevaal Stadion, Oslo</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Wales</span><span class="v">v</span><span class="team">Portugal</span><span class="tags"><span class="tag">Nations League · Group A4</span></span></div>
+<div class="venue"><span class="ven">Cardiff City Stadium</span></div>
+</div>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><h2>Other UK and European internationals</h2></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<p class="day">Thursday 12 November</p>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">England</span><span class="v">v</span><span class="team">Croatia</span><span class="tags"><span class="tag">Nations League · Group A3</span></span></div>
+<div class="venue"><span class="ven">Wembley Stadium, London</span></div>
+</div>
+<p class="day">Friday 13 November</p>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Scotland</span><span class="v">v</span><span class="team">North Macedonia</span><span class="tags"><span class="tag">Nations League · Group B1</span></span></div>
+<div class="venue"><span class="ven">Hampden Park, Glasgow</span></div>
+</div>
+<p class="day">Saturday 14 November</p>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Austria</span><span class="v">v</span><span class="team">Republic of Ireland</span><span class="tags"><span class="tag">Nations League · Group B3</span></span></div>
+<div class="venue"><span class="ven">Raiffeisen Arena, Linz</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Northern Ireland</span><span class="v">v</span><span class="team">Ukraine</span><span class="tags"><span class="tag">Nations League · Group B2</span></span></div>
+<div class="venue"><span class="ven">Clearer Twist National Stadium at Windsor Park, Belfast</span></div>
+</div>
+<p class="day">Sunday 15 November</p>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Spain</span><span class="v">v</span><span class="team">England</span><span class="tags"><span class="tag">Nations League · Group A3</span></span></div>
+<div class="venue"><span class="ven">Riyadh Air Metropolitano, Madrid</span></div>
+</div>
+<p class="day">Monday 16 November</p>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Switzerland</span><span class="v">v</span><span class="team">Scotland</span><span class="tags"><span class="tag">Nations League · Group B1</span></span></div>
+<div class="venue"><span class="ven">Berit Sitterstadion, St.Gallen</span></div>
+</div>
+<p class="day">Tuesday 17 November</p>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Hungary</span><span class="v">v</span><span class="team">Northern Ireland</span><span class="tags"><span class="tag">Nations League · Group B2</span></span></div>
+<div class="venue"><span class="ven">Puskás Aréna, Budapest</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Republic of Ireland</span><span class="v">v</span><span class="team">Kosovo</span><span class="tags"><span class="tag">Nations League · Group B3</span></span></div>
+<div class="venue"><span class="ven">Aviva Stadium, Dublin</span></div>
+</div>
+<div class="rest-line"><span>Rest of Europe</span><span class="count">45 matches</span></div>
+</summary>
+<div class="rest-body">
+<p class="day">Thursday 12 November</p>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Armenia</span><span class="v">v</span><span class="team">Cyprus</span><span class="tags"><span class="tag">Nations League · Group C2</span></span></div>
+<div class="venue"><span class="ven">Republican Stadium after Vazgen Sargsyan, Yerevan</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Lithuania</span><span class="v">v</span><span class="team">Surinam</span><span class="tags"><span class="tag">Friendly</span></span></div>
+<div class="venue"><span class="ven">Dariaus ir Girėno stadionas, Kaunas</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Türkiye</span><span class="v">v</span><span class="team">Belgium</span><span class="tags"><span class="tag">Nations League · Group A1</span></span></div>
+<div class="venue"><span class="ven">Gürsel Aksel Stadyumu, Izmir</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">17:30</span></div>
+<div class="match"><span class="team">Malta</span><span class="v">v</span><span class="team">Eswatini</span><span class="tags"><span class="tag">Friendly</span></span></div>
+<div class="venue"><span class="ven">National Stadium, Ta&#39; Qali</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Albania</span><span class="v">v</span><span class="team">Finland</span><span class="tags"><span class="tag">Nations League · Group C1</span></span></div>
+<div class="venue"><span class="ven">Air Albania Stadium, Tirana</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Czechia</span><span class="v">v</span><span class="team">Spain</span><span class="tags"><span class="tag">Nations League · Group A3</span></span></div>
+<div class="venue"><span class="ven">epet ARENA, Prague</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Italy</span><span class="v">v</span><span class="team">France</span><span class="tags"><span class="tag">Nations League · Group A1</span></span></div>
+<div class="venue"><span class="ven">Stadio San Siro, Milan</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Montenegro</span><span class="v">v</span><span class="team">Latvia</span><span class="tags"><span class="tag">Nations League · Group C2</span></span></div>
+<div class="venue"><span class="ven">Gradski Stadion Podgorica</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Thu 12 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">San Marino</span><span class="v">v</span><span class="team">Belarus</span><span class="tags"><span class="tag">Nations League · Group C1</span></span></div>
+<div class="venue"><span class="ven">San Marino Stadium, Serravalle</span></div>
+</div>
+<p class="day">Friday 13 November</p>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Moldova</span><span class="v">v</span><span class="team">Kazakhstan</span><span class="tags"><span class="tag">Nations League · Group C3</span></span></div>
+<div class="venue"><span class="ven">Stadionul Zimbru, Chisinau</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Andorra</span><span class="v">v</span><span class="team">Gibraltar</span><span class="tags"><span class="tag">Nations League · Group D1</span></span></div>
+<div class="venue"><span class="ven">Estadi FAF, Encamp</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Bulgaria</span><span class="v">v</span><span class="team">Iceland</span><span class="tags"><span class="tag">Nations League · Group C4</span></span></div>
+<div class="venue"><span class="ven">Hristo Botev Stadium, Plovdiv</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Liechtenstein</span><span class="v">v</span><span class="team">Azerbaijan</span><span class="tags"><span class="tag">Nations League · Group D2</span></span></div>
+<div class="venue"><span class="ven">Rheinpark Stadion, Vaduz</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Luxembourg</span><span class="v">v</span><span class="team">Estonia</span><span class="tags"><span class="tag">Nations League · Group C4</span></span></div>
+<div class="venue"><span class="ven">Stade de Luxembourg</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Netherlands</span><span class="v">v</span><span class="team">Greece</span><span class="tags"><span class="tag">Nations League · Group A2</span></span></div>
+<div class="venue"><span class="ven">Johan Cruijff ArenA, Amsterdam</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Serbia</span><span class="v">v</span><span class="team">Germany</span><span class="tags"><span class="tag">Nations League · Group A2</span></span></div>
+<div class="venue"><span class="ven">Stadion Rajko Mitić, Belgrade</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Slovakia</span><span class="v">v</span><span class="team">Faroe Islands</span><span class="tags"><span class="tag">Nations League · Group C3</span></span></div>
+<div class="venue"><span class="ven">Košická Futbalová Aréna, Košice</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Slovenia</span><span class="v">v</span><span class="team">Switzerland</span><span class="tags"><span class="tag">Nations League · Group B1</span></span></div>
+<div class="venue"><span class="ven">Stadion Ljudski vrt, Maribor</span></div>
+</div>
+<p class="day">Saturday 14 November</p>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Kosovo</span><span class="v">v</span><span class="team">Israel</span><span class="tags"><span class="tag">Nations League · Group B3</span></span></div>
+<div class="venue"><span class="ven">Stadiumi Fadil Vokrri, Pristina</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Georgia</span><span class="v">v</span><span class="team">Hungary</span><span class="tags"><span class="tag">Nations League · Group B2</span></span></div>
+<div class="venue"><span class="ven">Mikheil Meskhi Stadium, Tbilisi</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Portugal</span><span class="v">v</span><span class="team">Denmark</span><span class="tags"><span class="tag">Nations League · Group A4</span></span></div>
+<div class="venue"><span class="ven">Estádio Municipal de Braga</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Romania</span><span class="v">v</span><span class="team">Poland</span><span class="tags"><span class="tag">Nations League · Group B4</span></span></div>
+<div class="venue"><span class="ven">National Arena Bucharest</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Sweden</span><span class="v">v</span><span class="team">Bosnia and Herzegovina</span><span class="tags"><span class="tag">Nations League · Group B4</span></span></div>
+<div class="venue"><span class="ven">Strawberry Arena, Solna</span></div>
+</div>
+<p class="day">Sunday 15 November</p>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Cyprus</span><span class="v">v</span><span class="team">Montenegro</span><span class="tags"><span class="tag">Nations League · Group C2</span></span></div>
+<div class="venue"><span class="ven">Alphamega Stadium, Limassol</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Latvia</span><span class="v">v</span><span class="team">Armenia</span><span class="tags"><span class="tag">Nations League · Group C2</span></span></div>
+<div class="venue"><span class="ven">Skonto Stadions, Riga</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Belarus</span><span class="v">v</span><span class="team">Albania</span><span class="tags"><span class="tag">Nations League · Group C1</span></span></div>
+<div class="venue"><span class="ven">Illovszky Rudolf Stadion, Budapest</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Finland</span><span class="v">v</span><span class="team">San Marino</span><span class="tags"><span class="tag">Nations League · Group C1</span></span></div>
+<div class="venue"><span class="ven">Bolt Arena, Helsinki</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Belgium</span><span class="v">v</span><span class="team">Italy</span><span class="tags"><span class="tag">Nations League · Group A1</span></span></div>
+<div class="venue"><span class="ven">King Baudouin Stadium, Brussels</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Croatia</span><span class="v">v</span><span class="team">Czechia</span><span class="tags"><span class="tag">Nations League · Group A3</span></span></div>
+<div class="venue"><span class="ven">Opus Arena, Osijek</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 15 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">France</span><span class="v">v</span><span class="team">Türkiye</span><span class="tags"><span class="tag">Nations League · Group A1</span></span></div>
+<div class="venue"><span class="ven">Matmut Atlantique, Bordeaux</span></div>
+</div>
+<p class="day">Monday 16 November</p>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Faroe Islands</span><span class="v">v</span><span class="team">Moldova</span><span class="tags"><span class="tag">Nations League · Group C3</span></span></div>
+<div class="venue"><span class="ven">Tórsvøllur, Tórshavn</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Kazakhstan</span><span class="v">v</span><span class="team">Slovakia</span><span class="tags"><span class="tag">Nations League · Group C3</span></span></div>
+<div class="venue"><span class="ven">Astana Arena</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Estonia</span><span class="v">v</span><span class="team">Bulgaria</span><span class="tags"><span class="tag">Nations League · Group C4</span></span></div>
+<div class="venue"><span class="ven">A. Le Coq Arena, Tallinn</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Iceland</span><span class="v">v</span><span class="team">Luxembourg</span><span class="tags"><span class="tag">Nations League · Group C4</span></span></div>
+<div class="venue"><span class="ven">Laugardalsvöllur, Reykjavik</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">17:00</span></div>
+<div class="match"><span class="team">Lithuania</span><span class="v">v</span><span class="team">Liechtenstein</span><span class="tags"><span class="tag">Nations League · Group D2</span></span></div>
+<div class="venue"><span class="ven">Dariaus ir Girėno stadionas, Kaunas</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">18:00</span></div>
+<div class="match"><span class="team">Andorra</span><span class="v">v</span><span class="team">Azerbaijan</span><span class="tags"><span class="tag">Friendly</span></span></div>
+<div class="venue"><span class="ven">Estadi FAF, Encamp</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Germany</span><span class="v">v</span><span class="team">Netherlands</span><span class="tags"><span class="tag">Nations League · Group A2</span></span></div>
+<div class="venue"><span class="ven">Olympiastadion, Berlin</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gibraltar</span><span class="v">v</span><span class="team">Malta</span><span class="tags"><span class="tag">Nations League · Group D1</span></span></div>
+<div class="venue"><span class="ven">Europa Point Stadium, Gibraltar</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Greece</span><span class="v">v</span><span class="team">Serbia</span><span class="tags"><span class="tag">Nations League · Group A2</span></span></div>
+<div class="venue"><span class="ven">Panthessaliko, Volos</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Mon 16 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">North Macedonia</span><span class="v">v</span><span class="team">Slovenia</span><span class="tags"><span class="tag">Nations League · Group B1</span></span></div>
+<div class="venue"><span class="ven">National Arena Todor Proeski, Skopje</span></div>
+</div>
+<p class="day">Tuesday 17 November</p>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Bosnia and Herzegovina</span><span class="v">v</span><span class="team">Romania</span><span class="tags"><span class="tag">Nations League · Group B4</span></span></div>
+<div class="venue"><span class="ven">Stadion Bilino Polje, Zenica</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Denmark</span><span class="v">v</span><span class="team">Norway</span><span class="tags"><span class="tag">Nations League · Group A4</span></span></div>
+<div class="venue"><span class="ven">Parken – Connected by 3, Copenhagen</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Israel</span><span class="v">v</span><span class="team">Austria</span><span class="tags"><span class="tag">Nations League · Group B3</span></span></div>
+<div class="venue"><span class="ven">Nagyerdei Stadion, Debrecen</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Poland</span><span class="v">v</span><span class="team">Sweden</span><span class="tags"><span class="tag">Nations League · Group B4</span></span></div>
+<div class="venue"><span class="ven">Tarczynski Arena Wroclaw</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Ukraine</span><span class="v">v</span><span class="team">Georgia</span><span class="tags"><span class="tag">Nations League · Group B2</span></span></div>
+<div class="venue"><span class="ven">Košická Futbalová Aréna, Košice</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><h2>Premier League</h2></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Chelsea</span><span class="v">v</span><span class="team">Leeds United</span></div>
+<div class="venue"><span class="ven">Stamford Bridge</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 22 Nov</span><span class="t">16:30</span></div>
+<div class="match"><span class="team">Liverpool</span><span class="v">v</span><span class="team">Manchester United</span></div>
+<div class="venue"><span class="ven">Anfield</span></div>
+</div>
+<div class="rest-line"><span>Rest of the division</span><span class="count">7 matches</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Manchester City</span><span class="v">v</span><span class="team">Fulham</span></div>
+<div class="venue"><span class="ven">Etihad Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Aston Villa</span><span class="v">v</span><span class="team">Sunderland</span></div>
+<div class="venue"><span class="ven">Villa Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bournemouth</span><span class="v">v</span><span class="team">Nottingham Forest</span></div>
+<div class="venue"><span class="ven">Vitality Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Coventry City</span><span class="v">v</span><span class="team">Crystal Palace</span></div>
+<div class="venue"><span class="ven">Coventry Building Society Arena</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Tottenham Hotspur</span><span class="v">v</span><span class="team">Ipswich Town</span></div>
+<div class="venue"><span class="ven">Tottenham Hotspur Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">17:30</span></div>
+<div class="match"><span class="team">Newcastle United</span><span class="v">v</span><span class="team">Arsenal</span></div>
+<div class="venue"><span class="ven">St. James&#39; Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 22 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Hull City</span><span class="v">v</span><span class="team">Brighton &amp; Hove Albion</span></div>
+<div class="venue"><span class="ven">The MKM Stadium</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><h2>Championship</h2></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Lincoln City</span><span class="v">v</span><span class="team">Wrexham</span></div>
+<div class="venue"><span class="ven">LNER Stadium</span></div>
+</div>
+<div class="rest-line"><span>Rest of the division</span><span class="count">11 matches</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Millwall</span><span class="v">v</span><span class="team">Queens Park Rangers</span></div>
+<div class="venue"><span class="ven">The Den</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Norwich City</span><span class="v">v</span><span class="team">Cardiff City</span></div>
+<div class="venue"><span class="ven">Carrow Road</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Southampton</span><span class="v">v</span><span class="team">Derby County</span></div>
+<div class="venue"><span class="ven">St Mary&#39;s Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bolton Wanderers</span><span class="v">v</span><span class="team">Portsmouth</span></div>
+<div class="venue"><span class="ven">University of Bolton Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Middlesbrough</span><span class="v">v</span><span class="team">Bristol City</span></div>
+<div class="venue"><span class="ven">Riverside Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Sheffield United</span><span class="v">v</span><span class="team">Watford</span></div>
+<div class="venue"><span class="ven">Bramall Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Stoke City</span><span class="v">v</span><span class="team">Birmingham City</span></div>
+<div class="venue"><span class="ven">bet365 Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Swansea City</span><span class="v">v</span><span class="team">West Bromwich Albion</span></div>
+<div class="venue"><span class="ven">Swansea.com Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">West Ham United</span><span class="v">v</span><span class="team">Preston North End</span></div>
+<div class="venue"><span class="ven">London Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wolverhampton Wanderers</span><span class="v">v</span><span class="team">Charlton Athletic</span></div>
+<div class="venue"><span class="ven">Molineux Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sun 22 Nov</span><span class="t">12:00</span></div>
+<div class="match"><span class="team">Burnley</span><span class="v">v</span><span class="team">Blackburn Rovers</span></div>
+<div class="venue"><span class="ven">Turf Moor</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><h2>League One</h2></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Sheffield Wednesday</span><span class="v">v</span><span class="team">Plymouth Argyle</span></div>
+<div class="venue"><span class="ven">Hillsborough Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Plymouth Argyle</span><span class="v">v</span><span class="team">Peterborough United</span></div>
+<div class="venue"><span class="ven">Home Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">MK Dons</span><span class="v">v</span><span class="team">Burton Albion</span></div>
+<div class="venue"><span class="ven">Stadium MK</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Mansfield Town</span><span class="v">v</span><span class="team">MK Dons</span></div>
+<div class="venue"><span class="ven">One Call Stadium</span></div>
+</div>
+<div class="rest-line"><span>Rest of the division</span><span class="count">19 matches</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">AFC Wimbledon</span><span class="v">v</span><span class="team">Blackpool</span></div>
+<div class="venue"><span class="ven">Cherry Red Records Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Bromley</span><span class="v">v</span><span class="team">Notts County</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">Hayes Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Doncaster Rovers</span><span class="v">v</span><span class="team">Leyton Orient</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">The Eco-Power Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Leicester City</span><span class="v">v</span><span class="team">Bradford City</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">King Power Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Luton Town</span><span class="v">v</span><span class="team">Cambridge United</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">Kenilworth Road</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Stevenage</span><span class="v">v</span><span class="team">Mansfield Town</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">The Lamex Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Stockport County</span><span class="v">v</span><span class="team">Reading</span></div>
+<div class="venue"><span class="ven">Edgeley Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wigan Athletic</span><span class="v">v</span><span class="team">Barnsley</span></div>
+<div class="venue"><span class="ven">DW Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Wycombe Wanderers</span><span class="v">v</span><span class="team">Huddersfield Town</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">Adams Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Fri 20 Nov</span><span class="t">20:00</span></div>
+<div class="match"><span class="team">Barnsley</span><span class="v">v</span><span class="team">Sheffield Wednesday</span></div>
+<div class="venue"><span class="ven">Oakwell Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Blackpool</span><span class="v">v</span><span class="team">Wigan Athletic</span></div>
+<div class="venue"><span class="ven">Bloomfield Road</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">12:30</span></div>
+<div class="match"><span class="team">Reading</span><span class="v">v</span><span class="team">Bromley</span></div>
+<div class="venue"><span class="ven">The Select Car Leasing Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bradford City</span><span class="v">v</span><span class="team">Doncaster Rovers</span></div>
+<div class="venue"><span class="ven">University of Bradford Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Burton Albion</span><span class="v">v</span><span class="team">Luton Town</span></div>
+<div class="venue"><span class="ven">Pirelli Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Cambridge United</span><span class="v">v</span><span class="team">Stockport County</span></div>
+<div class="venue"><span class="ven">Abbey Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Huddersfield Town</span><span class="v">v</span><span class="team">Leicester City</span></div>
+<div class="venue"><span class="ven">The John Smith&#39;s Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Leyton Orient</span><span class="v">v</span><span class="team">AFC Wimbledon</span></div>
+<div class="venue"><span class="ven">Breyer Group Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Notts County</span><span class="v">v</span><span class="team">Stevenage</span></div>
+<div class="venue"><span class="ven">Meadow Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Oxford United</span><span class="v">v</span><span class="team">Wycombe Wanderers</span></div>
+<div class="venue"><span class="ven">Kassam Stadium</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><h2>Southern League Premier South</h2></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Hanwell Town</span><span class="v">v</span><span class="team">Plymouth Parkway</span></div>
+<div class="venue"><span class="ven">Oliver Connell and Sons Community Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Plymouth Parkway</span><span class="v">v</span><span class="team">Malvern Town</span></div>
+<div class="venue"><span class="ven">Bolitho Park</span></div>
+</div>
+<div class="rest-line"><span>Rest of the division</span><span class="count">29 matches</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Basingstoke Town</span><span class="v">v</span><span class="team">Chippenham Town</span></div>
+<div class="venue"><span class="ven">Winklebury Football Complex</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Bath City</span><span class="v">v</span><span class="team">Berkhamsted</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">Cannon Clarke Stadium @ Twerton Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Bath City</span><span class="v">v</span><span class="team">Truro City</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
+<div class="venue"><span class="ven">Cannon Clarke Stadium @ Twerton Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Bracknell Town</span><span class="v">v</span><span class="team">Uxbridge</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">The SB Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Chertsey Town</span><span class="v">v</span><span class="team">Wimborne Town</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">Alwyns Lane</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Eastbourne Borough</span><span class="v">v</span><span class="team">Chertsey Town</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
+<div class="venue"><span class="ven">Connect Management Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Evesham United</span><span class="v">v</span><span class="team">Gosport Borough</span></div>
+<div class="venue"><span class="ven">The Spiers &amp; Hartwell Jubilee Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Frome Town</span><span class="v">v</span><span class="team">Hanworth Villa</span></div>
+<div class="venue"><span class="ven">Badgers Hill Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Gloucester City</span><span class="v">v</span><span class="team">Sholing</span></div>
+<div class="venue"><span class="ven">KMM Energy Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Havant &amp; Waterlooville</span><span class="v">v</span><span class="team">Yate Town</span></div>
+<div class="venue"><span class="ven">Westleigh Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t"><s>15:00</s></span></div>
+<div class="match"><span class="team">Malvern Town</span><span class="v">v</span><span class="team">Chichester City</span><span class="tags"><span class="tag tag-pp">Postponed</span></span></div>
+<div class="venue"><span class="ven">HDAnywhere Community Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Poole Town</span><span class="v">v</span><span class="team">Taunton Town</span></div>
+<div class="venue"><span class="ven">Clear Group Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Salisbury</span><span class="v">v</span><span class="team">Chichester City</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wimborne Town</span><span class="v">v</span><span class="team">Uxbridge</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
+<div class="venue"><span class="ven">Wyatt Homes Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Chippenham Town</span><span class="v">v</span><span class="team">Sholing</span></div>
+<div class="venue"><span class="ven">Thornbury Surfacing Ltd Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Havant &amp; Waterlooville</span><span class="v">v</span><span class="team">Bracknell Town</span></div>
+<div class="venue"><span class="ven">Westleigh Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Tue 17 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Poole Town</span><span class="v">v</span><span class="team">Wimborne Town</span></div>
+<div class="venue"><span class="ven">Clear Group Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Wed 18 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Frome Town</span><span class="v">v</span><span class="team">Gloucester City</span></div>
+<div class="venue"><span class="ven">Badgers Hill Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Wed 18 Nov</span><span class="t">19:45</span></div>
+<div class="match"><span class="team">Gosport Borough</span><span class="v">v</span><span class="team">Chertsey Town</span></div>
+<div class="venue"><span class="ven">AEI Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Berkhamsted</span><span class="v">v</span><span class="team">Frome Town</span></div>
+<div class="venue"><span class="ven">The Glencar Community Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Chichester City</span><span class="v">v</span><span class="team">Basingstoke Town</span></div>
+<div class="venue"><span class="ven">Oaklands Park</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Chippenham Town</span><span class="v">v</span><span class="team">Bracknell Town</span></div>
+<div class="venue"><span class="ven">Thornbury Surfacing Ltd Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Gosport Borough</span><span class="v">v</span><span class="team">Havant &amp; Waterlooville</span></div>
+<div class="venue"><span class="ven">AEI Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Hanworth Villa</span><span class="v">v</span><span class="team">Poole Town</span></div>
+<div class="venue"><span class="ven">Rectory Meadow</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Sholing</span><span class="v">v</span><span class="team">Evesham United</span></div>
+<div class="venue"><span class="ven">The Mortgage Decisions Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Taunton Town</span><span class="v">v</span><span class="team">Chertsey Town</span></div>
+<div class="venue"><span class="ven">Wordsworth Drive</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Uxbridge</span><span class="v">v</span><span class="team">Gloucester City</span></div>
+<div class="venue"><span class="ven">Uxbridge FC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Wimborne Town</span><span class="v">v</span><span class="team">Bath City</span></div>
+<div class="venue"><span class="ven">Wyatt Homes Stadium</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">15:00</span></div>
+<div class="match"><span class="team">Yate Town</span><span class="v">v</span><span class="team">Hanwell Town</span></div>
+<div class="venue"><span class="ven">South West Interiors Stadium</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp">
+<summary class="comp-h"><h2>Novira Cymru North</h2></summary>
+<div class="comp-body">
+<details class="rest">
+<summary class="rest-s">
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Holyhead Hotspur</span><span class="v">v</span><span class="team">Bala Town</span></div>
+<div class="venue"><span class="ven">The New Oval</span><span class="pc">LL65 2YE</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Brickfield Rangers</span><span class="v">v</span><span class="team">Newtown</span></div>
+<div class="venue"><span class="ven">Clywedog Park</span><span class="pc">LL14 4HE</span></div>
+</div>
+<div class="rest-line"><span>Rest of the division</span><span class="count">8 matches</span></div>
+</summary>
+<div class="rest-body">
+<div class="row">
+<div class="when"><span class="d">Fri 13 Nov</span><span class="t">19:30</span></div>
+<div class="match"><span class="team">Denbigh Town</span><span class="v">v</span><span class="team">Gresford Athletic</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 14 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Llanuwchllyn</span><span class="v">v</span><span class="team">Rhyl 1879</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Caersws</span><span class="v">v</span><span class="team">Denbigh Town</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Gresford Athletic</span><span class="v">v</span><span class="team">Buckley Town</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Guilsfield</span><span class="v">v</span><span class="team">Bangor City 1876</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Llanuwchllyn</span><span class="v">v</span><span class="team">Ruthin Town</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Mold Alexandra</span><span class="v">v</span><span class="team">Porthmadog</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+<div class="row">
+<div class="when"><span class="d">Sat 21 Nov</span><span class="t">14:00</span></div>
+<div class="match"><span class="team">Penrhyncoch</span><span class="v">v</span><span class="team">Rhyl 1879</span></div>
+<div class="venue"><span class="ven">TBC</span></div>
+</div>
+</div>
+</details>
+</div>
+</details>
+<details class="comp travel">
+<summary class="comp-h"><h2>Before you travel</h2></summary>
+<div class="comp-body">
+<div class="notes-body">
+<p class="sub">Source conflicts</p><ul><li>Southern League Premier South: sources name the venue differently for 1 game (sponsor names or spelling). The first source&#39;s name is shown. Example: (Southern League (official feed) &quot;Oliver Connell and Sons Community Stadium&quot;, Plymouth Parkway website &quot;The Powerday Stadium&quot;).</li></ul><p class="sub">Postponements</p><ul><li>League One: Bromley v Notts County, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Doncaster Rovers v Leyton Orient, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Leicester City v Bradford City, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Luton Town v Cambridge United, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Stevenage v Mansfield Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Wycombe Wanderers v Huddersfield Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Bath City v Berkhamsted, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Bracknell Town v Uxbridge, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Chertsey Town v Wimborne Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Malvern Town v Chichester City, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li></ul><ul><li>Wales men&#39;s internationals: postponements checked in UEFA (official feed), Sky Sports; none marked postponed.</li><li>Other UK and European internationals: postponements checked in UEFA (official feed); none marked postponed.</li><li>Premier League: postponements checked in Premier League (official feed), Sky Sports; none marked postponed.</li><li>Championship: postponements checked in EFL (official feed), Sky Sports; none marked postponed.</li><li>League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above).</li><li>Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website; 4 marked postponed (listed above).</li><li>Novira Cymru North: postponements could not be checked, because no source that reports them could be read. Check the clubs before travelling.</li></ul><p class="sub">To be confirmed</p><ul><li>Southern League Premier South: venue TBC for Salisbury v Chichester City, Sat 14 Nov.</li><li>Novira Cymru North: venue TBC for Denbigh Town v Gresford Athletic, Fri 13 Nov.</li><li>Novira Cymru North: venue TBC for Llanuwchllyn v Rhyl 1879, Sat 14 Nov.</li><li>Novira Cymru North: venue TBC for Caersws v Denbigh Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Gresford Athletic v Buckley Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Guilsfield v Bangor City 1876, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Llanuwchllyn v Ruthin Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Mold Alexandra v Porthmadog, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Penrhyncoch v Rhyl 1879, Sat 21 Nov.</li></ul><p class="sub">Caveats</p><ul><li>Wales men&#39;s internationals: ESPN could not be read (page data not found (layout may have changed); page data not found (layout may have changed)). It was not used.</li><li>Other UK and European internationals: ESPN could not be read (page data not found (layout may have changed); page data not found (layout may have changed)). It was not used.</li><li>Championship: The EFL team feed lists no stadium for Wolverhampton Wanderers, Sheffield United, Burnley, West Ham United. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li>League One: The EFL team feed lists no stadium for Luton Town, Bromley. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li>Southern League Premier South: BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements.</li><li>Novira Cymru North: The FAW page lists no venues, so only the followed clubs&#39; grounds (from config/teams.json) are shown; other venues are TBC.</li><li>Novira Cymru North: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li>Novira Cymru North: LL14 4HE for Clywedog Park comes from a single source.</li></ul><p class="sub">Sources</p><ul><li>Wales men&#39;s internationals: UEFA (official feed) (main list); Sky Sports (cross-check). ESPN failed: page data not found (layout may have changed); page data not found (layout may have changed).</li><li>Other UK and European internationals: UEFA (official feed) (main list). ESPN failed: page data not found (layout may have changed); page data not found (layout may have changed).</li><li>Premier League: Premier League (official feed) (main list); Sky Sports (cross-check).</li><li>Championship: EFL (official feed) (main list); Sky Sports (cross-check).</li><li>League One: EFL (official feed) (main list); Sky Sports (cross-check).</li><li>Southern League Premier South: Southern League (official feed) (main list); Plymouth Parkway website (cross-check); BetExplorer (cross-check).</li><li>Novira Cymru North: FAW Cymru Leagues website (main list).</li></ul><p class="sub">Checked at</p><p>2026-11-12 08:51 GMT (UK time)</p>
+</div></div>
+</details>
+</main>
+</div>
+</body>
+</html>
