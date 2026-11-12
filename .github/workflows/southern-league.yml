@@ -6,6 +6,9 @@ on:
   workflow_dispatch: {}
 permissions:
   contents: write
+concurrency:
+  group: southern-league
+  cancel-in-progress: false
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -13,8 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: npm install
-      - run: npx playwright install --with-deps chromium
+      # Fails (non-zero) without writing if the API is unreachable or the data is incomplete.
       - run: node scripts/scrape.mjs
       - name: Commit if changed
         run: |
