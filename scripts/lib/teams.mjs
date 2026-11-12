@@ -5,6 +5,7 @@ export function teamKey(name) {
   const base = String(name ?? '')
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .toLowerCase()
+    .replace(/[øœæłđðß]/g, c => ({ 'ø': 'o', 'œ': 'oe', 'æ': 'ae', 'ł': 'l', 'đ': 'd', 'ð': 'd', 'ß': 'ss' }[c]))
     .replace(/&/g, ' and ')
     .replace(/['’.]/g, '')
     .replace(/[^a-z0-9 ]+/g, ' ')
@@ -42,6 +43,17 @@ export function makeResolver(canonicalNames, aliases = {}, { prefix = true } = {
     }
     if (!out && prefix && k.length >= 4) {
       const hits = [...byKey.entries()].filter(([ck]) => ck.startsWith(k));
+      if (hits.length === 1) out = hits[0][1];
+    }
+    if (!out && prefix) {
+      // "RB Leipzig" / "Leipzig", "Paris Saint Germain" / "Paris": the shorter name's words are all in the longer one,
+      // and exactly one candidate fits. Single short words (under 4 letters) and ambiguous matches never match.
+      const words = k.split(' ');
+      const hits = [...byKey.entries()].filter(([ck]) => {
+        const cw = ck.split(' ');
+        const [small, big] = words.length <= cw.length ? [words, cw] : [cw, words];
+        return small.join('').length >= 4 && small.every(w => big.includes(w));
+      });
       if (hits.length === 1) out = hits[0][1];
     }
     cache.set(name, out);

@@ -41,6 +41,19 @@
     "FAW Welsh Cup": [
       "Holyhead Hotspur",
       "Brickfield Rangers"
+    ],
+    "Wales men's internationals": [
+      "Wales"
+    ],
+    "UEFA Champions League": [
+      "Leeds United",
+      "Manchester United",
+      "Liverpool"
+    ],
+    "UEFA Europa League": [
+      "Leeds United",
+      "Manchester United",
+      "Liverpool"
     ]
   },
   "fallbackGrounds": {
@@ -81,6 +94,22 @@
     "bosnia-herzegovina": "Bosnia and Herzegovina",
     "suriname": "Surinam",
     "north macedonia": "North Macedonia",
-    "macedonia": "North Macedonia"
+    "macedonia": "North Macedonia",
+    "atletico madrid": "Atleti",
+    "bayern munich": "Bayern München",
+    "borussia dortmund": "B. Dortmund",
+    "psv eindhoven": "PSV",
+    "sk slovan bratislava": "S. Bratislava",
+    "slavia prague": "Slavia Praha",
+    "sporting lisbon": "Sporting CP",
+    "linz ask": "LASK",
+    "dinamo zagreb": "GNK Dinamo",
+    "hapoel beer-sheva": "H. Beer-Sheva",
+    "nec nijmegen": "N.E.C.",
+    "olympiakos fc": "Olympiacos",
+    "sparta prague": "Sparta Praha",
+    "omonia nicosia": "Omonia",
+    "ofi": "OFI Crete",
+    "union saint-gilloise": "Union SG"
   }
 }

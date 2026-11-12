@@ -158,3 +158,16 @@ test('followed-name mapping is exact or alias only, so a different club is never
   assert.equal(canon('Plymouth Parkway'), null);
   assert.equal(canon('Plymouth'), null, 'no prefix guessing in this mode');
 });
+
+test('team names that differ by extra words or special letters still match, but ambiguous ones never do', () => {
+  const r = makeResolver(['Leipzig', 'Paris', 'Bayern München', 'Inter', 'Lillestrøm', 'Real Madrid', 'Real Sociedad', 'Manchester City', 'Manchester United', 'Sheffield United', 'Sheffield Wednesday']);
+  assert.equal(r('RB Leipzig'), 'Leipzig');
+  assert.equal(r('Paris Saint-Germain'), 'Paris');
+  assert.equal(r('Inter Milan'), 'Inter');
+  assert.equal(r('Lillestrom'), 'Lillestrøm');
+  assert.equal(r('Bayern Munchen'), 'Bayern München');
+  assert.equal(r('Real'), null, 'two clubs start with Real');
+  assert.equal(r('Manchester'), null);
+  assert.equal(r('Sheffield'), null);
+  assert.equal(r('Man'), null, 'too short to guess');
+});

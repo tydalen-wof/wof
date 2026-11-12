@@ -13,6 +13,8 @@ export const SKY_PAGES = {
   'League One': 'https://www.skysports.com/league-1-scores-fixtures',
   Wales: 'https://www.skysports.com/wales-scores-fixtures',
   'FA Cup': 'https://www.skysports.com/fa-cup-scores-fixtures',
+  'Champions League': 'https://www.skysports.com/champions-league-scores-fixtures',
+  'Europa League': 'https://www.skysports.com/europa-league-scores-fixtures',
 };
 const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];

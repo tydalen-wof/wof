@@ -33,10 +33,12 @@ Three top-level groups, each a collapsed accordion holding its competitions (als
 | --- | --- |
 | International | Wales men's internationals; Other UK and European internationals |
 | Welsh | Novira Cymru North; FAW Welsh Cup |
-| English | Premier League; Championship; League One; Southern League Premier South; FA Cup; FA Trophy |
+| English | Premier League; Championship; League One; Southern League Premier South; FA Cup; FA Trophy; UEFA Champions League; UEFA Europa League |
 
 - Inside a competition, followed teams' games come first, then an "Other fixtures" line (with a match count) that opens the rest.
-- A competition with no games is a plain title. A group with no games at all is a plain heading.
+- **A competition is left off the page** when none of its named teams (its list under `followed` in `config/teams.json`) plays in it this week, or it has no games. A group with no competitions to show is left off too. The notes name what was left out. This week that is the FA Cup, FA Trophy, Champions League and Europa League.
+- **Exception:** a competition whose source could not be read, or whose list is known to be incomplete, is always shown with a warning, because nobody can say that no named team is involved.
+- Each competition has a small logo beside its title (see Logos).
 - To move a competition between groups, or reorder them, edit `SECTIONS` in `scripts/build.mjs`.
 
 ## Sources
@@ -55,6 +57,7 @@ The first source listed is the main list. The others are cross-checked against i
 | FA Cup | The FA's fixtures page (next round only); cross-checks: Sky Sports, ESPN, Parkway site (Parkway ties) |
 | FA Trophy | The FA's fixtures page (next round only), plus the Southern League feed, which adds ties for its own clubs and supplies their venues and postponements; cross-check: Parkway site |
 | FAW Welsh Cup | faw.cymru (same reader as Cymru North) |
+| UEFA Champions League, UEFA Europa League | UEFA official feed (one request for both); cross-check: Sky Sports. ESPN's default pages show only past matchdays, so it is not used |
 
 Not used: ESPN's API host and Football Web Pages (both refuse automated requests); TNT, VAVEL and isthefootballon
 (no complete fixture list); Sky (it has no FA Trophy page).
@@ -67,6 +70,7 @@ ESPN's default schedule pages show only some match days, so they are compared on
 - **FA Cup:** nothing is shown (a bare heading) when no tie falls in the window.
 - **FAW Welsh Cup:** the page lists every tie drawn so far whatever `?currentDate=` says, so the plain address is used. Venues are TBC except for followed Cymru North clubs' home ties, which show their ground and postcode.
 - Other cups (Southern League cups, county cups, EFL Trophy, Welsh Cup qualifying) are not covered.
+- **European competitions:** the followed list is the English clubs you follow (Leeds United, Manchester United, Liverpool), so a matchday without them is not shown. Add a club to `UEFA Champions League` or `UEFA Europa League` in `config/teams.json` to follow it there. Sky and UEFA spell some clubs differently; the `aliases` table handles the ones seen so far, and the notes name any that still need an alias.
 - Followed clubs in a cup are listed first. A club's name is shown as spelt in `config/teams.json` (for example "MK Dons", not "Milton Keynes Dons").
 
 ### Southern League feed
@@ -87,6 +91,20 @@ fixtures. The build reads the JSON API the page itself loads, in `scripts/collec
 - An unreadable source is never treated as "no postponements". The notes say which sections could not be checked.
 - Unknown times and venues show `TBC`. Nothing is guessed.
 - Conflicts, failed sources, caveats and the checked-at time go in the "Before you travel" accordion.
+
+## Logos
+
+Each competition has a logo, saved in `assets/logos/` and served with the page (nothing is fetched from other sites when the page loads).
+`config/logos.json` records where each one came from.
+
+- **UEFA's own CDN:** Nations League, Champions League, Europa League and the Wales crest (the URLs the UEFA match feed itself gives).
+- **faw.cymru:** Cymru Leagues, and the FAW crest (used for the Welsh Cup, which has no separate logo on the site).
+- **southern-football-league.co.uk:** the Southern League logo.
+- **thefa.com:** The FA crest (used for the FA Trophy, which has no separate logo there).
+- **ESPN's CDN:** Premier League, Championship, League One and FA Cup. The Premier League and EFL sites publish no competition logo that can be fetched.
+- White logos (Wales, Southern League) sit on a dark chip; the rest sit on white, so all read in both themes.
+- **Refresh or add one:** edit `config/logos.json`, then `node scripts/fetch-logos.mjs [--force] [key ...]`. It refuses anything that is not a plain image (HTML, scripted SVG, over 300 KB). The weekly build never fetches logos.
+- Logos are trademarks of their owners and are used only to identify the competition. Remove `assets/logos/` and the page still works, just without icons.
 
 ## Postcodes
 
@@ -128,10 +146,13 @@ config/teams.json        followed teams, aliases, fallback grounds
 data/postcodes.json      lookup of known non-league grounds and postcodes (grows as teams are seen)
 scripts/collect/*.mjs    one module per source: returns normalised fixtures, notes and success or failure
                          (faw.mjs is the shared faw.cymru reader; fa.mjs reads the FA Cup and FA Trophy pages)
-scripts/lib/             UK-time helpers (Intl), HTTP helper, team-name matching, reconciliation
+scripts/lib/             UK-time helpers (Intl), HTTP helper, team-name matching, reconciliation,
+                         postcode lookup, and the rule for leaving a competition off the page
 scripts/build.mjs        collect, reconcile, write JSON and HTML
 scripts/render.mjs       data to HTML
 scripts/postcodes.mjs    command line for the postcode lookup (add, missing, show)
+scripts/fetch-logos.mjs  downloads the competition logos named in config/logos.json (maintenance, not part of the build)
+assets/logos/            the logo files; config/logos.json records their sources
 test/                    unit tests and the HTML structure snapshot
 ```
 

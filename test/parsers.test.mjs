@@ -7,7 +7,7 @@ import { parseBetDate, parseBetExplorer } from '../scripts/collect/betexplorer.m
 import { parseEasternDetail, parseEspn } from '../scripts/collect/espn.mjs';
 import { parseParkway } from '../scripts/collect/parkway.mjs';
 import { parseSouthern, parseTrophy, validateLeagueItems } from '../scripts/collect/southern-league.mjs';
-import { parseUefa } from '../scripts/collect/uefa.mjs';
+import { parseUefa, parseUefaClubs } from '../scripts/collect/uefa.mjs';
 import { makeFixture } from '../scripts/lib/fixture.mjs';
 
 test('Sky: year is inferred from the weekday', () => {
@@ -169,4 +169,29 @@ test('Welsh Cup: reads the FAW slugs, applying the built-in and configured name 
   const cards = parseFaw(html, 'faw-welsh-cup', { 'some-new-club-fc': 'Some New Club AFC' });
   assert.deepEqual(cards.map(c => [c.home, c.away]), [["Connah's Quay Nomads", 'Mochdre Sports'], ['Cardiff Met', 'Dolgellau AA'], ['Holyhead Hotspur', 'Some New Club AFC']]);
   assert.deepEqual(parseFaw(html, 'novira-cymru-north'), [], 'a Welsh Cup slug is not read as a Cymru North match');
+});
+
+test('UEFA club competitions: Champions League and Europa League only, with round tags, venues and postponements', () => {
+  const m = (o) => ({
+    competition: { id: '1' }, homeTeam: { internationalName: 'Club Brugge' }, awayTeam: { internationalName: 'Liverpool' },
+    kickOffTime: { dateTime: '2026-11-25T20:00:00Z' }, status: 'UPCOMING', type: 'GROUP_STAGE',
+    round: { metaData: { name: 'League Phase' } }, matchday: { longName: 'Matchday 5' },
+    stadium: { translations: { name: { EN: 'Jan Breydelstadion' } }, city: { translations: { name: { EN: 'Bruges' } } } }, ...o,
+  });
+  const r = parseUefaClubs([
+    m({}),
+    m({ competition: { id: '14' }, homeTeam: { internationalName: 'Celta' }, awayTeam: { internationalName: 'Bournemouth' } }),
+    m({ competition: { id: '2019' }, homeTeam: { internationalName: 'Conference Club' } }),                    // another competition: ignored
+    m({ type: 'FIRST_LEG', round: { metaData: { name: 'Round of 16' } }, matchday: undefined, kickOffTime: { dateTime: '2027-03-10T20:00:00Z' } }),
+    m({ status: 'POSTPONED', homeTeam: { internationalName: 'Lens' }, awayTeam: { internationalName: 'Leipzig' } }),
+  ]);
+  assert.deepEqual(r[1].fixtures.map(f => [f.home, f.date, f.time, f.tag, f.status]), [
+    ['Club Brugge', '2026-11-25', '20:00', 'League Phase · Matchday 5', 'scheduled'],
+    ['Club Brugge', '2027-03-10', '20:00', 'Round of 16 · 1st leg', 'scheduled'],
+    ['Lens', '2026-11-25', '20:00', 'League Phase · Matchday 5', 'postponed'],
+  ]);
+  assert.equal(r[1].fixtures[0].venue, 'Jan Breydelstadion, Bruges');
+  assert.equal(r[1].fixtures[0].competition, 'UEFA Champions League');
+  assert.deepEqual(r[14].fixtures.map(f => [f.home, f.competition]), [['Celta', 'UEFA Europa League']]);
+  assert.ok(r[1].teams.has('Liverpool'));
 });

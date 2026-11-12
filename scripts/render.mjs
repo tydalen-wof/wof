@@ -22,12 +22,14 @@ h1{margin:0;font:700 clamp(2.4rem,8vw,3.6rem)/.95 "Barlow Condensed","Arial Narr
 .lede{margin:10px 0 0;color:var(--muted)}
 h2{margin:0;font:700 1.7rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
 .group{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
-.group-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
 .group-body{border-top:1px solid var(--line);padding:12px}
 .group-body>.comp,.group-body>.comp-empty{margin:0 0 10px;background:var(--bg)}
 .group-body>:last-child{margin-bottom:0}
 .comp{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
 .comp-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.comp-id{display:flex;align-items:center;gap:10px;min-width:0}
+.comp-logo{flex:none;width:30px;height:30px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:5px;padding:3px}
+.comp-logo--dark{background:#15231B}
 .comp-t{font:700 1.4rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
@@ -115,15 +117,18 @@ export function partition(fixtures, followed, { chronological = false } = {}) {
 // A competition's title is not an <h2>/<h3>: the group above it owns the <h2>, and the page has no h3 at all.
 // role="heading" aria-level="3" gives assistive technology the same outline.
 const compTitle = name => `<div class="comp-t" role="heading" aria-level="3">${esc(name)}</div>`;
+// The logo is decorative (the title beside it names the competition), so its alt text is empty.
+const logoImg = s => (s.logo ? `<img class="comp-logo${s.logoChip === 'dark' ? ' comp-logo--dark' : ''}" src="${esc(s.logo)}" alt="" width="30" height="30" loading="lazy" decoding="async">` : '');
+const compHead = s => `<div class="comp-id">${logoImg(s)}${compTitle(s.name)}</div>`;
 
-function plainHeading(name, unavailable = false) {
+function plainHeading(s, unavailable = false) {
   const why = unavailable ? '<p class="muted unavailable">Could not be read. See Before you travel.</p>' : '';
-  return `<section class="comp-empty">${compTitle(name)}${why}</section>`;
+  return `<section class="comp-empty">${compHead(s)}${why}</section>`;
 }
 
-function accordion(name, body) {
+function accordion(s, body) {
   return `<details class="comp">
-<summary class="comp-h">${compTitle(name)}</summary>
+<summary class="comp-h">${compHead(s)}</summary>
 <div class="comp-body">
 ${body}</div>
 </details>`;
@@ -148,17 +153,16 @@ const plainList = (list, ctx) => list.map(f => row(f, ctx)).join('\n') + (list.l
 
 function renderSection(s) {
   const fixtures = s.fixtures ?? [];
-  if (!fixtures.length) return plainHeading(s.name, s.unavailable);
+  if (!fixtures.length) return plainHeading(s, s.unavailable);
   const c = { postcodes: s.postcodes ?? null };
-  if (s.layout === 'plain') return accordion(s.name, plainList([...fixtures].sort(byWhen), c));
+  if (s.layout === 'plain') return accordion(s, plainList([...fixtures].sort(byWhen), c));
   const { mine, rest } = partition(fixtures, s.followed ?? [], { chronological: s.layout === 'days' });
-  return accordion(s.name, nested(mine, rest, s.layout === 'days' ? rowsWithDays : plainList, c));
+  return accordion(s, nested(mine, rest, s.layout === 'days' ? rowsWithDays : plainList, c));
 }
 
 // ---------- groups ----------
-/** A top-level accordion holding competition accordions. A group with nothing to show is a plain heading. */
+/** A top-level accordion holding competition accordions. (Groups are only built from competitions that are shown.) */
 function renderGroup(name, sections) {
-  if (!sections.some(s => (s.fixtures ?? []).length || s.unavailable)) return `<section class="group-empty"><h2>${esc(name)}</h2></section>`;
   return `<details class="group">
 <summary class="group-h"><h2>${esc(name)}</h2></summary>
 <div class="group-body">
@@ -236,7 +240,10 @@ ${travelBody(data)}
 </details>`;
 }
 
-export function renderPage(data) {
+export function renderPage(fullData) {
+  // Competitions with no named team involved (or no games) are not rendered, nor mentioned in the travel notes
+  // except for one line saying what was left out (data.notes).
+  const data = { ...fullData, sections: fullData.sections.filter(s => !s.hidden) };
   return `<!doctype html>
 <html lang="en-GB">
 <head>

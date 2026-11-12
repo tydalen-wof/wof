@@ -23,12 +23,14 @@ h1{margin:0;font:700 clamp(2.4rem,8vw,3.6rem)/.95 "Barlow Condensed","Arial Narr
 .lede{margin:10px 0 0;color:var(--muted)}
 h2{margin:0;font:700 1.7rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
 .group{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
-.group-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
 .group-body{border-top:1px solid var(--line);padding:12px}
 .group-body>.comp,.group-body>.comp-empty{margin:0 0 10px;background:var(--bg)}
 .group-body>:last-child{margin-bottom:0}
 .comp{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:4px}
 .comp-empty{margin:12px 0;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.comp-id{display:flex;align-items:center;gap:10px;min-width:0}
+.comp-logo{flex:none;width:30px;height:30px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:5px;padding:3px}
+.comp-logo--dark{background:#15231B}
 .comp-t{font:700 1.4rem/1.05 "Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
@@ -80,7 +82,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 <summary class="group-h"><h2>International</h2></summary>
 <div class="group-body">
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">Wales men&#39;s internationals</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo comp-logo--dark" src="assets/logos/wales.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Wales men&#39;s internationals</div></div></summary>
 <div class="comp-body">
 <div class="row">
 <div class="when"><span class="d">Sat 14 Nov</span><span class="t">17:00</span></div>
@@ -95,7 +97,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 </div>
 </details>
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">Other UK and European internationals</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="assets/logos/internationals.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Other UK and European internationals</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -389,7 +391,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 <summary class="group-h"><h2>Welsh</h2></summary>
 <div class="group-body">
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">Novira Cymru North</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="assets/logos/cymru-north.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Novira Cymru North</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -451,7 +453,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 </div>
 </details>
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">FAW Welsh Cup</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="assets/logos/welsh-cup.svg" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">FAW Welsh Cup</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -548,7 +550,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 <summary class="group-h"><h2>English</h2></summary>
 <div class="group-body">
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">Premier League</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="assets/logos/premier-league.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Premier League</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -605,7 +607,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 </div>
 </details>
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">Championship</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="assets/logos/championship.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Championship</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -677,7 +679,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 </div>
 </details>
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">League One</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo" src="assets/logos/league-one.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">League One</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -804,7 +806,7 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 </div>
 </details>
 <details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">Southern League Premier South</div></summary>
+<summary class="comp-h"><div class="comp-id"><img class="comp-logo comp-logo--dark" src="assets/logos/southern-premier-south.webp" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Southern League Premier South</div></div></summary>
 <div class="comp-body">
 <details class="rest">
 <summary class="rest-s">
@@ -950,161 +952,13 @@ details[open]>.group-h::after,details[open]>.comp-h::after,details[open]>summary
 </details>
 </div>
 </details>
-<section class="comp-empty"><div class="comp-t" role="heading" aria-level="3">FA Cup</div></section>
-<details class="comp">
-<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">FA Trophy</div></summary>
-<div class="comp-body">
-<details class="rest">
-<summary class="rest-s">
-<div class="rest-line"><span>Other fixtures</span><span class="count">27 matches</span></div>
-</summary>
-<div class="rest-body">
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">AFC Telford United</span><span class="v">v</span><span class="team">Chelmsford City</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Alfreton Town</span><span class="v">v</span><span class="team">Southport</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Ashton United</span><span class="v">v</span><span class="team">Workington AFC</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Avro</span><span class="v">v</span><span class="team">Chester</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Bath City</span><span class="v">v</span><span class="team">Truro City</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">Cannon Clarke Stadium @ Twerton Park</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Bedford Town</span><span class="v">v</span><span class="team">Chesham United</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Billericay Town</span><span class="v">v</span><span class="team">Waltham Abbey</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">New Lodge</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Bourne Town</span><span class="v">v</span><span class="team">Bromsgrove Sporting</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">JJ Mac Stadium, Abbey Lawn</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Braintree Town</span><span class="v">v</span><span class="team">Kettering Town</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Bridlington Town AFC</span><span class="v">v</span><span class="team">Macclesfield</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Chorley</span><span class="v">v</span><span class="team">Buxton</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Darlington</span><span class="v">v</span><span class="team">Bury</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Didcot Town</span><span class="v">v</span><span class="team">Slough Town</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">Christchurch Homes Loop Meadow Stadium</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Eastbourne Borough</span><span class="v">v</span><span class="team">Chertsey Town</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">Connect Management Stadium</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Halesowen Town</span><span class="v">v</span><span class="team">Redditch United</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">The Grove</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Hebburn Town</span><span class="v">v</span><span class="team">Guiseley AFC</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Hednesford Town</span><span class="v">v</span><span class="team">Hemel Hempstead Town</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Hereford</span><span class="v">v</span><span class="team">Brackley Town</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">King&#39;s Lynn Town</span><span class="v">v</span><span class="team">Stourbridge</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Leek Town</span><span class="v">v</span><span class="team">Morecambe</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Radcliffe</span><span class="v">v</span><span class="team">Marine</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Salisbury</span><span class="v">v</span><span class="team">Chichester City</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Spennymoor Town</span><span class="v">v</span><span class="team">Scarborough Athletic</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Weymouth</span><span class="v">v</span><span class="team">Hampton &amp; Richmond Borough</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">Bob Lucas Stadium</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Wimborne Town</span><span class="v">v</span><span class="team">Uxbridge</span><span class="tags"><span class="tag">FA Trophy</span></span></div>
-<div class="venue"><span class="ven">Wyatt Homes Stadium</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Wingate &amp; Finchley</span><span class="v">v</span><span class="team">Hashtag United</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-<div class="row">
-<div class="when"><span class="d">Sat 14 Nov</span><span class="t">15:00</span></div>
-<div class="match"><span class="team">Worksop Town</span><span class="v">v</span><span class="team">South Shields</span><span class="tags"><span class="tag">Second Round Proper</span></span></div>
-<div class="venue"><span class="ven">TBC</span></div>
-</div>
-</div>
-</details>
-</div>
-</details>
 </div>
 </details>
 <details class="group travel">
 <summary class="group-h"><h2>Before you travel</h2></summary>
 <div class="group-body">
 <div class="notes-body">
-<p class="sub">Source conflicts</p><ul><li>Other UK and European internationals: ESPN lists Surinam v Eswatini on Sun 15 Nov, but UEFA (official feed) does not. It was not added.</li><li>Other UK and European internationals: sources name the venue differently for 19 games (sponsor names or spelling). The first source&#39;s name is shown. Example: (UEFA (official feed) &quot;Tarczynski Arena Wroclaw&quot;, ESPN &quot;Municipal Stadium Wroclaw&quot;).</li><li>Southern League Premier South: sources name the venue differently for 1 game (sponsor names or spelling). The first source&#39;s name is shown. Example: (Southern League (official feed) &quot;Oliver Connell and Sons Community Stadium&quot;, Plymouth Parkway website &quot;The Powerday Stadium&quot;).</li></ul><p class="sub">Postponements</p><ul><li>League One: Bromley v Notts County, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Doncaster Rovers v Leyton Orient, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Leicester City v Bradford City, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Luton Town v Cambridge United, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Stevenage v Mansfield Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Wycombe Wanderers v Huddersfield Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Bath City v Berkhamsted, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Bracknell Town v Uxbridge, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Chertsey Town v Wimborne Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Malvern Town v Chichester City, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li></ul><ul><li>Wales men&#39;s internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed.</li><li>Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed.</li><li>Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.</li><li>FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.</li><li>Premier League: postponements checked in Premier League (official feed), Sky Sports; none marked postponed.</li><li>Championship: postponements checked in EFL (official feed), Sky Sports; none marked postponed.</li><li>League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above).</li><li>Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above).</li><li>FA Cup: postponements checked in Sky Sports, ESPN, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed.</li><li>FA Trophy: postponements could only be checked for part of this section (Southern League (official feed) (Southern League clubs only), Plymouth Parkway website (Plymouth Parkway games only)); none marked postponed. Other ties could not be checked, so check the clubs before travelling.</li></ul><p class="sub">To be confirmed</p><ul><li>Novira Cymru North: venue TBC for Denbigh Town v Gresford Athletic, Fri 13 Nov.</li><li>Novira Cymru North: venue TBC for Llanuwchllyn v Rhyl 1879, Sat 14 Nov.</li><li>Novira Cymru North: venue TBC for Caersws v Denbigh Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Gresford Athletic v Buckley Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Guilsfield v Bangor City 1876, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Llanuwchllyn v Ruthin Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Mold Alexandra v Porthmadog, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Penrhyncoch v Rhyl 1879, Sat 21 Nov.</li><li>FAW Welsh Cup: venue TBC for Baglan Dragons v Barry Town United, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Caernarfon Town v Holywell Town, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Connah&#39;s Quay Nomads v Mochdre Sports, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Penybont v Cardiff Draconians, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for The New Saints v Briton Ferry Llansawel, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Caerau Ely v Brickfield Rangers, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Colwyn Bay v Aberystwyth Town, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Haverfordwest County v Ammanford, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Llandudno v Felinheli, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Llangennech v Newport City, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Newtown v Caerphilly Athletic, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Rockspur v Pontarddulais Town, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Cardiff Met v Dolgellau AA, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Trefelin v Coedpoeth United, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Cambrian United v Bangor City 1876, Sun 15 Nov.</li><li>FA Trophy: venue TBC for AFC Telford United v Chelmsford City, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Alfreton Town v Southport, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Ashton United v Workington AFC, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Avro v Chester, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Bedford Town v Chesham United, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Braintree Town v Kettering Town, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Bridlington Town AFC v Macclesfield, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Chorley v Buxton, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Darlington v Bury, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Hebburn Town v Guiseley AFC, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Hednesford Town v Hemel Hempstead Town, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Hereford v Brackley Town, Sat 14 Nov.</li><li>FA Trophy: venue TBC for King&#39;s Lynn Town v Stourbridge, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Leek Town v Morecambe, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Radcliffe v Marine, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Salisbury v Chichester City, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Spennymoor Town v Scarborough Athletic, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Wingate &amp; Finchley v Hashtag United, Sat 14 Nov.</li><li>FA Trophy: venue TBC for Worksop Town v South Shields, Sat 14 Nov.</li></ul><p class="sub">Caveats</p><ul><li>Novira Cymru North: The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.</li><li>Novira Cymru North: LL14 4HE for Clywedog Park comes from a single source.</li><li>Novira Cymru North: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li>Novira Cymru North: No postcode stored yet for 7 of 9 home grounds: Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Penrhyncoch. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li>FAW Welsh Cup: The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.</li><li>FAW Welsh Cup: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li>FAW Welsh Cup: 1 venue(s) come from the stored home grounds (data/postcodes.json). A cup tie is not always played at the home club&#39;s usual ground.</li><li>FAW Welsh Cup: No postcode stored yet for 15 of 16 home grounds: Baglan Dragons, Caerau Ely, Caernarfon Town, Cambrian United, Cardiff Met, Colwyn Bay, Connah&#39;s Quay Nomads, Haverfordwest County, Llandudno, Llangennech, Newtown, Penybont and 3 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li>Championship: The EFL team feed lists no stadium for Wolverhampton Wanderers, Sheffield United, Burnley, West Ham United. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li>League One: The EFL team feed lists no stadium for Luton Town, Bromley. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li>Southern League Premier South: BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements.</li><li>Southern League Premier South: No postcode stored yet for 22 of 22 home grounds: Basingstoke Town, Bath City, Berkhamsted, Bracknell Town, Chertsey Town, Chichester City, Chippenham Town, Evesham United, Frome Town, Gloucester City, Gosport Borough, Hanwell Town and 10 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li>FA Cup: The FA page lists only the next round of FA Cup ties, with no venues or postponement status.</li><li>FA Trophy: 7 tie(s) come only from Southern League (official feed), not from The FA (official site): Billericay Town v Waltham Abbey; Weymouth v Hampton &amp; Richmond Borough; Didcot Town v Slough Town; Wimborne Town v Uxbridge; Bath City v Truro City; Eastbourne Borough v Chertsey Town; Salisbury v Chichester City.</li><li>FA Trophy: The FA page lists only the next round of FA Trophy ties, with no venues or postponement status.</li><li>FA Trophy: No postcode stored yet for 27 of 27 home grounds: AFC Telford United, Alfreton Town, Ashton United, Avro, Bath City, Bedford Town, Billericay Town, Bourne Town, Braintree Town, Bridlington Town AFC, Chorley, Darlington and 15 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li></ul><p class="sub">Sources</p><ul><li>Wales men&#39;s internationals: UEFA (official feed) (main list); ESPN (cross-check); Sky Sports (cross-check).</li><li>Other UK and European internationals: UEFA (official feed) (main list); ESPN (cross-check).</li><li>Novira Cymru North: FAW Cymru Leagues website (main list).</li><li>FAW Welsh Cup: FAW Welsh Cup website (main list).</li><li>Premier League: Premier League (official feed) (main list); Sky Sports (cross-check).</li><li>Championship: EFL (official feed) (main list); Sky Sports (cross-check).</li><li>League One: EFL (official feed) (main list); Sky Sports (cross-check).</li><li>Southern League Premier South: Southern League (official feed) (main list); Plymouth Parkway website (cross-check); BetExplorer (cross-check).</li><li>FA Cup: The FA (official site) (main list); Sky Sports (cross-check); ESPN (cross-check); Plymouth Parkway website (cross-check).</li><li>FA Trophy: The FA (official site) (main list); Southern League (official feed) (cross-check); Plymouth Parkway website (cross-check).</li></ul><p class="sub">Checked at</p><p>2026-11-12 12:05 GMT (UK time)</p>
+<p class="sub">Source conflicts</p><ul><li>Other UK and European internationals: ESPN lists Surinam v Eswatini on Sun 15 Nov, but UEFA (official feed) does not. It was not added.</li><li>Other UK and European internationals: sources name the venue differently for 18 games (sponsor names or spelling). The first source&#39;s name is shown. Example: (UEFA (official feed) &quot;Tarczynski Arena Wroclaw&quot;, ESPN &quot;Municipal Stadium Wroclaw&quot;).</li><li>Southern League Premier South: sources name the venue differently for 1 game (sponsor names or spelling). The first source&#39;s name is shown. Example: (Southern League (official feed) &quot;Oliver Connell and Sons Community Stadium&quot;, Plymouth Parkway website &quot;The Powerday Stadium&quot;).</li></ul><p class="sub">Postponements</p><ul><li>League One: Bromley v Notts County, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Doncaster Rovers v Leyton Orient, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Leicester City v Bradford City, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Luton Town v Cambridge United, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Stevenage v Mansfield Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>League One: Wycombe Wanderers v Huddersfield Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Bath City v Berkhamsted, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Bracknell Town v Uxbridge, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Chertsey Town v Wimborne Town, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li><li>Southern League Premier South: Malvern Town v Chichester City, Sat 14 Nov is marked postponed. Do not travel until it is rearranged.</li></ul><ul><li>Wales men&#39;s internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed.</li><li>Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed.</li><li>Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.</li><li>FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.</li><li>Premier League: postponements checked in Premier League (official feed), Sky Sports; none marked postponed.</li><li>Championship: postponements checked in EFL (official feed), Sky Sports; none marked postponed.</li><li>League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above).</li><li>Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above).</li></ul><p class="sub">To be confirmed</p><ul><li>Novira Cymru North: venue TBC for Denbigh Town v Gresford Athletic, Fri 13 Nov.</li><li>Novira Cymru North: venue TBC for Llanuwchllyn v Rhyl 1879, Sat 14 Nov.</li><li>Novira Cymru North: venue TBC for Caersws v Denbigh Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Gresford Athletic v Buckley Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Guilsfield v Bangor City 1876, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Llanuwchllyn v Ruthin Town, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Mold Alexandra v Porthmadog, Sat 21 Nov.</li><li>Novira Cymru North: venue TBC for Penrhyncoch v Rhyl 1879, Sat 21 Nov.</li><li>FAW Welsh Cup: venue TBC for Baglan Dragons v Barry Town United, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Caernarfon Town v Holywell Town, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Connah&#39;s Quay Nomads v Mochdre Sports, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Penybont v Cardiff Draconians, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for The New Saints v Briton Ferry Llansawel, Fri 13 Nov.</li><li>FAW Welsh Cup: venue TBC for Caerau Ely v Brickfield Rangers, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Colwyn Bay v Aberystwyth Town, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Haverfordwest County v Ammanford, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Llandudno v Felinheli, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Llangennech v Newport City, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Newtown v Caerphilly Athletic, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Rockspur v Pontarddulais Town, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Cardiff Met v Dolgellau AA, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Trefelin v Coedpoeth United, Sat 14 Nov.</li><li>FAW Welsh Cup: venue TBC for Cambrian United v Bangor City 1876, Sun 15 Nov.</li></ul><p class="sub">Caveats</p><ul><li>Not shown this week, because none of the named teams (config/teams.json) are involved: FA Cup, FA Trophy, UEFA Champions League, UEFA Europa League.</li><li>Novira Cymru North: The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.</li><li>Novira Cymru North: LL14 4HE for Clywedog Park comes from a single source.</li><li>Novira Cymru North: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li>Novira Cymru North: No postcode stored yet for 7 of 9 home grounds: Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Penrhyncoch. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li>FAW Welsh Cup: The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.</li><li>FAW Welsh Cup: LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.</li><li>FAW Welsh Cup: 1 venue(s) come from the stored home grounds (data/postcodes.json). A cup tie is not always played at the home club&#39;s usual ground.</li><li>FAW Welsh Cup: No postcode stored yet for 15 of 16 home grounds: Baglan Dragons, Caerau Ely, Caernarfon Town, Cambrian United, Cardiff Met, Colwyn Bay, Connah&#39;s Quay Nomads, Haverfordwest County, Llandudno, Llangennech, Newtown, Penybont and 3 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li><li>Championship: The EFL team feed lists no stadium for Wolverhampton Wanderers, Sheffield United, Burnley, West Ham United. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li>League One: The EFL team feed lists no stadium for Luton Town, Bromley. Their grounds come from the fallback list in config/teams.json, not from a feed.</li><li>Southern League Premier South: BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements.</li><li>Southern League Premier South: No postcode stored yet for 22 of 22 home grounds: Basingstoke Town, Bath City, Berkhamsted, Bracknell Town, Chertsey Town, Chichester City, Chippenham Town, Evesham United, Frome Town, Gloucester City, Gosport Borough, Hanwell Town and 10 more. Add one with: node scripts/postcodes.mjs add &quot;Team&quot; &quot;AB1 2CD&quot;</li></ul><p class="sub">Sources</p><ul><li>Wales men&#39;s internationals: UEFA (official feed) (main list); ESPN (cross-check); Sky Sports (cross-check).</li><li>Other UK and European internationals: UEFA (official feed) (main list); ESPN (cross-check).</li><li>Novira Cymru North: FAW Cymru Leagues website (main list).</li><li>FAW Welsh Cup: FAW Welsh Cup website (main list).</li><li>Premier League: Premier League (official feed) (main list); Sky Sports (cross-check).</li><li>Championship: EFL (official feed) (main list); Sky Sports (cross-check).</li><li>League One: EFL (official feed) (main list); Sky Sports (cross-check).</li><li>Southern League Premier South: Southern League (official feed) (main list); Plymouth Parkway website (cross-check); BetExplorer (cross-check).</li></ul><p class="sub">Checked at</p><p>2026-11-12 12:55 GMT (UK time)</p>
 </div>
 </div>
 </details>

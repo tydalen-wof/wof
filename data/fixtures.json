@@ -1,18 +1,22 @@
 {
-  "generatedAt": "2026-11-12T12:05:45.655Z",
-  "checkedAt": "2026-11-12 12:05 GMT",
+  "generatedAt": "2026-11-12T12:55:00.727Z",
+  "checkedAt": "2026-11-12 12:55 GMT",
   "window": {
     "start": "2026-11-12",
     "end": "2026-11-22"
   },
-  "notes": [],
+  "notes": [
+    "Not shown this week, because none of the named teams (config/teams.json) are involved: FA Cup, FA Trophy, UEFA Champions League, UEFA Europa League."
+  ],
   "sections": [
     {
       "key": "wales",
       "group": "International",
       "name": "Wales men's internationals",
       "layout": "plain",
-      "followed": [],
+      "followed": [
+        "Wales"
+      ],
       "unavailable": false,
       "fixtures": [
         {
@@ -74,7 +78,10 @@
       ],
       "conflicts": [],
       "notes": [],
-      "postponementCheck": "Wales men's internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed."
+      "postponementCheck": "Wales men's internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed.",
+      "hidden": false,
+      "logo": "assets/logos/wales.svg",
+      "logoChip": "dark"
     },
     {
       "key": "internationals",
@@ -889,11 +896,6 @@
         {
           "kind": "venue",
           "competition": "Other UK and European internationals",
-          "text": "Faroe Islands v Moldova, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Tórsvøllur, Tórshavn\", ESPN \"Tórsvollur\"). Used \"Tórsvøllur, Tórshavn\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
           "text": "France v Türkiye, Sun 15 Nov: venue wording differs (UEFA (official feed) \"Matmut Atlantique, Bordeaux\", ESPN \"Stade Atlantique\"). Used \"Matmut Atlantique, Bordeaux\"."
         },
         {
@@ -953,7 +955,9 @@
         }
       ],
       "notes": [],
-      "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed."
+      "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed.",
+      "hidden": false,
+      "logo": "assets/logos/internationals.svg"
     },
     {
       "key": "cymru-north",
@@ -1115,10 +1119,12 @@
         "No postcode stored yet for 7 of 9 home grounds: Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Penrhyncoch. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
       "postponementCheck": "Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.",
+      "hidden": false,
       "postcodes": {
         "2026-11-21|Brickfield Rangers|Newtown": "LL14 4HE",
         "2026-11-21|Holyhead Hotspur|Bala Town": "LL65 2YE"
-      }
+      },
+      "logo": "assets/logos/cymru-north.svg"
     },
     {
       "key": "welsh-cup",
@@ -1358,9 +1364,11 @@
         "No postcode stored yet for 15 of 16 home grounds: Baglan Dragons, Caerau Ely, Caernarfon Town, Cambrian United, Cardiff Met, Colwyn Bay, Connah's Quay Nomads, Haverfordwest County, Llandudno, Llangennech, Newtown, Penybont and 3 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
       "postponementCheck": "FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.",
+      "hidden": false,
       "postcodes": {
         "2026-11-14|Holyhead Hotspur|Blaen-y-Maes": "LL65 2YE"
-      }
+      },
+      "logo": "assets/logos/welsh-cup.svg"
     },
     {
       "key": "premier-league",
@@ -1521,7 +1529,9 @@
       ],
       "conflicts": [],
       "notes": [],
-      "postponementCheck": "Premier League: postponements checked in Premier League (official feed), Sky Sports; none marked postponed."
+      "postponementCheck": "Premier League: postponements checked in Premier League (official feed), Sky Sports; none marked postponed.",
+      "hidden": false,
+      "logo": "assets/logos/premier-league.png"
     },
     {
       "key": "championship",
@@ -1724,7 +1734,9 @@
       "notes": [
         "The EFL team feed lists no stadium for Wolverhampton Wanderers, Sheffield United, Burnley, West Ham United. Their grounds come from the fallback list in config/teams.json, not from a feed."
       ],
-      "postponementCheck": "Championship: postponements checked in EFL (official feed), Sky Sports; none marked postponed."
+      "postponementCheck": "Championship: postponements checked in EFL (official feed), Sky Sports; none marked postponed.",
+      "hidden": false,
+      "logo": "assets/logos/championship.png"
     },
     {
       "key": "league-one",
@@ -2082,7 +2094,9 @@
       "notes": [
         "The EFL team feed lists no stadium for Luton Town, Bromley. Their grounds come from the fallback list in config/teams.json, not from a feed."
       ],
-      "postponementCheck": "League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above)."
+      "postponementCheck": "League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above).",
+      "hidden": false,
+      "logo": "assets/logos/league-one.png"
     },
     {
       "key": "southern-premier-south",
@@ -2492,9 +2506,12 @@
         "No postcode stored yet for 22 of 22 home grounds: Basingstoke Town, Bath City, Berkhamsted, Bracknell Town, Chertsey Town, Chichester City, Chippenham Town, Evesham United, Frome Town, Gloucester City, Gosport Borough, Hanwell Town and 10 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
       "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above).",
+      "hidden": false,
       "postcodes": {
         "2026-11-21|Plymouth Parkway|Malvern Town": "Postcode not found"
-      }
+      },
+      "logo": "assets/logos/southern-premier-south.webp",
+      "logoChip": "dark"
     },
     {
       "key": "fa-cup",
@@ -2551,7 +2568,8 @@
         "The FA page lists only the next round of FA Cup ties, with no venues or postponement status."
       ],
       "postponementCheck": "FA Cup: postponements checked in Sky Sports, ESPN, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed.",
-      "postcodes": {}
+      "hidden": true,
+      "logo": "assets/logos/fa-cup.png"
     },
     {
       "key": "fa-trophy",
@@ -2948,11 +2966,83 @@
       "conflicts": [],
       "notes": [
         "7 tie(s) come only from Southern League (official feed), not from The FA (official site): Billericay Town v Waltham Abbey; Weymouth v Hampton & Richmond Borough; Didcot Town v Slough Town; Wimborne Town v Uxbridge; Bath City v Truro City; Eastbourne Borough v Chertsey Town; Salisbury v Chichester City.",
-        "The FA page lists only the next round of FA Trophy ties, with no venues or postponement status.",
-        "No postcode stored yet for 27 of 27 home grounds: AFC Telford United, Alfreton Town, Ashton United, Avro, Bath City, Bedford Town, Billericay Town, Bourne Town, Braintree Town, Bridlington Town AFC, Chorley, Darlington and 15 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
+        "The FA page lists only the next round of FA Trophy ties, with no venues or postponement status."
       ],
       "postponementCheck": "FA Trophy: postponements could only be checked for part of this section (Southern League (official feed) (Southern League clubs only), Plymouth Parkway website (Plymouth Parkway games only)); none marked postponed. Other ties could not be checked, so check the clubs before travelling.",
-      "postcodes": {}
+      "hidden": true,
+      "logo": "assets/logos/fa-trophy.svg"
+    },
+    {
+      "key": "champions-league",
+      "group": "English",
+      "name": "UEFA Champions League",
+      "layout": "rows",
+      "followed": [
+        "Leeds United",
+        "Manchester United",
+        "Liverpool"
+      ],
+      "unavailable": false,
+      "fixtures": [],
+      "sources": [
+        {
+          "name": "UEFA (official feed)",
+          "url": "https://match.uefa.com/v5/matches",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        },
+        {
+          "name": "Sky Sports",
+          "url": "https://www.skysports.com/champions-league-scores-fixtures",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 0
+        }
+      ],
+      "conflicts": [],
+      "notes": [],
+      "postponementCheck": "UEFA Champions League: postponements checked in UEFA (official feed), Sky Sports; none marked postponed.",
+      "hidden": true,
+      "logo": "assets/logos/champions-league.svg"
+    },
+    {
+      "key": "europa-league",
+      "group": "English",
+      "name": "UEFA Europa League",
+      "layout": "rows",
+      "followed": [
+        "Leeds United",
+        "Manchester United",
+        "Liverpool"
+      ],
+      "unavailable": false,
+      "fixtures": [],
+      "sources": [
+        {
+          "name": "UEFA (official feed)",
+          "url": "https://match.uefa.com/v5/matches",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        },
+        {
+          "name": "Sky Sports",
+          "url": "https://www.skysports.com/europa-league-scores-fixtures",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 0
+        }
+      ],
+      "conflicts": [],
+      "notes": [],
+      "postponementCheck": "UEFA Europa League: postponements checked in UEFA (official feed), Sky Sports; none marked postponed.",
+      "hidden": true,
+      "logo": "assets/logos/europa-league.svg"
     }
   ],
   "fixtures": [

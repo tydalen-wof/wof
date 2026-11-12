@@ -1,0 +1,91 @@
+{
+  "_comment": "Competition logos, one per section key (see SECTIONS in scripts/build.mjs). Run: node scripts/fetch-logos.mjs [--force] [key ...]. It downloads each url once to assets/logos/ and records file and retrievedAt here. Logos are trademarks of their owners and are used only to identify the competition. \"chip\": \"dark\" is for logos drawn in white, which show on a dark backing instead of the default white one.",
+  "logos": {
+    "wales": {
+      "url": "https://img.uefa.com/imgml/uefacom/elements/logos/ma/WAL.svg",
+      "source": "UEFA's own CDN: the association crest the UEFA match feed links for Wales",
+      "file": "assets/logos/wales.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 9722,
+      "chip": "dark"
+    },
+    "internationals": {
+      "url": "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/color/full/2014.svg",
+      "source": "UEFA's own CDN: UEFA Nations League (competition 2014 in the UEFA match feed)",
+      "file": "assets/logos/internationals.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 28204
+    },
+    "cymru-north": {
+      "url": "https://faw.cymru/cymru-leagues/content/mu-plugins/hopp-faw-header/assets/img/lib/cymruleagues-logo-new.svg",
+      "source": "faw.cymru: Cymru Leagues logo from the site header",
+      "file": "assets/logos/cymru-north.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 11146
+    },
+    "welsh-cup": {
+      "url": "https://faw.cymru/cymru-leagues/content/mu-plugins/hopp-faw-header/assets/img/lib/150-faw-logo.svg",
+      "source": "faw.cymru: FAW crest from the site header (the Welsh Cup pages show no separate cup logo)",
+      "file": "assets/logos/welsh-cup.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 47429
+    },
+    "premier-league": {
+      "url": "https://a.espncdn.com/i/leaguelogos/soccer/500/23.png",
+      "source": "ESPN's CDN: English Premier League logo (league id 23)",
+      "file": "assets/logos/premier-league.png",
+      "retrievedAt": "2026-11-12",
+      "bytes": 23552
+    },
+    "championship": {
+      "url": "https://a.espncdn.com/i/leaguelogos/soccer/500/24.png",
+      "source": "ESPN's CDN: English League Championship logo (league id 24)",
+      "file": "assets/logos/championship.png",
+      "retrievedAt": "2026-11-12",
+      "bytes": 62541
+    },
+    "league-one": {
+      "url": "https://a.espncdn.com/i/leaguelogos/soccer/500/25.png",
+      "source": "ESPN's CDN: English League One logo (league id 25)",
+      "file": "assets/logos/league-one.png",
+      "retrievedAt": "2026-11-12",
+      "bytes": 57661
+    },
+    "southern-premier-south": {
+      "url": "https://www.southern-football-league.co.uk/img/web/site-logo.webp?v=13",
+      "source": "southern-football-league.co.uk: site logo",
+      "file": "assets/logos/southern-premier-south.webp",
+      "retrievedAt": "2026-11-12",
+      "bytes": 15748,
+      "chip": "dark"
+    },
+    "fa-cup": {
+      "url": "https://a.espncdn.com/i/leaguelogos/soccer/500/40.png",
+      "source": "ESPN's CDN: FA Cup logo (league id 40)",
+      "file": "assets/logos/fa-cup.png",
+      "retrievedAt": "2026-11-12",
+      "bytes": 36655
+    },
+    "fa-trophy": {
+      "url": "https://cdn.thefa.com/thefawebsite/assets/images/the-fa-logo.svg",
+      "source": "thefa.com: The FA crest (no separate FA Trophy logo is published on the site)",
+      "file": "assets/logos/fa-trophy.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 3241
+    },
+    "champions-league": {
+      "url": "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/color/full/1.svg",
+      "source": "UEFA's own CDN: UEFA Champions League (competition 1 in the UEFA match feed)",
+      "file": "assets/logos/champions-league.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 13443
+    },
+    "europa-league": {
+      "url": "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/color/full/14.svg",
+      "source": "UEFA's own CDN: UEFA Europa League (competition 14 in the UEFA match feed)",
+      "file": "assets/logos/europa-league.svg",
+      "retrievedAt": "2026-11-12",
+      "bytes": 6530
+    }
+  }
+}

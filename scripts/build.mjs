@@ -1,7 +1,7 @@
 // Collect -> reconcile -> write data/fixtures.json and index.html.
 //   node scripts/build.mjs                  (run date = today in Europe/London)
 //   BUILD_DATE=2026-11-12 node scripts/build.mjs
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { londonToday, windowFor, londonStamp } from './lib/time.mjs';
@@ -10,6 +10,7 @@ import { reconcile } from './lib/reconcile.mjs';
 import { sortFixtures, result } from './lib/fixture.mjs';
 import { teamKey, makeResolver } from './lib/teams.mjs';
 import { loadLookup, saveLookup, makeFinder, applyLookup, mergeAdditions, LOOKUP_PATH } from './lib/postcodes.mjs';
+import { shouldHide } from './lib/visibility.mjs';
 import { renderPage } from './render.mjs';
 import * as premierLeague from './collect/premier-league.mjs';
 import * as efl from './collect/efl.mjs';
@@ -27,13 +28,15 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const INTL = 'Other UK and European internationals';
 
 // Page order is group order, then the order below within each group.
+// A competition is not rendered when none of its named (followed) teams are involved, or it has no games, unless its
+// list is incomplete or unreadable (then it is shown with a warning, because we cannot say nobody is involved).
 // `critical` sections fail the build if no source can be read.
 // `cup` sections skip the "followed team not in the team list" check (a round holds only some clubs).
 // Postcode lookup (data/postcodes.json): `lookup` shows known postcodes and fills missing venues; `nonLeague` means every
 // club here is non-league (so a followed club with no postcode says so, and missing ones are listed); `record` adds unseen
 // home teams to the lookup; `recordVenue` also stores the feed's venue (league grounds only, never a cup venue).
-const SECTIONS = [
-  { key: 'wales', group: 'International', name: "Wales men's internationals", layout: 'plain', followKey: null },
+export const SECTIONS = [
+  { key: 'wales', group: 'International', name: "Wales men's internationals", layout: 'plain' },
   { key: 'internationals', group: 'International', name: INTL, layout: 'days', followKey: INTL },
   { key: 'cymru-north', group: 'Welsh', name: 'Novira Cymru North', layout: 'rows', lookup: true, nonLeague: true, record: true },
   { key: 'welsh-cup', group: 'Welsh', name: 'FAW Welsh Cup', layout: 'rows', cup: true, lookup: true, nonLeague: true, record: true },
@@ -43,6 +46,8 @@ const SECTIONS = [
   { key: 'southern-premier-south', group: 'English', name: 'Southern League Premier South', layout: 'rows', lookup: true, nonLeague: true, record: true, recordVenue: true },
   { key: 'fa-cup', group: 'English', name: 'FA Cup', layout: 'rows', cup: true, lookup: true },
   { key: 'fa-trophy', group: 'English', name: 'FA Trophy', layout: 'rows', cup: true, lookup: true, nonLeague: true, record: true },
+  { key: 'champions-league', group: 'English', name: 'UEFA Champions League', layout: 'rows', cup: true },
+  { key: 'europa-league', group: 'English', name: 'UEFA Europa League', layout: 'rows', cup: true },
 ];
 
 const isWales = f => f.home === 'Wales' || f.away === 'Wales';
@@ -98,6 +103,12 @@ function sectionFrom(def, rec, results, config, extraNotes = []) {
   };
 }
 
+/** One line naming the competitions left out of the page, so their absence is explained. */
+function hiddenNote(sections) {
+  const names = sections.filter(s => s.hidden).map(s => s.name);
+  return names.length ? [`Not shown this week, because none of the named teams (config/teams.json) are involved: ${names.join(', ')}.`] : [];
+}
+
 /** If the Southern League feed fails: Parkway's own site for Parkway rows, BetExplorer for the rest. */
 function southernFallback(pw, bet) {
   const mine = pw.ok ? pw.fixtures : [];
@@ -115,6 +126,7 @@ export async function build({ now = new Date(), write = true, log = console.log,
   const today = process.env.BUILD_DATE || londonToday(now);
   const window = windowFor(today);
   const ctx = { today, window, config, now };
+  const logos = existsSync(join(ROOT, 'config/logos.json')) ? JSON.parse(readFileSync(join(ROOT, 'config/logos.json'), 'utf8')).logos : {};
   const lookup = loadLookup(lookupPath);
   const finder = makeFinder(lookup, config.aliases);
   log(`Window ${window.start} to ${window.end} (run date ${today}, UK time)`);
@@ -122,7 +134,7 @@ export async function build({ now = new Date(), write = true, log = console.log,
   // One request per source page per run. Different hosts run in parallel; pages on the same host run one after another.
   const skyPages = (async () => {
     const out = {};
-    for (const c of ['Premier League', 'Championship', 'League One', 'Wales', 'FA Cup']) { out[c] = await sky.collect(c, today); await sleep(1000); }
+    for (const c of ['Premier League', 'Championship', 'League One', 'Wales', 'FA Cup', 'Champions League', 'Europa League']) { out[c] = await sky.collect(c, today); await sleep(1000); }
     return out;
   })();
   const espnPages = (async () => {
@@ -141,8 +153,8 @@ export async function build({ now = new Date(), write = true, log = console.log,
     return { s, pw, bet };
   })();
 
-  const [pl, eflRes, skyRes, uefaRes, espnRes, so, faw, faRes, welsh] = await Promise.all([
-    premierLeague.collect(ctx), efl.collect(ctx), skyPages, uefa.collect(ctx), espnPages, southernRoutes, cymru.collect(ctx), faPages, welshCup.collect(ctx),
+  const [pl, eflRes, skyRes, uefaRes, espnRes, so, faw, faRes, welsh, uefaClubs] = await Promise.all([
+    premierLeague.collect(ctx), efl.collect(ctx), skyPages, uefa.collect(ctx), espnPages, southernRoutes, cymru.collect(ctx), faPages, welshCup.collect(ctx), uefa.collectClubs(ctx),
   ]);
 
   const { s: sfl, pw, bet } = so;
@@ -162,6 +174,8 @@ export async function build({ now = new Date(), write = true, log = console.log,
     'fa-cup': [faRes.cup, skyRes['FA Cup'], espnRes.faCup, parkwayCups(pw, /fa cup/i)],
     'fa-trophy': [faRes.trophy, sfl.trophy, parkwayCups(pw, /fa trophy/i)],
     'welsh-cup': [welsh],
+    'champions-league': [uefaClubs[1], skyRes['Champions League']],
+    'europa-league': [uefaClubs[14], skyRes['Europa League']],
   };
 
   const sections = [];
@@ -176,7 +190,8 @@ export async function build({ now = new Date(), write = true, log = console.log,
     const extra = [];
     if (!rec.base) extra.push('No source could be read, so this section is empty because of that, not because there are no games.');
     const sec = sectionFrom(def, rec, results, config, extra);
-    if (def.lookup) {
+    sec.hidden = shouldHide({ unavailable: sec.unavailable, complete: !!rec.base?.complete, fixtures: sec.fixtures, followed: sec.followed });
+    if (def.lookup && !sec.hidden) {
       const lk = applyLookup({ fixtures: sec.fixtures, followed: sec.followed, finder, show: true, nonLeague: !!def.nonLeague, record: !!def.record, recordVenue: !!def.recordVenue, cup: !!def.cup });
       sec.fixtures = sortFixtures(lk.fixtures);
       sec.postcodes = lk.postcodes;
@@ -187,6 +202,8 @@ export async function build({ now = new Date(), write = true, log = console.log,
       sec.notes = [...new Set([...sec.notes, ...lk.notes, ...missingNote])];
       additions.push(...lk.additions); venueFills.push(...lk.venueFills);
     }
+    const logo = logos[def.key];
+    if (logo?.file && existsSync(join(ROOT, logo.file))) { sec.logo = logo.file; if (logo.chip) sec.logoChip = logo.chip; }
     sections.push(sec);
     log(`${def.name}: ${rec.fixtures.length} fixtures, ${rec.conflicts.length} conflicts, base ${rec.base?.name ?? 'none'}`);
   }
@@ -195,7 +212,7 @@ export async function build({ now = new Date(), write = true, log = console.log,
     generatedAt: now.toISOString(),
     checkedAt: londonStamp(now),
     window,
-    notes: [],
+    notes: hiddenNote(sections),
     sections,
     fixtures: sections.flatMap(s => s.fixtures),
   };

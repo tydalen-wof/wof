@@ -34,10 +34,10 @@ export const DATA = {
   window: { start: '2026-11-12', end: '2026-11-22' },
   notes: [],
   sections: [
-    sec('wales', 'International', "Wales men's internationals", 'plain', [], [
+    sec('wales', 'International', "Wales men's internationals", 'plain', ['Wales'], [
       fx('2026-11-14', '17:00', 'Norway', 'Wales', 'Ullevaal Stadion, Oslo', { tag: 'Nations League · Group A4' }),
       fx('2026-11-17', '19:45', 'Wales', 'Portugal', 'Cardiff City Stadium', { tag: 'Nations League · Group A4' }),
-    ]),
+    ], { logo: 'assets/logos/wales.svg', logoChip: 'dark' }),
     sec('internationals', 'International', 'Other UK and European internationals', 'days', ['England', 'Scotland'], [
       fx('2026-11-13', '19:45', 'Scotland', 'North Macedonia', 'Hampden Park, Glasgow', { tag: 'Nations League · Group B1' }),
       fx('2026-11-12', '19:45', 'England', 'Croatia', 'Wembley Stadium, London', { tag: 'Nations League · Group A3' }),
@@ -54,8 +54,8 @@ export const DATA = {
       fx('2026-11-21', '12:30', 'Manchester City', 'Fulham', 'Etihad Stadium'),
       fx('2026-11-21', '15:00', 'Chelsea', 'Leeds United', 'Stamford Bridge'),
       fx('2026-11-21', '15:00', 'Aston Villa', 'Sunderland', 'Villa Park'),
-    ]),
-    sec('championship', 'English', 'Championship', 'rows', ['Wrexham'], []),
+    ], { logo: 'assets/logos/premier-league.png' }),
+    sec('championship', 'English', 'Championship', 'rows', ['Wrexham'], [fx('2026-11-21', '15:00', 'Lincoln City', 'Wrexham', 'LNER Stadium')], { hidden: true, notes: ['hidden-section note'], conflicts: [{ kind: 'time', text: 'hidden-section conflict' }] }),
     sec('league-one', 'English', 'League One', 'rows', ['Plymouth Argyle', 'MK Dons'], [
       fx('2026-11-21', '15:00', 'Mansfield Town', 'MK Dons', 'One Call Stadium'),
       fx('2026-11-14', '15:00', 'Sheffield Wednesday', 'Plymouth Argyle', 'Hillsborough Stadium'),
@@ -66,19 +66,22 @@ export const DATA = {
       fx('2026-11-14', '15:00', 'Hanwell Town', 'Plymouth Parkway', 'Oliver Connell and Sons Community Stadium'),
       fx('2026-11-21', '15:00', 'Plymouth Parkway', 'Malvern Town', 'Bolitho Park'),
     ], { postcodes: { '2026-11-21|Plymouth Parkway|Malvern Town': 'TE5 7ST' } }),
-    sec('fa-cup', 'English', 'FA Cup', 'rows', ['Leeds United', 'Plymouth Parkway'], []),
+    sec('fa-cup', 'English', 'FA Cup', 'rows', ['Leeds United', 'Plymouth Parkway'], [], { unavailable: true }),
     sec('fa-trophy', 'English', 'FA Trophy', 'rows', ['Plymouth Parkway'], trophy, { postcodes: pcs([trophy[2]], 'TE5 7ST') }),
+    sec('champions-league', 'English', 'UEFA Champions League', 'rows', ['Liverpool', 'Manchester United'], [
+      fx('2026-11-25', '20:00', 'Club Brugge', 'Liverpool', 'Jan Breydelstadion, Bruges', { tag: 'League Phase · Matchday 5' }),
+      fx('2026-11-25', '20:00', 'Leipzig', 'Lens', 'Red Bull Arena, Leipzig', { tag: 'League Phase · Matchday 5' }),
+    ]),
+    sec('europa-league', 'English', 'UEFA Europa League', 'rows', ['Leeds United'], [fx('2026-11-26', '20:00', 'Celta', 'Bournemouth', null)], { hidden: true }),
   ],
 };
 
-const GROUPS = ['International', 'Welsh', 'English'];
-const TITLES = {
-  International: ["Wales men's internationals", 'Other UK and European internationals'],
-  Welsh: ['Novira Cymru North', 'FAW Welsh Cup'],
-  English: ['Premier League', 'Championship', 'League One', 'Southern League Premier South', 'FA Cup', 'FA Trophy'],
-};
-const EMPTY = ['Championship', 'FA Cup'];
-
+/** What the page should show for a data set: groups in order of first appearance, competitions in order, none hidden. */
+function expected(data) {
+  const shown = data.sections.filter(s => !s.hidden);
+  const groups = [...new Set(shown.map(s => s.group))];
+  return { groups, titles: groups.flatMap(g => shown.filter(s => s.group === g).map(s => s.name)), byGroup: Object.fromEntries(groups.map(g => [g, shown.filter(s => s.group === g).map(s => s.name)])) };
+}
 const unescape = s => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 const escHtml = s => s.replace(/&/g, '&amp;').replace(/'/g, '&#39;');
 const h2s = html => [...html.matchAll(/<h2>([^<]*)<\/h2>/g)].map(m => unescape(m[1]));
@@ -88,17 +91,18 @@ function comp(html, name) {
   const start = html.indexOf(`aria-level="3">${escHtml(name)}</div>`);
   assert.ok(start >= 0, `no competition titled ${name}`);
   const rest = html.slice(start + 10);
-  const ends = ['class="comp-t"', '<details class="group', '<section class="group-empty"', '</main>'].map(m => rest.indexOf(m)).filter(i => i >= 0);
+  const ends = ['class="comp-t"', '<details class="group', '</main>'].map(m => rest.indexOf(m)).filter(i => i >= 0);
   return html.slice(start, start + 10 + Math.min(...ends));
 }
 const teamsIn = html => [...html.matchAll(/<span class="team">([^<]*)<\/span><span class="v">v<\/span><span class="team">([^<]*)<\/span>/g)].map(m => `${unescape(m[1])} v ${unescape(m[2])}`);
 
-function checkRules(html) {
+function checkRules(html, data = DATA) {
+  const exp = expected(data);
   assert.doesNotMatch(html, /<details\b[^>]*\bopen\b/i, 'no <details> may carry the open attribute');
   assert.doesNotMatch(html, /<details\b[^>]*\bopen\s*=/i);
   assert.doesNotMatch(html, /<h3\b/i, 'no h3 anywhere');
-  assert.deepEqual(h2s(html), [...GROUPS, 'Before you travel'], 'group order');
-  assert.deepEqual(titles(html), GROUPS.flatMap(g => TITLES[g]), 'competition order within the groups');
+  assert.deepEqual(h2s(html), [...exp.groups, 'Before you travel'], 'group order');
+  assert.deepEqual(titles(html), exp.titles, 'competition order within the groups');
   assert.doesNotMatch(html, /<(b|strong)\b/i, 'team names and rows are not bold');
   assert.doesNotMatch(html, /Rest of/, 'the "rest" line is called "Other fixtures"');
   assert.match(html, /All kick-off times are UK time\. Venues are the home club's ground\./);
@@ -135,22 +139,24 @@ test('rendered page follows the layout rules', () => {
   checkRules(renderPage(DATA));
 });
 
-test('three top-level group accordions, each holding its competitions as nested accordions', () => {
+test('three top-level group accordions, each holding its shown competitions as nested accordions', () => {
   const html = renderPage(DATA);
+  const exp = expected(DATA);
   const groups = [...html.matchAll(/<details class="group">\n<summary class="group-h"><h2>([^<]*)<\/h2><\/summary>\n<div class="group-body">/g)].map(m => m[1]);
-  assert.deepEqual(groups, GROUPS);
+  assert.deepEqual(groups, ['International', 'Welsh', 'English']);
+  assert.deepEqual(groups, exp.groups);
   // Every competition sits inside a group body, never at the top level.
   const topLevelComp = html.slice(html.indexOf('<main>')).match(/<main>\n(?:(?!<details class="group)[\s\S])*?<details class="comp">/);
   assert.equal(topLevelComp, null, 'no competition accordion before the first group');
-  for (const g of GROUPS) {
+  for (const g of exp.groups) {
     const start = html.indexOf(`<h2>${g}</h2>`);
-    const end = Math.min(...[...GROUPS, 'Before you travel'].filter(x => x !== g).map(x => html.indexOf(`<h2>${x}</h2>`)).filter(i => i > start));
-    assert.deepEqual(titles(html.slice(start, end)), TITLES[g], `${g} holds its own competitions`);
+    const end = Math.min(...[...exp.groups, 'Before you travel'].filter(x => x !== g).map(x => html.indexOf(`<h2>${x}</h2>`)).filter(i => i > start));
+    assert.deepEqual(titles(html.slice(start, end)), exp.byGroup[g], `${g} holds its own competitions`);
   }
-  // Competitions with games are collapsed accordions; those without are plain titles.
-  const accordions = [...html.matchAll(/<details class="comp">\n<summary class="comp-h"><div class="comp-t" role="heading" aria-level="3">([^<]*)<\/div><\/summary>/g)].map(m => unescape(m[1]));
-  assert.deepEqual(accordions, GROUPS.flatMap(g => TITLES[g]).filter(t => !EMPTY.includes(t)));
-  for (const e of EMPTY) assert.match(html, new RegExp(`<section class="comp-empty"><div class="comp-t" role="heading" aria-level="3">${e}</div></section>`));
+  // Shown competitions with games are collapsed accordions; an unreadable one is a plain title with a warning.
+  const accordions = [...html.matchAll(/<details class="comp">\n<summary class="comp-h"><div class="comp-id">(?:<img[^>]*>)?<div class="comp-t" role="heading" aria-level="3">([^<]*)<\/div><\/div><\/summary>/g)].map(m => unescape(m[1]));
+  assert.deepEqual(accordions, exp.titles.filter(t => t !== 'FA Cup'));
+  assert.match(html, /<section class="comp-empty"><div class="comp-id">(?:<img[^>]*>)?<div class="comp-t" role="heading" aria-level="3">FA Cup<\/div><\/div><p class="muted unavailable">Could not be read/);
 });
 
 test('"Before you travel" is the last top-level accordion and holds the sources and checked-at time', () => {
@@ -161,27 +167,56 @@ test('"Before you travel" is the last top-level accordion and holds the sources 
   assert.match(html, /2026-11-12 05:30 GMT \(UK time\)/);
 });
 
-test('a group with nothing to show is a plain heading; one with an unreadable competition stays an accordion', () => {
-  const none = structuredClone(DATA);
-  for (const s of none.sections.filter(s => s.group === 'Welsh')) s.fixtures = [];
-  let html = renderPage(none);
-  assert.match(html, /<section class="group-empty"><h2>Welsh<\/h2><\/section>/);
-  checkRules(html.replace('<section class="group-empty"><h2>Welsh</h2></section>', '<details class="group"><summary class="group-h"><h2>Welsh</h2></summary><div class="group-body"><div class="comp-t" role="heading" aria-level="3">Novira Cymru North</div><div class="comp-t" role="heading" aria-level="3">FAW Welsh Cup</div></div></details>'));
-  const down = structuredClone(DATA);
-  for (const s of down.sections.filter(s => s.group === 'Welsh')) s.fixtures = [];
-  down.sections.find(s => s.key === 'cymru-north').unavailable = true;
-  html = renderPage(down);
-  assert.doesNotMatch(html, /<section class="group-empty">/);
-  assert.match(html, /<h2>Welsh<\/h2><\/summary>/);
-  assert.match(html, /Novira Cymru North<\/div><p class="muted unavailable">Could not be read/);
+test('a competition with no named team involved is not rendered, nor mentioned in the travel notes', () => {
+  const html = renderPage(DATA);
+  for (const hidden of ['Championship', 'UEFA Europa League']) assert.doesNotMatch(html, new RegExp(`aria-level="3">${hidden}<`), `${hidden} is not rendered`);
+  assert.ok(!teamsIn(html).some(t => /Lincoln City|Celta/.test(t)), 'none of their games are shown');
+  assert.doesNotMatch(html, /hidden-section (note|conflict)/, 'their notes and conflicts stay out of the travel notes');
 });
 
-test('the Wales men\'s section is a plain title when it has no games', () => {
+test('a group whose competitions are all hidden is not rendered either', () => {
   const data = structuredClone(DATA);
-  data.sections[0].fixtures = [];
+  for (const s of data.sections.filter(s => s.group === 'Welsh')) s.hidden = true;
   const html = renderPage(data);
-  assert.match(html, /<section class="comp-empty"><div class="comp-t" role="heading" aria-level="3">Wales men&#39;s internationals<\/div><\/section>/);
-  assert.doesNotMatch(html, /<details\b[^>]*\bopen\b/i);
+  assert.deepEqual(h2s(html), ['International', 'English', 'Before you travel']);
+  assert.doesNotMatch(html, /group-empty"|Novira Cymru North|FAW Welsh Cup/);
+  checkRules(html, data);
+});
+
+test('an unreadable competition stays visible, so its absence is never mistaken for "no games"', () => {
+  const data = structuredClone(DATA);
+  for (const s of data.sections.filter(s => s.group === 'Welsh')) { s.fixtures = []; s.hidden = true; }
+  const cymru = data.sections.find(s => s.key === 'cymru-north');
+  cymru.hidden = false; cymru.unavailable = true;
+  const html = renderPage(data);
+  assert.match(html, /<h2>Welsh<\/h2><\/summary>/);
+  assert.match(html, /Novira Cymru North<\/div><\/div><p class="muted unavailable">Could not be read/);
+  assert.doesNotMatch(html, /FAW Welsh Cup/);
+});
+
+test('what was left out is reported once, in the notes, so the absence is explained', () => {
+  const data = structuredClone(DATA);
+  data.notes = ['Not shown this week, because none of the named teams (config/teams.json) are involved: Championship, UEFA Europa League.'];
+  assert.match(renderPage(data), /Not shown this week, because none of the named teams \(config\/teams\.json\) are involved: Championship, UEFA Europa League\./);
+});
+
+test('a competition logo is shown beside its title as a decorative image; white logos get the dark backing', () => {
+  const html = renderPage(DATA);
+  const pl = comp(html, 'Premier League');
+  assert.match(html, /<div class="comp-id"><img class="comp-logo" src="assets\/logos\/premier-league\.png" alt="" width="30" height="30" loading="lazy" decoding="async"><div class="comp-t" role="heading" aria-level="3">Premier League<\/div><\/div>/);
+  assert.match(html, /<img class="comp-logo comp-logo--dark" src="assets\/logos\/wales\.svg" alt=""/);
+  assert.equal((html.match(/<img /g) ?? []).length, 2, 'only competitions with a logo get an image');
+  assert.doesNotMatch(comp(html, 'League One'), /<img /);
+  assert.doesNotMatch(html, /src="(?:https?:)?\//, 'logo paths are relative to the page, so Pages serves them from the same place');
+  assert.match(CSS, /\.comp-logo\{[^}]*background:#fff/);
+  assert.match(CSS, /\.comp-logo--dark\{background:#15231B\}/);
+  assert.ok(pl.length > 0);
+});
+
+test('an unreadable competition keeps its logo too', () => {
+  const data = structuredClone(DATA);
+  Object.assign(data.sections.find(s => s.key === 'fa-cup'), { logo: 'assets/logos/fa-cup.png' });
+  assert.match(renderPage(data), /<section class="comp-empty"><div class="comp-id"><img class="comp-logo" src="assets\/logos\/fa-cup\.png"/);
 });
 
 test('followed rows sit in the nested summary, followed by the "Other fixtures" line with a count', () => {
@@ -279,10 +314,12 @@ test('structure snapshot', () => {
 
 // ---- The real, freshly built page and data (the workflow builds before it tests).
 const REAL = join(ROOT, 'index.html');
-test('built index.html: nothing open, no h3, groups and competitions in order', { skip: !existsSync(REAL) && 'index.html has not been built' }, () => {
+test('built index.html: nothing open, no h3, groups and competitions match what the build marked as shown', { skip: !existsSync(REAL) && 'index.html has not been built' }, () => {
   const html = readFileSync(REAL, 'utf8');
-  checkRules(html);
-  assert.equal((html.match(/<details class="group(?: travel)?">/g) ?? []).length + (html.match(/<section class="group-empty">/g) ?? []).length, GROUPS.length + 1);
+  const data = JSON.parse(readFileSync(join(ROOT, 'data/fixtures.json'), 'utf8'));
+  checkRules(html, data);
+  assert.equal((html.match(/<details class="group(?: travel)?">/g) ?? []).length, expected(data).groups.length + 1);
+  assert.doesNotMatch(html, /group-empty"/);
 });
 
 test('built data/fixtures.json: normalised fixture shape', { skip: !existsSync(join(ROOT, 'data/fixtures.json')) && 'data not built' }, () => {
@@ -300,7 +337,8 @@ test('built data/fixtures.json: normalised fixture shape', { skip: !existsSync(j
   }
   const keys = d.fixtures.filter(f => f.competition === 'Premier League').map(f => [f.date, f.home, f.away].join('|'));
   assert.equal(new Set(keys).size, keys.length, 'no duplicate Premier League fixtures');
-  assert.deepEqual([...new Set(d.sections.map(s => s.group))], GROUPS);
+  assert.deepEqual([...new Set(d.sections.map(s => s.group))], ['International', 'Welsh', 'English']);
+  for (const sec of d.sections) assert.equal(typeof !!sec.hidden, 'boolean');
 });
 
 test('built data: no section with several games shows every kick-off time as TBC (guards against a parsing slip)', { skip: !existsSync(join(ROOT, 'data/fixtures.json')) && 'data not built' }, () => {
