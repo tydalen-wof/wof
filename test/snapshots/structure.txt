@@ -1,0 +1,62 @@
+details.comp
+  summary.comp-h Wales men's internationals
+  row | Sat 14 Nov 17:00 | Norway v Wales Nations League · Group A4 | Ullevaal Stadion, Oslo
+  row | Tue 17 Nov 19:45 | Wales v Portugal Nations League · Group A4 | Cardiff City Stadium
+details.comp
+  summary.comp-h Other UK and European internationals
+  details.rest
+    summary.rest-s
+    day: Thursday 12 November
+    row | Thu 12 Nov 19:45 | England v Croatia Nations League · Group A3 | Wembley Stadium, London
+    day: Friday 13 November
+    row | Fri 13 Nov 19:45 | Scotland v North Macedonia Nations League · Group B1 | Hampden Park, Glasgow
+    day: Sunday 15 November
+    row | Sun 15 Nov 19:45 | Spain v England Nations League · Group A3 | Metropolitano, Madrid
+    rest-line: Rest of Europe 2 matches
+    rest-body
+    day: Saturday 14 November
+    row | Sat 14 Nov 17:00 | France v Turkey Friendly | TBC
+    row | Sat 14 Nov 19:45 | Austria v Republic of Ireland Nations League · Group B3 | Raiffeisen Arena, Linz
+details.comp
+  summary.comp-h Premier League
+  details.rest
+    summary.rest-s
+    row | Sat 21 Nov 15:00 | Chelsea v Leeds United | Stamford Bridge
+    row | Sun 22 Nov 16:30 | Liverpool v Manchester United | Anfield
+    rest-line: Rest of the division 2 matches
+    rest-body
+    row | Sat 21 Nov 12:30 | Manchester City v Fulham | Etihad Stadium
+    row | Sat 21 Nov 15:00 | Aston Villa v Sunderland | Villa Park
+section.comp-empty Championship
+details.comp
+  summary.comp-h League One
+  details.rest
+    summary.rest-s
+    row | Sat 14 Nov 15:00 | Sheffield Wednesday v Plymouth Argyle | Hillsborough Stadium
+    row | Sat 21 Nov 15:00 | Mansfield Town v MK Dons | One Call Stadium
+    rest-line: Rest of the division 2 matches
+    rest-body
+    row | Sat 14 Nov 15:00 | Bromley v Notts County Postponed | Hayes Lane
+    row | Fri 20 Nov TBC | Barnsley v Sheffield Wednesday | TBC
+details.comp
+  summary.comp-h Southern League Premier South
+  details.rest
+    summary.rest-s
+    row | Sat 14 Nov 15:00 | Hanwell Town v Plymouth Parkway | Oliver Connell and Sons Community Stadium
+    rest-line: Rest of the division 1 match
+    rest-body
+    row | Sat 14 Nov 15:00 | Poole Town v Uxbridge FA Trophy | Clear Group Stadium
+details.comp
+  summary.comp-h Novira Cymru North
+  details.rest
+    summary.rest-s
+    row | Sat 14 Nov 14:00 | Bala Town v Holyhead Hotspur | TBC
+    row | Sat 21 Nov 14:00 | Holyhead Hotspur v Bala Town | The New Oval LL65 2YE
+    row | Sat 21 Nov 14:00 | Brickfield Rangers v Newtown | Clywedog Park LL14 4HE
+    row | Sat 14 Nov 14:00 | Followed No Postcode v Rhyl 1879 | Some Ground Postcode not found
+    rest-line: Rest of the division 1 match
+    rest-body
+    row | Sat 14 Nov 14:00 | Llanuwchllyn v Rhyl 1879 | TBC
+details.comp.travel
+  summary.comp-h Before you travel
+  sub: Source conflicts No disagreements were found between the sources that could be read. Postponements League One: Bromley v Notts County, Sat 14 Nov is marked postponed. Do not travel until it is rearranged. Wales men's internationals: checked. Other UK and European internationals: checked. Premier League: checked. Championship: checked. League One: checked. Southern League Premier South: checked. Novira Cymru North: checked. To be confirmed League One: kick-off time TBC for Barnsley v Sheffield Wednesday, Fri 20 Nov. Other UK and European internationals: venue TBC for France v Turkey, Sat 14 Nov. League One: venue TBC for Barnsley v Sheffield Wednesday, Fri 20 Nov. Novira Cymru North: venue TBC for Bala Town v Holyhead Hotspur, Sat 14 Nov. Novira Cymru North: venue TBC for Llanuwchllyn v Rhyl 1879, Sat 14 Nov. Caveats Sources Wales men's internationals: no source could be read. Other UK and European internationals: no source could be read. Premier League: no source could be read. Championship: no source could be read. League One: no source could be read. Southern League Premier South: no source could be read. Novira Cymru North: no source could be read. Checked at 2026-11-12 05:30 GMT (UK time)

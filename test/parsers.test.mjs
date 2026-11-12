@@ -1,0 +1,139 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { inferDate, parseSky } from '../scripts/collect/sky.mjs';
+import { parseFaw, slugToName } from '../scripts/collect/cymru-north.mjs';
+import { parseBetDate, parseBetExplorer } from '../scripts/collect/betexplorer.mjs';
+import { parseEasternDetail, parseEspn } from '../scripts/collect/espn.mjs';
+import { parseParkway } from '../scripts/collect/parkway.mjs';
+import { parseSouthern } from '../scripts/collect/southern-league.mjs';
+import { parseUefa } from '../scripts/collect/uefa.mjs';
+import { parsePremierSouthText } from '../scripts/scrape.mjs';
+import { makeFixture } from '../scripts/lib/fixture.mjs';
+
+test('Sky: year is inferred from the weekday', () => {
+  assert.equal(inferDate('Saturday 21st November', '2026-11-12'), '2026-11-21');
+  assert.equal(inferDate('Friday 6th November', '2026-11-12'), '2026-11-06');
+  assert.equal(inferDate('Saturday 7th November', '2026-11-12'), '2026-11-07');
+  assert.equal(inferDate('Sunday 3rd January', '2026-12-30'), '2027-01-03');
+  assert.equal(inferDate('nonsense', '2026-11-12'), null);
+});
+
+test('Sky: reads the embedded match JSON, UK time and postponement flag', () => {
+  const state = (o) => `data-state="${JSON.stringify(o).replace(/"/g, '&quot;')}"`;
+  const m = (home, away, time, extra = {}) => ({ start: { date: 'Saturday 21st November', time }, teams: { home: { name: { full: home } }, away: { name: { full: away } } }, isPostponed: false, ...extra });
+  const html = `<li ${state(m('Chelsea', 'Leeds United', '15:00'))}></li><li ${state(m('Arsenal', 'Spurs', '17:30', { isPostponed: true }))}></li>`;
+  const { fixtures, covers } = parseSky(html, 'Premier League', '2026-11-12');
+  assert.equal(fixtures.length, 2);
+  assert.equal(fixtures[0].date, '2026-11-21');
+  assert.equal(fixtures[0].time, '15:00');
+  assert.equal(fixtures[1].status, 'postponed');
+  assert.deepEqual([...covers], ['2026-11-21']);
+});
+
+test('FAW: names come from the match URL slug, kick-off from the UTC timestamp', () => {
+  const card = (id, ms, slug) => `<div class="is-style-match-card-v2" data-match-id="${id}" data-match-kickoff-utc="${ms}"><a class="match-link" href="https://faw.cymru/cymru-leagues/match/${slug}/"></a><p class="home-name">Home</p></div>`;
+  const html = card(1, Date.UTC(2026, 10, 21, 14, 0), 'holyhead-hotspur-fc-vs-bala-town-fc-novira-cymru-north-26-27')
+    + card(2, Date.UTC(2026, 10, 14, 14, 0), 'cpd-llanuwchllyn-vs-cpd-y-rhyl-1879-fc-novira-cymru-north-26-27-2')
+    + card(3, Date.UTC(2026, 10, 21, 14, 0), 'guilsfield-fc-vs-clwb-pel-droed-dinas-bangor-city-1876-football-club-novira-cymru-north-26-27');
+  const cards = parseFaw(html);
+  assert.deepEqual(cards.map(c => [c.home, c.away]), [['Holyhead Hotspur', 'Bala Town'], ['Llanuwchllyn', 'Rhyl 1879'], ['Guilsfield', 'Bangor City 1876']]);
+  assert.equal(slugToName('newtown-afc'), 'Newtown');
+  assert.equal(slugToName('brickfield-rangers-fc'), 'Brickfield Rangers');
+});
+
+test('BetExplorer: CET to UK across the autumn changeover', () => {
+  assert.deepEqual(parseBetDate('17.11. 20:45', '2026-11-12'), { date: '2026-11-17', time: '20:45' });
+  assert.deepEqual(parseBetDate('12.01.2027 20:45', '2026-11-12'), { date: '2027-01-12', time: '20:45' });
+  assert.deepEqual(parseBetDate('05.01. 20:45', '2026-11-12'), { date: '2027-01-05', time: '20:45' });   // no year: next occurrence
+  const row = (dt, a, b) => `<tr><td class="table-main__datetime">${dt}</td><td><a class="in-match"><span>${a}</span> - <span>${b}</span></a></td></tr>`;
+  const html = row('24.10. 20:45', 'Poole', 'Wimborne') + row('25.10. 20:45', 'Frome', 'Bath') + row('&nbsp;', 'Havant &amp; W', 'Yate Town');
+  const { fixtures, undated } = parseBetExplorer(html, '2026-10-20');
+  assert.deepEqual(fixtures.map(f => [f.date, f.time]), [['2026-10-24', '19:45'], ['2026-10-25', '19:45']]);   // CEST->BST, then CET->GMT
+  assert.equal(undated, 1);
+});
+
+test('ESPN: Eastern detail text converts to UK time', () => {
+  assert.deepEqual(parseEasternDetail('Sat, November 14th at 12:00 pm GMT-05:00', '2026'), { date: '2026-11-14', time: '17:00' });
+  assert.deepEqual(parseEasternDetail('Sun, March 8th at 12:00 am GMT-05:00', '2026'), { date: '2026-03-08', time: '05:00' });
+  assert.deepEqual(parseEasternDetail('Mon, March 9th at 12:00 pm GMT-04:00', '2026'), { date: '2026-03-09', time: '16:00' });
+  assert.equal(parseEasternDetail('Postponed', '2026'), null);
+});
+
+test('ESPN: prefers the UTC instant, falls back to Eastern text, reports only fully shown days as covered', () => {
+  const ev = (o) => ({ competitors: [{ isHome: true, displayName: o.home }, { isHome: false, displayName: o.away }], venue: { fullName: 'Somewhere' }, status: { state: 'pre', detail: o.detail }, ...o.extra });
+  const days = {
+    20261114: [ev({ home: 'Norway', away: 'Wales', detail: 'Sat, November 14th at 12:00 pm GMT-05:00', extra: { date: '2026-11-14T17:00Z' } }),
+               ev({ home: 'Ukraine', away: 'Georgia', detail: 'Sat, November 14th at 3:00 pm GMT-05:00' })],
+    20261115: [ev({ home: 'Spain', away: 'England', detail: 'x', extra: { date: '2026-11-16T00:30Z' } })],   // UK date differs from the page's day key
+  };
+  const html = `<script>window['__espnfitt__']=${JSON.stringify({ page: { content: { events: days } } })};</script>`;
+  const { fixtures, covers } = parseEspn(html);
+  assert.deepEqual(fixtures.map(f => [f.date, f.time]), [['2026-11-14', '17:00'], ['2026-11-14', '20:00'], ['2026-11-16', '00:30']]);
+  assert.deepEqual([...covers], ['2026-11-14']);
+});
+
+test('Parkway: reads rows, ignores N/A venues, flags postponements, separates cup ties', () => {
+  const row = (dt, title, league, shown, venue) => `<tr class="sp-row sp-post"><td><time datetime="${dt}" class="sp-event-date"></time><h5 class="sp-event-results"><a>${shown}</a></h5><div class="sp-event-league">${league}</div><div class="sp-event-venue"><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">${venue}</div></div><h4 class="sp-event-title"><a href="x">${title}</a></h4></td></tr>`;
+  const html = row('2026-11-14 15:00:10', 'Hanwell Town v Plymouth Parkway', 'Southern League Premier South', '3:00 pm', 'The Powerday Stadium')
+    + row('2026-11-21 15:00:33', 'Plymouth Parkway v Malvern Town', 'Southern League Premier South', 'Postponed', 'N/A')
+    + row('2026-11-28 15:00:00', 'Plymouth Parkway v Someone', 'FA Cup', '3:00 pm', 'Bolitho Park');
+  const rows = parseParkway(html);
+  assert.equal(rows.length, 3);
+  assert.deepEqual([rows[0].date, rows[0].time, rows[0].venue, rows[0].postponed], ['2026-11-14', '15:00', 'The Powerday Stadium', false]);
+  assert.equal(rows[1].postponed, true);
+  assert.equal(rows[1].venue, null);
+  assert.equal(rows[2].league, 'FA Cup');
+});
+
+test('Southern League feed: league rows, tagged cup ties, venue fallback, N/A venues, postponements', () => {
+  const PS = '69d0bd99b616bafb97331d3f';
+  const item = (o) => ({ competition: { id: PS, type: 'league', name: 'Premier South' }, date: '2026-11-14', time: '15:00', dateTime: '2026-11-14T15:00:00.000Z', status: 'NotKickedOff', venue: 'Ground', homeTeamName: 'A Town', awayTeamName: 'B Town', ...o });
+  const json = { items: [
+    item({ homeTeamName: 'Bath City', awayTeamName: 'Berkhamsted', status: 'Postponed', venue: null, homeTeam: { club: { stadiumName: 'Twerton Park' } } }),
+    item({ homeTeamName: 'Frome Town', awayTeamName: 'Poole Town', venue: 'N/A' }),
+    item({ homeTeamName: 'Poole Town', awayTeamName: 'Uxbridge', competition: { id: 'cup', type: 'cup', shortName: 'FA Trophy' } }),
+    item({ homeTeamName: 'Unrelated FC', awayTeamName: 'Other FC', competition: { id: 'cup', type: 'cup', shortName: 'FA Trophy' } }),
+    item({ homeTeamName: 'Central A', awayTeamName: 'Central B', competition: { id: 'other', type: 'league', name: 'Premier Central' } }),
+    item({ homeTeamName: 'Gosport Borough', awayTeamName: 'Chertsey Town', dateTime: '2026-07-04T14:00:00.000Z', date: '2026-07-04', time: '15:00' }),
+  ] };
+  const r = parseSouthern(json);
+  assert.deepEqual(r.fixtures.map(f => [f.home, f.tag, f.status, f.venue]), [
+    ['Bath City', null, 'postponed', 'Twerton Park'],
+    ['Frome Town', null, 'scheduled', null],
+    ['Poole Town', 'FA Trophy', 'scheduled', 'Ground'],
+    ['Gosport Borough', null, 'scheduled', 'Ground'],
+  ]);
+  assert.equal(r.clockMismatch, 0, 'a BST row stored as UTC 14:00 for a 15:00 kick-off is consistent');
+});
+
+test('Southern League browser scrape: dates come from the date line, P-P is postponed, other divisions ignored', () => {
+  const text = ['FIXTURES', 'Saturday 14 November 2026', 'PREMIER CENTRAL', 'Alvechurch', '15:00', 'Hitchin Town',
+    'PREMIER SOUTH', 'Basingstoke Town', '15:00', 'Chippenham Town', 'Bath City', 'P-P', 'Berkhamsted',
+    'Tuesday 17 November 2026', 'PREMIER SOUTH', 'Poole Town', '19:45', 'Wimborne Town', 'DIVISION ONE SOUTH', 'Someone', '15:00', 'Else'].join('\n');
+  const { fixtures } = parsePremierSouthText(text);
+  assert.deepEqual(fixtures.map(f => [f.date, f.time, f.home, f.away, f.status]), [
+    ['2026-11-14', '15:00', 'Basingstoke Town', 'Chippenham Town', 'scheduled'],
+    ['2026-11-14', null, 'Bath City', 'Berkhamsted', 'postponed'],
+    ['2026-11-17', '19:45', 'Poole Town', 'Wimborne Town', 'scheduled'],
+  ]);
+});
+
+test('UEFA: senior men only, UTC to UK time, Nations League group tag, city added to the venue unless the name already has it', () => {
+  const team = (name, type = 'NATIONAL_MEN_TEAM_A') => ({ internationalName: name, teamTypeDetail: type });
+  const m = (o) => ({ homeTeam: team('Wales'), awayTeam: team('Portugal'), kickOffTime: { dateTime: '2026-11-17T19:45:00Z' }, status: 'UPCOMING',
+    competition: { code: 'UNL', metaData: { name: 'UEFA Nations League' } }, group: { metaData: { groupName: 'Group A4' } },
+    stadium: { translations: { name: { EN: 'Principality Stadium' } }, city: { translations: { name: { EN: 'Cardiff' } } } }, ...o });
+  const { fixtures, teams } = parseUefa([m({}), m({ awayTeam: team('Portugal U21', 'NATIONAL_MEN_TEAM_U21') }), m({ competition: { code: 'A Int.', metaData: { name: 'Friendly Matches' } }, group: null, kickOffTime: { dateTime: '2026-06-02T18:00:00Z' } })]);
+  assert.equal(fixtures.length, 2);
+  assert.deepEqual([fixtures[0].tag, fixtures[0].venue], ['Nations League · Group A4', 'Principality Stadium, Cardiff']);
+  assert.deepEqual([fixtures[1].tag, fixtures[1].time], ['Friendly', '19:00'], 'June kick-off 18:00 UTC is 19:00 BST');
+  assert.ok(teams.includes('Wales'));
+});
+
+test('fixture shape: unknown times and venues stay null, never guessed', () => {
+  const f = makeFixture({ date: '2026-11-21', time: 'TBC', home: 'A', away: 'B', venue: 'TBC', competition: 'X', source: 'S' });
+  assert.deepEqual(Object.keys(f).sort(), ['away', 'competition', 'date', 'home', 'sources', 'status', 'tag', 'time', 'venue']);
+  assert.equal(f.time, null);
+  assert.equal(f.venue, null);
+  assert.equal(f.status, 'scheduled');
+});
