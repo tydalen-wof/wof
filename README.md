@@ -54,7 +54,7 @@ the days they show.
 
 ## Southern League data file
 
-`data/premier-south.json` is served at <https://gdoutch.github.io/wof/data/premier-south.json> and keeps its original format.
+`data/premier-south.json` is served at <https://tydalen-wof.github.io/wof/data/premier-south.json> and keeps its original format.
 
 The fixtures page (<https://www.southern-football-league.co.uk/fixtures>) is a JavaScript app, so its HTML holds no
 fixtures. It loads them from its own JSON API, which `scripts/scrape.mjs` reads:
