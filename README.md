@@ -7,7 +7,7 @@ and renders `index.html`, which GitHub Pages serves. A GitHub Action rebuilds it
 
 Needs Node 20 or newer.
 
-```
+```bash
 npm ci
 node scripts/build.mjs                       # builds for today (Europe/London)
 BUILD_DATE=2026-11-12 node scripts/build.mjs # builds for another run date
@@ -63,12 +63,12 @@ Edit `config/teams.json` and rebuild. No code changes.
 1. Add the name to the right section's list. Order matters: earlier teams are listed first.
 2. Use the spelling the main source uses (see `data/fixtures.json`). The build adds a note if a followed team is not found.
 3. For Novira Cymru North, also add the ground to `cymruNorthGrounds` (`venue`, `postcode`, optional `caveat`). Postcodes show only on followed clubs' home games. A missing postcode shows "Postcode not found".
-4. If a source spells a club differently, add an entry to `aliases`.
+4. If a source spells a club differently, add an entry to `aliases`. For a Cymru North club whose name looks wrong, add its faw.cymru URL slug to `cymruNorthSlugNames`.
 5. `fallbackGrounds` supplies a ground only when the EFL feed has none. Its use is flagged in the notes.
 
 ## Layout
 
-```
+```text
 config/teams.json        followed teams, Cymru North grounds, aliases, fallback grounds
 scripts/collect/*.mjs    one module per source: returns normalised fixtures, notes and success or failure
 scripts/lib/             UK-time helpers (Intl), HTTP helper, team-name matching, reconciliation
