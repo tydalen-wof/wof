@@ -36,5 +36,5 @@ jobs:
         run: |
           git config user.name "wof-bot"
           git config user.email "wof-bot@users.noreply.github.com"
-          git add index.html data/fixtures.json data/premier-south.json
+          git add index.html data/fixtures.json
           git diff --cached --quiet || (git commit -m "Update weekly fixtures report" && git push)

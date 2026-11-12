@@ -1,4 +1,4 @@
-// Collect -> reconcile -> write data/fixtures.json, data/premier-south.json and index.html.
+// Collect -> reconcile -> write data/fixtures.json and index.html.
 //   node scripts/build.mjs                  (run date = today in Europe/London)
 //   BUILD_DATE=2026-11-12 node scripts/build.mjs
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -16,7 +16,6 @@ import * as sky from './collect/sky.mjs';
 import * as uefa from './collect/uefa.mjs';
 import * as espn from './collect/espn.mjs';
 import * as southern from './collect/southern-league.mjs';
-import { writePremierSouthJson } from './scrape.mjs';
 import * as parkway from './collect/parkway.mjs';
 import * as betexplorer from './collect/betexplorer.mjs';
 import * as cymru from './collect/cymru-north.mjs';
@@ -121,18 +120,18 @@ export async function build({ now = new Date(), write = true, log = console.log 
   const { s: sfl, pw, bet } = so;
   let southernResults;
   const southernNotes = [];
-  if (sfl.primary.ok) {
+  if (sfl.ok) {
     if (pw.ok && pw.cupTies?.length) {
       const inWin = pw.cupTies.filter(f => f.date >= window.start && f.date <= window.end);
-      const known = new Set(sfl.primary.fixtures.map(f => `${f.date}|${teamKey(f.home)}|${teamKey(f.away)}`));
+      const known = new Set(sfl.fixtures.map(f => `${f.date}|${teamKey(f.home)}|${teamKey(f.away)}`));
       const added = inWin.filter(f => !known.has(`${f.date}|${teamKey(f.home)}|${teamKey(f.away)}`));
-      sfl.primary.fixtures.push(...added);
+      sfl.fixtures.push(...added);
       if (added.length) southernNotes.push(`${added.length} cup tie(s) for ${parkway.CLUB} come only from the Parkway website; the Southern League feed does not list them.`);
     }
-    southernResults = [sfl.primary, pw, bet];
+    southernResults = [sfl, pw, bet];
   } else {
     const fb = southernFallback(pw, bet);
-    southernResults = [sfl.primary, ...(fb ? [fb] : [pw, bet])];
+    southernResults = [sfl, ...(fb ? [fb] : [pw, bet])];
   }
 
   const wales = split(uefaRes).wales, intl = split(uefaRes).other;
@@ -180,8 +179,6 @@ export async function build({ now = new Date(), write = true, log = console.log 
   if (write) {
     mkdirSync(join(ROOT, 'data'), { recursive: true });
     writeFileSync(join(ROOT, 'data/fixtures.json'), JSON.stringify(data, null, 2) + '\n');
-    if (sfl.json) writePremierSouthJson(sfl.json, join(ROOT, 'data/premier-south.json'));
-    else log('Southern League feed failed: data/premier-south.json left unchanged.');
     writeFileSync(join(ROOT, 'index.html'), renderPage(data));
     log('Wrote data/fixtures.json and index.html');
   }

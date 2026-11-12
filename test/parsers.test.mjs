@@ -5,9 +5,8 @@ import { parseFaw, slugToName } from '../scripts/collect/cymru-north.mjs';
 import { parseBetDate, parseBetExplorer } from '../scripts/collect/betexplorer.mjs';
 import { parseEasternDetail, parseEspn } from '../scripts/collect/espn.mjs';
 import { parseParkway } from '../scripts/collect/parkway.mjs';
-import { parseSouthern } from '../scripts/collect/southern-league.mjs';
+import { parseSouthern, validateLeagueItems } from '../scripts/collect/southern-league.mjs';
 import { parseUefa } from '../scripts/collect/uefa.mjs';
-import { buildOutput } from '../scripts/scrape.mjs';
 import { makeFixture } from '../scripts/lib/fixture.mjs';
 
 test('Sky: year is inferred from the weekday', () => {
@@ -128,18 +127,12 @@ test('fixture shape: unknown times and venues stay null, never guessed', () => {
   assert.equal(f.status, 'scheduled');
 });
 
-test('data/premier-south.json keeps its documented format and refuses partial or unknown data', () => {
-  const row = (o) => ({ id: o.id, competition: { name: 'Premier South' }, homeTeam: { fullName: ' Bath  City ' }, awayTeam: { fullName: 'Berkhamsted' }, dateTime: '2026-11-14T15:00:00.000Z', date: '2026-11-14', time: '15:00', status: 'NotKickedOff', ...o });
-  const { out } = buildOutput([row({ id: 1 }), row({ id: 2, status: 'Postponed' })], 2, '2026-11-12T05:30:00.000Z');
-  assert.deepEqual(Object.keys(out), ['source', 'api', 'fetchedAt', 'division', 'windowDays', 'count', 'postponed', 'fixtures', 'rawSection']);
-  assert.deepEqual(out.fixtures, [
-    { date: '2026-11-14', home: 'Bath City', away: 'Berkhamsted', status: '15:00' },
-    { date: '2026-11-14', home: 'Bath City', away: 'Berkhamsted', status: 'postponed' },
-  ]);
-  assert.equal(out.postponed, 1);
-  assert.equal(out.division, 'PREMIER SOUTH');
-  assert.throws(() => buildOutput([row({ id: 1 })], 2), /refusing partial/);
-  assert.throws(() => buildOutput([row({ id: 1, status: 'Abandoned' })], 1), /unknown match status/);
-  assert.throws(() => buildOutput([row({ id: 1, competition: { name: 'Premier Central' } })], 1), /unexpected competition/);
-  assert.throws(() => buildOutput([], 0), /no fixtures/);
+test('Southern League feed: refuses partial, wrong-competition or inconsistent data, and de-duplicates pages', () => {
+  const row = (o) => ({ id: o.id, competition: { name: 'Premier South' }, homeTeam: { fullName: 'Bath City' }, awayTeam: { fullName: 'Berkhamsted' }, dateTime: '2026-11-14T15:00:00.000Z', date: '2026-11-14', time: '15:00', status: 'NotKickedOff', ...o });
+  assert.equal(validateLeagueItems([row({ id: 1 }), row({ id: 2 }), row({ id: 2 })], 3).length, 2, 'a match repeated across pages counts once');
+  assert.throws(() => validateLeagueItems([row({ id: 1 })], 2), /refusing partial/);
+  assert.throws(() => validateLeagueItems([row({ id: 1, competition: { name: 'Premier Central' } })], 1), /unexpected competition/);
+  assert.throws(() => validateLeagueItems([row({ id: 1, date: '2026-11-15' })], 1), /date mismatch/);
+  assert.throws(() => validateLeagueItems([row({ id: 1, homeTeam: {} })], 1), /missing team/);
+  assert.throws(() => validateLeagueItems([], 0), /no fixtures/);
 });
