@@ -25,6 +25,22 @@
       "Scotland",
       "Northern Ireland",
       "Republic of Ireland"
+    ],
+    "FA Cup": [
+      "Leeds United",
+      "Manchester United",
+      "Liverpool",
+      "Wrexham",
+      "Plymouth Argyle",
+      "MK Dons",
+      "Plymouth Parkway"
+    ],
+    "FA Trophy": [
+      "Plymouth Parkway"
+    ],
+    "FAW Welsh Cup": [
+      "Holyhead Hotspur",
+      "Brickfield Rangers"
     ]
   },
   "fallbackGrounds": {
@@ -49,8 +65,8 @@
       "caveat": "LL14 4HE for Clywedog Park comes from a single source."
     }
   },
-  "cymruNorthSlugNames": {
-    "_comment": "Optional. faw.cymru match-URL club slug -> display name, for clubs whose title-cased slug is not how they are known. Rhyl 1879 and Bangor City 1876 are built in."
+  "fawSlugNames": {
+    "_comment": "Optional. faw.cymru match-URL club slug -> display name, for clubs whose title-cased slug is not how they are written. Many are built in (scripts/collect/faw.mjs)."
   },
   "aliases": {
     "_comment": "Lower-case spelling used by a source -> canonical club name. Only needed where a source's name is not a plain prefix of the official name.",

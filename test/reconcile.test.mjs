@@ -125,3 +125,36 @@ test('team resolver handles aliases (both ways), short names and punctuation', (
   assert.equal(r('Nobody FC'), null);
   assert.equal(teamKey('Sholing FC'), teamKey('Sholing'));
 });
+
+test('an "adds" source contributes ties the base list lacks, says so, and does not report them as conflicts', () => {
+  const base = src('FA', [fx('Hebburn Town', 'Guiseley AFC', { tag: 'Second Round Proper' })], { complete: true, teams: ['Hebburn Town', 'Guiseley AFC'] });
+  const feed = src('League feed', [
+    fx('Hebburn Town', 'Guiseley', { venue: 'Hebburn Ground' }),               // same tie, spelt differently: a cross-check, not an addition
+    fx('Bath City', 'Truro City', { venue: 'Twerton Park', tag: 'FA Trophy' }),  // a club the FA list does not know
+  ]);
+  feed.adds = true;
+  const rec = reconcile({ competition: 'Test', window: W, results: [base, feed] });
+  assert.equal(rec.fixtures.length, 2);
+  const added = rec.fixtures.find(f => f.home === 'Bath City');
+  assert.deepEqual([added.venue, added.tag, added.sources], ['Twerton Park', 'FA Trophy', ['League feed']]);
+  assert.equal(rec.fixtures.find(f => f.home === 'Hebburn Town').venue, 'Hebburn Ground', 'a missing venue is filled from the cross-check');
+  assert.ok(rec.notes.some(n => /1 tie\(s\) come only from League feed.*Bath City v Truro City/.test(n)));
+  assert.equal(rec.conflicts.filter(c => c.kind === 'extra').length, 0);
+});
+
+test('an "adds" source that covers only its own clubs does not call other ties missing', () => {
+  const base = src('FA', [fx('Hebburn Town', 'Guiseley AFC')], { complete: true, teams: ['Hebburn Town', 'Guiseley AFC'] });
+  const feed = src('League feed', []);
+  feed.adds = true;
+  feed.scope = f => f.home === 'Bath City' || f.away === 'Bath City';
+  assert.equal(reconcile({ competition: 'Test', window: W, results: [base, feed] }).conflicts.length, 0);
+});
+
+test('followed-name mapping is exact or alias only, so a different club is never renamed', () => {
+  const canon = makeResolver(['MK Dons', 'Plymouth Argyle', 'Liverpool'], { 'milton keynes dons': 'MK Dons' }, { prefix: false });
+  assert.equal(canon('Milton Keynes Dons'), 'MK Dons');
+  assert.equal(canon('Plymouth Argyle'), 'Plymouth Argyle');
+  assert.equal(canon('Liverpool Reserves'), null);
+  assert.equal(canon('Plymouth Parkway'), null);
+  assert.equal(canon('Plymouth'), null, 'no prefix guessing in this mode');
+});

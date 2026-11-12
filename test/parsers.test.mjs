@@ -1,11 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { inferDate, parseSky } from '../scripts/collect/sky.mjs';
-import { parseFaw, slugToName } from '../scripts/collect/cymru-north.mjs';
+import { parseFaw, slugToName } from '../scripts/collect/faw.mjs';
+import { parseFa, parseFaDate } from '../scripts/collect/fa.mjs';
 import { parseBetDate, parseBetExplorer } from '../scripts/collect/betexplorer.mjs';
 import { parseEasternDetail, parseEspn } from '../scripts/collect/espn.mjs';
 import { parseParkway } from '../scripts/collect/parkway.mjs';
-import { parseSouthern, validateLeagueItems } from '../scripts/collect/southern-league.mjs';
+import { parseSouthern, parseTrophy, validateLeagueItems } from '../scripts/collect/southern-league.mjs';
 import { parseUefa } from '../scripts/collect/uefa.mjs';
 import { makeFixture } from '../scripts/lib/fixture.mjs';
 
@@ -34,7 +35,7 @@ test('FAW: names come from the match URL slug, kick-off from the UTC timestamp',
   const html = card(1, Date.UTC(2026, 10, 21, 14, 0), 'holyhead-hotspur-fc-vs-bala-town-fc-novira-cymru-north-26-27')
     + card(2, Date.UTC(2026, 10, 14, 14, 0), 'cpd-llanuwchllyn-vs-cpd-y-rhyl-1879-fc-novira-cymru-north-26-27-2')
     + card(3, Date.UTC(2026, 10, 21, 14, 0), 'guilsfield-fc-vs-clwb-pel-droed-dinas-bangor-city-1876-football-club-novira-cymru-north-26-27');
-  const cards = parseFaw(html);
+  const cards = parseFaw(html, 'novira-cymru-north');
   assert.deepEqual(cards.map(c => [c.home, c.away]), [['Holyhead Hotspur', 'Bala Town'], ['Llanuwchllyn', 'Rhyl 1879'], ['Guilsfield', 'Bangor City 1876']]);
   assert.equal(slugToName('newtown-afc'), 'Newtown');
   assert.equal(slugToName('brickfield-rangers-fc'), 'Brickfield Rangers');
@@ -84,29 +85,6 @@ test('Parkway: reads rows, ignores N/A venues, flags postponements, separates cu
   assert.equal(rows[2].league, 'FA Cup');
 });
 
-test('Southern League feed: league rows, tagged cup ties, venue fallback, N/A venues, postponements', () => {
-  const PS = '69d0bd99b616bafb97331d3f';
-  const item = (o) => ({ competition: { id: PS, type: 'league', name: 'Premier South' }, date: '2026-11-14', time: '15:00', dateTime: '2026-11-14T15:00:00.000Z', status: 'NotKickedOff', venue: 'Ground', homeTeamName: 'A Town', awayTeamName: 'B Town', ...o });
-  const json = { items: [
-    item({ homeTeamName: 'Bath City', awayTeamName: 'Berkhamsted', status: 'Postponed', venue: null, homeTeam: { club: { stadiumName: 'Twerton Park' } } }),
-    item({ homeTeamName: 'Frome Town', awayTeamName: 'Poole Town', venue: 'N/A' }),
-    item({ homeTeamName: 'Poole Town', awayTeamName: 'Uxbridge', competition: { id: 'cup', type: 'cup', shortName: 'FA Trophy' } }),
-    item({ homeTeamName: 'Unrelated FC', awayTeamName: 'Other FC', competition: { id: 'cup', type: 'cup', shortName: 'FA Trophy' } }),
-    item({ homeTeamName: 'Central A', awayTeamName: 'Central B', competition: { id: 'other', type: 'league', name: 'Premier Central' } }),
-    item({ homeTeamName: 'Gosport Borough', awayTeamName: 'Chertsey Town', dateTime: '2026-07-04T15:00:00.000Z', date: '2026-07-04', time: '15:00' }),
-  ] };
-  const r = parseSouthern(json.items);
-  assert.deepEqual(r.fixtures.map(f => [f.home, f.tag, f.status, f.venue]), [
-    ['Bath City', null, 'postponed', 'Twerton Park'],
-    ['Frome Town', null, 'scheduled', null],
-    ['Poole Town', 'FA Trophy', 'scheduled', 'Ground'],
-    ['Gosport Borough', null, 'scheduled', 'Ground'],
-  ]);
-  assert.equal(r.unknownStatus.length, 0);
-  assert.equal(r.fixtures[3].date, '2026-07-04', 'summer dates use the displayed date and time, not the fake-Z timestamp');
-  assert.equal(r.fixtures[3].time, '15:00');
-});
-
 test('UEFA: senior men only, UTC to UK time, Nations League group tag, city added to the venue unless the name already has it', () => {
   const team = (name, type = 'NATIONAL_MEN_TEAM_A') => ({ internationalName: name, teamTypeDetail: type });
   const m = (o) => ({ homeTeam: team('Wales'), awayTeam: team('Portugal'), kickOffTime: { dateTime: '2026-11-17T19:45:00Z' }, status: 'UPCOMING',
@@ -135,4 +113,60 @@ test('Southern League feed: refuses partial, wrong-competition or inconsistent d
   assert.throws(() => validateLeagueItems([row({ id: 1, date: '2026-11-15' })], 1), /date mismatch/);
   assert.throws(() => validateLeagueItems([row({ id: 1, homeTeam: {} })], 1), /missing team/);
   assert.throws(() => validateLeagueItems([], 0), /no fixtures/);
+});
+
+test('Southern League feed: league rows keep their kick-off times, venues, postponements and summer dates', () => {
+  const PS = '69d0bd99b616bafb97331d3f';
+  const item = (o) => ({ competition: { id: PS, type: 'league', name: 'Premier South' }, date: '2026-11-14', time: '15:00', dateTime: '2026-11-14T15:00:00.000Z', status: 'NotKickedOff', venue: 'Ground', homeTeamName: 'A Town', awayTeamName: 'B Town', ...o });
+  const items = [
+    item({ homeTeamName: 'Bath City', awayTeamName: 'Berkhamsted', status: 'Postponed', venue: null, homeTeam: { club: { stadiumName: 'Twerton Park' } } }),
+    item({ homeTeamName: 'Frome Town', awayTeamName: 'Poole Town', venue: 'N/A', time: '19:45' }),
+    item({ homeTeamName: 'Central A', awayTeamName: 'Central B', competition: { id: 'other', type: 'league', name: 'Premier Central' } }),
+    item({ homeTeamName: 'Poole Town', awayTeamName: 'Uxbridge', competition: { id: 'cup', type: 'cup', name: 'FA Trophy' } }),
+    item({ homeTeamName: 'Gosport Borough', awayTeamName: 'Chertsey Town', dateTime: '2026-07-04T15:00:00.000Z', date: '2026-07-04' }),
+  ];
+  const r = parseSouthern(items);
+  assert.deepEqual(r.fixtures.map(f => [f.home, f.time, f.status, f.venue, f.tag]), [
+    ['Bath City', '15:00', 'postponed', 'Twerton Park', null],
+    ['Frome Town', '19:45', 'scheduled', null, null],
+    ['Gosport Borough', '15:00', 'scheduled', 'Ground', null],
+  ]);
+  assert.equal(r.fixtures[2].date, '2026-07-04', 'summer dates use the displayed date and time, not the fake-Z timestamp');
+  assert.equal(r.unknownStatus.length, 0);
+  assert.deepEqual(parseSouthern([item({ status: 'Abandoned' })]).unknownStatus, ['Abandoned (A Town v B Town)']);
+});
+
+test('Southern League feed: FA Trophy ties are taken from cup rows only, with their times and venues', () => {
+  const row = (o) => ({ competition: { id: 'c1', type: 'cup', name: 'FA Trophy', shortName: 'FA Trophy' }, date: '2026-11-14', time: '15:00', status: 'NotKickedOff', venue: 'Wyatt Homes Stadium', homeTeamName: 'Wimborne Town', awayTeamName: 'Uxbridge', ...o });
+  const r = parseTrophy([row({}), row({ homeTeamName: 'X', awayTeamName: 'Y', competition: { id: 'c2', type: 'cup', name: 'Hampshire Senior Cup' } }), row({ competition: { id: 'p', type: 'league', name: 'Premier South' } })]);
+  assert.equal(r.fixtures.length, 1);
+  assert.deepEqual([r.fixtures[0].time, r.fixtures[0].venue, r.fixtures[0].tag, r.fixtures[0].competition], ['15:00', 'Wyatt Homes Stadium', 'FA Trophy', 'FA Trophy']);
+});
+
+test('FA site: reads each match day table, the round, times written with a stray ">", and tidies names', () => {
+  const tie = (time, n, home, away, extra = '') => `<tr class="even"><td class="cOne first"><time datetime=">${time}">${time}</time></td><td class="cTwo">${n}</td><td class="cThree"><a href="http://x" title="Buy Tickets">${home}</a></td><td class="cFour">VS</td><td class="cFive"><a href="http://y">${away}</a></td><td class="cSix">${extra}</td><td class="cSeven last"></td></tr>`;
+  const table = (date, round, rows) => `<table class="gTable"><tr><td colspan="4" class="headl">${date}</td><td colspan="3" class="headr">${round}</td></tr><tr><th class="cOne first">Kick Off</th></tr>${rows}</table>`;
+  const html = table('Saturday 14 November 2026', 'Second Round Proper', tie('15:00', 1, 'Hebburn Town', 'Guiseley AFC') + tie('15:00', 2, 'Darlington_', 'Bury') + tie('17:30', 3, 'Wingate &amp; Finchley', 'Hashtag United', 'Postponed'))
+    + table('Sunday 15 November 2026', 'Second Round Proper', tie('TBC', 4, 'A Town', 'B Town'));
+  const { fixtures, teams } = parseFa(html, 'FA Trophy');
+  assert.deepEqual(fixtures.map(f => [f.date, f.time, f.home, f.away, f.tag, f.status]), [
+    ['2026-11-14', '15:00', 'Hebburn Town', 'Guiseley AFC', 'Second Round Proper', 'scheduled'],
+    ['2026-11-14', '15:00', 'Darlington', 'Bury', 'Second Round Proper', 'scheduled'],
+    ['2026-11-14', '17:30', 'Wingate & Finchley', 'Hashtag United', 'Second Round Proper', 'postponed'],
+    ['2026-11-15', null, 'A Town', 'B Town', 'Second Round Proper', 'scheduled'],
+  ]);
+  assert.ok(teams.includes('Darlington'));
+  assert.equal(parseFaDate('Saturday 5 December 2026'), '2026-12-05');
+  assert.equal(parseFaDate('nonsense'), null);
+});
+
+test('Welsh Cup: reads the FAW slugs, applying the built-in and configured name overrides', () => {
+  const card = (id, ms, slug) => `<div data-match-id="${id}" data-match-kickoff-utc="${ms}"><a class="match-link" href="https://faw.cymru/cymru-leagues/match/${slug}/"></a></div>`;
+  const html = card(1, Date.UTC(2026, 10, 13, 19, 45), 'connahs-quay-nomads-fc-vs-mochdre-sports-fc-faw-welsh-cup-26-27-knockout-rounds')
+    + card(2, Date.UTC(2026, 10, 14, 15, 0), 'cardiff-met-fc-vs-dolgellau-aa-fc-faw-welsh-cup-26-27-knockout-rounds')
+    + card(3, Date.UTC(2026, 10, 14, 14, 0), 'holyhead-hotspur-fc-vs-some-new-club-fc-faw-welsh-cup-26-27-knockout-rounds')
+    + '<div data-match-id="9" data-match-kickoff-utc="1"><p>template with no match link</p></div>';
+  const cards = parseFaw(html, 'faw-welsh-cup', { 'some-new-club-fc': 'Some New Club AFC' });
+  assert.deepEqual(cards.map(c => [c.home, c.away]), [["Connah's Quay Nomads", 'Mochdre Sports'], ['Cardiff Met', 'Dolgellau AA'], ['Holyhead Hotspur', 'Some New Club AFC']]);
+  assert.deepEqual(parseFaw(html, 'novira-cymru-north'), [], 'a Welsh Cup slug is not read as a Cymru North match');
 });

@@ -17,7 +17,7 @@ export function teamKey(name) {
  * Order: exact key, alias table (works in both directions), then a unique prefix match
  * (so "Evesham" finds "Evesham United").
  */
-export function makeResolver(canonicalNames, aliases = {}) {
+export function makeResolver(canonicalNames, aliases = {}, { prefix = true } = {}) {
   const byKey = new Map();
   for (const n of canonicalNames) byKey.set(teamKey(n), n);
 
@@ -40,7 +40,7 @@ export function makeResolver(canonicalNames, aliases = {}) {
     if (!out && parent.has(k)) {
       for (const other of classOf(k)) { if (byKey.has(other)) { out = byKey.get(other); break; } }
     }
-    if (!out && k.length >= 4) {
+    if (!out && prefix && k.length >= 4) {
       const hits = [...byKey.entries()].filter(([ck]) => ck.startsWith(k));
       if (hits.length === 1) out = hits[0][1];
     }

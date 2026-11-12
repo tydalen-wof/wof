@@ -57,6 +57,25 @@ details.comp
     rest-line: Rest of the division 1 match
     rest-body
     row | Sat 14 Nov 14:00 | Llanuwchllyn v Rhyl 1879 | TBC
+section.comp-empty FA Cup
+details.comp
+  summary.comp-h FA Trophy
+  details.rest
+    summary.rest-s
+    rest-line: Rest of the round 3 matches
+    rest-body
+    row | Sat 14 Nov 15:00 | Bath City v Truro City FA Trophy | Twerton Park
+    row | Sat 14 Nov 15:00 | Hebburn Town v Guiseley AFC Second Round Proper | TBC
+    row | Sat 14 Nov 15:00 | Holyhead Hotspur v Chorley Second Round Proper | TBC
+details.comp
+  summary.comp-h FAW Welsh Cup
+  details.rest
+    summary.rest-s
+    row | Sat 14 Nov 14:00 | Holyhead Hotspur v Blaen-y-Maes Welsh Cup | The New Oval LL65 2YE
+    row | Sat 14 Nov 14:00 | Caerau Ely v Brickfield Rangers Welsh Cup | TBC
+    rest-line: Rest of the round 1 match
+    rest-body
+    row | Sat 14 Nov 14:00 | Newtown v Caerphilly Athletic Welsh Cup | TBC
 details.comp.travel
   summary.comp-h Before you travel
-  sub: Source conflicts No disagreements were found between the sources that could be read. Postponements League One: Bromley v Notts County, Sat 14 Nov is marked postponed. Do not travel until it is rearranged. Wales men's internationals: checked. Other UK and European internationals: checked. Premier League: checked. Championship: checked. League One: checked. Southern League Premier South: checked. Novira Cymru North: checked. To be confirmed League One: kick-off time TBC for Barnsley v Sheffield Wednesday, Fri 20 Nov. Other UK and European internationals: venue TBC for France v Turkey, Sat 14 Nov. League One: venue TBC for Barnsley v Sheffield Wednesday, Fri 20 Nov. Novira Cymru North: venue TBC for Bala Town v Holyhead Hotspur, Sat 14 Nov. Novira Cymru North: venue TBC for Llanuwchllyn v Rhyl 1879, Sat 14 Nov. Caveats Sources Wales men's internationals: no source could be read. Other UK and European internationals: no source could be read. Premier League: no source could be read. Championship: no source could be read. League One: no source could be read. Southern League Premier South: no source could be read. Novira Cymru North: no source could be read. Checked at 2026-11-12 05:30 GMT (UK time)
+  sub: Source conflicts No disagreements were found between the sources that could be read. Postponements League One: Bromley v Notts County, Sat 14 Nov is marked postponed. Do not travel until it is rearranged. Wales men's internationals: checked. Other UK and European internationals: checked. Premier League: checked. Championship: checked. League One: checked. Southern League Premier South: checked. Novira Cymru North: checked. FA Cup: checked. FA Trophy: checked. FAW Welsh Cup: checked. To be confirmed League One: kick-off time TBC for Barnsley v Sheffield Wednesday, Fri 20 Nov. Other UK and European internationals: venue TBC for France v Turkey, Sat 14 Nov. League One: venue TBC for Barnsley v Sheffield Wednesday, Fri 20 Nov. Novira Cymru North: venue TBC for Bala Town v Holyhead Hotspur, Sat 14 Nov. Novira Cymru North: venue TBC for Llanuwchllyn v Rhyl 1879, Sat 14 Nov. FA Trophy: venue TBC for Hebburn Town v Guiseley AFC, Sat 14 Nov. FA Trophy: venue TBC for Holyhead Hotspur v Chorley, Sat 14 Nov. FAW Welsh Cup: venue TBC for Caerau Ely v Brickfield Rangers, Sat 14 Nov. FAW Welsh Cup: venue TBC for Newtown v Caerphilly Athletic, Sat 14 Nov. Caveats Sources Wales men's internationals: no source could be read. Other UK and European internationals: no source could be read. Premier League: no source could be read. Championship: no source could be read. League One: no source could be read. Southern League Premier South: no source could be read. Novira Cymru North: no source could be read. FA Cup: no source could be read. FA Trophy: no source could be read. FAW Welsh Cup: no source could be read. Checked at 2026-11-12 05:30 GMT (UK time)

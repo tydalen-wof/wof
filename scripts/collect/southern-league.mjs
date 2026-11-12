@@ -3,8 +3,8 @@
 //   - Needs the header X-TENANT-ID: sfl (the tenant id from the page's own config).
 //   - Reads the Premier South competition for the page's own 60-day window, following pagination (two pages at present).
 //   - Refuses partial or unexpected data, so the build falls back to the Parkway site plus BetExplorer (see build.mjs).
-// Cup ties (FA Trophy etc.) are included only where a Premier South club plays, and are tagged. They need one
-// extra request, because the main fetch is limited to the Premier South competition.
+// FA Trophy ties for Southern League clubs come from the same API (one extra request, because the main fetch is
+// limited to the Premier South competition). They are returned as a separate result for the FA Trophy section.
 //
 // Dates: the feed's `dateTime` carries the UK local date and time with a fake trailing "Z" (it is not a UTC instant),
 // so `date` and `time` are used as given and no BST conversion is applied.
@@ -20,6 +20,7 @@ export const COMPETITION_NAME = 'Premier South';
 export const COMPETITION = 'Southern League Premier South';
 export const NAME = 'Southern League (official feed)';
 export const META = { id: 'sfl-api', name: NAME, url: SITE, postponements: true };
+export const TROPHY_META = { id: 'sfl-trophy', name: NAME, url: SITE, postponements: true };
 const WINDOW_DAYS = 60;
 const PAGE_SIZE = 100;                                        // API maximum
 const MAX_PAGES = 5;                                          // guard against runaway paging
@@ -73,48 +74,65 @@ async function fetchCupTies(window) {
   return { items: json.items, more: !!json.pagination?.hasNextPage };
 }
 
-/**
- * API rows -> normalised fixtures. League rows must be Premier South; cup rows are kept only if a Premier South
- * club is playing.
- */
+const nameOf = (m, side) => (side === 'home' ? (m.homeTeamName ?? m.homeTeam?.fullName) : (m.awayTeamName ?? m.awayTeam?.fullName));
+const venueOf = m => m.venue ?? m.stadium ?? m.homeTeam?.club?.stadiumName ?? null;
+const statusOf = m => (m.status === 'Postponed' || /postpone/i.test(m.externalMatchStatus ?? '') ? 'postponed' : 'scheduled');
+
+/** League rows -> normalised Premier South fixtures. */
 export function parseSouthern(items) {
-  const nameOf = (m, side) => (side === 'home' ? (m.homeTeamName ?? m.homeTeam?.fullName) : (m.awayTeamName ?? m.awayTeam?.fullName));
-  const league = items.filter(m => m.competition?.id === COMPETITION_ID);
-  const teams = new Set(league.flatMap(m => [nameOf(m, 'home'), nameOf(m, 'away')]).filter(Boolean));
-  const keys = new Set([...teams].map(teamKey));
+  const teams = new Set();
   const fixtures = [];
   const unknownStatus = new Set();
   for (const m of items) {
-    const isLeague = m.competition?.id === COMPETITION_ID;
+    if (m.competition?.id !== COMPETITION_ID) continue;
     const home = nameOf(m, 'home'), away = nameOf(m, 'away');
-    const isCup = m.competition?.type === 'cup' && (keys.has(teamKey(home)) || keys.has(teamKey(away)));
-    if (!isLeague && !isCup) continue;
     if (!m.date || !home || !away) continue;
+    teams.add(home); teams.add(away);
     if (!['NotKickedOff', 'Postponed'].includes(m.status)) unknownStatus.add(`${m.status} (${home} v ${away})`);
     fixtures.push(makeFixture({
       date: m.date, time: /^\d{1,2}:\d{2}$/.test(m.time ?? '') ? m.time : null, home, away,
-      venue: m.venue ?? m.stadium ?? m.homeTeam?.club?.stadiumName ?? null,
-      competition: COMPETITION, tag: isLeague ? null : (m.competition?.shortName ?? m.competition?.name ?? 'Cup'),
-      status: m.status === 'Postponed' || /postpone/i.test(m.externalMatchStatus ?? '') ? 'postponed' : 'scheduled',
-      source: NAME,
+      venue: venueOf(m), competition: COMPETITION, status: statusOf(m), source: NAME,
     }));
   }
   return { fixtures, teams: [...teams], unknownStatus: [...unknownStatus] };
 }
 
-/** Returns a collector result (a failure result if the feed is unusable). */
+/** Cup rows -> FA Trophy ties for Southern League clubs (other cups are not reported). */
+export function parseTrophy(items) {
+  const fixtures = [];
+  const teams = new Set();
+  for (const m of items) {
+    if (m.competition?.type !== 'cup' || !/fa trophy/i.test(`${m.competition?.name} ${m.competition?.shortName}`)) continue;
+    const home = nameOf(m, 'home'), away = nameOf(m, 'away');
+    if (!m.date || !home || !away) continue;
+    teams.add(home); teams.add(away);
+    fixtures.push(makeFixture({
+      date: m.date, time: /^\d{1,2}:\d{2}$/.test(m.time ?? '') ? m.time : null, home, away,
+      venue: venueOf(m), competition: 'FA Trophy', tag: 'FA Trophy', status: statusOf(m), source: NAME,
+    }));
+  }
+  return { fixtures, teams: [...teams] };
+}
+
+/** Returns { league, trophy }: two collector results (failure results if the feed is unusable). */
 export async function collect(ctx) {
-  let items;
-  try { items = await fetchLeagueItems(); } catch (e) { return failure(META, e); }
-  const notes = [];
+  let league, trophy;
+  try {
+    const { fixtures, teams, unknownStatus } = parseSouthern(await fetchLeagueItems());
+    const notes = unknownStatus.length ? [`The feed gave an unrecognised status for: ${unknownStatus.join('; ')}. These are shown as scheduled. Check the clubs.`] : [];
+    league = result(META, { fixtures, teams, complete: true, notes });
+  } catch (e) { league = failure(META, e); }
   try {
     const cups = await fetchCupTies(ctx.window);
-    items = [...items, ...cups.items];
-    if (cups.more) notes.push('The cup-tie list has a second page that was not read, so some cup ties may be missing.');
-  } catch (e) {
-    notes.push(`Cup ties (FA Trophy etc.) could not be read (${e.message}), so none are shown for this section.`);
-  }
-  const { fixtures, teams, unknownStatus } = parseSouthern(items);
-  if (unknownStatus.length) notes.push(`The feed gave an unrecognised status for: ${unknownStatus.join('; ')}. These are shown as scheduled. Check the clubs.`);
-  return result(META, { fixtures, teams, complete: true, notes });
+    const { fixtures, teams } = parseTrophy(cups.items);
+    const keys = new Set(teams.map(teamKey));
+    trophy = result(TROPHY_META, {
+      fixtures, teams, complete: false,
+      notes: cups.more ? ['The Southern League cup list has a second page that was not read, so some FA Trophy ties may be missing.'] : [],
+    });
+    trophy.adds = true;                                                            // may contribute ties the FA page does not list
+    trophy.scope = f => keys.has(teamKey(f.home)) || keys.has(teamKey(f.away));    // covers only its own clubs' ties
+    trophy.partialNote = 'Southern League clubs only';
+  } catch (e) { trophy = failure(TROPHY_META, e); }
+  return { league, trophy };
 }

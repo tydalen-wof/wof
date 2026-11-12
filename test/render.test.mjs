@@ -52,13 +52,24 @@ export const DATA = {
       fx('2026-11-14', '14:00', 'Bala Town', 'Holyhead Hotspur', null),
       fx('2026-11-14', '14:00', 'Followed No Postcode', 'Rhyl 1879', 'Some Ground'),
       fx('2026-11-14', '14:00', 'Llanuwchllyn', 'Rhyl 1879', null),
-    ]),
+    ], { showPostcodes: true }),
+    sec('fa-cup', 'FA Cup', 'rows', ['Leeds United', 'Plymouth Parkway'], []),
+    sec('fa-trophy', 'FA Trophy', 'rows', ['Plymouth Parkway'], [
+      fx('2026-11-14', '15:00', 'Hebburn Town', 'Guiseley AFC', null, { tag: 'Second Round Proper' }),
+      fx('2026-11-14', '15:00', 'Holyhead Hotspur', 'Chorley', null, { tag: 'Second Round Proper' }),   // a followed Cymru North name outside the Welsh sections: no postcode
+      fx('2026-11-14', '15:00', 'Bath City', 'Truro City', 'Twerton Park', { tag: 'FA Trophy' }),
+    ], { restLabel: 'Rest of the round' }),
+    sec('welsh-cup', 'FAW Welsh Cup', 'rows', ['Holyhead Hotspur', 'Brickfield Rangers'], [
+      fx('2026-11-14', '14:00', 'Caerau Ely', 'Brickfield Rangers', null, { tag: 'Welsh Cup' }),
+      fx('2026-11-14', '14:00', 'Holyhead Hotspur', 'Blaen-y-Maes', 'The New Oval', { tag: 'Welsh Cup' }),
+      fx('2026-11-14', '14:00', 'Newtown', 'Caerphilly Athletic', null, { tag: 'Welsh Cup' }),
+    ], { showPostcodes: true, restLabel: 'Rest of the round' }),
   ],
 };
 DATA.postcodes.followedHomes.push();
 DATA.sections.find(s => s.key === 'cymru-north').followed.push('Followed No Postcode');
 
-const HEADINGS = ["Wales men's internationals", 'Other UK and European internationals', 'Premier League', 'Championship', 'League One', 'Southern League Premier South', 'Novira Cymru North', 'Before you travel'];
+const HEADINGS = ["Wales men's internationals", 'Other UK and European internationals', 'Premier League', 'Championship', 'League One', 'Southern League Premier South', 'Novira Cymru North', 'FA Cup', 'FA Trophy', 'FAW Welsh Cup', 'Before you travel'];
 const unescape = s => s.replace(/&#39;/g, "'").replace(/&amp;/g, '&');
 const h2s = html => [...html.matchAll(/<h2>([^<]*)<\/h2>/g)].map(m => unescape(m[1]));
 
@@ -105,8 +116,8 @@ test('rendered page follows the layout rules', () => {
 test('every competition is a top-level collapsed <details class="comp"> with the h2 inside its summary', () => {
   const html = renderPage(DATA);
   const comps = [...html.matchAll(/<details class="comp(?: travel)?">\n<summary class="comp-h"><h2>([^<]*)<\/h2><\/summary>\n<div class="comp-body">/g)].map(m => unescape(m[1]));
-  assert.deepEqual(comps, HEADINGS.filter(h => h !== 'Championship'));
-  assert.match(html, /<section class="comp-empty"><h2>Championship<\/h2><\/section>/, 'a competition with no games is a plain heading');
+  assert.deepEqual(comps, HEADINGS.filter(h => !['Championship', 'FA Cup'].includes(h)));
+  for (const empty of ['Championship', 'FA Cup']) assert.match(html, new RegExp(`<section class="comp-empty"><h2>${empty}</h2></section>`), 'a competition with no games is a plain heading');
 });
 
 test('the Wales section is a plain heading when it has no games', () => {
@@ -160,11 +171,16 @@ test('postcodes show only under followed Cymru North clubs\' home games; unknown
   const pcs = [...html.matchAll(/<div class="match">.*?<span class="team">([^<]*)<\/span><span class="v">v<\/span>.*?<div class="venue"><span class="ven">([^<]*)<\/span>(<span class="pc">([^<]*)<\/span>)?/gs)]
     .map(m => ({ home: m[1], venue: m[2], pc: m[4] ?? null }));
   const withPc = pcs.filter(p => p.pc);
-  assert.deepEqual(withPc.map(p => [p.home, p.pc]).sort(), [['Brickfield Rangers', 'LL14 4HE'], ['Followed No Postcode', 'Postcode not found'], ['Holyhead Hotspur', 'LL65 2YE']]);
-  // Only those three rows, all inside the Cymru North section.
-  const cymru = html.slice(html.indexOf('<h2>Novira Cymru North</h2>'), html.indexOf('<h2>Before you travel</h2>'));
-  assert.equal((html.match(/class="pc"/g) ?? []).length, 3);
-  assert.equal((cymru.match(/class="pc"/g) ?? []).length, 3);
+  assert.deepEqual(withPc.map(p => [p.home, p.pc]).sort(), [['Brickfield Rangers', 'LL14 4HE'], ['Followed No Postcode', 'Postcode not found'], ['Holyhead Hotspur', 'LL65 2YE'], ['Holyhead Hotspur', 'LL65 2YE']]);
+  // Only those four rows: three in Cymru North, one in the Welsh Cup. None anywhere else, including the FA Trophy
+  // row that names a followed Cymru North club.
+  const between = (a, b) => html.slice(html.indexOf(`<h2>${a}</h2>`), html.indexOf(`<h2>${b}</h2>`));
+  const count = s => (s.match(/class="pc"/g) ?? []).length;
+  assert.equal(count(html), 4);
+  assert.equal(count(between('Novira Cymru North', 'FA Cup')), 3);
+  assert.equal(count(between('FAW Welsh Cup', 'Before you travel')), 1);
+  assert.equal(count(between('FA Trophy', 'FAW Welsh Cup')), 0);
+  assert.equal(count(html.slice(0, html.indexOf('<h2>Novira Cymru North</h2>'))), 0);
   // Followed team playing away: no postcode. Non-followed home team: no postcode, venue TBC.
   assert.ok(pcs.find(p => p.home === 'Bala Town' && !p.pc && p.venue === 'TBC'));
   assert.ok(pcs.find(p => p.home === 'Llanuwchllyn' && !p.pc && p.venue === 'TBC'));
@@ -240,4 +256,24 @@ test('built data/fixtures.json: normalised fixture shape', { skip: !existsSync(j
   }
   const keys = d.fixtures.filter(f => f.competition === 'Premier League').map(f => [f.date, f.home, f.away].join('|'));
   assert.equal(new Set(keys).size, keys.length, 'no duplicate Premier League fixtures');
+});
+
+test('cup sections: round tags show, a cup with no ties is a plain heading, followed clubs lead', () => {
+  const html = renderPage(DATA);
+  assert.match(html, /<section class="comp-empty"><h2>FA Cup<\/h2><\/section>/);
+  const trophy = html.slice(html.indexOf('<h2>FA Trophy</h2>'), html.indexOf('<h2>FAW Welsh Cup</h2>'));
+  assert.equal((trophy.match(/Second Round Proper/g) ?? []).length, 2);
+  assert.match(trophy, /Rest of the round/);
+  assert.match(trophy, /<span class="tag">FA Trophy<\/span>/);
+  const welsh = html.slice(html.indexOf('<h2>FAW Welsh Cup</h2>'), html.indexOf('<h2>Before you travel</h2>'));
+  const order = [...welsh.matchAll(/<span class="team">([^<]*)<\/span><span class="v">v<\/span><span class="team">([^<]*)<\/span>/g)].map(m => `${m[1]} v ${m[2]}`);
+  assert.deepEqual(order, ['Holyhead Hotspur v Blaen-y-Maes', 'Caerau Ely v Brickfield Rangers', 'Newtown v Caerphilly Athletic'], 'followed clubs in configured order, then the rest');
+});
+
+test('built data: no section with several games shows every kick-off time as TBC (guards against a parsing slip)', { skip: !existsSync(join(ROOT, 'data/fixtures.json')) && 'data not built' }, () => {
+  const d = JSON.parse(readFileSync(join(ROOT, 'data/fixtures.json'), 'utf8'));
+  for (const s of d.sections) {
+    const live = s.fixtures.filter(f => f.status !== 'postponed');
+    if (live.length >= 3) assert.ok(live.some(f => f.time), `${s.name}: every kick-off time is empty`);
+  }
 });

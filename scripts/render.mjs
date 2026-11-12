@@ -138,11 +138,11 @@ const plainList = (list, ctx) => list.map(f => row(f, ctx)).join('\n') + (list.l
 function renderSection(s, ctx) {
   const fixtures = s.fixtures ?? [];
   if (!fixtures.length) return plainHeading(s.name, s.unavailable);
-  const c = { ...ctx, postcodes: s.key === 'cymru-north' ? ctx.postcodes : null };
+  const c = { ...ctx, postcodes: s.showPostcodes ? ctx.postcodes : null };
   if (s.layout === 'plain') return accordion(s.name, plainList([...fixtures].sort(byWhen), c));
   const { mine, rest } = partition(fixtures, s.followed ?? [], { chronological: s.layout === 'days' });
   if (s.layout === 'days') return accordion(s.name, nested(mine, rest, 'Rest of Europe', rowsWithDays, c));
-  return accordion(s.name, nested(mine, rest, 'Rest of the division', plainList, c));
+  return accordion(s.name, nested(mine, rest, s.restLabel ?? 'Rest of the division', plainList, c));
 }
 
 // ---------- travel notes ----------

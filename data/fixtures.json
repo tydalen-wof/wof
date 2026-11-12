@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-12T08:51:58.961Z",
-  "checkedAt": "2026-11-12 08:51 GMT",
+  "generatedAt": "2026-11-12T09:53:19.731Z",
+  "checkedAt": "2026-11-12 09:53 GMT",
   "window": {
     "start": "2026-11-12",
     "end": "2026-11-22"
@@ -30,6 +30,7 @@
       "name": "Wales men's internationals",
       "layout": "plain",
       "followed": [],
+      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -43,6 +44,7 @@
           "status": "scheduled",
           "sources": [
             "UEFA (official feed)",
+            "ESPN",
             "Sky Sports"
           ]
         },
@@ -57,6 +59,7 @@
           "status": "scheduled",
           "sources": [
             "UEFA (official feed)",
+            "ESPN",
             "Sky Sports"
           ]
         }
@@ -73,10 +76,10 @@
         {
           "name": "ESPN",
           "url": "https://www.espn.co.uk/football/schedule/_/league/uefa.nations",
-          "ok": false,
-          "error": "page data not found (layout may have changed); page data not found (layout may have changed)",
+          "ok": true,
+          "error": null,
           "role": "check",
-          "matched": null
+          "matched": 2
         },
         {
           "name": "Sky Sports",
@@ -88,10 +91,8 @@
         }
       ],
       "conflicts": [],
-      "notes": [
-        "ESPN could not be read (page data not found (layout may have changed); page data not found (layout may have changed)). It was not used."
-      ],
-      "postponementCheck": "Wales men's internationals: postponements checked in UEFA (official feed), Sky Sports; none marked postponed."
+      "notes": [],
+      "postponementCheck": "Wales men's internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed."
     },
     {
       "key": "internationals",
@@ -103,6 +104,7 @@
         "Northern Ireland",
         "Republic of Ireland"
       ],
+      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -115,7 +117,8 @@
           "tag": "Nations League · Group C2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -128,7 +131,8 @@
           "tag": "Friendly",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -141,7 +145,8 @@
           "tag": "Nations League · Group A1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -154,7 +159,8 @@
           "tag": "Friendly",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -167,7 +173,8 @@
           "tag": "Nations League · Group C1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -180,7 +187,8 @@
           "tag": "Nations League · Group A3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -193,7 +201,8 @@
           "tag": "Nations League · Group A3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -206,7 +215,8 @@
           "tag": "Nations League · Group A1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -219,7 +229,8 @@
           "tag": "Nations League · Group C2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -232,7 +243,8 @@
           "tag": "Nations League · Group C1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -245,7 +257,8 @@
           "tag": "Nations League · Group C3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -258,7 +271,8 @@
           "tag": "Nations League · Group D1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -271,7 +285,8 @@
           "tag": "Nations League · Group C4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -284,7 +299,8 @@
           "tag": "Nations League · Group D2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -297,7 +313,8 @@
           "tag": "Nations League · Group C4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -310,7 +327,8 @@
           "tag": "Nations League · Group A2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -323,7 +341,8 @@
           "tag": "Nations League · Group B1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -336,7 +355,8 @@
           "tag": "Nations League · Group A2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -349,7 +369,8 @@
           "tag": "Nations League · Group C3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -362,7 +383,8 @@
           "tag": "Nations League · Group B1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -375,7 +397,8 @@
           "tag": "Nations League · Group B3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -388,7 +411,8 @@
           "tag": "Nations League · Group B2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -401,7 +425,8 @@
           "tag": "Nations League · Group B3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -414,7 +439,8 @@
           "tag": "Nations League · Group B2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -427,7 +453,8 @@
           "tag": "Nations League · Group A4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -440,7 +467,8 @@
           "tag": "Nations League · Group B4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -453,7 +481,8 @@
           "tag": "Nations League · Group B4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -466,7 +495,8 @@
           "tag": "Nations League · Group C2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -479,7 +509,8 @@
           "tag": "Nations League · Group C2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -492,7 +523,8 @@
           "tag": "Nations League · Group C1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -505,7 +537,8 @@
           "tag": "Nations League · Group C1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -518,7 +551,8 @@
           "tag": "Nations League · Group A1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -531,7 +565,8 @@
           "tag": "Nations League · Group A3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -544,7 +579,8 @@
           "tag": "Nations League · Group A1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -557,7 +593,8 @@
           "tag": "Nations League · Group A3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -570,7 +607,8 @@
           "tag": "Nations League · Group C3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -583,7 +621,8 @@
           "tag": "Nations League · Group C3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -596,7 +635,8 @@
           "tag": "Nations League · Group C4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -609,7 +649,8 @@
           "tag": "Nations League · Group C4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -622,7 +663,8 @@
           "tag": "Nations League · Group D2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -635,7 +677,8 @@
           "tag": "Friendly",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -648,7 +691,8 @@
           "tag": "Nations League · Group A2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -661,7 +705,8 @@
           "tag": "Nations League · Group D1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -674,7 +719,8 @@
           "tag": "Nations League · Group A2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -687,7 +733,8 @@
           "tag": "Nations League · Group B1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -700,7 +747,8 @@
           "tag": "Nations League · Group B1",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -713,7 +761,8 @@
           "tag": "Nations League · Group B4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -726,7 +775,8 @@
           "tag": "Nations League · Group A4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -739,7 +789,8 @@
           "tag": "Nations League · Group B2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -752,7 +803,8 @@
           "tag": "Nations League · Group B3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -765,7 +817,8 @@
           "tag": "Nations League · Group B4",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -778,7 +831,8 @@
           "tag": "Nations League · Group B3",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         },
         {
@@ -791,7 +845,8 @@
           "tag": "Nations League · Group B2",
           "status": "scheduled",
           "sources": [
-            "UEFA (official feed)"
+            "UEFA (official feed)",
+            "ESPN"
           ]
         }
       ],
@@ -807,17 +862,116 @@
         {
           "name": "ESPN",
           "url": "https://www.espn.co.uk/football/schedule/_/league/uefa.nations",
-          "ok": false,
-          "error": "page data not found (layout may have changed); page data not found (layout may have changed)",
+          "ok": true,
+          "error": null,
           "role": "check",
-          "matched": null
+          "matched": 53
         }
       ],
-      "conflicts": [],
-      "notes": [
-        "ESPN could not be read (page data not found (layout may have changed); page data not found (layout may have changed)). It was not used."
+      "conflicts": [
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Poland v Sweden, Tue 17 Nov: venue wording differs (UEFA (official feed) \"Tarczynski Arena Wroclaw\", ESPN \"Municipal Stadium Wroclaw\"). Used \"Tarczynski Arena Wroclaw\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Ukraine v Georgia, Tue 17 Nov: venue wording differs (UEFA (official feed) \"Košická Futbalová Aréna, Košice\", ESPN \"Košická futbalová aréna (KFA)\"). Used \"Košická Futbalová Aréna, Košice\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "North Macedonia v Slovenia, Mon 16 Nov: venue wording differs (UEFA (official feed) \"National Arena Todor Proeski, Skopje\", ESPN \"Toše Proeski Arena\"). Used \"National Arena Todor Proeski, Skopje\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Switzerland v Scotland, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Berit Sitterstadion, St.Gallen\", ESPN \"Kybunpark\"). Used \"Berit Sitterstadion, St.Gallen\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Germany v Netherlands, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Olympiastadion, Berlin\", ESPN \"Olympic Stadium Berlin\"). Used \"Olympiastadion, Berlin\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Andorra v Azerbaijan, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Estadi FAF, Encamp\", ESPN \"Estadi de la FAF d'Encamp\"). Used \"Estadi FAF, Encamp\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Lithuania v Liechtenstein, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Dariaus ir Girėno stadionas, Kaunas\", ESPN \"S. Darius and S. Gireno Stadium\"). Used \"Dariaus ir Girėno stadionas, Kaunas\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Faroe Islands v Moldova, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Tórsvøllur, Tórshavn\", ESPN \"Tórsvollur\"). Used \"Tórsvøllur, Tórshavn\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "France v Türkiye, Sun 15 Nov: venue wording differs (UEFA (official feed) \"Matmut Atlantique, Bordeaux\", ESPN \"Stade Atlantique\"). Used \"Matmut Atlantique, Bordeaux\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Sweden v Bosnia and Herzegovina, Sat 14 Nov: venue wording differs (UEFA (official feed) \"Strawberry Arena, Solna\", ESPN \"Friends Arena\"). Used \"Strawberry Arena, Solna\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Georgia v Hungary, Sat 14 Nov: venue wording differs (UEFA (official feed) \"Mikheil Meskhi Stadium, Tbilisi\", ESPN \"Mikheil Meskhi Stadioni\"). Used \"Mikheil Meskhi Stadium, Tbilisi\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Andorra v Gibraltar, Fri 13 Nov: venue wording differs (UEFA (official feed) \"Estadi FAF, Encamp\", ESPN \"Estadi de la FAF d'Encamp\"). Used \"Estadi FAF, Encamp\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Slovakia v Faroe Islands, Fri 13 Nov: venue wording differs (UEFA (official feed) \"Košická Futbalová Aréna, Košice\", ESPN \"Košická futbalová aréna (KFA)\"). Used \"Košická Futbalová Aréna, Košice\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Montenegro v Latvia, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Gradski Stadion Podgorica\", ESPN \"Podgorica City Stadium\"). Used \"Gradski Stadion Podgorica\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Czechia v Spain, Thu 12 Nov: venue wording differs (UEFA (official feed) \"epet ARENA, Prague\", ESPN \"Generali Arena\"). Used \"epet ARENA, Prague\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Malta v Eswatini, Thu 12 Nov: venue wording differs (UEFA (official feed) \"National Stadium, Ta' Qali\", ESPN \"Ta' Qali National Stadium\"). Used \"National Stadium, Ta' Qali\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Lithuania v Surinam, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Dariaus ir Girėno stadionas, Kaunas\", ESPN \"S. Darius and S. Gireno Stadium\"). Used \"Dariaus ir Girėno stadionas, Kaunas\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Armenia v Cyprus, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Republican Stadium after Vazgen Sargsyan, Yerevan\", ESPN \"Vazgen Sargsyan Republican Stadium\"). Used \"Republican Stadium after Vazgen Sargsyan, Yerevan\"."
+        },
+        {
+          "kind": "venue",
+          "competition": "Other UK and European internationals",
+          "text": "Türkiye v Belgium, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Gürsel Aksel Stadyumu, Izmir\", ESPN \"Göztepe Gürsel Aksel Stadi\"). Used \"Gürsel Aksel Stadyumu, Izmir\"."
+        },
+        {
+          "kind": "extra",
+          "competition": "Other UK and European internationals",
+          "text": "ESPN lists Surinam v Eswatini on Sun 15 Nov, but UEFA (official feed) does not. It was not added."
+        }
       ],
-      "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed); none marked postponed."
+      "notes": [],
+      "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed."
     },
     {
       "key": "premier-league",
@@ -828,6 +982,7 @@
         "Manchester United",
         "Liverpool"
       ],
+      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -986,6 +1141,7 @@
       "followed": [
         "Wrexham"
       ],
+      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -1189,6 +1345,7 @@
         "Plymouth Argyle",
         "MK Dons"
       ],
+      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -1545,6 +1702,7 @@
       "followed": [
         "Plymouth Parkway"
       ],
+      "showPostcodes": false,
       "unavailable": false,
       "fixtures": [
         {
@@ -1577,19 +1735,6 @@
         {
           "date": "2026-11-14",
           "time": "15:00",
-          "home": "Bath City",
-          "away": "Truro City",
-          "venue": "Cannon Clarke Stadium @ Twerton Park",
-          "competition": "Southern League Premier South",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
           "home": "Bracknell Town",
           "away": "Uxbridge",
           "venue": "The SB Stadium",
@@ -1609,19 +1754,6 @@
           "competition": "Southern League Premier South",
           "tag": null,
           "status": "postponed",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Eastbourne Borough",
-          "away": "Chertsey Town",
-          "venue": "Connect Management Stadium",
-          "competition": "Southern League Premier South",
-          "tag": "FA Trophy",
-          "status": "scheduled",
           "sources": [
             "Southern League (official feed)"
           ]
@@ -1713,32 +1845,6 @@
           "venue": "Clear Group Stadium",
           "competition": "Southern League Premier South",
           "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Salisbury",
-          "away": "Chichester City",
-          "venue": null,
-          "competition": "Southern League Premier South",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Wimborne Town",
-          "away": "Uxbridge",
-          "venue": "Wyatt Homes Stadium",
-          "competition": "Southern League Premier South",
-          "tag": "FA Trophy",
           "status": "scheduled",
           "sources": [
             "Southern League (official feed)"
@@ -1995,7 +2101,7 @@
       "notes": [
         "BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements."
       ],
-      "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website; 4 marked postponed (listed above)."
+      "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above)."
     },
     {
       "key": "cymru-north",
@@ -2005,6 +2111,7 @@
         "Holyhead Hotspur",
         "Brickfield Rangers"
       ],
+      "showPostcodes": true,
       "unavailable": false,
       "fixtures": [
         {
@@ -2151,10 +2258,702 @@
       "conflicts": [],
       "notes": [
         "The FAW page lists no venues, so only the followed clubs' grounds (from config/teams.json) are shown; other venues are TBC.",
-        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.",
-        "LL14 4HE for Clywedog Park comes from a single source."
+        "LL14 4HE for Clywedog Park comes from a single source.",
+        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
       ],
-      "postponementCheck": "Novira Cymru North: postponements could not be checked, because no source that reports them could be read. Check the clubs before travelling."
+      "postponementCheck": "Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling."
+    },
+    {
+      "key": "fa-cup",
+      "name": "FA Cup",
+      "layout": "rows",
+      "followed": [
+        "Leeds United",
+        "Manchester United",
+        "Liverpool",
+        "Wrexham",
+        "Plymouth Argyle",
+        "MK Dons",
+        "Plymouth Parkway"
+      ],
+      "showPostcodes": false,
+      "unavailable": false,
+      "fixtures": [],
+      "sources": [
+        {
+          "name": "The FA (official site)",
+          "url": "https://www.thefa.com/competitions/thefacup/fixtures",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        },
+        {
+          "name": "Sky Sports",
+          "url": "https://www.skysports.com/fa-cup-scores-fixtures",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 0
+        },
+        {
+          "name": "ESPN",
+          "url": "https://www.espn.co.uk/football/schedule/_/league/eng.fa",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 0
+        },
+        {
+          "name": "Plymouth Parkway website",
+          "url": "https://www.ppfc.co.uk/fixtures/",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 0
+        }
+      ],
+      "conflicts": [],
+      "notes": [
+        "The FA page lists only the next round of FA Cup ties, with no venues or postponement status."
+      ],
+      "postponementCheck": "FA Cup: postponements checked in Sky Sports, ESPN, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed."
+    },
+    {
+      "key": "fa-trophy",
+      "name": "FA Trophy",
+      "layout": "rows",
+      "followed": [
+        "Plymouth Parkway"
+      ],
+      "showPostcodes": false,
+      "unavailable": false,
+      "fixtures": [
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "AFC Telford United",
+          "away": "Chelmsford City",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Alfreton Town",
+          "away": "Southport",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Ashton United",
+          "away": "Workington AFC",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Avro",
+          "away": "Chester",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Bath City",
+          "away": "Truro City",
+          "venue": "Cannon Clarke Stadium @ Twerton Park",
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Bedford Town",
+          "away": "Chesham United",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Billericay Town",
+          "away": "Waltham Abbey",
+          "venue": "New Lodge",
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Bourne Town",
+          "away": "Bromsgrove Sporting",
+          "venue": "JJ Mac Stadium, Abbey Lawn",
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)",
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Braintree Town",
+          "away": "Kettering Town",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)",
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Bridlington Town AFC",
+          "away": "Macclesfield",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Chorley",
+          "away": "Buxton",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Darlington",
+          "away": "Bury",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Didcot Town",
+          "away": "Slough Town",
+          "venue": "Christchurch Homes Loop Meadow Stadium",
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Eastbourne Borough",
+          "away": "Chertsey Town",
+          "venue": "Connect Management Stadium",
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Halesowen Town",
+          "away": "Redditch United",
+          "venue": "The Grove",
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)",
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Hebburn Town",
+          "away": "Guiseley AFC",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Hednesford Town",
+          "away": "Hemel Hempstead Town",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Hereford",
+          "away": "Brackley Town",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "King's Lynn Town",
+          "away": "Stourbridge",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)",
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Leek Town",
+          "away": "Morecambe",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Radcliffe",
+          "away": "Marine",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Salisbury",
+          "away": "Chichester City",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Spennymoor Town",
+          "away": "Scarborough Athletic",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Weymouth",
+          "away": "Hampton & Richmond Borough",
+          "venue": "Bob Lucas Stadium",
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Wimborne Town",
+          "away": "Uxbridge",
+          "venue": "Wyatt Homes Stadium",
+          "competition": "FA Trophy",
+          "tag": "FA Trophy",
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Wingate & Finchley",
+          "away": "Hashtag United",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Worksop Town",
+          "away": "South Shields",
+          "venue": null,
+          "competition": "FA Trophy",
+          "tag": "Second Round Proper",
+          "status": "scheduled",
+          "sources": [
+            "The FA (official site)"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "name": "The FA (official site)",
+          "url": "https://www.thefa.com/competitions/fa-trophy/fixtures",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        },
+        {
+          "name": "Southern League (official feed)",
+          "url": "https://www.southern-football-league.co.uk/fixtures",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 4
+        },
+        {
+          "name": "Plymouth Parkway website",
+          "url": "https://www.ppfc.co.uk/fixtures/",
+          "ok": true,
+          "error": null,
+          "role": "check",
+          "matched": 0
+        }
+      ],
+      "conflicts": [],
+      "notes": [
+        "7 tie(s) come only from Southern League (official feed), not from The FA (official site): Billericay Town v Waltham Abbey; Weymouth v Hampton & Richmond Borough; Didcot Town v Slough Town; Wimborne Town v Uxbridge; Bath City v Truro City; Eastbourne Borough v Chertsey Town; Salisbury v Chichester City.",
+        "The FA page lists only the next round of FA Trophy ties, with no venues or postponement status."
+      ],
+      "postponementCheck": "FA Trophy: postponements could only be checked for part of this section (Southern League (official feed) (Southern League clubs only), Plymouth Parkway website (Plymouth Parkway games only)); none marked postponed. Other ties could not be checked, so check the clubs before travelling."
+    },
+    {
+      "key": "welsh-cup",
+      "name": "FAW Welsh Cup",
+      "layout": "rows",
+      "followed": [
+        "Holyhead Hotspur",
+        "Brickfield Rangers"
+      ],
+      "showPostcodes": true,
+      "unavailable": false,
+      "fixtures": [
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Baglan Dragons",
+          "away": "Barry Town United",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Caernarfon Town",
+          "away": "Holywell Town",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Connah's Quay Nomads",
+          "away": "Mochdre Sports",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "Penybont",
+          "away": "Cardiff Draconians",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-13",
+          "time": "19:45",
+          "home": "The New Saints",
+          "away": "Briton Ferry Llansawel",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Caerau Ely",
+          "away": "Brickfield Rangers",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Colwyn Bay",
+          "away": "Aberystwyth Town",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Haverfordwest County",
+          "away": "Ammanford",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Holyhead Hotspur",
+          "away": "Blaen-y-Maes",
+          "venue": "The New Oval",
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Llandudno",
+          "away": "Felinheli",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Llangennech",
+          "away": "Newport City",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:00",
+          "home": "Newtown",
+          "away": "Caerphilly Athletic",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "14:15",
+          "home": "Rockspur",
+          "away": "Pontarddulais Town",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "15:00",
+          "home": "Cardiff Met",
+          "away": "Dolgellau AA",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-14",
+          "time": "17:30",
+          "home": "Trefelin",
+          "away": "Coedpoeth United",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        },
+        {
+          "date": "2026-11-15",
+          "time": "17:35",
+          "home": "Cambrian United",
+          "away": "Bangor City 1876",
+          "venue": null,
+          "competition": "FAW Welsh Cup",
+          "tag": "Welsh Cup",
+          "status": "scheduled",
+          "sources": [
+            "FAW Welsh Cup website"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "name": "FAW Welsh Cup website",
+          "url": "https://faw.cymru/mens-welsh-cup/welsh-cup-fixtures-results/",
+          "ok": true,
+          "error": null,
+          "role": "base",
+          "matched": null
+        }
+      ],
+      "conflicts": [],
+      "notes": [
+        "The FAW page lists no venues, so only the followed Cymru North clubs' grounds (from config/teams.json) are shown; other venues are TBC. A tie's ground is not always the home club's usual one.",
+        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground."
+      ],
+      "postponementCheck": "FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling."
     }
   ],
   "fixtures": [
@@ -2169,6 +2968,7 @@
       "status": "scheduled",
       "sources": [
         "UEFA (official feed)",
+        "ESPN",
         "Sky Sports"
       ]
     },
@@ -2183,6 +2983,7 @@
       "status": "scheduled",
       "sources": [
         "UEFA (official feed)",
+        "ESPN",
         "Sky Sports"
       ]
     },
@@ -2196,7 +2997,8 @@
       "tag": "Nations League · Group C2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2209,7 +3011,8 @@
       "tag": "Friendly",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2222,7 +3025,8 @@
       "tag": "Nations League · Group A1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2235,7 +3039,8 @@
       "tag": "Friendly",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2248,7 +3053,8 @@
       "tag": "Nations League · Group C1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2261,7 +3067,8 @@
       "tag": "Nations League · Group A3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2274,7 +3081,8 @@
       "tag": "Nations League · Group A3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2287,7 +3095,8 @@
       "tag": "Nations League · Group A1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2300,7 +3109,8 @@
       "tag": "Nations League · Group C2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2313,7 +3123,8 @@
       "tag": "Nations League · Group C1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2326,7 +3137,8 @@
       "tag": "Nations League · Group C3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2339,7 +3151,8 @@
       "tag": "Nations League · Group D1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2352,7 +3165,8 @@
       "tag": "Nations League · Group C4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2365,7 +3179,8 @@
       "tag": "Nations League · Group D2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2378,7 +3193,8 @@
       "tag": "Nations League · Group C4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2391,7 +3207,8 @@
       "tag": "Nations League · Group A2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2404,7 +3221,8 @@
       "tag": "Nations League · Group B1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2417,7 +3235,8 @@
       "tag": "Nations League · Group A2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2430,7 +3249,8 @@
       "tag": "Nations League · Group C3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2443,7 +3263,8 @@
       "tag": "Nations League · Group B1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2456,7 +3277,8 @@
       "tag": "Nations League · Group B3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2469,7 +3291,8 @@
       "tag": "Nations League · Group B2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2482,7 +3305,8 @@
       "tag": "Nations League · Group B3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2495,7 +3319,8 @@
       "tag": "Nations League · Group B2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2508,7 +3333,8 @@
       "tag": "Nations League · Group A4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2521,7 +3347,8 @@
       "tag": "Nations League · Group B4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2534,7 +3361,8 @@
       "tag": "Nations League · Group B4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2547,7 +3375,8 @@
       "tag": "Nations League · Group C2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2560,7 +3389,8 @@
       "tag": "Nations League · Group C2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2573,7 +3403,8 @@
       "tag": "Nations League · Group C1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2586,7 +3417,8 @@
       "tag": "Nations League · Group C1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2599,7 +3431,8 @@
       "tag": "Nations League · Group A1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2612,7 +3445,8 @@
       "tag": "Nations League · Group A3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2625,7 +3459,8 @@
       "tag": "Nations League · Group A1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2638,7 +3473,8 @@
       "tag": "Nations League · Group A3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2651,7 +3487,8 @@
       "tag": "Nations League · Group C3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2664,7 +3501,8 @@
       "tag": "Nations League · Group C3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2677,7 +3515,8 @@
       "tag": "Nations League · Group C4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2690,7 +3529,8 @@
       "tag": "Nations League · Group C4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2703,7 +3543,8 @@
       "tag": "Nations League · Group D2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2716,7 +3557,8 @@
       "tag": "Friendly",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2729,7 +3571,8 @@
       "tag": "Nations League · Group A2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2742,7 +3585,8 @@
       "tag": "Nations League · Group D1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2755,7 +3599,8 @@
       "tag": "Nations League · Group A2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2768,7 +3613,8 @@
       "tag": "Nations League · Group B1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2781,7 +3627,8 @@
       "tag": "Nations League · Group B1",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2794,7 +3641,8 @@
       "tag": "Nations League · Group B4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2807,7 +3655,8 @@
       "tag": "Nations League · Group A4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2820,7 +3669,8 @@
       "tag": "Nations League · Group B2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2833,7 +3683,8 @@
       "tag": "Nations League · Group B3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2846,7 +3697,8 @@
       "tag": "Nations League · Group B4",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2859,7 +3711,8 @@
       "tag": "Nations League · Group B3",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -2872,7 +3725,8 @@
       "tag": "Nations League · Group B2",
       "status": "scheduled",
       "sources": [
-        "UEFA (official feed)"
+        "UEFA (official feed)",
+        "ESPN"
       ]
     },
     {
@@ -3521,19 +4375,6 @@
     {
       "date": "2026-11-14",
       "time": "15:00",
-      "home": "Bath City",
-      "away": "Truro City",
-      "venue": "Cannon Clarke Stadium @ Twerton Park",
-      "competition": "Southern League Premier South",
-      "tag": "FA Trophy",
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
       "home": "Bracknell Town",
       "away": "Uxbridge",
       "venue": "The SB Stadium",
@@ -3553,19 +4394,6 @@
       "competition": "Southern League Premier South",
       "tag": null,
       "status": "postponed",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Eastbourne Borough",
-      "away": "Chertsey Town",
-      "venue": "Connect Management Stadium",
-      "competition": "Southern League Premier South",
-      "tag": "FA Trophy",
-      "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
       ]
@@ -3657,32 +4485,6 @@
       "venue": "Clear Group Stadium",
       "competition": "Southern League Premier South",
       "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Salisbury",
-      "away": "Chichester City",
-      "venue": null,
-      "competition": "Southern League Premier South",
-      "tag": "FA Trophy",
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Wimborne Town",
-      "away": "Uxbridge",
-      "venue": "Wyatt Homes Stadium",
-      "competition": "Southern League Premier South",
-      "tag": "FA Trophy",
       "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
@@ -4030,6 +4832,569 @@
       "status": "scheduled",
       "sources": [
         "FAW Cymru Leagues website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "AFC Telford United",
+      "away": "Chelmsford City",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Alfreton Town",
+      "away": "Southport",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Ashton United",
+      "away": "Workington AFC",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Avro",
+      "away": "Chester",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Bath City",
+      "away": "Truro City",
+      "venue": "Cannon Clarke Stadium @ Twerton Park",
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Bedford Town",
+      "away": "Chesham United",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Billericay Town",
+      "away": "Waltham Abbey",
+      "venue": "New Lodge",
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Bourne Town",
+      "away": "Bromsgrove Sporting",
+      "venue": "JJ Mac Stadium, Abbey Lawn",
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)",
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Braintree Town",
+      "away": "Kettering Town",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)",
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Bridlington Town AFC",
+      "away": "Macclesfield",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Chorley",
+      "away": "Buxton",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Darlington",
+      "away": "Bury",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Didcot Town",
+      "away": "Slough Town",
+      "venue": "Christchurch Homes Loop Meadow Stadium",
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Eastbourne Borough",
+      "away": "Chertsey Town",
+      "venue": "Connect Management Stadium",
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Halesowen Town",
+      "away": "Redditch United",
+      "venue": "The Grove",
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)",
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Hebburn Town",
+      "away": "Guiseley AFC",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Hednesford Town",
+      "away": "Hemel Hempstead Town",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Hereford",
+      "away": "Brackley Town",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "King's Lynn Town",
+      "away": "Stourbridge",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)",
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Leek Town",
+      "away": "Morecambe",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Radcliffe",
+      "away": "Marine",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Salisbury",
+      "away": "Chichester City",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Spennymoor Town",
+      "away": "Scarborough Athletic",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Weymouth",
+      "away": "Hampton & Richmond Borough",
+      "venue": "Bob Lucas Stadium",
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Wimborne Town",
+      "away": "Uxbridge",
+      "venue": "Wyatt Homes Stadium",
+      "competition": "FA Trophy",
+      "tag": "FA Trophy",
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Wingate & Finchley",
+      "away": "Hashtag United",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Worksop Town",
+      "away": "South Shields",
+      "venue": null,
+      "competition": "FA Trophy",
+      "tag": "Second Round Proper",
+      "status": "scheduled",
+      "sources": [
+        "The FA (official site)"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Baglan Dragons",
+      "away": "Barry Town United",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Caernarfon Town",
+      "away": "Holywell Town",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Connah's Quay Nomads",
+      "away": "Mochdre Sports",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "Penybont",
+      "away": "Cardiff Draconians",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "time": "19:45",
+      "home": "The New Saints",
+      "away": "Briton Ferry Llansawel",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Caerau Ely",
+      "away": "Brickfield Rangers",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Colwyn Bay",
+      "away": "Aberystwyth Town",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Haverfordwest County",
+      "away": "Ammanford",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Holyhead Hotspur",
+      "away": "Blaen-y-Maes",
+      "venue": "The New Oval",
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Llandudno",
+      "away": "Felinheli",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Llangennech",
+      "away": "Newport City",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:00",
+      "home": "Newtown",
+      "away": "Caerphilly Athletic",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "14:15",
+      "home": "Rockspur",
+      "away": "Pontarddulais Town",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "15:00",
+      "home": "Cardiff Met",
+      "away": "Dolgellau AA",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "time": "17:30",
+      "home": "Trefelin",
+      "away": "Coedpoeth United",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
+      ]
+    },
+    {
+      "date": "2026-11-15",
+      "time": "17:35",
+      "home": "Cambrian United",
+      "away": "Bangor City 1876",
+      "venue": null,
+      "competition": "FAW Welsh Cup",
+      "tag": "Welsh Cup",
+      "status": "scheduled",
+      "sources": [
+        "FAW Welsh Cup website"
       ]
     }
   ]

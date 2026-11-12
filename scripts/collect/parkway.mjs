@@ -40,6 +40,7 @@ export async function collect() {
     const other = rows.filter(r => !isLeague(r)).map(r => mk(r, r.league || 'Cup', r.league || null));
     const res = result(META, { fixtures: league, complete: false });
     res.scope = f => f.home === CLUB || f.away === CLUB;      // only Parkway's own games are covered
+    res.partialNote = 'Plymouth Parkway games only';
     res.cupTies = other;                                       // non-league games (cups) for the club
     return res;
   } catch (e) { return failure(META, e); }

@@ -51,6 +51,7 @@ export function reconcile({ competition, results, aliases = {}, window }) {
       if (!inWindow(f.date, window)) continue;
       const home = resolve(f.home), away = resolve(f.away);
       if (!home && !away) continue;        // e.g. two non-European sides in a friendly: irrelevant here
+      if ((!home || !away) && src.adds) continue;   // an "adds" source covers clubs the base list may not know
       if (!home || !away) {
         const unknown = home ? f.away : f.home;
         unmatched.add(unknown);
@@ -61,7 +62,11 @@ export function reconcile({ competition, results, aliases = {}, window }) {
       if (!index.has(key)) index.set(key, []);
       index.get(key).push({ ...f, home, away });
     }
-    return { src, index, unmatched, half, matched: 0, seen: new Set() };
+    // An "adds" source also contributes ties the base list lacks (e.g. a league feed's cup ties for its own clubs).
+    const addsList = src.adds
+      ? src.fixtures.filter(f => inWindow(f.date, window)).map(f => ({ ...f, home: resolve(f.home) ?? f.home, away: resolve(f.away) ?? f.away }))
+      : [];
+    return { src, index, unmatched, half, addsList, matched: 0, seen: new Set() };
   });
 
   const out = [];
@@ -119,10 +124,18 @@ export function reconcile({ competition, results, aliases = {}, window }) {
   for (const o of others) {
     for (const [, list] of o.index) {
       for (const f of list) {
-        if (o.seen.has(f) || o.src.lenient || (o.src.scope && !o.src.scope(f))) continue;
+        if (o.seen.has(f) || o.src.lenient || o.src.adds || (o.src.scope && !o.src.scope(f))) continue;
         conflicts.push({ kind: 'extra', competition, text: `${o.src.name} lists ${label(f)} on ${shortDate(f.date)}, but ${base.name} does not. It was not added.` });
       }
     }
+  }
+
+  // Ties only an "adds" source lists are added to the section, and said so.
+  const baseKeys = new Set(baseFixtures.map(b => pairKey(b.home, b.away)));
+  for (const o of others.filter(o => o.src.adds)) {
+    const extra = o.addsList.filter(f => !baseKeys.has(pairKey(f.home, f.away)));
+    for (const f of extra) { out.push({ ...f, sources: [o.src.name] }); baseKeys.add(pairKey(f.home, f.away)); }
+    if (extra.length) notes.push(`${extra.length} tie(s) come only from ${o.src.name}, not from ${base.name}: ${extra.map(label).join('; ')}.`);
   }
 
   for (const o of others) {

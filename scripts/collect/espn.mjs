@@ -10,7 +10,9 @@ export const NAME = 'ESPN';
 export const PAGES = {
   'uefa.nations': 'https://www.espn.co.uk/football/schedule/_/league/uefa.nations',
   'fifa.friendly': 'https://www.espn.co.uk/football/schedule/_/league/fifa.friendly',
+  'eng.fa': 'https://www.espn.co.uk/football/schedule/_/league/eng.fa',
 };
+export const INTL_PAGES = ['uefa.nations', 'fifa.friendly'];
 
 /** "Sat, November 14th at 12:00 pm GMT-05:00" (Eastern) -> UK { date, time }. Year comes from the caller. */
 export function parseEasternDetail(detail, year) {
