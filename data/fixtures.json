@@ -1,15 +1,17 @@
 {
-  "generatedAt": "2026-11-12T14:01:07.976Z",
-  "checkedAt": "2026-11-12 14:01 GMT",
+  "generatedAt": "2026-11-19T09:23:16.680Z",
+  "checkedAt": "2026-11-19 09:23 GMT",
   "window": {
-    "start": "2026-11-12",
-    "end": "2026-11-22"
+    "start": "2026-11-19",
+    "end": "2026-11-29"
   },
   "notes": [],
   "hidden": [
+    "Wales men's internationals",
+    "Other UK and European internationals",
+    "FAW Welsh Cup",
     "FA Cup",
     "FA Trophy",
-    "UEFA Champions League",
     "UEFA Europa League"
   ],
   "groupLogos": {
@@ -39,38 +41,7 @@
         "Wales"
       ],
       "unavailable": false,
-      "fixtures": [
-        {
-          "date": "2026-11-14",
-          "time": "17:00",
-          "home": "Norway",
-          "away": "Wales",
-          "venue": "Ullevaal Stadion, Oslo",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Wales",
-          "away": "Portugal",
-          "venue": "Cardiff City Stadium",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN",
-            "Sky Sports"
-          ]
-        }
-      ],
+      "fixtures": [],
       "sources": [
         {
           "name": "UEFA (official feed)",
@@ -83,10 +54,10 @@
         {
           "name": "ESPN",
           "url": "https://www.espn.co.uk/football/schedule/_/league/uefa.nations",
-          "ok": true,
-          "error": null,
+          "ok": false,
+          "error": "page data not found (layout may have changed)",
           "role": "check",
-          "matched": 2
+          "matched": null
         },
         {
           "name": "Sky Sports",
@@ -94,13 +65,16 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 2
+          "matched": 0
         }
       ],
       "conflicts": [],
-      "notes": [],
-      "postponementCheck": "Wales men's internationals: postponements checked in UEFA (official feed), ESPN, Sky Sports; none marked postponed.",
-      "hidden": false,
+      "notes": [
+        "ESPN could not be read (page data not found (layout may have changed)). It was not used.",
+        "Followed team \"Wales\" was not found in the UEFA (official feed) team list. Check its spelling in config/teams.json."
+      ],
+      "postponementCheck": "Wales men's internationals: postponements checked in UEFA (official feed), Sky Sports; none marked postponed.",
+      "hidden": true,
       "logo": "assets/logos/wales.svg",
       "logoChip": "dark"
     },
@@ -116,750 +90,7 @@
         "Republic of Ireland"
       ],
       "unavailable": false,
-      "fixtures": [
-        {
-          "date": "2026-11-12",
-          "time": "17:00",
-          "home": "Armenia",
-          "away": "Cyprus",
-          "venue": "Republican Stadium after Vazgen Sargsyan, Yerevan",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "17:00",
-          "home": "Lithuania",
-          "away": "Surinam",
-          "venue": "Dariaus ir Girėno stadionas, Kaunas",
-          "competition": "International Friendly",
-          "tag": "Friendly",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "17:00",
-          "home": "Türkiye",
-          "away": "Belgium",
-          "venue": "Gürsel Aksel Stadyumu, Izmir",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "17:30",
-          "home": "Malta",
-          "away": "Eswatini",
-          "venue": "National Stadium, Ta' Qali",
-          "competition": "International Friendly",
-          "tag": "Friendly",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "19:45",
-          "home": "Albania",
-          "away": "Finland",
-          "venue": "Air Albania Stadium, Tirana",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "19:45",
-          "home": "Czechia",
-          "away": "Spain",
-          "venue": "epet ARENA, Prague",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "19:45",
-          "home": "England",
-          "away": "Croatia",
-          "venue": "Wembley Stadium, London",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "19:45",
-          "home": "Italy",
-          "away": "France",
-          "venue": "Stadio San Siro, Milan",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "19:45",
-          "home": "Montenegro",
-          "away": "Latvia",
-          "venue": "Gradski Stadion Podgorica",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-12",
-          "time": "19:45",
-          "home": "San Marino",
-          "away": "Belarus",
-          "venue": "San Marino Stadium, Serravalle",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "17:00",
-          "home": "Moldova",
-          "away": "Kazakhstan",
-          "venue": "Stadionul Zimbru, Chisinau",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Andorra",
-          "away": "Gibraltar",
-          "venue": "Estadi FAF, Encamp",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group D1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Bulgaria",
-          "away": "Iceland",
-          "venue": "Hristo Botev Stadium, Plovdiv",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Liechtenstein",
-          "away": "Azerbaijan",
-          "venue": "Rheinpark Stadion, Vaduz",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group D2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Luxembourg",
-          "away": "Estonia",
-          "venue": "Stade de Luxembourg",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Netherlands",
-          "away": "Greece",
-          "venue": "Johan Cruijff ArenA, Amsterdam",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Scotland",
-          "away": "North Macedonia",
-          "venue": "Hampden Park, Glasgow",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Serbia",
-          "away": "Germany",
-          "venue": "Stadion Rajko Mitić, Belgrade",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Slovakia",
-          "away": "Faroe Islands",
-          "venue": "Košická Futbalová Aréna, Košice",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Slovenia",
-          "away": "Switzerland",
-          "venue": "Stadion Ljudski vrt, Maribor",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Kosovo",
-          "away": "Israel",
-          "venue": "Stadiumi Fadil Vokrri, Pristina",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "17:00",
-          "home": "Georgia",
-          "away": "Hungary",
-          "venue": "Mikheil Meskhi Stadium, Tbilisi",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "19:45",
-          "home": "Austria",
-          "away": "Republic of Ireland",
-          "venue": "Raiffeisen Arena, Linz",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "19:45",
-          "home": "Northern Ireland",
-          "away": "Ukraine",
-          "venue": "Clearer Twist National Stadium at Windsor Park, Belfast",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "19:45",
-          "home": "Portugal",
-          "away": "Denmark",
-          "venue": "Estádio Municipal de Braga",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "19:45",
-          "home": "Romania",
-          "away": "Poland",
-          "venue": "National Arena Bucharest",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "19:45",
-          "home": "Sweden",
-          "away": "Bosnia and Herzegovina",
-          "venue": "Strawberry Arena, Solna",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "14:00",
-          "home": "Cyprus",
-          "away": "Montenegro",
-          "venue": "Alphamega Stadium, Limassol",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "14:00",
-          "home": "Latvia",
-          "away": "Armenia",
-          "venue": "Skonto Stadions, Riga",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "17:00",
-          "home": "Belarus",
-          "away": "Albania",
-          "venue": "Illovszky Rudolf Stadion, Budapest",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "17:00",
-          "home": "Finland",
-          "away": "San Marino",
-          "venue": "Bolt Arena, Helsinki",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "19:45",
-          "home": "Belgium",
-          "away": "Italy",
-          "venue": "King Baudouin Stadium, Brussels",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "19:45",
-          "home": "Croatia",
-          "away": "Czechia",
-          "venue": "Opus Arena, Osijek",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "19:45",
-          "home": "France",
-          "away": "Türkiye",
-          "venue": "Matmut Atlantique, Bordeaux",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "19:45",
-          "home": "Spain",
-          "away": "England",
-          "venue": "Riyadh Air Metropolitano, Madrid",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "15:00",
-          "home": "Faroe Islands",
-          "away": "Moldova",
-          "venue": "Tórsvøllur, Tórshavn",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "15:00",
-          "home": "Kazakhstan",
-          "away": "Slovakia",
-          "venue": "Astana Arena",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "17:00",
-          "home": "Estonia",
-          "away": "Bulgaria",
-          "venue": "A. Le Coq Arena, Tallinn",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "17:00",
-          "home": "Iceland",
-          "away": "Luxembourg",
-          "venue": "Laugardalsvöllur, Reykjavik",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group C4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "17:00",
-          "home": "Lithuania",
-          "away": "Liechtenstein",
-          "venue": "Dariaus ir Girėno stadionas, Kaunas",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group D2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "18:00",
-          "home": "Andorra",
-          "away": "Azerbaijan",
-          "venue": "Estadi FAF, Encamp",
-          "competition": "International Friendly",
-          "tag": "Friendly",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "19:45",
-          "home": "Germany",
-          "away": "Netherlands",
-          "venue": "Olympiastadion, Berlin",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "19:45",
-          "home": "Gibraltar",
-          "away": "Malta",
-          "venue": "Europa Point Stadium, Gibraltar",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group D1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "19:45",
-          "home": "Greece",
-          "away": "Serbia",
-          "venue": "Panthessaliko, Volos",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "19:45",
-          "home": "North Macedonia",
-          "away": "Slovenia",
-          "venue": "National Arena Todor Proeski, Skopje",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-16",
-          "time": "19:45",
-          "home": "Switzerland",
-          "away": "Scotland",
-          "venue": "Berit Sitterstadion, St.Gallen",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B1",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Bosnia and Herzegovina",
-          "away": "Romania",
-          "venue": "Stadion Bilino Polje, Zenica",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Denmark",
-          "away": "Norway",
-          "venue": "Parken – Connected by 3, Copenhagen",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group A4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Hungary",
-          "away": "Northern Ireland",
-          "venue": "Puskás Aréna, Budapest",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Israel",
-          "away": "Austria",
-          "venue": "Nagyerdei Stadion, Debrecen",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Poland",
-          "away": "Sweden",
-          "venue": "Tarczynski Arena Wroclaw",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B4",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Republic of Ireland",
-          "away": "Kosovo",
-          "venue": "Aviva Stadium, Dublin",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B3",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Ukraine",
-          "away": "Georgia",
-          "venue": "Košická Futbalová Aréna, Košice",
-          "competition": "UEFA Nations League",
-          "tag": "Nations League · Group B2",
-          "status": "scheduled",
-          "sources": [
-            "UEFA (official feed)",
-            "ESPN"
-          ]
-        }
-      ],
+      "fixtures": [],
       "sources": [
         {
           "name": "UEFA (official feed)",
@@ -872,112 +103,18 @@
         {
           "name": "ESPN",
           "url": "https://www.espn.co.uk/football/schedule/_/league/uefa.nations",
-          "ok": true,
-          "error": null,
+          "ok": false,
+          "error": "page data not found (layout may have changed)",
           "role": "check",
-          "matched": 53
+          "matched": null
         }
       ],
-      "conflicts": [
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Poland v Sweden, Tue 17 Nov: venue wording differs (UEFA (official feed) \"Tarczynski Arena Wroclaw\", ESPN \"Municipal Stadium Wroclaw\"). Used \"Tarczynski Arena Wroclaw\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Ukraine v Georgia, Tue 17 Nov: venue wording differs (UEFA (official feed) \"Košická Futbalová Aréna, Košice\", ESPN \"Košická futbalová aréna (KFA)\"). Used \"Košická Futbalová Aréna, Košice\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "North Macedonia v Slovenia, Mon 16 Nov: venue wording differs (UEFA (official feed) \"National Arena Todor Proeski, Skopje\", ESPN \"Toše Proeski Arena\"). Used \"National Arena Todor Proeski, Skopje\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Switzerland v Scotland, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Berit Sitterstadion, St.Gallen\", ESPN \"Kybunpark\"). Used \"Berit Sitterstadion, St.Gallen\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Germany v Netherlands, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Olympiastadion, Berlin\", ESPN \"Olympic Stadium Berlin\"). Used \"Olympiastadion, Berlin\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Andorra v Azerbaijan, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Estadi FAF, Encamp\", ESPN \"Estadi de la FAF d'Encamp\"). Used \"Estadi FAF, Encamp\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Lithuania v Liechtenstein, Mon 16 Nov: venue wording differs (UEFA (official feed) \"Dariaus ir Girėno stadionas, Kaunas\", ESPN \"S. Darius and S. Gireno Stadium\"). Used \"Dariaus ir Girėno stadionas, Kaunas\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "France v Türkiye, Sun 15 Nov: venue wording differs (UEFA (official feed) \"Matmut Atlantique, Bordeaux\", ESPN \"Stade Atlantique\"). Used \"Matmut Atlantique, Bordeaux\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Sweden v Bosnia and Herzegovina, Sat 14 Nov: venue wording differs (UEFA (official feed) \"Strawberry Arena, Solna\", ESPN \"Friends Arena\"). Used \"Strawberry Arena, Solna\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Georgia v Hungary, Sat 14 Nov: venue wording differs (UEFA (official feed) \"Mikheil Meskhi Stadium, Tbilisi\", ESPN \"Mikheil Meskhi Stadioni\"). Used \"Mikheil Meskhi Stadium, Tbilisi\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Andorra v Gibraltar, Fri 13 Nov: venue wording differs (UEFA (official feed) \"Estadi FAF, Encamp\", ESPN \"Estadi de la FAF d'Encamp\"). Used \"Estadi FAF, Encamp\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Slovakia v Faroe Islands, Fri 13 Nov: venue wording differs (UEFA (official feed) \"Košická Futbalová Aréna, Košice\", ESPN \"Košická futbalová aréna (KFA)\"). Used \"Košická Futbalová Aréna, Košice\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Montenegro v Latvia, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Gradski Stadion Podgorica\", ESPN \"Podgorica City Stadium\"). Used \"Gradski Stadion Podgorica\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Czechia v Spain, Thu 12 Nov: venue wording differs (UEFA (official feed) \"epet ARENA, Prague\", ESPN \"Generali Arena\"). Used \"epet ARENA, Prague\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Malta v Eswatini, Thu 12 Nov: venue wording differs (UEFA (official feed) \"National Stadium, Ta' Qali\", ESPN \"Ta' Qali National Stadium\"). Used \"National Stadium, Ta' Qali\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Lithuania v Surinam, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Dariaus ir Girėno stadionas, Kaunas\", ESPN \"S. Darius and S. Gireno Stadium\"). Used \"Dariaus ir Girėno stadionas, Kaunas\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Armenia v Cyprus, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Republican Stadium after Vazgen Sargsyan, Yerevan\", ESPN \"Vazgen Sargsyan Republican Stadium\"). Used \"Republican Stadium after Vazgen Sargsyan, Yerevan\"."
-        },
-        {
-          "kind": "venue",
-          "competition": "Other UK and European internationals",
-          "text": "Türkiye v Belgium, Thu 12 Nov: venue wording differs (UEFA (official feed) \"Gürsel Aksel Stadyumu, Izmir\", ESPN \"Göztepe Gürsel Aksel Stadi\"). Used \"Gürsel Aksel Stadyumu, Izmir\"."
-        },
-        {
-          "kind": "extra",
-          "competition": "Other UK and European internationals",
-          "text": "ESPN lists Surinam v Eswatini on Sun 15 Nov, but UEFA (official feed) does not. It was not added."
-        }
+      "conflicts": [],
+      "notes": [
+        "ESPN could not be read (page data not found (layout may have changed)). It was not used."
       ],
-      "notes": [],
-      "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed), ESPN; none marked postponed.",
-      "hidden": false,
+      "postponementCheck": "Other UK and European internationals: postponements checked in UEFA (official feed); none marked postponed.",
+      "hidden": true,
       "logo": "assets/logos/internationals.svg"
     },
     {
@@ -991,32 +128,6 @@
       ],
       "unavailable": false,
       "fixtures": [
-        {
-          "date": "2026-11-13",
-          "time": "19:30",
-          "home": "Denbigh Town",
-          "away": "Gresford Athletic",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Llanuwchllyn",
-          "away": "Rhyl 1879",
-          "venue": null,
-          "competition": "Novira Cymru North",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "FAW Cymru Leagues website"
-          ]
-        },
         {
           "date": "2026-11-21",
           "time": "14:00",
@@ -1120,6 +231,110 @@
           "sources": [
             "FAW Cymru Leagues website"
           ]
+        },
+        {
+          "date": "2026-11-27",
+          "time": "19:30",
+          "home": "Bangor City 1876",
+          "away": "Mold Alexandra",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-27",
+          "time": "19:45",
+          "home": "Bala Town",
+          "away": "Caersws",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-27",
+          "time": "19:45",
+          "home": "Denbigh Town",
+          "away": "Brickfield Rangers",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "14:00",
+          "home": "Buckley Town",
+          "away": "Llanuwchllyn",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "14:00",
+          "home": "Newtown",
+          "away": "Holyhead Hotspur",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "14:00",
+          "home": "Rhyl 1879",
+          "away": "Gresford Athletic",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "14:00",
+          "home": "Ruthin Town",
+          "away": "Guilsfield",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "14:30",
+          "home": "Porthmadog",
+          "away": "Penrhyncoch",
+          "venue": null,
+          "competition": "Novira Cymru North",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "FAW Cymru Leagues website"
+          ]
         }
       ],
       "sources": [
@@ -1137,7 +352,7 @@
         "The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.",
         "LL14 4HE for Clywedog Park comes from a single source.",
         "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.",
-        "No postcode stored yet for 7 of 9 home grounds: Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Penrhyncoch. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
+        "No postcode stored yet for 14 of 16 home grounds: Bala Town, Bangor City 1876, Buckley Town, Caersws, Denbigh Town, Gresford Athletic, Guilsfield, Llanuwchllyn, Mold Alexandra, Newtown, Penrhyncoch, Porthmadog and 2 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
       "postponementCheck": "Novira Cymru North: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.",
       "hidden": false,
@@ -1157,216 +372,7 @@
         "Brickfield Rangers"
       ],
       "unavailable": false,
-      "fixtures": [
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Baglan Dragons",
-          "away": "Barry Town United",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Caernarfon Town",
-          "away": "Holywell Town",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Connah's Quay Nomads",
-          "away": "Mochdre Sports",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "Penybont",
-          "away": "Cardiff Draconians",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-13",
-          "time": "19:45",
-          "home": "The New Saints",
-          "away": "Briton Ferry Llansawel",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Caerau Ely",
-          "away": "Brickfield Rangers",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Colwyn Bay",
-          "away": "Aberystwyth Town",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Haverfordwest County",
-          "away": "Ammanford",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Holyhead Hotspur",
-          "away": "Blaen-y-Maes",
-          "venue": "The New Oval",
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Llandudno",
-          "away": "Felinheli",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Llangennech",
-          "away": "Newport City",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:00",
-          "home": "Newtown",
-          "away": "Caerphilly Athletic",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "14:15",
-          "home": "Rockspur",
-          "away": "Pontarddulais Town",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Cardiff Met",
-          "away": "Dolgellau AA",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "17:30",
-          "home": "Trefelin",
-          "away": "Coedpoeth United",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        },
-        {
-          "date": "2026-11-15",
-          "time": "17:35",
-          "home": "Cambrian United",
-          "away": "Bangor City 1876",
-          "venue": null,
-          "competition": "FAW Welsh Cup",
-          "tag": "Welsh Cup",
-          "status": "scheduled",
-          "sources": [
-            "FAW Welsh Cup website"
-          ]
-        }
-      ],
+      "fixtures": [],
       "sources": [
         {
           "name": "FAW Welsh Cup website",
@@ -1379,16 +385,10 @@
       ],
       "conflicts": [],
       "notes": [
-        "The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC.",
-        "LL65 2YE is less certain: it is believed to be the postcode of the leisure centre opposite the ground.",
-        "1 venue(s) come from the stored home grounds (data/postcodes.json). A cup tie is not always played at the home club's usual ground.",
-        "No postcode stored yet for 15 of 16 home grounds: Baglan Dragons, Caerau Ely, Caernarfon Town, Cambrian United, Cardiff Met, Colwyn Bay, Connah's Quay Nomads, Haverfordwest County, Llandudno, Llangennech, Newtown, Penybont and 3 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
+        "The FAW page lists no venues. Grounds come from the stored lookup (data/postcodes.json) where known; other venues are TBC."
       ],
       "postponementCheck": "FAW Welsh Cup: postponements could not be checked: none of the sources for this section report them, or none could be read. Check the clubs before travelling.",
-      "hidden": false,
-      "postcodes": {
-        "2026-11-14|Holyhead Hotspur|Blaen-y-Maes": "LL65 2YE"
-      },
+      "hidden": true,
       "logo": "assets/logos/welsh-cup.svg"
     },
     {
@@ -1528,6 +528,160 @@
             "Premier League (official feed)",
             "Sky Sports"
           ]
+        },
+        {
+          "date": "2026-11-23",
+          "time": "20:00",
+          "home": "Brentford",
+          "away": "Everton",
+          "venue": "Gtech Community Stadium",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-27",
+          "time": "20:00",
+          "home": "Nottingham Forest",
+          "away": "Chelsea",
+          "venue": "The City Ground",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Leeds United",
+          "away": "Coventry City",
+          "venue": "Elland Road",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Manchester United",
+          "away": "Brentford",
+          "venue": "Old Trafford",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "17:30",
+          "home": "Ipswich Town",
+          "away": "Aston Villa",
+          "venue": "Portman Road",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "12:00",
+          "home": "Everton",
+          "away": "Liverpool",
+          "venue": "Hill Dickinson Stadium",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "14:05",
+          "home": "Brighton & Hove Albion",
+          "away": "Newcastle United",
+          "venue": "American Express Stadium",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "14:05",
+          "home": "Crystal Palace",
+          "away": "Hull City",
+          "venue": "Selhurst Park",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "14:05",
+          "home": "Fulham",
+          "away": "Bournemouth",
+          "venue": "Craven Cottage",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "14:05",
+          "home": "Sunderland",
+          "away": "Tottenham Hotspur",
+          "venue": "Stadium of Light",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "16:30",
+          "home": "Arsenal",
+          "away": "Manchester City",
+          "venue": "Emirates Stadium",
+          "competition": "Premier League",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Premier League (official feed)",
+            "Sky Sports"
+          ]
         }
       ],
       "sources": [
@@ -1545,7 +699,7 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 9
+          "matched": 20
         }
       ],
       "conflicts": [],
@@ -1731,6 +885,342 @@
             "EFL (official feed)",
             "Sky Sports"
           ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Bristol City",
+          "away": "Wrexham",
+          "venue": "Ashton Gate Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Cardiff City",
+          "away": "Preston North End",
+          "venue": "Cardiff City Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Charlton Athletic",
+          "away": "Lincoln City",
+          "venue": "The Valley",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Middlesbrough",
+          "away": "Swansea City",
+          "venue": "Riverside Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Norwich City",
+          "away": "Queens Park Rangers",
+          "venue": "Carrow Road",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Portsmouth",
+          "away": "West Ham United",
+          "venue": "Fratton Park",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Sheffield United",
+          "away": "Southampton",
+          "venue": "Bramall Lane",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Wolverhampton Wanderers",
+          "away": "Derby County",
+          "venue": "Molineux Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "19:45",
+          "home": "Bolton Wanderers",
+          "away": "West Bromwich Albion",
+          "venue": "University of Bolton Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "19:45",
+          "home": "Burnley",
+          "away": "Birmingham City",
+          "venue": "Turf Moor",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "19:45",
+          "home": "Watford",
+          "away": "Blackburn Rovers",
+          "venue": "Vicarage Road Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Stoke City",
+          "away": "Millwall",
+          "venue": "bet365 Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-27",
+          "time": "20:00",
+          "home": "Southampton",
+          "away": "Middlesbrough",
+          "venue": "St Mary's Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "12:30",
+          "home": "Blackburn Rovers",
+          "away": "Charlton Athletic",
+          "venue": "Ewood Park",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "12:30",
+          "home": "Lincoln City",
+          "away": "Wolverhampton Wanderers",
+          "venue": "LNER Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "12:30",
+          "home": "Preston North End",
+          "away": "Norwich City",
+          "venue": "Deepdale",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Birmingham City",
+          "away": "Bolton Wanderers",
+          "venue": "St Andrew's Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Derby County",
+          "away": "Watford",
+          "venue": "Pride Park Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Millwall",
+          "away": "Burnley",
+          "venue": "The Den",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Queens Park Rangers",
+          "away": "Sheffield United",
+          "venue": "Loftus Road Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "West Bromwich Albion",
+          "away": "Bristol City",
+          "venue": "The Hawthorns",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "West Ham United",
+          "away": "Stoke City",
+          "venue": "London Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Wrexham",
+          "away": "Portsmouth",
+          "venue": "Racecourse Road",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-29",
+          "time": "12:00",
+          "home": "Swansea City",
+          "away": "Cardiff City",
+          "venue": "Swansea.com Stadium",
+          "competition": "Championship",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
         }
       ],
       "sources": [
@@ -1748,7 +1238,7 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 12
+          "matched": 36
         }
       ],
       "conflicts": [],
@@ -1770,160 +1260,6 @@
       ],
       "unavailable": false,
       "fixtures": [
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "AFC Wimbledon",
-          "away": "Blackpool",
-          "venue": "Cherry Red Records Stadium",
-          "competition": "League One",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bromley",
-          "away": "Notts County",
-          "venue": "Hayes Lane",
-          "competition": "League One",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Doncaster Rovers",
-          "away": "Leyton Orient",
-          "venue": "The Eco-Power Stadium",
-          "competition": "League One",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Leicester City",
-          "away": "Bradford City",
-          "venue": "King Power Stadium",
-          "competition": "League One",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Luton Town",
-          "away": "Cambridge United",
-          "venue": "Kenilworth Road",
-          "competition": "League One",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "MK Dons",
-          "away": "Burton Albion",
-          "venue": "Stadium MK",
-          "competition": "League One",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Sheffield Wednesday",
-          "away": "Plymouth Argyle",
-          "venue": "Hillsborough Stadium",
-          "competition": "League One",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Stevenage",
-          "away": "Mansfield Town",
-          "venue": "The Lamex Stadium",
-          "competition": "League One",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Stockport County",
-          "away": "Reading",
-          "venue": "Edgeley Park",
-          "competition": "League One",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Wigan Athletic",
-          "away": "Barnsley",
-          "venue": "DW Stadium",
-          "competition": "League One",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Wycombe Wanderers",
-          "away": "Huddersfield Town",
-          "venue": "Adams Park",
-          "competition": "League One",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "EFL (official feed)",
-            "Sky Sports"
-          ]
-        },
         {
           "date": "2026-11-20",
           "time": "20:00",
@@ -2091,6 +1427,230 @@
             "EFL (official feed)",
             "Sky Sports"
           ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Blackpool",
+          "away": "Leicester City",
+          "venue": "Bloomfield Road",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Bradford City",
+          "away": "Barnsley",
+          "venue": "University of Bradford Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Bromley",
+          "away": "Wycombe Wanderers",
+          "venue": "Hayes Lane",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Stevenage",
+          "away": "Sheffield Wednesday",
+          "venue": "The Lamex Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Doncaster Rovers",
+          "away": "Huddersfield Town",
+          "venue": "The Eco-Power Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "12:30",
+          "home": "MK Dons",
+          "away": "Notts County",
+          "venue": "Stadium MK",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "12:30",
+          "home": "Peterborough United",
+          "away": "Cambridge United",
+          "venue": "Weston Homes Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "AFC Wimbledon",
+          "away": "Barnsley",
+          "venue": "Cherry Red Records Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Bromley",
+          "away": "Burton Albion",
+          "venue": "Hayes Lane",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Leicester City",
+          "away": "Mansfield Town",
+          "venue": "King Power Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Luton Town",
+          "away": "Oxford United",
+          "venue": "Kenilworth Road",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Sheffield Wednesday",
+          "away": "Reading",
+          "venue": "Hillsborough Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Stevenage",
+          "away": "Blackpool",
+          "venue": "The Lamex Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Stockport County",
+          "away": "Leyton Orient",
+          "venue": "Edgeley Park",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Wigan Athletic",
+          "away": "Plymouth Argyle",
+          "venue": "DW Stadium",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Wycombe Wanderers",
+          "away": "Bradford City",
+          "venue": "Adams Park",
+          "competition": "League One",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "EFL (official feed)",
+            "Sky Sports"
+          ]
         }
       ],
       "sources": [
@@ -2108,14 +1668,14 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 23
+          "matched": 28
         }
       ],
       "conflicts": [],
       "notes": [
         "The EFL team feed lists no stadium for Luton Town, Bromley. Their grounds come from the fallback list in config/teams.json, not from a feed."
       ],
-      "postponementCheck": "League One: postponements checked in EFL (official feed), Sky Sports; 6 marked postponed (listed above).",
+      "postponementCheck": "League One: postponements checked in EFL (official feed), Sky Sports; none marked postponed.",
       "hidden": false,
       "logo": "assets/logos/league-one.png"
     },
@@ -2129,220 +1689,6 @@
       ],
       "unavailable": false,
       "fixtures": [
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Basingstoke Town",
-          "away": "Chippenham Town",
-          "venue": "Winklebury Football Complex",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)",
-            "BetExplorer"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bath City",
-          "away": "Berkhamsted",
-          "venue": "Cannon Clarke Stadium @ Twerton Park",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bracknell Town",
-          "away": "Uxbridge",
-          "venue": "The SB Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Chertsey Town",
-          "away": "Wimborne Town",
-          "venue": "Alwyns Lane",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Evesham United",
-          "away": "Gosport Borough",
-          "venue": "The Spiers & Hartwell Jubilee Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Frome Town",
-          "away": "Hanworth Villa",
-          "venue": "Badgers Hill Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Gloucester City",
-          "away": "Sholing",
-          "venue": "KMM Energy Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Hanwell Town",
-          "away": "Plymouth Parkway",
-          "venue": "Oliver Connell and Sons Community Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)",
-            "Plymouth Parkway website"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Havant & Waterlooville",
-          "away": "Yate Town",
-          "venue": "Westleigh Park",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Malvern Town",
-          "away": "Chichester City",
-          "venue": "HDAnywhere Community Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "postponed",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Poole Town",
-          "away": "Taunton Town",
-          "venue": "Clear Group Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Chippenham Town",
-          "away": "Sholing",
-          "venue": "Thornbury Surfacing Ltd Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)",
-            "BetExplorer"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Havant & Waterlooville",
-          "away": "Bracknell Town",
-          "venue": "Westleigh Park",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)",
-            "BetExplorer"
-          ]
-        },
-        {
-          "date": "2026-11-17",
-          "time": "19:45",
-          "home": "Poole Town",
-          "away": "Wimborne Town",
-          "venue": "Clear Group Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-18",
-          "time": "19:45",
-          "home": "Frome Town",
-          "away": "Gloucester City",
-          "venue": "Badgers Hill Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)",
-            "BetExplorer"
-          ]
-        },
-        {
-          "date": "2026-11-18",
-          "time": "19:45",
-          "home": "Gosport Borough",
-          "away": "Chertsey Town",
-          "venue": "AEI Stadium",
-          "competition": "Southern League Premier South",
-          "tag": null,
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)",
-            "BetExplorer"
-          ]
-        },
         {
           "date": "2026-11-21",
           "time": "15:00",
@@ -2487,6 +1833,219 @@
           "sources": [
             "Southern League (official feed)"
           ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Basingstoke Town",
+          "away": "Sholing",
+          "venue": "Winklebury Football Complex",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)",
+            "BetExplorer"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Bracknell Town",
+          "away": "Berkhamsted",
+          "venue": "The SB Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)",
+            "BetExplorer"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Chippenham Town",
+          "away": "Havant & Waterlooville",
+          "venue": "Thornbury Surfacing Ltd Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Malvern Town",
+          "away": "Hanworth Villa",
+          "venue": "HDAnywhere Community Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "19:45",
+          "home": "Yate Town",
+          "away": "Evesham United",
+          "venue": "South West Interiors Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)",
+            "BetExplorer"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Basingstoke Town",
+          "away": "Gloucester City",
+          "venue": "Winklebury Football Complex",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)",
+            "BetExplorer"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Berkhamsted",
+          "away": "Evesham United",
+          "venue": "The Glencar Community Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Bracknell Town",
+          "away": "Wimborne Town",
+          "venue": "The SB Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Chichester City",
+          "away": "Uxbridge",
+          "venue": "Oaklands Park",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Chippenham Town",
+          "away": "Bath City",
+          "venue": "Thornbury Surfacing Ltd Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Hanwell Town",
+          "away": "Frome Town",
+          "venue": "Oliver Connell and Sons Community Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Malvern Town",
+          "away": "Chertsey Town",
+          "venue": "HDAnywhere Community Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Plymouth Parkway",
+          "away": "Sholing",
+          "venue": "Bolitho Park",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)",
+            "Plymouth Parkway website"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Poole Town",
+          "away": "Havant & Waterlooville",
+          "venue": "Clear Group Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Taunton Town",
+          "away": "Gosport Borough",
+          "venue": "Wordsworth Drive",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
+        },
+        {
+          "date": "2026-11-28",
+          "time": "15:00",
+          "home": "Yate Town",
+          "away": "Hanworth Villa",
+          "venue": "South West Interiors Stadium",
+          "competition": "Southern League Premier South",
+          "tag": null,
+          "status": "scheduled",
+          "sources": [
+            "Southern League (official feed)"
+          ]
         }
       ],
       "sources": [
@@ -2512,24 +2071,19 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 6
+          "matched": 5
         }
       ],
-      "conflicts": [
-        {
-          "kind": "venue",
-          "competition": "Southern League Premier South",
-          "text": "Hanwell Town v Plymouth Parkway, Sat 14 Nov: venue wording differs (Southern League (official feed) \"Oliver Connell and Sons Community Stadium\", Plymouth Parkway website \"The Powerday Stadium\"). Used \"Oliver Connell and Sons Community Stadium\"."
-        }
-      ],
+      "conflicts": [],
       "notes": [
         "BetExplorer gives a date and time for only some games, so it can cross-check only those. It can also omit postponed games, so it is not used to rule out postponements.",
-        "No postcode stored yet for 22 of 22 home grounds: Basingstoke Town, Bath City, Berkhamsted, Bracknell Town, Chertsey Town, Chichester City, Chippenham Town, Evesham United, Frome Town, Gloucester City, Gosport Borough, Hanwell Town and 10 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
+        "No postcode stored yet for 16 of 16 home grounds: Basingstoke Town, Berkhamsted, Bracknell Town, Chichester City, Chippenham Town, Gosport Borough, Hanwell Town, Hanworth Villa, Malvern Town, Plymouth Parkway, Poole Town, Sholing and 4 more. Add one with: node scripts/postcodes.mjs add \"Team\" \"AB1 2CD\""
       ],
-      "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); 4 marked postponed (listed above).",
+      "postponementCheck": "Southern League Premier South: postponements checked in Southern League (official feed), Plymouth Parkway website (Plymouth Parkway games only); none marked postponed.",
       "hidden": false,
       "postcodes": {
-        "2026-11-21|Plymouth Parkway|Malvern Town": "Postcode not found"
+        "2026-11-21|Plymouth Parkway|Malvern Town": "Postcode not found",
+        "2026-11-28|Plymouth Parkway|Sholing": "Postcode not found"
       },
       "logo": "assets/logos/southern-premier-south.webp",
       "logoChip": "dark"
@@ -2570,10 +2124,10 @@
         {
           "name": "ESPN",
           "url": "https://www.espn.co.uk/football/schedule/_/league/eng.fa",
-          "ok": true,
-          "error": null,
+          "ok": false,
+          "error": "page data not found (layout may have changed)",
           "role": "check",
-          "matched": 0
+          "matched": null
         },
         {
           "name": "Plymouth Parkway website",
@@ -2586,9 +2140,10 @@
       ],
       "conflicts": [],
       "notes": [
+        "ESPN could not be read (page data not found (layout may have changed)). It was not used.",
         "The FA page lists only the next round of FA Cup ties, with no venues or postponement status."
       ],
-      "postponementCheck": "FA Cup: postponements checked in Sky Sports, ESPN, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed.",
+      "postponementCheck": "FA Cup: postponements checked in Sky Sports, Plymouth Parkway website (Plymouth Parkway games only); none marked postponed.",
       "hidden": true,
       "logo": "assets/logos/fa-cup.png"
     },
@@ -2601,363 +2156,7 @@
         "Plymouth Parkway"
       ],
       "unavailable": false,
-      "fixtures": [
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "AFC Telford United",
-          "away": "Chelmsford City",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Alfreton Town",
-          "away": "Southport",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Ashton United",
-          "away": "Workington AFC",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Avro",
-          "away": "Chester",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bath City",
-          "away": "Truro City",
-          "venue": "Cannon Clarke Stadium @ Twerton Park",
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bedford Town",
-          "away": "Chesham United",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Billericay Town",
-          "away": "Waltham Abbey",
-          "venue": "New Lodge",
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bourne Town",
-          "away": "Bromsgrove Sporting",
-          "venue": "JJ Mac Stadium, Abbey Lawn",
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)",
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Braintree Town",
-          "away": "Kettering Town",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)",
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Bridlington Town AFC",
-          "away": "Macclesfield",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Chorley",
-          "away": "Buxton",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Darlington",
-          "away": "Bury",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Didcot Town",
-          "away": "Slough Town",
-          "venue": "Christchurch Homes Loop Meadow Stadium",
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Eastbourne Borough",
-          "away": "Chertsey Town",
-          "venue": "Connect Management Stadium",
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Halesowen Town",
-          "away": "Redditch United",
-          "venue": "The Grove",
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)",
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Hebburn Town",
-          "away": "Guiseley AFC",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Hednesford Town",
-          "away": "Hemel Hempstead Town",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Hereford",
-          "away": "Brackley Town",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "King's Lynn Town",
-          "away": "Stourbridge",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)",
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Leek Town",
-          "away": "Morecambe",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Radcliffe",
-          "away": "Marine",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Salisbury",
-          "away": "Chichester City",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Spennymoor Town",
-          "away": "Scarborough Athletic",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Weymouth",
-          "away": "Hampton & Richmond Borough",
-          "venue": "Bob Lucas Stadium",
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Wimborne Town",
-          "away": "Uxbridge",
-          "venue": "Wyatt Homes Stadium",
-          "competition": "FA Trophy",
-          "tag": "FA Trophy",
-          "status": "scheduled",
-          "sources": [
-            "Southern League (official feed)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Wingate & Finchley",
-          "away": "Hashtag United",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        },
-        {
-          "date": "2026-11-14",
-          "time": "15:00",
-          "home": "Worksop Town",
-          "away": "South Shields",
-          "venue": null,
-          "competition": "FA Trophy",
-          "tag": "Second Round Proper",
-          "status": "scheduled",
-          "sources": [
-            "The FA (official site)"
-          ]
-        }
-      ],
+      "fixtures": [],
       "sources": [
         {
           "name": "The FA (official site)",
@@ -2973,7 +2172,7 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 4
+          "matched": 0
         },
         {
           "name": "Plymouth Parkway website",
@@ -2986,7 +2185,6 @@
       ],
       "conflicts": [],
       "notes": [
-        "7 tie(s) come only from Southern League (official feed), not from The FA (official site): Billericay Town v Waltham Abbey; Weymouth v Hampton & Richmond Borough; Didcot Town v Slough Town; Wimborne Town v Uxbridge; Bath City v Truro City; Eastbourne Borough v Chertsey Town; Salisbury v Chichester City.",
         "The FA page lists only the next round of FA Trophy ties, with no venues or postponement status."
       ],
       "postponementCheck": "FA Trophy: postponements could only be checked for part of this section (Southern League (official feed) (Southern League clubs only), Plymouth Parkway website (Plymouth Parkway games only)); none marked postponed. Other ties could not be checked, so check the clubs before travelling.",
@@ -3004,7 +2202,260 @@
         "Liverpool"
       ],
       "unavailable": false,
-      "fixtures": [],
+      "fixtures": [
+        {
+          "date": "2026-11-24",
+          "time": "17:45",
+          "home": "Bodø/Glimt",
+          "away": "LASK",
+          "venue": "Aspmyra, Bodø",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "17:45",
+          "home": "Galatasaray",
+          "away": "Aston Villa",
+          "venue": "Ali Sami Yen Spor Kompleksi, Istanbul",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Arsenal",
+          "away": "B. Dortmund",
+          "venue": "Arsenal Stadium, London",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Como",
+          "away": "AEK Athens",
+          "venue": "Giuseppe Sinigaglia, Como",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Feyenoord",
+          "away": "Porto",
+          "venue": "Stadion Feijenoord 'De Kuip', Rotterdam",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Leipzig",
+          "away": "Lens",
+          "venue": "RB Arena, Leipzig",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Man City",
+          "away": "Napoli",
+          "venue": "City of Manchester Stadium",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "Real Madrid",
+          "away": "PSV",
+          "venue": "Estadio Santiago Bernabéu, Madrid",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-24",
+          "time": "20:00",
+          "home": "S. Bratislava",
+          "away": "Real Betis",
+          "venue": "Národný futbalový štadión , Bratislava",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "17:45",
+          "home": "Sabah",
+          "away": "Barcelona",
+          "venue": "Baku Olympic Stadium",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "17:45",
+          "home": "Slavia Praha",
+          "away": "Villarreal",
+          "venue": "Eden Arena, Prague",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Atleti",
+          "away": "Viking",
+          "venue": "Estadio Metropolitano, Madrid",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Club Brugge",
+          "away": "Liverpool",
+          "venue": "Jan Breydelstadion, Bruges",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Inter",
+          "away": "Stuttgart",
+          "venue": "Stadio San Siro, Milan",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Lille",
+          "away": "Bayern München",
+          "venue": "Stade Pierre Mauroy, Villeneuve d'Ascq",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Paris",
+          "away": "Roma",
+          "venue": "Parc des Princes, Paris",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Shakhtar",
+          "away": "Fenerbahçe",
+          "venue": "Stamford Bridge, London",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-25",
+          "time": "20:00",
+          "home": "Sporting CP",
+          "away": "Manchester United",
+          "venue": "Estádio José Alvalade, Lisbon",
+          "competition": "UEFA Champions League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        }
+      ],
       "sources": [
         {
           "name": "UEFA (official feed)",
@@ -3020,13 +2471,13 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 0
+          "matched": 18
         }
       ],
       "conflicts": [],
       "notes": [],
       "postponementCheck": "UEFA Champions League: postponements checked in UEFA (official feed), Sky Sports; none marked postponed.",
-      "hidden": true,
+      "hidden": false,
       "logo": "assets/logos/champions-league.svg"
     },
     {
@@ -3040,7 +2491,260 @@
         "Liverpool"
       ],
       "unavailable": false,
-      "fixtures": [],
+      "fixtures": [
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Beşiktaş",
+          "away": "H. Beer-Sheva",
+          "venue": "Batumi Stadium",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Celta",
+          "away": "Bournemouth",
+          "venue": "Estadio Balaidos, Vigo",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "GNK Dinamo",
+          "away": "Leverkusen",
+          "venue": "Stadion Maksimir, Zagreb",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Marseille",
+          "away": "Levski Sofia",
+          "venue": "Stade Vélodrome, Marseille",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Olympiacos",
+          "away": "Milan",
+          "venue": "Stadio Georgios Karaiskakis, Piraeus",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Salzburg",
+          "away": "Ararat-Armenia",
+          "venue": "Stadion Salzburg",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Union SG",
+          "away": "Lech Poznań",
+          "venue": "Den Dreef, Leuven",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "17:45",
+          "home": "Viktoria Plzeň",
+          "away": "Benfica",
+          "venue": "Stadion města Plzně, Plzen",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Crystal Palace",
+          "away": "Real Sociedad",
+          "venue": "Selhurst Park, London",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Ferencváros",
+          "away": "Celje",
+          "venue": "Ferencváros Stadion, Budapest",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Hoffenheim",
+          "away": "Sturm Graz",
+          "venue": "Rhein-Neckar-Arena, Sinsheim",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Juventus",
+          "away": "Omonia",
+          "venue": "Juventus Stadium, Turin",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Lyon",
+          "away": "Lillestrøm",
+          "venue": "OL Stadium, Décines",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "N.E.C.",
+          "away": "Rennes",
+          "venue": "Goffertstadion, Nijmegen",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "OFI Crete",
+          "away": "Anderlecht",
+          "venue": "Pankritio , Heraklion",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Sparta Praha",
+          "away": "AZ Alkmaar",
+          "venue": "Stadion Letná, Prague",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Sunderland",
+          "away": "Jagiellonia",
+          "venue": "Stadium of Light, Sunderland",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        },
+        {
+          "date": "2026-11-26",
+          "time": "20:00",
+          "home": "Torreense",
+          "away": "Celtic",
+          "venue": "Estádio Municipal de Leiria - Dr. Magalhães Pessoa",
+          "competition": "UEFA Europa League",
+          "tag": "League Phase · Matchday 5",
+          "status": "scheduled",
+          "sources": [
+            "UEFA (official feed)",
+            "Sky Sports"
+          ]
+        }
+      ],
       "sources": [
         {
           "name": "UEFA (official feed)",
@@ -3056,7 +2760,7 @@
           "ok": true,
           "error": null,
           "role": "check",
-          "matched": 0
+          "matched": 18
         }
       ],
       "conflicts": [],
@@ -3067,804 +2771,6 @@
     }
   ],
   "fixtures": [
-    {
-      "date": "2026-11-14",
-      "time": "17:00",
-      "home": "Norway",
-      "away": "Wales",
-      "venue": "Ullevaal Stadion, Oslo",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Wales",
-      "away": "Portugal",
-      "venue": "Cardiff City Stadium",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "17:00",
-      "home": "Armenia",
-      "away": "Cyprus",
-      "venue": "Republican Stadium after Vazgen Sargsyan, Yerevan",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "17:00",
-      "home": "Lithuania",
-      "away": "Surinam",
-      "venue": "Dariaus ir Girėno stadionas, Kaunas",
-      "competition": "International Friendly",
-      "tag": "Friendly",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "17:00",
-      "home": "Türkiye",
-      "away": "Belgium",
-      "venue": "Gürsel Aksel Stadyumu, Izmir",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "17:30",
-      "home": "Malta",
-      "away": "Eswatini",
-      "venue": "National Stadium, Ta' Qali",
-      "competition": "International Friendly",
-      "tag": "Friendly",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "19:45",
-      "home": "Albania",
-      "away": "Finland",
-      "venue": "Air Albania Stadium, Tirana",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "19:45",
-      "home": "Czechia",
-      "away": "Spain",
-      "venue": "epet ARENA, Prague",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "19:45",
-      "home": "England",
-      "away": "Croatia",
-      "venue": "Wembley Stadium, London",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "19:45",
-      "home": "Italy",
-      "away": "France",
-      "venue": "Stadio San Siro, Milan",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "19:45",
-      "home": "Montenegro",
-      "away": "Latvia",
-      "venue": "Gradski Stadion Podgorica",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-12",
-      "time": "19:45",
-      "home": "San Marino",
-      "away": "Belarus",
-      "venue": "San Marino Stadium, Serravalle",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "17:00",
-      "home": "Moldova",
-      "away": "Kazakhstan",
-      "venue": "Stadionul Zimbru, Chisinau",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Andorra",
-      "away": "Gibraltar",
-      "venue": "Estadi FAF, Encamp",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group D1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Bulgaria",
-      "away": "Iceland",
-      "venue": "Hristo Botev Stadium, Plovdiv",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Liechtenstein",
-      "away": "Azerbaijan",
-      "venue": "Rheinpark Stadion, Vaduz",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group D2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Luxembourg",
-      "away": "Estonia",
-      "venue": "Stade de Luxembourg",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Netherlands",
-      "away": "Greece",
-      "venue": "Johan Cruijff ArenA, Amsterdam",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Scotland",
-      "away": "North Macedonia",
-      "venue": "Hampden Park, Glasgow",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Serbia",
-      "away": "Germany",
-      "venue": "Stadion Rajko Mitić, Belgrade",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Slovakia",
-      "away": "Faroe Islands",
-      "venue": "Košická Futbalová Aréna, Košice",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Slovenia",
-      "away": "Switzerland",
-      "venue": "Stadion Ljudski vrt, Maribor",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Kosovo",
-      "away": "Israel",
-      "venue": "Stadiumi Fadil Vokrri, Pristina",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "17:00",
-      "home": "Georgia",
-      "away": "Hungary",
-      "venue": "Mikheil Meskhi Stadium, Tbilisi",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "19:45",
-      "home": "Austria",
-      "away": "Republic of Ireland",
-      "venue": "Raiffeisen Arena, Linz",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "19:45",
-      "home": "Northern Ireland",
-      "away": "Ukraine",
-      "venue": "Clearer Twist National Stadium at Windsor Park, Belfast",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "19:45",
-      "home": "Portugal",
-      "away": "Denmark",
-      "venue": "Estádio Municipal de Braga",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "19:45",
-      "home": "Romania",
-      "away": "Poland",
-      "venue": "National Arena Bucharest",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "19:45",
-      "home": "Sweden",
-      "away": "Bosnia and Herzegovina",
-      "venue": "Strawberry Arena, Solna",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "14:00",
-      "home": "Cyprus",
-      "away": "Montenegro",
-      "venue": "Alphamega Stadium, Limassol",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "14:00",
-      "home": "Latvia",
-      "away": "Armenia",
-      "venue": "Skonto Stadions, Riga",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "17:00",
-      "home": "Belarus",
-      "away": "Albania",
-      "venue": "Illovszky Rudolf Stadion, Budapest",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "17:00",
-      "home": "Finland",
-      "away": "San Marino",
-      "venue": "Bolt Arena, Helsinki",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "19:45",
-      "home": "Belgium",
-      "away": "Italy",
-      "venue": "King Baudouin Stadium, Brussels",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "19:45",
-      "home": "Croatia",
-      "away": "Czechia",
-      "venue": "Opus Arena, Osijek",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "19:45",
-      "home": "France",
-      "away": "Türkiye",
-      "venue": "Matmut Atlantique, Bordeaux",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "19:45",
-      "home": "Spain",
-      "away": "England",
-      "venue": "Riyadh Air Metropolitano, Madrid",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "15:00",
-      "home": "Faroe Islands",
-      "away": "Moldova",
-      "venue": "Tórsvøllur, Tórshavn",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "15:00",
-      "home": "Kazakhstan",
-      "away": "Slovakia",
-      "venue": "Astana Arena",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "17:00",
-      "home": "Estonia",
-      "away": "Bulgaria",
-      "venue": "A. Le Coq Arena, Tallinn",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "17:00",
-      "home": "Iceland",
-      "away": "Luxembourg",
-      "venue": "Laugardalsvöllur, Reykjavik",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group C4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "17:00",
-      "home": "Lithuania",
-      "away": "Liechtenstein",
-      "venue": "Dariaus ir Girėno stadionas, Kaunas",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group D2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "18:00",
-      "home": "Andorra",
-      "away": "Azerbaijan",
-      "venue": "Estadi FAF, Encamp",
-      "competition": "International Friendly",
-      "tag": "Friendly",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "19:45",
-      "home": "Germany",
-      "away": "Netherlands",
-      "venue": "Olympiastadion, Berlin",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "19:45",
-      "home": "Gibraltar",
-      "away": "Malta",
-      "venue": "Europa Point Stadium, Gibraltar",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group D1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "19:45",
-      "home": "Greece",
-      "away": "Serbia",
-      "venue": "Panthessaliko, Volos",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "19:45",
-      "home": "North Macedonia",
-      "away": "Slovenia",
-      "venue": "National Arena Todor Proeski, Skopje",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-16",
-      "time": "19:45",
-      "home": "Switzerland",
-      "away": "Scotland",
-      "venue": "Berit Sitterstadion, St.Gallen",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B1",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Bosnia and Herzegovina",
-      "away": "Romania",
-      "venue": "Stadion Bilino Polje, Zenica",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Denmark",
-      "away": "Norway",
-      "venue": "Parken – Connected by 3, Copenhagen",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group A4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Hungary",
-      "away": "Northern Ireland",
-      "venue": "Puskás Aréna, Budapest",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Israel",
-      "away": "Austria",
-      "venue": "Nagyerdei Stadion, Debrecen",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Poland",
-      "away": "Sweden",
-      "venue": "Tarczynski Arena Wroclaw",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B4",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Republic of Ireland",
-      "away": "Kosovo",
-      "venue": "Aviva Stadium, Dublin",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B3",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-17",
-      "time": "19:45",
-      "home": "Ukraine",
-      "away": "Georgia",
-      "venue": "Košická Futbalová Aréna, Košice",
-      "competition": "UEFA Nations League",
-      "tag": "Nations League · Group B2",
-      "status": "scheduled",
-      "sources": [
-        "UEFA (official feed)",
-        "ESPN"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:30",
-      "home": "Denbigh Town",
-      "away": "Gresford Athletic",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Llanuwchllyn",
-      "away": "Rhyl 1879",
-      "venue": null,
-      "competition": "Novira Cymru North",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "FAW Cymru Leagues website"
-      ]
-    },
     {
       "date": "2026-11-21",
       "time": "14:00",
@@ -3970,211 +2876,107 @@
       ]
     },
     {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Baglan Dragons",
-      "away": "Barry Town United",
+      "date": "2026-11-27",
+      "time": "19:30",
+      "home": "Bangor City 1876",
+      "away": "Mold Alexandra",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-27",
       "time": "19:45",
-      "home": "Caernarfon Town",
-      "away": "Holywell Town",
+      "home": "Bala Town",
+      "away": "Caersws",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-27",
       "time": "19:45",
-      "home": "Connah's Quay Nomads",
-      "away": "Mochdre Sports",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "Penybont",
-      "away": "Cardiff Draconians",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-13",
-      "time": "19:45",
-      "home": "The New Saints",
-      "away": "Briton Ferry Llansawel",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Caerau Ely",
+      "home": "Denbigh Town",
       "away": "Brickfield Rangers",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "14:00",
-      "home": "Colwyn Bay",
-      "away": "Aberystwyth Town",
+      "home": "Buckley Town",
+      "away": "Llanuwchllyn",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Haverfordwest County",
-      "away": "Ammanford",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Holyhead Hotspur",
-      "away": "Blaen-y-Maes",
-      "venue": "The New Oval",
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Llandudno",
-      "away": "Felinheli",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "14:00",
-      "home": "Llangennech",
-      "away": "Newport City",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "14:00",
       "home": "Newtown",
-      "away": "Caerphilly Athletic",
+      "away": "Holyhead Hotspur",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "14:15",
-      "home": "Rockspur",
-      "away": "Pontarddulais Town",
+      "date": "2026-11-28",
+      "time": "14:00",
+      "home": "Rhyl 1879",
+      "away": "Gresford Athletic",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Cardiff Met",
-      "away": "Dolgellau AA",
+      "date": "2026-11-28",
+      "time": "14:00",
+      "home": "Ruthin Town",
+      "away": "Guilsfield",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "17:30",
-      "home": "Trefelin",
-      "away": "Coedpoeth United",
+      "date": "2026-11-28",
+      "time": "14:30",
+      "home": "Porthmadog",
+      "away": "Penrhyncoch",
       "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
+      "competition": "Novira Cymru North",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "FAW Welsh Cup website"
-      ]
-    },
-    {
-      "date": "2026-11-15",
-      "time": "17:35",
-      "home": "Cambrian United",
-      "away": "Bangor City 1876",
-      "venue": null,
-      "competition": "FAW Welsh Cup",
-      "tag": "Welsh Cup",
-      "status": "scheduled",
-      "sources": [
-        "FAW Welsh Cup website"
+        "FAW Cymru Leagues website"
       ]
     },
     {
@@ -4295,6 +3097,160 @@
       "home": "Liverpool",
       "away": "Manchester United",
       "venue": "Anfield",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "time": "20:00",
+      "home": "Brentford",
+      "away": "Everton",
+      "venue": "Gtech Community Stadium",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "time": "20:00",
+      "home": "Nottingham Forest",
+      "away": "Chelsea",
+      "venue": "The City Ground",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Leeds United",
+      "away": "Coventry City",
+      "venue": "Elland Road",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Manchester United",
+      "away": "Brentford",
+      "venue": "Old Trafford",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "17:30",
+      "home": "Ipswich Town",
+      "away": "Aston Villa",
+      "venue": "Portman Road",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "12:00",
+      "home": "Everton",
+      "away": "Liverpool",
+      "venue": "Hill Dickinson Stadium",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "14:05",
+      "home": "Brighton & Hove Albion",
+      "away": "Newcastle United",
+      "venue": "American Express Stadium",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "14:05",
+      "home": "Crystal Palace",
+      "away": "Hull City",
+      "venue": "Selhurst Park",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "14:05",
+      "home": "Fulham",
+      "away": "Bournemouth",
+      "venue": "Craven Cottage",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "14:05",
+      "home": "Sunderland",
+      "away": "Tottenham Hotspur",
+      "venue": "Stadium of Light",
+      "competition": "Premier League",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Premier League (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "16:30",
+      "home": "Arsenal",
+      "away": "Manchester City",
+      "venue": "Emirates Stadium",
       "competition": "Premier League",
       "tag": null,
       "status": "scheduled",
@@ -4472,12 +3428,12 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "AFC Wimbledon",
-      "away": "Blackpool",
-      "venue": "Cherry Red Records Stadium",
-      "competition": "League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Bristol City",
+      "away": "Wrexham",
+      "venue": "Ashton Gate Stadium",
+      "competition": "Championship",
       "tag": null,
       "status": "scheduled",
       "sources": [
@@ -4486,68 +3442,12 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Bromley",
-      "away": "Notts County",
-      "venue": "Hayes Lane",
-      "competition": "League One",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "EFL (official feed)",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Doncaster Rovers",
-      "away": "Leyton Orient",
-      "venue": "The Eco-Power Stadium",
-      "competition": "League One",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "EFL (official feed)",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Leicester City",
-      "away": "Bradford City",
-      "venue": "King Power Stadium",
-      "competition": "League One",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "EFL (official feed)",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Luton Town",
-      "away": "Cambridge United",
-      "venue": "Kenilworth Road",
-      "competition": "League One",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "EFL (official feed)",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "MK Dons",
-      "away": "Burton Albion",
-      "venue": "Stadium MK",
-      "competition": "League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Cardiff City",
+      "away": "Preston North End",
+      "venue": "Cardiff City Stadium",
+      "competition": "Championship",
       "tag": null,
       "status": "scheduled",
       "sources": [
@@ -4556,12 +3456,12 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Sheffield Wednesday",
-      "away": "Plymouth Argyle",
-      "venue": "Hillsborough Stadium",
-      "competition": "League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Charlton Athletic",
+      "away": "Lincoln City",
+      "venue": "The Valley",
+      "competition": "Championship",
       "tag": null,
       "status": "scheduled",
       "sources": [
@@ -4570,26 +3470,12 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Stevenage",
-      "away": "Mansfield Town",
-      "venue": "The Lamex Stadium",
-      "competition": "League One",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "EFL (official feed)",
-        "Sky Sports"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Stockport County",
-      "away": "Reading",
-      "venue": "Edgeley Park",
-      "competition": "League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Middlesbrough",
+      "away": "Swansea City",
+      "venue": "Riverside Stadium",
+      "competition": "Championship",
       "tag": null,
       "status": "scheduled",
       "sources": [
@@ -4598,12 +3484,12 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Wigan Athletic",
-      "away": "Barnsley",
-      "venue": "DW Stadium",
-      "competition": "League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Norwich City",
+      "away": "Queens Park Rangers",
+      "venue": "Carrow Road",
+      "competition": "Championship",
       "tag": null,
       "status": "scheduled",
       "sources": [
@@ -4612,14 +3498,266 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Wycombe Wanderers",
-      "away": "Huddersfield Town",
-      "venue": "Adams Park",
-      "competition": "League One",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Portsmouth",
+      "away": "West Ham United",
+      "venue": "Fratton Park",
+      "competition": "Championship",
       "tag": null,
-      "status": "postponed",
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Sheffield United",
+      "away": "Southampton",
+      "venue": "Bramall Lane",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Wolverhampton Wanderers",
+      "away": "Derby County",
+      "venue": "Molineux Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:45",
+      "home": "Bolton Wanderers",
+      "away": "West Bromwich Albion",
+      "venue": "University of Bolton Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:45",
+      "home": "Burnley",
+      "away": "Birmingham City",
+      "venue": "Turf Moor",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "19:45",
+      "home": "Watford",
+      "away": "Blackburn Rovers",
+      "venue": "Vicarage Road Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Stoke City",
+      "away": "Millwall",
+      "venue": "bet365 Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "time": "20:00",
+      "home": "Southampton",
+      "away": "Middlesbrough",
+      "venue": "St Mary's Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "12:30",
+      "home": "Blackburn Rovers",
+      "away": "Charlton Athletic",
+      "venue": "Ewood Park",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "12:30",
+      "home": "Lincoln City",
+      "away": "Wolverhampton Wanderers",
+      "venue": "LNER Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "12:30",
+      "home": "Preston North End",
+      "away": "Norwich City",
+      "venue": "Deepdale",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Birmingham City",
+      "away": "Bolton Wanderers",
+      "venue": "St Andrew's Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Derby County",
+      "away": "Watford",
+      "venue": "Pride Park Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Millwall",
+      "away": "Burnley",
+      "venue": "The Den",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Queens Park Rangers",
+      "away": "Sheffield United",
+      "venue": "Loftus Road Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "West Bromwich Albion",
+      "away": "Bristol City",
+      "venue": "The Hawthorns",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "West Ham United",
+      "away": "Stoke City",
+      "venue": "London Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Wrexham",
+      "away": "Portsmouth",
+      "venue": "Racecourse Road",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "time": "12:00",
+      "home": "Swansea City",
+      "away": "Cardiff City",
+      "venue": "Swansea.com Stadium",
+      "competition": "Championship",
+      "tag": null,
+      "status": "scheduled",
       "sources": [
         "EFL (official feed)",
         "Sky Sports"
@@ -4794,217 +3932,227 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Basingstoke Town",
-      "away": "Chippenham Town",
-      "venue": "Winklebury Football Complex",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)",
-        "BetExplorer"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Bath City",
-      "away": "Berkhamsted",
-      "venue": "Cannon Clarke Stadium @ Twerton Park",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Bracknell Town",
-      "away": "Uxbridge",
-      "venue": "The SB Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Chertsey Town",
-      "away": "Wimborne Town",
-      "venue": "Alwyns Lane",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Evesham United",
-      "away": "Gosport Borough",
-      "venue": "The Spiers & Hartwell Jubilee Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Frome Town",
-      "away": "Hanworth Villa",
-      "venue": "Badgers Hill Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Gloucester City",
-      "away": "Sholing",
-      "venue": "KMM Energy Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Hanwell Town",
-      "away": "Plymouth Parkway",
-      "venue": "Oliver Connell and Sons Community Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)",
-        "Plymouth Parkway website"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Havant & Waterlooville",
-      "away": "Yate Town",
-      "venue": "Westleigh Park",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Malvern Town",
-      "away": "Chichester City",
-      "venue": "HDAnywhere Community Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "postponed",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Poole Town",
-      "away": "Taunton Town",
-      "venue": "Clear Group Stadium",
-      "competition": "Southern League Premier South",
-      "tag": null,
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-17",
+      "date": "2026-11-24",
       "time": "19:45",
-      "home": "Chippenham Town",
-      "away": "Sholing",
-      "venue": "Thornbury Surfacing Ltd Stadium",
-      "competition": "Southern League Premier South",
+      "home": "Blackpool",
+      "away": "Leicester City",
+      "venue": "Bloomfield Road",
+      "competition": "League One",
       "tag": null,
       "status": "scheduled",
       "sources": [
-        "Southern League (official feed)",
-        "BetExplorer"
+        "EFL (official feed)",
+        "Sky Sports"
       ]
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-24",
       "time": "19:45",
-      "home": "Havant & Waterlooville",
-      "away": "Bracknell Town",
-      "venue": "Westleigh Park",
-      "competition": "Southern League Premier South",
+      "home": "Bradford City",
+      "away": "Barnsley",
+      "venue": "University of Bradford Stadium",
+      "competition": "League One",
       "tag": null,
       "status": "scheduled",
       "sources": [
-        "Southern League (official feed)",
-        "BetExplorer"
+        "EFL (official feed)",
+        "Sky Sports"
       ]
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-24",
       "time": "19:45",
-      "home": "Poole Town",
-      "away": "Wimborne Town",
-      "venue": "Clear Group Stadium",
-      "competition": "Southern League Premier South",
+      "home": "Bromley",
+      "away": "Wycombe Wanderers",
+      "venue": "Hayes Lane",
+      "competition": "League One",
       "tag": null,
       "status": "scheduled",
       "sources": [
-        "Southern League (official feed)"
+        "EFL (official feed)",
+        "Sky Sports"
       ]
     },
     {
-      "date": "2026-11-18",
+      "date": "2026-11-24",
       "time": "19:45",
-      "home": "Frome Town",
-      "away": "Gloucester City",
-      "venue": "Badgers Hill Stadium",
-      "competition": "Southern League Premier South",
+      "home": "Stevenage",
+      "away": "Sheffield Wednesday",
+      "venue": "The Lamex Stadium",
+      "competition": "League One",
       "tag": null,
       "status": "scheduled",
       "sources": [
-        "Southern League (official feed)",
-        "BetExplorer"
+        "EFL (official feed)",
+        "Sky Sports"
       ]
     },
     {
-      "date": "2026-11-18",
-      "time": "19:45",
-      "home": "Gosport Borough",
-      "away": "Chertsey Town",
-      "venue": "AEI Stadium",
-      "competition": "Southern League Premier South",
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Doncaster Rovers",
+      "away": "Huddersfield Town",
+      "venue": "The Eco-Power Stadium",
+      "competition": "League One",
       "tag": null,
       "status": "scheduled",
       "sources": [
-        "Southern League (official feed)",
-        "BetExplorer"
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "12:30",
+      "home": "MK Dons",
+      "away": "Notts County",
+      "venue": "Stadium MK",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "12:30",
+      "home": "Peterborough United",
+      "away": "Cambridge United",
+      "venue": "Weston Homes Stadium",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "AFC Wimbledon",
+      "away": "Barnsley",
+      "venue": "Cherry Red Records Stadium",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Bromley",
+      "away": "Burton Albion",
+      "venue": "Hayes Lane",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Leicester City",
+      "away": "Mansfield Town",
+      "venue": "King Power Stadium",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Luton Town",
+      "away": "Oxford United",
+      "venue": "Kenilworth Road",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Sheffield Wednesday",
+      "away": "Reading",
+      "venue": "Hillsborough Stadium",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Stevenage",
+      "away": "Blackpool",
+      "venue": "The Lamex Stadium",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Stockport County",
+      "away": "Leyton Orient",
+      "venue": "Edgeley Park",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Wigan Athletic",
+      "away": "Plymouth Argyle",
+      "venue": "DW Stadium",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Wycombe Wanderers",
+      "away": "Bradford City",
+      "venue": "Adams Park",
+      "competition": "League One",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "EFL (official feed)",
+        "Sky Sports"
       ]
     },
     {
@@ -5153,358 +4301,720 @@
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "AFC Telford United",
-      "away": "Chelmsford City",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Basingstoke Town",
+      "away": "Sholing",
+      "venue": "Winklebury Football Complex",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "The FA (official site)"
+        "Southern League (official feed)",
+        "BetExplorer"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Alfreton Town",
-      "away": "Southport",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Bracknell Town",
+      "away": "Berkhamsted",
+      "venue": "The SB Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "The FA (official site)"
+        "Southern League (official feed)",
+        "BetExplorer"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Ashton United",
-      "away": "Workington AFC",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Avro",
-      "away": "Chester",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Bath City",
-      "away": "Truro City",
-      "venue": "Cannon Clarke Stadium @ Twerton Park",
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Chippenham Town",
+      "away": "Havant & Waterlooville",
+      "venue": "Thornbury Surfacing Ltd Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Bedford Town",
-      "away": "Chesham United",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Billericay Town",
-      "away": "Waltham Abbey",
-      "venue": "New Lodge",
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Malvern Town",
+      "away": "Hanworth Villa",
+      "venue": "HDAnywhere Community Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
       ]
     },
     {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Bourne Town",
-      "away": "Bromsgrove Sporting",
-      "venue": "JJ Mac Stadium, Abbey Lawn",
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
+      "date": "2026-11-24",
+      "time": "19:45",
+      "home": "Yate Town",
+      "away": "Evesham United",
+      "venue": "South West Interiors Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "The FA (official site)",
-        "Southern League (official feed)"
+        "Southern League (official feed)",
+        "BetExplorer"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "15:00",
-      "home": "Braintree Town",
-      "away": "Kettering Town",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
+      "home": "Basingstoke Town",
+      "away": "Gloucester City",
+      "venue": "Winklebury Football Complex",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "The FA (official site)",
-        "Southern League (official feed)"
+        "Southern League (official feed)",
+        "BetExplorer"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "15:00",
-      "home": "Bridlington Town AFC",
-      "away": "Macclesfield",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Chorley",
-      "away": "Buxton",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Darlington",
-      "away": "Bury",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Didcot Town",
-      "away": "Slough Town",
-      "venue": "Christchurch Homes Loop Meadow Stadium",
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
+      "home": "Berkhamsted",
+      "away": "Evesham United",
+      "venue": "The Glencar Community Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "15:00",
-      "home": "Eastbourne Borough",
-      "away": "Chertsey Town",
-      "venue": "Connect Management Stadium",
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
+      "home": "Bracknell Town",
+      "away": "Wimborne Town",
+      "venue": "The SB Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "15:00",
-      "home": "Halesowen Town",
-      "away": "Redditch United",
-      "venue": "The Grove",
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)",
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Hebburn Town",
-      "away": "Guiseley AFC",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Hednesford Town",
-      "away": "Hemel Hempstead Town",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Hereford",
-      "away": "Brackley Town",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "King's Lynn Town",
-      "away": "Stourbridge",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)",
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Leek Town",
-      "away": "Morecambe",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Radcliffe",
-      "away": "Marine",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Salisbury",
-      "away": "Chichester City",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Spennymoor Town",
-      "away": "Scarborough Athletic",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
-      "status": "scheduled",
-      "sources": [
-        "The FA (official site)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Weymouth",
-      "away": "Hampton & Richmond Borough",
-      "venue": "Bob Lucas Stadium",
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
-      "status": "scheduled",
-      "sources": [
-        "Southern League (official feed)"
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "time": "15:00",
-      "home": "Wimborne Town",
+      "home": "Chichester City",
       "away": "Uxbridge",
-      "venue": "Wyatt Homes Stadium",
-      "competition": "FA Trophy",
-      "tag": "FA Trophy",
+      "venue": "Oaklands Park",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
         "Southern League (official feed)"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "15:00",
-      "home": "Wingate & Finchley",
-      "away": "Hashtag United",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
+      "home": "Chippenham Town",
+      "away": "Bath City",
+      "venue": "Thornbury Surfacing Ltd Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "The FA (official site)"
+        "Southern League (official feed)"
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-28",
       "time": "15:00",
-      "home": "Worksop Town",
-      "away": "South Shields",
-      "venue": null,
-      "competition": "FA Trophy",
-      "tag": "Second Round Proper",
+      "home": "Hanwell Town",
+      "away": "Frome Town",
+      "venue": "Oliver Connell and Sons Community Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
       "status": "scheduled",
       "sources": [
-        "The FA (official site)"
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Malvern Town",
+      "away": "Chertsey Town",
+      "venue": "HDAnywhere Community Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Plymouth Parkway",
+      "away": "Sholing",
+      "venue": "Bolitho Park",
+      "competition": "Southern League Premier South",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)",
+        "Plymouth Parkway website"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Poole Town",
+      "away": "Havant & Waterlooville",
+      "venue": "Clear Group Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Taunton Town",
+      "away": "Gosport Borough",
+      "venue": "Wordsworth Drive",
+      "competition": "Southern League Premier South",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "time": "15:00",
+      "home": "Yate Town",
+      "away": "Hanworth Villa",
+      "venue": "South West Interiors Stadium",
+      "competition": "Southern League Premier South",
+      "tag": null,
+      "status": "scheduled",
+      "sources": [
+        "Southern League (official feed)"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "17:45",
+      "home": "Bodø/Glimt",
+      "away": "LASK",
+      "venue": "Aspmyra, Bodø",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "17:45",
+      "home": "Galatasaray",
+      "away": "Aston Villa",
+      "venue": "Ali Sami Yen Spor Kompleksi, Istanbul",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Arsenal",
+      "away": "B. Dortmund",
+      "venue": "Arsenal Stadium, London",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Como",
+      "away": "AEK Athens",
+      "venue": "Giuseppe Sinigaglia, Como",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Feyenoord",
+      "away": "Porto",
+      "venue": "Stadion Feijenoord 'De Kuip', Rotterdam",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Leipzig",
+      "away": "Lens",
+      "venue": "RB Arena, Leipzig",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Man City",
+      "away": "Napoli",
+      "venue": "City of Manchester Stadium",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "Real Madrid",
+      "away": "PSV",
+      "venue": "Estadio Santiago Bernabéu, Madrid",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "time": "20:00",
+      "home": "S. Bratislava",
+      "away": "Real Betis",
+      "venue": "Národný futbalový štadión , Bratislava",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "17:45",
+      "home": "Sabah",
+      "away": "Barcelona",
+      "venue": "Baku Olympic Stadium",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "17:45",
+      "home": "Slavia Praha",
+      "away": "Villarreal",
+      "venue": "Eden Arena, Prague",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Atleti",
+      "away": "Viking",
+      "venue": "Estadio Metropolitano, Madrid",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Club Brugge",
+      "away": "Liverpool",
+      "venue": "Jan Breydelstadion, Bruges",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Inter",
+      "away": "Stuttgart",
+      "venue": "Stadio San Siro, Milan",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Lille",
+      "away": "Bayern München",
+      "venue": "Stade Pierre Mauroy, Villeneuve d'Ascq",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Paris",
+      "away": "Roma",
+      "venue": "Parc des Princes, Paris",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Shakhtar",
+      "away": "Fenerbahçe",
+      "venue": "Stamford Bridge, London",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "time": "20:00",
+      "home": "Sporting CP",
+      "away": "Manchester United",
+      "venue": "Estádio José Alvalade, Lisbon",
+      "competition": "UEFA Champions League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Beşiktaş",
+      "away": "H. Beer-Sheva",
+      "venue": "Batumi Stadium",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Celta",
+      "away": "Bournemouth",
+      "venue": "Estadio Balaidos, Vigo",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "GNK Dinamo",
+      "away": "Leverkusen",
+      "venue": "Stadion Maksimir, Zagreb",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Marseille",
+      "away": "Levski Sofia",
+      "venue": "Stade Vélodrome, Marseille",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Olympiacos",
+      "away": "Milan",
+      "venue": "Stadio Georgios Karaiskakis, Piraeus",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Salzburg",
+      "away": "Ararat-Armenia",
+      "venue": "Stadion Salzburg",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Union SG",
+      "away": "Lech Poznań",
+      "venue": "Den Dreef, Leuven",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "17:45",
+      "home": "Viktoria Plzeň",
+      "away": "Benfica",
+      "venue": "Stadion města Plzně, Plzen",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Crystal Palace",
+      "away": "Real Sociedad",
+      "venue": "Selhurst Park, London",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Ferencváros",
+      "away": "Celje",
+      "venue": "Ferencváros Stadion, Budapest",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Hoffenheim",
+      "away": "Sturm Graz",
+      "venue": "Rhein-Neckar-Arena, Sinsheim",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Juventus",
+      "away": "Omonia",
+      "venue": "Juventus Stadium, Turin",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Lyon",
+      "away": "Lillestrøm",
+      "venue": "OL Stadium, Décines",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "N.E.C.",
+      "away": "Rennes",
+      "venue": "Goffertstadion, Nijmegen",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "OFI Crete",
+      "away": "Anderlecht",
+      "venue": "Pankritio , Heraklion",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Sparta Praha",
+      "away": "AZ Alkmaar",
+      "venue": "Stadion Letná, Prague",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Sunderland",
+      "away": "Jagiellonia",
+      "venue": "Stadium of Light, Sunderland",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "time": "20:00",
+      "home": "Torreense",
+      "away": "Celtic",
+      "venue": "Estádio Municipal de Leiria - Dr. Magalhães Pessoa",
+      "competition": "UEFA Europa League",
+      "tag": "League Phase · Matchday 5",
+      "status": "scheduled",
+      "sources": [
+        "UEFA (official feed)",
+        "Sky Sports"
       ]
     }
   ]

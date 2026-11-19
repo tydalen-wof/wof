@@ -7,6 +7,18 @@
       "source": "seen in a fixture feed",
       "added": "2026-11-12"
     },
+    "Bala Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-19"
+    },
+    "Bangor City 1876": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-19"
+    },
     "Basingstoke Town": {
       "venue": "Winklebury Football Complex",
       "postcode": null,
@@ -37,6 +49,12 @@
       "source": "supplied in the original brief (single source)",
       "added": "2026-11-12",
       "caveat": "LL14 4HE for Clywedog Park comes from a single source."
+    },
+    "Buckley Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-19"
     },
     "Caerau Ely": {
       "venue": null,
@@ -231,11 +249,29 @@
       "source": "seen in a fixture feed",
       "added": "2026-11-12"
     },
+    "Porthmadog": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-19"
+    },
+    "Rhyl 1879": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-19"
+    },
     "Rockspur": {
       "venue": null,
       "postcode": null,
       "source": "seen in a fixture feed",
       "added": "2026-11-12"
+    },
+    "Ruthin Town": {
+      "venue": null,
+      "postcode": null,
+      "source": "seen in a fixture feed",
+      "added": "2026-11-19"
     },
     "Sholing": {
       "venue": "The Mortgage Decisions Stadium",
