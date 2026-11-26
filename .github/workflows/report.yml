@@ -2,11 +2,14 @@ name: Weekly fixtures report
 
 on:
   schedule:
+    - cron: '43 7 * * 4'   # fallback: Thursday 07:43 UTC, skipped if this week's data is already fresh
+    - cron: '43 5 * * 5'   # fallback: Friday 05:43 UTC, same guard
     - cron: '17 5 * * 4'   # Thursdays 05:17 UTC (05:17 UK in winter, 06:17 UK in summer); off the half hour because GitHub drops busy-slot schedules. The page works out the window in UK time.
   workflow_dispatch: {}
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: weekly-report
@@ -18,8 +21,22 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Scheduled runs are skipped if the data was refreshed in the last 6 days (the fallback crons rely on this).
+      - name: Freshness guard
+        id: guard
+        run: |
+          last=$(git log -1 --format=%ct -- data/fixtures.json)
+          age=$(( $(date +%s) - ${last:-0} ))
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$age" -lt 518400 ]; then
+            echo "Data is fresh ($age s old); skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
         with:
           node-version: 20
 
@@ -27,14 +44,25 @@ jobs:
 
       # Fails (and publishes nothing) if the Premier League or Championship cannot be read from any source.
       - name: Build report
+        if: steps.guard.outputs.skip != 'true'
         run: node scripts/build.mjs
 
       - name: Test
+        if: steps.guard.outputs.skip != 'true'
         run: npm test
 
       - name: Commit changes
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name "wof-bot"
           git config user.email "wof-bot@users.noreply.github.com"
           git add index.html cy/index.html data/fixtures.json data/postcodes.json
           git diff --cached --quiet || (git commit -m "Update weekly fixtures report" && git push)
+
+      - name: Open an issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "Weekly fixtures report failed ($(date -u +%F))" \
+            --body "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
